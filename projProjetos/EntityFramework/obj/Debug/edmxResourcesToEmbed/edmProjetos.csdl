@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbProjetosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="COMPETENCIA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRICAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OBSERVAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NIVEL" Type="Int32" />
+    <Property Name="STATUS" Type="Byte" />
+    <NavigationProperty Name="COMPETENCIASEXIGIDAS" Relationship="Self.FK__COMPETENC__IDCOM__300424B4" FromRole="COMPETENCIAS" ToRole="COMPETENCIASEXIGIDAS" />
+    <NavigationProperty Name="PESSOACOMPETENCIAS" Relationship="Self.FK__PESSOACOM__IDCOM__22AA2996" FromRole="COMPETENCIAS" ToRole="PESSOACOMPETENCIAS" />
+  </EntityType>
+  <EntityType Name="COMPETENCIASEXIGIDA">
+    <Key>
+      <PropertyRef Name="IDPROJETO" />
+      <PropertyRef Name="IDCOMPETENCIA" />
+    </Key>
+    <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
+    <Property Name="IDCOMPETENCIA" Type="Int64" Nullable="false" />
+    <Property Name="NIVEL" Type="Int32" />
+    <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="Byte" />
+    <NavigationProperty Name="COMPETENCIA" Relationship="Self.FK__COMPETENC__IDCOM__300424B4" FromRole="COMPETENCIASEXIGIDAS" ToRole="COMPETENCIAS" />
+    <NavigationProperty Name="PROJETO" Relationship="dbProjetosModel.FK__COMPETENC__IDPRO__2F10007B" FromRole="COMPETENCIASEXIGIDA" ToRole="PROJETO" />
+  </EntityType>
+  <EntityType Name="PERFILUSUARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DESCRICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DATACRICAO" Type="DateTime" Precision="3" />
+    <Property Name="STATUS" Type="Byte" />
+    <NavigationProperty Name="PERMISSO" Relationship="Self.FK__PERMISSOES__ID__1367E606" FromRole="PERFILUSUARIO" ToRole="PERMISSOES" />
+    <NavigationProperty Name="USUARIOS" Relationship="Self.FK__USUARIOS__PERFIL__173876EA" FromRole="PERFILUSUARIO" ToRole="USUARIOS" />
+  </EntityType>
+  <EntityType Name="PERMISSO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="DESCRICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATA_CRIACAO" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PERFILUSUARIO" Relationship="Self.FK__PERMISSOES__ID__1367E606" FromRole="PERMISSOES" ToRole="PERFILUSUARIO" />
+  </EntityType>
+  <EntityType Name="PESSOACOMPETENCIA">
+    <Key>
+      <PropertyRef Name="IDPESSOA" />
+      <PropertyRef Name="IDCOMPETENCIA" />
+    </Key>
+    <Property Name="IDPESSOA" Type="Int64" Nullable="false" />
+    <Property Name="IDCOMPETENCIA" Type="Int64" Nullable="false" />
+    <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUS" Type="Byte" />
+    <NavigationProperty Name="COMPETENCIA" Relationship="Self.FK__PESSOACOM__IDCOM__22AA2996" FromRole="PESSOACOMPETENCIAS" ToRole="COMPETENCIAS" />
+    <NavigationProperty Name="PESSOA" Relationship="Self.FK__PESSOACOM__IDPES__21B6055D" FromRole="PESSOACOMPETENCIAS" ToRole="PESSOAS" />
+  </EntityType>
+  <EntityType Name="PESSOA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
+    <Property Name="STATUS" Type="Byte" />
+    <NavigationProperty Name="PESSOACOMPETENCIAS" Relationship="Self.FK__PESSOACOM__IDPES__21B6055D" FromRole="PESSOAS" ToRole="PESSOACOMPETENCIAS" />
+    <NavigationProperty Name="PROJETOSPESSOAS" Relationship="Self.FK__PROJETOSP__IDPES__29572725" FromRole="PESSOAS" ToRole="PROJETOSPESSOAS" />
+    <NavigationProperty Name="REUNIOESPARTICIPANTES" Relationship="Self.FK__REUNIOESP__IDPES__3D5E1FD2" FromRole="PESSOAS" ToRole="REUNIOESPARTICIPANTES" />
+    <NavigationProperty Name="REUNIOES" Relationship="dbProjetosModel.FK__REUNIOES__RESPON__37A5467C" FromRole="PESSOA" ToRole="REUNIO" />
+    <NavigationProperty Name="PROJETOS" Relationship="dbProjetosModel.FK__PROJETOS__GERENT__267ABA7A" FromRole="PESSOA" ToRole="PROJETO" />
+  </EntityType>
+  <EntityType Name="PROJETOSPESSOA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
+    <Property Name="IDPESSOA" Type="Int64" />
+    <Property Name="DATAINGRESSO" Type="DateTime" Precision="0" />
+    <Property Name="OCUPACAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PESSOA" Relationship="Self.FK__PROJETOSP__IDPES__29572725" FromRole="PROJETOSPESSOAS" ToRole="PESSOAS" />
+    <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PROJETO" Relationship="dbProjetosModel.FK__PROJETOSP__IDPRO__2A4B4B5E" FromRole="PROJETOSPESSOA" ToRole="PROJETO" />
+  </EntityType>
+  <EntityType Name="REUNIOESPARTICIPANTE">
+    <Key>
+      <PropertyRef Name="IDREUNIAO" />
+      <PropertyRef Name="IDPESSOA" />
+    </Key>
+    <Property Name="IDREUNIAO" Type="Int64" Nullable="false" />
+    <Property Name="IDPESSOA" Type="Int64" Nullable="false" />
+    <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="COMPARECIMENTO" Type="Byte" />
+    <Property Name="STATUS" Type="Byte" />
+    <NavigationProperty Name="PESSOA" Relationship="Self.FK__REUNIOESP__IDPES__3D5E1FD2" FromRole="REUNIOESPARTICIPANTES" ToRole="PESSOAS" />
+    <NavigationProperty Name="REUNIO" Relationship="dbProjetosModel.FK__REUNIOESP__IDREU__3C69FB99" FromRole="REUNIOESPARTICIPANTE" ToRole="REUNIO" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LOGIN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PERFILUSUARIO" Type="Int64" />
+    <Property Name="DATACRICAO" Type="DateTime" Precision="3" />
+    <Property Name="STATUS" Type="Byte" />
+    <NavigationProperty Name="PERFILUSUARIO1" Relationship="Self.FK__USUARIOS__PERFIL__173876EA" FromRole="USUARIOS" ToRole="PERFILUSUARIO" />
+  </EntityType>
+  <Association Name="FK__COMPETENC__IDCOM__300424B4">
+    <End Role="COMPETENCIAS" Type="Self.COMPETENCIA" Multiplicity="1" />
+    <End Role="COMPETENCIASEXIGIDAS" Type="Self.COMPETENCIASEXIGIDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPETENCIAS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="COMPETENCIASEXIGIDAS">
+        <PropertyRef Name="IDCOMPETENCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PESSOACOM__IDCOM__22AA2996">
+    <End Role="COMPETENCIAS" Type="Self.COMPETENCIA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PESSOACOMPETENCIAS" Type="Self.PESSOACOMPETENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPETENCIAS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PESSOACOMPETENCIAS">
+        <PropertyRef Name="IDCOMPETENCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PERMISSOES__ID__1367E606">
+    <End Role="PERFILUSUARIO" Type="Self.PERFILUSUARIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PERMISSOES" Type="Self.PERMISSO" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PERFILUSUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PERMISSOES">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIOS__PERFIL__173876EA">
+    <End Role="PERFILUSUARIO" Type="Self.PERFILUSUARIO" Multiplicity="0..1" />
+    <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFILUSUARIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="PERFILUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PESSOACOM__IDPES__21B6055D">
+    <End Role="PESSOAS" Type="Self.PESSOA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PESSOACOMPETENCIAS" Type="Self.PESSOACOMPETENCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PESSOAS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PESSOACOMPETENCIAS">
+        <PropertyRef Name="IDPESSOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PROJETOSP__IDPES__29572725">
+    <End Role="PESSOAS" Type="Self.PESSOA" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PROJETOSPESSOAS" Type="Self.PROJETOSPESSOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PESSOAS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PROJETOSPESSOAS">
+        <PropertyRef Name="IDPESSOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REUNIOESP__IDPES__3D5E1FD2">
+    <End Role="PESSOAS" Type="Self.PESSOA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="REUNIOESPARTICIPANTES" Type="Self.REUNIOESPARTICIPANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PESSOAS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="REUNIOESPARTICIPANTES">
+        <PropertyRef Name="IDPESSOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbProjetosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="COMPETENCIAS" EntityType="Self.COMPETENCIA" />
+    <EntitySet Name="COMPETENCIASEXIGIDAS" EntityType="Self.COMPETENCIASEXIGIDA" />
+    <EntitySet Name="PERFILUSUARIOs" EntityType="Self.PERFILUSUARIO" />
+    <EntitySet Name="PERMISSOES" EntityType="Self.PERMISSO" />
+    <EntitySet Name="PESSOACOMPETENCIAS" EntityType="Self.PESSOACOMPETENCIA" />
+    <EntitySet Name="PESSOAS" EntityType="Self.PESSOA" />
+    <EntitySet Name="PROJETOSPESSOAS" EntityType="Self.PROJETOSPESSOA" />
+    <EntitySet Name="REUNIOESPARTICIPANTES" EntityType="Self.REUNIOESPARTICIPANTE" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIO" />
+    <AssociationSet Name="FK__COMPETENC__IDCOM__300424B4" Association="Self.FK__COMPETENC__IDCOM__300424B4">
+      <End Role="COMPETENCIAS" EntitySet="COMPETENCIAS" />
+      <End Role="COMPETENCIASEXIGIDAS" EntitySet="COMPETENCIASEXIGIDAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PESSOACOM__IDCOM__22AA2996" Association="Self.FK__PESSOACOM__IDCOM__22AA2996">
+      <End Role="COMPETENCIAS" EntitySet="COMPETENCIAS" />
+      <End Role="PESSOACOMPETENCIAS" EntitySet="PESSOACOMPETENCIAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PERMISSOES__ID__1367E606" Association="Self.FK__PERMISSOES__ID__1367E606">
+      <End Role="PERFILUSUARIO" EntitySet="PERFILUSUARIOs" />
+      <End Role="PERMISSOES" EntitySet="PERMISSOES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIOS__PERFIL__173876EA" Association="Self.FK__USUARIOS__PERFIL__173876EA">
+      <End Role="PERFILUSUARIO" EntitySet="PERFILUSUARIOs" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PESSOACOM__IDPES__21B6055D" Association="Self.FK__PESSOACOM__IDPES__21B6055D">
+      <End Role="PESSOAS" EntitySet="PESSOAS" />
+      <End Role="PESSOACOMPETENCIAS" EntitySet="PESSOACOMPETENCIAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PROJETOSP__IDPES__29572725" Association="Self.FK__PROJETOSP__IDPES__29572725">
+      <End Role="PESSOAS" EntitySet="PESSOAS" />
+      <End Role="PROJETOSPESSOAS" EntitySet="PROJETOSPESSOAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REUNIOESP__IDPES__3D5E1FD2" Association="Self.FK__REUNIOESP__IDPES__3D5E1FD2">
+      <End Role="PESSOAS" EntitySet="PESSOAS" />
+      <End Role="REUNIOESPARTICIPANTES" EntitySet="REUNIOESPARTICIPANTES" />
+    </AssociationSet>
+    <EntitySet Name="CRITERIOS" EntityType="dbProjetosModel.CRITERIO" />
+    <EntitySet Name="CRITERIOSCOMPARACOES" EntityType="dbProjetosModel.CRITERIOSCOMPARACO" />
+    <AssociationSet Name="FK__CRITERIOS__CRITE__503BEA1C" Association="dbProjetosModel.FK__CRITERIOS__CRITE__503BEA1C">
+      <End Role="CRITERIO" EntitySet="CRITERIOS" />
+      <End Role="CRITERIOSCOMPARACO" EntitySet="CRITERIOSCOMPARACOES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CRITERIOS__CRITE__51300E55" Association="dbProjetosModel.FK__CRITERIOS__CRITE__51300E55">
+      <End Role="CRITERIO" EntitySet="CRITERIOS" />
+      <End Role="CRITERIOSCOMPARACO" EntitySet="CRITERIOSCOMPARACOES" />
+    </AssociationSet>
+    <EntitySet Name="CRITERIOSPROJETOSCOMPARACOES" EntityType="dbProjetosModel.CRITERIOSPROJETOSCOMPARACO" />
+    <AssociationSet Name="FK__CRITERIOS__IDCRI__76619304" Association="dbProjetosModel.FK__CRITERIOS__IDCRI__76619304">
+      <End Role="CRITERIO" EntitySet="CRITERIOS" />
+      <End Role="CRITERIOSPROJETOSCOMPARACO" EntitySet="CRITERIOSPROJETOSCOMPARACOES" />
+    </AssociationSet>
+    <EntitySet Name="CRITERIOSRESULTADOes" EntityType="dbProjetosModel.CRITERIOSRESULTADO" />
+    <EntitySet Name="CRITERIOSRESULTADOLISTAs" EntityType="dbProjetosModel.CRITERIOSRESULTADOLISTA" />
+    <AssociationSet Name="FK__CRITERIOS__IDCRI__0880433F" Association="dbProjetosModel.FK__CRITERIOS__IDCRI__0880433F">
+      <End Role="CRITERIO" EntitySet="CRITERIOS" />
+      <End Role="CRITERIOSRESULTADO" EntitySet="CRITERIOSRESULTADOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CRITERIOS__IDCRI__0D44F85C" Association="dbProjetosModel.FK__CRITERIOS__IDCRI__0D44F85C">
+      <End Role="CRITERIO" EntitySet="CRITERIOS" />
+      <End Role="CRITERIOSRESULTADOLISTA" EntitySet="CRITERIOSRESULTADOLISTAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CRITERIOS__IDCRI__0C50D423" Association="dbProjetosModel.FK__CRITERIOS__IDCRI__0C50D423">
+      <End Role="CRITERIOSRESULTADO" EntitySet="CRITERIOSRESULTADOes" />
+      <End Role="CRITERIOSRESULTADOLISTA" EntitySet="CRITERIOSRESULTADOLISTAs" />
+    </AssociationSet>
+    <EntitySet Name="CRITERIOSPROJETOSRESULTADOes" EntityType="dbProjetosModel.CRITERIOSPROJETOSRESULTADO" />
+    <EntitySet Name="CRITERIOSPROJETOSRESULTADOLISTAs" EntityType="dbProjetosModel.CRITERIOSPROJETOSRESULTADOLISTA" />
+    <AssociationSet Name="FK__CRITERIOS__IDCRI__214BF109" Association="dbProjetosModel.FK__CRITERIOS__IDCRI__214BF109">
+      <End Role="CRITERIOSRESULTADO" EntitySet="CRITERIOSRESULTADOes" />
+      <End Role="CRITERIOSPROJETOSRESULTADO" EntitySet="CRITERIOSPROJETOSRESULTADOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CRITERIOS__IDCRI__2F9A1060" Association="dbProjetosModel.FK__CRITERIOS__IDCRI__2F9A1060">
+      <End Role="CRITERIOSPROJETOSRESULTADO" EntitySet="CRITERIOSPROJETOSRESULTADOes" />
+      <End Role="CRITERIOSPROJETOSRESULTADOLISTA" EntitySet="CRITERIOSPROJETOSRESULTADOLISTAs" />
+    </AssociationSet>
+    <EntitySet Name="RECEITAVARIAVELs" EntityType="dbProjetosModel.RECEITAVARIAVEL" />
+    <EntitySet Name="PAUTARECEITAVARIAVELs" EntityType="dbProjetosModel.PAUTARECEITAVARIAVEL" />
+    <EntitySet Name="PAUTAPROJETOS" EntityType="dbProjetosModel.PAUTAPROJETO" />
+    <EntitySet Name="REUNIOES" EntityType="dbProjetosModel.REUNIO" />
+    <AssociationSet Name="FK__CRITERIOS__IDREU__6ABAD62E" Association="dbProjetosModel.FK__CRITERIOS__IDREU__6ABAD62E">
+      <End Role="REUNIO" EntitySet="REUNIOES" />
+      <End Role="CRITERIOSPROJETOSRESULTADO" EntitySet="CRITERIOSPROJETOSRESULTADOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CRITERIOS__IDREU__52E34C9D" Association="dbProjetosModel.FK__CRITERIOS__IDREU__52E34C9D">
+      <End Role="REUNIO" EntitySet="REUNIOES" />
+      <End Role="CRITERIOSRESULTADO" EntitySet="CRITERIOSRESULTADOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PAUTAPROJ__IDREU__4830B400" Association="dbProjetosModel.FK__PAUTAPROJ__IDREU__4830B400">
+      <End Role="REUNIO" EntitySet="REUNIOES" />
+      <End Role="PAUTAPROJETO" EntitySet="PAUTAPROJETOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PAUTARECE__IDPAU__6F4A8121" Association="dbProjetosModel.FK__PAUTARECE__IDPAU__6F4A8121">
+      <End Role="PAUTAPROJETO" EntitySet="PAUTAPROJETOS" />
+      <End Role="PAUTARECEITAVARIAVEL" EntitySet="PAUTARECEITAVARIAVELs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REUNIOES__RESPON__37A5467C" Association="dbProjetosModel.FK__REUNIOES__RESPON__37A5467C">
+      <End Role="PESSOA" EntitySet="PESSOAS" />
+      <End Role="REUNIO" EntitySet="REUNIOES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REUNIOESP__IDREU__3C69FB99" Association="dbProjetosModel.FK__REUNIOESP__IDREU__3C69FB99">
+      <End Role="REUNIO" EntitySet="REUNIOES" />
+      <End Role="REUNIOESPARTICIPANTE" EntitySet="REUNIOESPARTICIPANTES" />
+    </AssociationSet>
+    <EntitySet Name="PROJETOS" EntityType="dbProjetosModel.PROJETO" />
+    <AssociationSet Name="FK__COMPETENC__IDPRO__2F10007B" Association="dbProjetosModel.FK__COMPETENC__IDPRO__2F10007B">
+      <End Role="PROJETO" EntitySet="PROJETOS" />
+      <End Role="COMPETENCIASEXIGIDA" EntitySet="COMPETENCIASEXIGIDAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CRITERIOS__IDPRO__7755B73D" Association="dbProjetosModel.FK__CRITERIOS__IDPRO__7755B73D">
+      <End Role="PROJETO" EntitySet="PROJETOS" />
+      <End Role="CRITERIOSPROJETOSCOMPARACO" EntitySet="CRITERIOSPROJETOSCOMPARACOES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CRITERIOS__IDPRO__7849DB76" Association="dbProjetosModel.FK__CRITERIOS__IDPRO__7849DB76">
+      <End Role="PROJETO" EntitySet="PROJETOS" />
+      <End Role="CRITERIOSPROJETOSCOMPARACO" EntitySet="CRITERIOSPROJETOSCOMPARACOES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CRITERIOS__IDPRO__68D28DBC" Association="dbProjetosModel.FK__CRITERIOS__IDPRO__68D28DBC">
+      <End Role="PROJETO" EntitySet="PROJETOS" />
+      <End Role="CRITERIOSPROJETOSRESULTADO" EntitySet="CRITERIOSPROJETOSRESULTADOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CRITERIOS__IDPRO__308E3499" Association="dbProjetosModel.FK__CRITERIOS__IDPRO__308E3499">
+      <End Role="PROJETO" EntitySet="PROJETOS" />
+      <End Role="CRITERIOSPROJETOSRESULTADOLISTA" EntitySet="CRITERIOSPROJETOSRESULTADOLISTAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PAUTAPROJ__IDPRO__4924D839" Association="dbProjetosModel.FK__PAUTAPROJ__IDPRO__4924D839">
+      <End Role="PROJETO" EntitySet="PROJETOS" />
+      <End Role="PAUTAPROJETO" EntitySet="PAUTAPROJETOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PROJETOS__GERENT__267ABA7A" Association="dbProjetosModel.FK__PROJETOS__GERENT__267ABA7A">
+      <End Role="PESSOA" EntitySet="PESSOAS" />
+      <End Role="PROJETO" EntitySet="PROJETOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PROJETOSP__IDPRO__2A4B4B5E" Association="dbProjetosModel.FK__PROJETOSP__IDPRO__2A4B4B5E">
+      <End Role="PROJETO" EntitySet="PROJETOS" />
+      <End Role="PROJETOSPESSOA" EntitySet="PROJETOSPESSOAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RECEITAVA__IDPRO__2F650636" Association="dbProjetosModel.FK__RECEITAVA__IDPRO__2F650636">
+      <End Role="PROJETO" EntitySet="PROJETOS" />
+      <End Role="RECEITAVARIAVEL" EntitySet="RECEITAVARIAVELs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CRITERIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="STATUS" Type="Byte" />
+    <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CRITERIOSCOMPARACOES" Relationship="dbProjetosModel.FK__CRITERIOS__CRITE__503BEA1C" FromRole="CRITERIO" ToRole="CRITERIOSCOMPARACO" />
+    <NavigationProperty Name="CRITERIOSCOMPARACOES1" Relationship="dbProjetosModel.FK__CRITERIOS__CRITE__51300E55" FromRole="CRITERIO" ToRole="CRITERIOSCOMPARACO" />
+    <NavigationProperty Name="CRITERIOSPROJETOSCOMPARACOES" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__76619304" FromRole="CRITERIO" ToRole="CRITERIOSPROJETOSCOMPARACO" />
+    <NavigationProperty Name="CRITERIOSRESULTADOes" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__0880433F" FromRole="CRITERIO" ToRole="CRITERIOSRESULTADO" />
+    <NavigationProperty Name="CRITERIOSRESULTADOLISTAs" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__0D44F85C" FromRole="CRITERIO" ToRole="CRITERIOSRESULTADOLISTA" />
+  </EntityType>
+  <EntityType Name="CRITERIOSCOMPARACO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCRITERIOA" Type="Int64" Nullable="false" />
+    <Property Name="IDCRITERIOB" Type="Int64" Nullable="false" />
+    <Property Name="COMPARACAO" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="CRITERIOA" Relationship="dbProjetosModel.FK__CRITERIOS__CRITE__503BEA1C" FromRole="CRITERIOSCOMPARACO" ToRole="CRITERIO" />
+    <NavigationProperty Name="CRITERIOB" Relationship="dbProjetosModel.FK__CRITERIOS__CRITE__51300E55" FromRole="CRITERIOSCOMPARACO" ToRole="CRITERIO" />
+  </EntityType>
+  <Association Name="FK__CRITERIOS__CRITE__503BEA1C">
+    <End Type="dbProjetosModel.CRITERIO" Role="CRITERIO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSCOMPARACO" Role="CRITERIOSCOMPARACO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CRITERIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSCOMPARACO">
+        <PropertyRef Name="IDCRITERIOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CRITERIOS__CRITE__51300E55">
+    <End Type="dbProjetosModel.CRITERIO" Role="CRITERIO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSCOMPARACO" Role="CRITERIOSCOMPARACO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CRITERIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSCOMPARACO">
+        <PropertyRef Name="IDCRITERIOB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CRITERIOSPROJETOSCOMPARACO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCRITERIO" Type="Int64" Nullable="false" />
+    <Property Name="IDPROJETOA" Type="Int64" Nullable="false" />
+    <Property Name="IDPROJETOB" Type="Int64" />
+    <Property Name="COMPARACAO" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CRITERIO" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__76619304" FromRole="CRITERIOSPROJETOSCOMPARACO" ToRole="CRITERIO" />
+    <NavigationProperty Name="PROJETOA" Relationship="dbProjetosModel.FK__CRITERIOS__IDPRO__7755B73D" FromRole="CRITERIOSPROJETOSCOMPARACO" ToRole="PROJETO" />
+    <NavigationProperty Name="PROJETOB" Relationship="dbProjetosModel.FK__CRITERIOS__IDPRO__7849DB76" FromRole="CRITERIOSPROJETOSCOMPARACO" ToRole="PROJETO" />
+  </EntityType>
+  <Association Name="FK__CRITERIOS__IDCRI__76619304">
+    <End Type="dbProjetosModel.CRITERIO" Role="CRITERIO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSPROJETOSCOMPARACO" Role="CRITERIOSPROJETOSCOMPARACO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CRITERIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSPROJETOSCOMPARACO">
+        <PropertyRef Name="IDCRITERIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CRITERIOSRESULTADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCRITERIO" Type="Int64" Nullable="false" />
+    <Property Name="DATACOMPARACAO" Type="DateTime" Precision="3" />
+    <Property Name="RESULTADOCOMPARACAO" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <NavigationProperty Name="CRITERIO" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__0880433F" FromRole="CRITERIOSRESULTADO" ToRole="CRITERIO" />
+    <NavigationProperty Name="CRITERIOSRESULTADOLISTAs" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__0C50D423" FromRole="CRITERIOSRESULTADO" ToRole="CRITERIOSRESULTADOLISTA" />
+    <NavigationProperty Name="CRITERIOSPROJETOSRESULTADOes" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__214BF109" FromRole="CRITERIOSRESULTADO" ToRole="CRITERIOSPROJETOSRESULTADO" />
+    <Property Name="RESULTADOGLOBAL" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="IDREUNIAO" Type="Int64" />
+    <NavigationProperty Name="REUNIO" Relationship="dbProjetosModel.FK__CRITERIOS__IDREU__52E34C9D" FromRole="CRITERIOSRESULTADO" ToRole="REUNIO" />
+  </EntityType>
+  <EntityType Name="CRITERIOSRESULTADOLISTA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCRITERIORESULTADO" Type="Int64" Nullable="false" />
+    <Property Name="IDCRITERIO" Type="Int64" Nullable="false" />
+    <Property Name="COMPARACAO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="CRITERIO" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__0D44F85C" FromRole="CRITERIOSRESULTADOLISTA" ToRole="CRITERIO" />
+    <NavigationProperty Name="CRITERIOSRESULTADO" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__0C50D423" FromRole="CRITERIOSRESULTADOLISTA" ToRole="CRITERIOSRESULTADO" />
+  </EntityType>
+  <Association Name="FK__CRITERIOS__IDCRI__0880433F">
+    <End Type="dbProjetosModel.CRITERIO" Role="CRITERIO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSRESULTADO" Role="CRITERIOSRESULTADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CRITERIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSRESULTADO">
+        <PropertyRef Name="IDCRITERIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CRITERIOS__IDCRI__0D44F85C">
+    <End Type="dbProjetosModel.CRITERIO" Role="CRITERIO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSRESULTADOLISTA" Role="CRITERIOSRESULTADOLISTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CRITERIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSRESULTADOLISTA">
+        <PropertyRef Name="IDCRITERIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CRITERIOS__IDCRI__0C50D423">
+    <End Type="dbProjetosModel.CRITERIOSRESULTADO" Role="CRITERIOSRESULTADO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSRESULTADOLISTA" Role="CRITERIOSRESULTADOLISTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CRITERIOSRESULTADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSRESULTADOLISTA">
+        <PropertyRef Name="IDCRITERIORESULTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CRITERIOSPROJETOSRESULTADO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCRITERIOSRESULTADO" Type="Int64" Nullable="false" />
+    <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
+    <Property Name="RESULTADO" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <NavigationProperty Name="CRITERIOSRESULTADO" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__214BF109" FromRole="CRITERIOSPROJETOSRESULTADO" ToRole="CRITERIOSRESULTADO" />
+    <NavigationProperty Name="CRITERIOSPROJETOSRESULTADOLISTAs" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__2F9A1060" FromRole="CRITERIOSPROJETOSRESULTADO" ToRole="CRITERIOSPROJETOSRESULTADOLISTA" />
+    <Property Name="DATACOMPARACAO" Type="DateTime" Precision="3" />
+    <Property Name="RESULTADOGLOBAL" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="IDREUNIAO" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="REUNIO" Relationship="dbProjetosModel.FK__CRITERIOS__IDREU__6ABAD62E" FromRole="CRITERIOSPROJETOSRESULTADO" ToRole="REUNIO" />
+    <NavigationProperty Name="PROJETO" Relationship="dbProjetosModel.FK__CRITERIOS__IDPRO__68D28DBC" FromRole="CRITERIOSPROJETOSRESULTADO" ToRole="PROJETO" />
+  </EntityType>
+  <EntityType Name="CRITERIOSPROJETOSRESULTADOLISTA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCRITERIOSPROJETOSRESULTADO" Type="Int64" Nullable="false" />
+    <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
+    <Property Name="COMPARACAO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="CRITERIOSPROJETOSRESULTADO" Relationship="dbProjetosModel.FK__CRITERIOS__IDCRI__2F9A1060" FromRole="CRITERIOSPROJETOSRESULTADOLISTA" ToRole="CRITERIOSPROJETOSRESULTADO" />
+    <NavigationProperty Name="PROJETO" Relationship="dbProjetosModel.FK__CRITERIOS__IDPRO__308E3499" FromRole="CRITERIOSPROJETOSRESULTADOLISTA" ToRole="PROJETO" />
+  </EntityType>
+  <Association Name="FK__CRITERIOS__IDCRI__214BF109">
+    <End Type="dbProjetosModel.CRITERIOSRESULTADO" Role="CRITERIOSRESULTADO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSPROJETOSRESULTADO" Role="CRITERIOSPROJETOSRESULTADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CRITERIOSRESULTADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSPROJETOSRESULTADO">
+        <PropertyRef Name="IDCRITERIOSRESULTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CRITERIOS__IDCRI__2F9A1060">
+    <End Type="dbProjetosModel.CRITERIOSPROJETOSRESULTADO" Role="CRITERIOSPROJETOSRESULTADO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSPROJETOSRESULTADOLISTA" Role="CRITERIOSPROJETOSRESULTADOLISTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CRITERIOSPROJETOSRESULTADO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSPROJETOSRESULTADOLISTA">
+        <PropertyRef Name="IDCRITERIOSPROJETOSRESULTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RECEITAVARIAVEL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
+    <Property Name="DATAPERIODO" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TIPO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
+    <Property Name="VALOR" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="STATUS" Type="Byte" />
+    <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PROJETO" Relationship="dbProjetosModel.FK__RECEITAVA__IDPRO__2F650636" FromRole="RECEITAVARIAVEL" ToRole="PROJETO" />
+  </EntityType>
+  <EntityType Name="PAUTARECEITAVARIAVEL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDPAUTAPROJETO" Type="Int64" Nullable="false" />
+    <Property Name="DATAPERIODO" Type="DateTime" Precision="0" />
+    <Property Name="TIPO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
+    <Property Name="VALOR" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="STATUS" Type="Byte" />
+    <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PAUTAPROJETO" Relationship="dbProjetosModel.FK__PAUTARECE__IDPAU__6F4A8121" FromRole="PAUTARECEITAVARIAVEL" ToRole="PAUTAPROJETO" />
+  </EntityType>
+  <EntityType Name="PAUTAPROJETO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDREUNIAO" Type="Int64" Nullable="false" />
+    <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
+    <Property Name="TEMPOPREVISTOCONCLUSAO" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="RECEITACONSTANTE" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="RAZAORECEITAVALOR" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="RAZAORECEITAPERCENTUAL" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="INVESTIMENTOPREVISTO" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="RESULTADOPAYBACK" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ORDEMRESULTADOPAYBACK" Type="Int32" />
+    <Property Name="APROVACAORESULTADOPAYBACK" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="RESULTADOVALORPRESENTELIQUIDO" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ORDEMRESULTADOVALORPRESENTELIQUIDO" Type="Int32" />
+    <Property Name="APROVACAORESULTADOVALORPRESENTELIQUIDO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="RESULTADOTAXAINTERNARETORNO" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ORDEMRESULTADOTAXAINTERNARETORNO" Type="Int32" />
+    <Property Name="APROVACAORESULTADOTAXAINTERNARETORNO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="RESULTADODICE" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ORDEMRESULTADODICE" Type="Int32" />
+    <Property Name="APROVACAORESULTADODICE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CAPACIDADEENTREGAEQUPE" Type="Int32" />
+    <Property Name="APOIOALTAGESTAO" Type="Int32" />
+    <Property Name="APOIOSTEAKHOLDERS" Type="Int32" />
+    <Property Name="ESFORCOADICIONAL" Type="Int32" />
+    <Property Name="RESULTADOAHP" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="ORDEMRESULTADOAHP" Type="Int32" />
+    <Property Name="APROVACAORESULTADOAHP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="REUNIO" Relationship="dbProjetosModel.FK__PAUTAPROJ__IDREU__4830B400" FromRole="PAUTAPROJETO" ToRole="REUNIO" />
+    <NavigationProperty Name="PAUTARECEITAVARIAVELs" Relationship="dbProjetosModel.FK__PAUTARECE__IDPAU__6F4A8121" FromRole="PAUTAPROJETO" ToRole="PAUTARECEITAVARIAVEL" />
+    <NavigationProperty Name="PROJETO" Relationship="dbProjetosModel.FK__PAUTAPROJ__IDPRO__4924D839" FromRole="PAUTAPROJETO" ToRole="PROJETO" />
+  </EntityType>
+  <EntityType Name="REUNIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRICAO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DATAHORAEVENTO" Type="DateTime" Precision="3" />
+    <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
+    <Property Name="PAYBACKACEITAVEL" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="TAXAREMUNERACAOMERCADO" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="PAUTADESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LOCAL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RESPONSAVEL" Type="Int64" />
+    <Property Name="AHPCALCULADO" Type="Byte" />
+    <Property Name="SITUACAO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TAXACUSTOCAPITAL" Type="Decimal" Precision="15" Scale="4" />
+    <NavigationProperty Name="CRITERIOSPROJETOSRESULTADOes" Relationship="dbProjetosModel.FK__CRITERIOS__IDREU__6ABAD62E" FromRole="REUNIO" ToRole="CRITERIOSPROJETOSRESULTADO" />
+    <NavigationProperty Name="CRITERIOSRESULTADOes" Relationship="dbProjetosModel.FK__CRITERIOS__IDREU__52E34C9D" FromRole="REUNIO" ToRole="CRITERIOSRESULTADO" />
+    <NavigationProperty Name="PAUTAPROJETOS" Relationship="dbProjetosModel.FK__PAUTAPROJ__IDREU__4830B400" FromRole="REUNIO" ToRole="PAUTAPROJETO" />
+    <NavigationProperty Name="PESSOA" Relationship="dbProjetosModel.FK__REUNIOES__RESPON__37A5467C" FromRole="REUNIO" ToRole="PESSOA" />
+    <NavigationProperty Name="REUNIOESPARTICIPANTES" Relationship="dbProjetosModel.FK__REUNIOESP__IDREU__3C69FB99" FromRole="REUNIO" ToRole="REUNIOESPARTICIPANTE" />
+  </EntityType>
+  <Association Name="FK__CRITERIOS__IDREU__6ABAD62E">
+    <End Type="dbProjetosModel.REUNIO" Role="REUNIO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSPROJETOSRESULTADO" Role="CRITERIOSPROJETOSRESULTADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REUNIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSPROJETOSRESULTADO">
+        <PropertyRef Name="IDREUNIAO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CRITERIOS__IDREU__52E34C9D">
+    <End Type="dbProjetosModel.REUNIO" Role="REUNIO" Multiplicity="0..1" />
+    <End Type="dbProjetosModel.CRITERIOSRESULTADO" Role="CRITERIOSRESULTADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REUNIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSRESULTADO">
+        <PropertyRef Name="IDREUNIAO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PAUTAPROJ__IDREU__4830B400">
+    <End Type="dbProjetosModel.REUNIO" Role="REUNIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbProjetosModel.PAUTAPROJETO" Role="PAUTAPROJETO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REUNIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PAUTAPROJETO">
+        <PropertyRef Name="IDREUNIAO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PAUTARECE__IDPAU__6F4A8121">
+    <End Type="dbProjetosModel.PAUTAPROJETO" Role="PAUTAPROJETO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbProjetosModel.PAUTARECEITAVARIAVEL" Role="PAUTARECEITAVARIAVEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAUTAPROJETO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PAUTARECEITAVARIAVEL">
+        <PropertyRef Name="IDPAUTAPROJETO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REUNIOES__RESPON__37A5467C">
+    <End Type="dbProjetosModel.PESSOA" Role="PESSOA" Multiplicity="0..1" />
+    <End Type="dbProjetosModel.REUNIO" Role="REUNIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PESSOA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="REUNIO">
+        <PropertyRef Name="RESPONSAVEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REUNIOESP__IDREU__3C69FB99">
+    <End Type="dbProjetosModel.REUNIO" Role="REUNIO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbProjetosModel.REUNIOESPARTICIPANTE" Role="REUNIOESPARTICIPANTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REUNIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="REUNIOESPARTICIPANTE">
+        <PropertyRef Name="IDREUNIAO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PROJETO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRICAO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="GERENTE" Type="Int64" Nullable="false" />
+    <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
+    <Property Name="INVESTIMENTOPREVISTO" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="RECEITACONSTANTE" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="RAZAORECEITAVALOR" Type="Decimal" Precision="15" Scale="4" />
+    <Property Name="RAZAORECEITAPERCENTUAL" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="TEMPOPREVISTOCONCLUSAO" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="STATUS" Type="Byte" />
+    <Property Name="CAPACIDADEENTREGAEQUIPE" Type="Int32" />
+    <Property Name="APOIOALTAGESTAO" Type="Int32" />
+    <Property Name="APOIOSTEAKHOLDERS" Type="Int32" />
+    <Property Name="ESFORCOADICIONAL" Type="Int32" />
+    <NavigationProperty Name="COMPETENCIASEXIGIDAS" Relationship="dbProjetosModel.FK__COMPETENC__IDPRO__2F10007B" FromRole="PROJETO" ToRole="COMPETENCIASEXIGIDA" />
+    <NavigationProperty Name="CRITERIOSPROJETOSCOMPARACOES" Relationship="dbProjetosModel.FK__CRITERIOS__IDPRO__7755B73D" FromRole="PROJETO" ToRole="CRITERIOSPROJETOSCOMPARACO" />
+    <NavigationProperty Name="CRITERIOSPROJETOSCOMPARACOES1" Relationship="dbProjetosModel.FK__CRITERIOS__IDPRO__7849DB76" FromRole="PROJETO" ToRole="CRITERIOSPROJETOSCOMPARACO" />
+    <NavigationProperty Name="CRITERIOSPROJETOSRESULTADOes" Relationship="dbProjetosModel.FK__CRITERIOS__IDPRO__68D28DBC" FromRole="PROJETO" ToRole="CRITERIOSPROJETOSRESULTADO" />
+    <NavigationProperty Name="CRITERIOSPROJETOSRESULTADOLISTAs" Relationship="dbProjetosModel.FK__CRITERIOS__IDPRO__308E3499" FromRole="PROJETO" ToRole="CRITERIOSPROJETOSRESULTADOLISTA" />
+    <NavigationProperty Name="PAUTAPROJETOS" Relationship="dbProjetosModel.FK__PAUTAPROJ__IDPRO__4924D839" FromRole="PROJETO" ToRole="PAUTAPROJETO" />
+    <NavigationProperty Name="GERENTEPROJETO" Relationship="dbProjetosModel.FK__PROJETOS__GERENT__267ABA7A" FromRole="PROJETO" ToRole="PESSOA" />
+    <NavigationProperty Name="PROJETOSPESSOAS" Relationship="dbProjetosModel.FK__PROJETOSP__IDPRO__2A4B4B5E" FromRole="PROJETO" ToRole="PROJETOSPESSOA" />
+    <NavigationProperty Name="RECEITAVARIAVELs" Relationship="dbProjetosModel.FK__RECEITAVA__IDPRO__2F650636" FromRole="PROJETO" ToRole="RECEITAVARIAVEL" />
+  </EntityType>
+  <Association Name="FK__COMPETENC__IDPRO__2F10007B">
+    <End Type="dbProjetosModel.PROJETO" Role="PROJETO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbProjetosModel.COMPETENCIASEXIGIDA" Role="COMPETENCIASEXIGIDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJETO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="COMPETENCIASEXIGIDA">
+        <PropertyRef Name="IDPROJETO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CRITERIOS__IDPRO__7755B73D">
+    <End Type="dbProjetosModel.PROJETO" Role="PROJETO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSPROJETOSCOMPARACO" Role="CRITERIOSPROJETOSCOMPARACO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJETO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSPROJETOSCOMPARACO">
+        <PropertyRef Name="IDPROJETOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CRITERIOS__IDPRO__7849DB76">
+    <End Type="dbProjetosModel.PROJETO" Role="PROJETO" Multiplicity="0..1" />
+    <End Type="dbProjetosModel.CRITERIOSPROJETOSCOMPARACO" Role="CRITERIOSPROJETOSCOMPARACO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJETO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSPROJETOSCOMPARACO">
+        <PropertyRef Name="IDPROJETOB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CRITERIOS__IDPRO__68D28DBC">
+    <End Type="dbProjetosModel.PROJETO" Role="PROJETO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSPROJETOSRESULTADO" Role="CRITERIOSPROJETOSRESULTADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJETO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSPROJETOSRESULTADO">
+        <PropertyRef Name="IDPROJETO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CRITERIOS__IDPRO__308E3499">
+    <End Type="dbProjetosModel.PROJETO" Role="PROJETO" Multiplicity="1" />
+    <End Type="dbProjetosModel.CRITERIOSPROJETOSRESULTADOLISTA" Role="CRITERIOSPROJETOSRESULTADOLISTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJETO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CRITERIOSPROJETOSRESULTADOLISTA">
+        <PropertyRef Name="IDPROJETO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PAUTAPROJ__IDPRO__4924D839">
+    <End Type="dbProjetosModel.PROJETO" Role="PROJETO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbProjetosModel.PAUTAPROJETO" Role="PAUTAPROJETO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJETO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PAUTAPROJETO">
+        <PropertyRef Name="IDPROJETO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PROJETOS__GERENT__267ABA7A">
+    <End Type="dbProjetosModel.PESSOA" Role="PESSOA" Multiplicity="1" />
+    <End Type="dbProjetosModel.PROJETO" Role="PROJETO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PESSOA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PROJETO">
+        <PropertyRef Name="GERENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PROJETOSP__IDPRO__2A4B4B5E">
+    <End Type="dbProjetosModel.PROJETO" Role="PROJETO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbProjetosModel.PROJETOSPESSOA" Role="PROJETOSPESSOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJETO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PROJETOSPESSOA">
+        <PropertyRef Name="IDPROJETO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RECEITAVA__IDPRO__2F650636">
+    <End Type="dbProjetosModel.PROJETO" Role="PROJETO" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbProjetosModel.RECEITAVARIAVEL" Role="RECEITAVARIAVEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJETO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RECEITAVARIAVEL">
+        <PropertyRef Name="IDPROJETO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

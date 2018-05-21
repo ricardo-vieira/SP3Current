@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1D79897-68AA-4EDE-9FB7-8AC097312F33}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EFDados</RootNamespace>
+    <AssemblyName>EFDados</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="COMPETENCIA.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COMPETENCIASEXIGIDA.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CRITERIO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CRITERIOSCOMPARACO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CRITERIOSPROJETOSCOMPARACO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CRITERIOSPROJETOSRESULTADO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CRITERIOSPROJETOSRESULTADOLISTA.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CRITERIOSRESULTADO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CRITERIOSRESULTADOLISTA.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="edmProjetos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>edmProjetos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="edmProjetos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="edmProjetos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>edmProjetos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PAUTAPROJETO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAUTARECEITAVARIAVEL.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PERFILUSUARIO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PERMISSO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PESSOA.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PESSOACOMPETENCIA.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROJETO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PROJETOSPESSOA.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RECEITAVARIAVEL.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REUNIO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REUNIOESPARTICIPANTE.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIO.cs">
+      <DependentUpon>edmProjetos.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\dbProjetos.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\dbProjetos_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>dbProjetos.mdf</DependentUpon>
+    </Content>
+    <Content Include="edmProjetos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>edmProjetos.Context.cs</LastGenOutput>
+      <DependentUpon>edmProjetos.edmx</DependentUpon>
+    </Content>
+    <Content Include="edmProjetos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>edmProjetos.edmx</DependentUpon>
+      <LastGenOutput>edmProjetos.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="edmProjetos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>edmProjetos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="edmProjetos.edmx.diagram">
+      <DependentUpon>edmProjetos.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
