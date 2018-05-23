@@ -86,11 +86,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Cadastros\frmPessoas.cs">
+    <Compile Include="Forms\Cadastros\frmCadastroPessoas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Cadastros\frmPessoas.Designer.cs">
-      <DependentUpon>frmPessoas.cs</DependentUpon>
+    <Compile Include="Forms\Cadastros\frmCadastroPessoas.Designer.cs">
+      <DependentUpon>frmCadastroPessoas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -98,11 +98,11 @@
     <Compile Include="Forms\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Cadastros\frmProjetos.cs">
+    <Compile Include="Forms\Cadastros\frmCadastroprojetos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Cadastros\frmProjetos.Designer.cs">
-      <DependentUpon>frmProjetos.cs</DependentUpon>
+    <Compile Include="Forms\Cadastros\frmCadastroprojetos.Designer.cs">
+      <DependentUpon>frmCadastroprojetos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Gerencia\frmComparacoesCriterios.cs">
       <SubType>Form</SubType>
@@ -153,14 +153,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Cadastros\frmPessoas.resx">
-      <DependentUpon>frmPessoas.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cadastros\frmCadastroPessoas.resx">
+      <DependentUpon>frmCadastroPessoas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Cadastros\frmProjetos.resx">
-      <DependentUpon>frmProjetos.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cadastros\frmCadastroprojetos.resx">
+      <DependentUpon>frmCadastroprojetos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Gerencia\frmComparacoesCriterios.resx">
       <DependentUpon>frmComparacoesCriterios.cs</DependentUpon>
@@ -266,15 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnCancelar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="dbProjetos.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="dbProjetos_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>dbProjetos.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

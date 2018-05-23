@@ -26,12 +26,12 @@ namespace projProjetos.Forms.Cadastros
 
         private void pessoasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmPessoas().ShowDialog();
+            new frmCadastroPessoas().ShowDialog();
         }
 
         private void projetosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmProjetos().ShowDialog();
+            new frmCadastroProjetos().ShowDialog();
         }
 
         private void btnSair_Click(object sender, EventArgs e)

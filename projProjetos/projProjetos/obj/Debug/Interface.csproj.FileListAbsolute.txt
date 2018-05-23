@@ -117,8 +117,6 @@ E:\Alex\Estudos\Projetos\projetosPIIC\projProjetos\projProjetos\bin\Debug\stdole
 E:\Alex\Estudos\Projetos\projetosPIIC\projProjetos\projProjetos\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debug\Database\dbProjetos.mdf
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debug\Database\dbProjetos_log.ldf
-C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debug\dbProjetos.mdf
-C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debug\dbProjetos_log.ldf
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debug\projProjetos.exe.config
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debug\projProjetos.exe
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debug\projProjetos.pdb
@@ -150,9 +148,7 @@ C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debu
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debug\EntityFramework.xml
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\Interface.csprojResolveAssemblyReference.cache
-C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.Forms.Cadastros.frmPessoas.resources
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.Forms.Cadastros.frmPrincipal.resources
-C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.Forms.frmProjetos.resources
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.Forms.Gerencia.frmComparacoesCriterios.resources
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.Forms.Gerencia.frmComparacoesCriteriosProjetos.resources
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.Forms.Gerencia.frmCriterios.resources
@@ -165,3 +161,5 @@ C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debu
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\Interface.csproj.CopyComplete
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.exe
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.pdb
+C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.Forms.Cadastros.frmCadastroPessoas.resources
+C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.Forms.frmCadastroProjetos.resources
