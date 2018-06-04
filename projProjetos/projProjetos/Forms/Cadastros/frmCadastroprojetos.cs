@@ -9,46 +9,58 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace projProjetos.Forms
+using Equin.ApplicationFramework;
+
+namespace projProjetos.Forms.Cadastros
 {
     public partial class frmCadastroProjetos : Form
     {
+        RegraNegocio.Projetos projetosRegraNegocio = new RegraNegocio.Projetos();
+        RegraNegocio.Pessoas pessoasRegraNegocio = new RegraNegocio.Pessoas();
+        RegraNegocio.ReceitaVariavel receitaVariavelRegraNegocio = new RegraNegocio.ReceitaVariavel();
+        RegraNegocio.ProjetosPessoas projetoPessoaRegraNegocio = new RegraNegocio.ProjetosPessoas();
+
+        StatusInformacao _statusInformacao = StatusInformacao.SELECAO;
+        StatusInformacao _statusInformacaoReceitaVariavel = StatusInformacao.SEMACAO;
+        StatusInformacao _statusInformacaoProjetoPessoa = StatusInformacao.SEMACAO;
+
+        BindingListView<RegraNegocio.View.Projetos.ViewProjeto> _bindingListView;
+        BindingListView<RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel> _bindingListViewProjetoReceitaVariavel;
+        BindingListView<RegraNegocio.View.Projetos.ViewProjetoPessoa> _bindingListViewProjetoPessoa;
+
+        RegraNegocio.View.Projetos.ViewProjeto _currentObject;
+        RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel _currentObjectProjetoRececeitaVariavel;
+        RegraNegocio.View.Projetos.ViewProjetoPessoa _currentObjectProjetoPessoa;
+
+        RegraNegocio.View.Pessoas.ViewPessoa _objectPesquisaGerente;
+        RegraNegocio.View.Pessoas.ViewPessoa _objectPesquisaProjetoPessoaParticipante;
+
         public frmCadastroProjetos()
         {
             InitializeComponent();
         }
 
-        RegraNegocio.Projetos projetosRegraNegocio = new RegraNegocio.Projetos();
-        RegraNegocio.Pessoas pessoaRegraNegocio = new RegraNegocio.Pessoas();
-
-        StatusInformacao statusInformacao = StatusInformacao.SELECAO;
-        StatusInformacao statusInformacaoReceitasDespesasPrev = StatusInformacao.SELECAO;
-        StatusInformacao statusInformacaoParticipantesProjeto = StatusInformacao.SELECAO;
-
-        private void MudarStatusInformacao(StatusInformacao statusInformacao)
+        private void MudarStatusInformacao(StatusInformacao statusinformacao)
         {
+            this._statusInformacao = statusinformacao;
 
-            this.statusInformacao = statusInformacao;
-
-            switch (this.statusInformacao)
+            switch (statusinformacao)
             {
                 case StatusInformacao.INCLUSAO:
 
                     btnNovo.Enabled = false;
                     btnSalvar.Enabled = true;
                     btnAlterar.Enabled = false;
-                    btnCancelar.Enabled = true;
                     btnInativar.Enabled = false;
+                    btnCancelar.Enabled = true;
+                    btnPesquisar.Enabled = false;
 
                     txtNome.ReadOnly = false;
-                    txtDescricao.ReadOnly = false;
-
-                    txtDataAlteracao.Visible = false;
-                    lblDataAlteracao.Enabled = false;
-
-                    cboGerenteProjeto.Enabled = true;
+                    btnPesquisaGerenteProjeto.Enabled = true;
                     txtPrazoConclusao.ReadOnly = false;
                     txtInvestimentoPrevisto.ReadOnly = false;
+                    txtDescricao.ReadOnly = false;
+
                     cboApoioSteakholders.Enabled = true;
                     cboCapacidadeEntregaEquipe.Enabled = true;
                     cboApoioAltaGestao.Enabled = true;
@@ -58,33 +70,22 @@ namespace projProjetos.Forms
                     rbEsforcoAdicional21A40PorCento.Enabled = true;
                     rbEsforcoAdicionalAcima40PorCento.Enabled = true;
 
-                    MudarStatusInformacaoReceitasDespesasPrev(StatusInformacao.SELECAO);
-                    btnFluxoEditar.Enabled = false;
-                    btnFluxoExcluir.Enabled = false;
-
-                    MudarStatusInformacaoParticipantesProjeto(StatusInformacao.SELECAO);
-                    btnParticipanteEditar.Enabled = false;
-                    btnParticipanteExcluir.Enabled = false;
-
                     break;
-
                 case StatusInformacao.ALTERACAO:
 
                     btnNovo.Enabled = false;
                     btnSalvar.Enabled = true;
                     btnAlterar.Enabled = false;
-                    btnCancelar.Enabled = true;
                     btnInativar.Enabled = false;
+                    btnCancelar.Enabled = true;
+                    btnPesquisar.Enabled = false;
 
                     txtNome.ReadOnly = false;
-                    txtDescricao.ReadOnly = false;
-                    txtDataAlteracao.Visible = false;
-                    lblDataAlteracao.Enabled = false;
-
-
-                    cboGerenteProjeto.Enabled = true;
+                    btnPesquisaGerenteProjeto.Enabled = true;
                     txtPrazoConclusao.ReadOnly = false;
                     txtInvestimentoPrevisto.ReadOnly = false;
+                    txtDescricao.ReadOnly = false;
+
                     cboApoioSteakholders.Enabled = true;
                     cboCapacidadeEntregaEquipe.Enabled = true;
                     cboApoioAltaGestao.Enabled = true;
@@ -93,33 +94,22 @@ namespace projProjetos.Forms
                     rbEsforcoAdicional11A20PorCento.Enabled = true;
                     rbEsforcoAdicional21A40PorCento.Enabled = true;
                     rbEsforcoAdicionalAcima40PorCento.Enabled = true;
-
-                    MudarStatusInformacaoReceitasDespesasPrev(StatusInformacao.SELECAO);
-                    btnFluxoEditar.Enabled = false;
-                    btnFluxoExcluir.Enabled = false;
-
-                    MudarStatusInformacaoParticipantesProjeto(StatusInformacao.SELECAO);
-                    btnParticipanteEditar.Enabled = false;
-                    btnParticipanteExcluir.Enabled = false;
                     break;
-
                 case StatusInformacao.SELECAO:
 
                     btnNovo.Enabled = true;
                     btnSalvar.Enabled = false;
                     btnAlterar.Enabled = true;
-                    btnCancelar.Enabled = false;
                     btnInativar.Enabled = true;
+                    btnCancelar.Enabled = false;
+                    btnPesquisar.Enabled = true;
 
                     txtNome.ReadOnly = true;
-                    txtDescricao.ReadOnly = true;
-
-                    txtDataAlteracao.Visible = true;
-                    lblDataAlteracao.Enabled = true;
-
-                    cboGerenteProjeto.Enabled = false;
+                    btnPesquisaGerenteProjeto.Enabled = false;
                     txtPrazoConclusao.ReadOnly = true;
                     txtInvestimentoPrevisto.ReadOnly = true;
+                    txtDescricao.ReadOnly = true;
+
                     cboApoioSteakholders.Enabled = false;
                     cboCapacidadeEntregaEquipe.Enabled = false;
                     cboApoioAltaGestao.Enabled = false;
@@ -128,275 +118,225 @@ namespace projProjetos.Forms
                     rbEsforcoAdicional11A20PorCento.Enabled = false;
                     rbEsforcoAdicional21A40PorCento.Enabled = false;
                     rbEsforcoAdicionalAcima40PorCento.Enabled = false;
-
-                    MudarStatusInformacaoReceitasDespesasPrev(StatusInformacao.SELECAO);
-
-                    MudarStatusInformacaoParticipantesProjeto(StatusInformacao.SELECAO);
-
                     break;
-            }
-        }
+                case StatusInformacao.SEMACAO:
 
-        private void MudarStatusInformacaoReceitasDespesasPrev(StatusInformacao statusInformacaoReceitasDespesasPrev)
-        {
-            this.statusInformacaoReceitasDespesasPrev = statusInformacaoReceitasDespesasPrev;
+                    btnNovo.Enabled = true;
+                    btnSalvar.Enabled = false;
+                    btnAlterar.Enabled = false;
+                    btnInativar.Enabled = false;
+                    btnCancelar.Enabled = false;
+                    btnPesquisar.Enabled = true;
 
-            switch (this.statusInformacaoReceitasDespesasPrev)
-            {
-                case StatusInformacao.INCLUSAO:
-                    if (this.statusInformacao.Equals(StatusInformacao.INCLUSAO) || this.statusInformacao.Equals(StatusInformacao.ALTERACAO))
-                    {
-                        btnFluxoIncluir.Enabled = false;
-                        btnFluxoEditar.Enabled = false;
-                        btnFluxoExcluir.Enabled = false;
-                        btnFluxoSalvar.Enabled = true;
+                    txtNome.ReadOnly = true;
+                    btnPesquisaGerenteProjeto.Enabled = false;
+                    txtPrazoConclusao.ReadOnly = true;
+                    txtInvestimentoPrevisto.ReadOnly = true;
+                    txtDescricao.ReadOnly = true;
 
-                        dtpFluxoCaixaPeriodo.Enabled = true;
-                        dtpFluxoCaixaPeriodo.Value = DateTime.Now;
+                    cboApoioSteakholders.Enabled = false;
+                    cboCapacidadeEntregaEquipe.Enabled = false;
+                    cboApoioAltaGestao.Enabled = false;
 
-                        cboFluxoTipo.Enabled = true;
-                        txtFluxoValor.ReadOnly = false;
-                        txtFluxoObservacoes.ReadOnly = false;
-                    }
-
-                    break;
-
-                case StatusInformacao.ALTERACAO:
-                    if (this.statusInformacao.Equals(StatusInformacao.INCLUSAO) || this.statusInformacao.Equals(StatusInformacao.ALTERACAO))
-                    {
-                        btnFluxoIncluir.Enabled = false;
-                        btnFluxoEditar.Enabled = false;
-                        btnFluxoExcluir.Enabled = false;
-                        btnFluxoSalvar.Enabled = true;
-
-                        dtpFluxoCaixaPeriodo.Enabled = true;
-
-                        cboFluxoTipo.Enabled = true;
-                        txtFluxoValor.ReadOnly = false;
-                        txtFluxoObservacoes.ReadOnly = false;
-                    }
-                    break;
-
-                case StatusInformacao.SELECAO:
-
-                    if (this.statusInformacao.Equals(StatusInformacao.SELECAO))
-                        btnFluxoIncluir.Enabled = false;
-                    else
-                        btnFluxoIncluir.Enabled = true;
-
-                    btnFluxoEditar.Enabled = false;
-                    btnFluxoExcluir.Enabled = false;
-                    btnFluxoSalvar.Enabled = false;
-
-                    dtpFluxoCaixaPeriodo.Enabled = false;
-
-                    cboFluxoTipo.Enabled = false;
-                    txtFluxoValor.ReadOnly = true;
-                    txtFluxoObservacoes.ReadOnly = true;
-                    break;
-            }
-        }
-
-        private void MudarStatusInformacaoParticipantesProjeto(StatusInformacao statusInformacaoParticipantesProjeto)
-        {
-            this.statusInformacaoParticipantesProjeto = statusInformacaoParticipantesProjeto;
-
-            switch (this.statusInformacaoParticipantesProjeto)
-            {
-                case StatusInformacao.INCLUSAO:
-                    if (this.statusInformacao.Equals(StatusInformacao.INCLUSAO) || this.statusInformacao.Equals(StatusInformacao.ALTERACAO))
-                    {
-
-                        btnParticipanteIncluir.Enabled = false;
-                        btnParticipanteEditar.Enabled = false;
-                        btnParticipanteExcluir.Enabled = false;
-                        btnParticipanteSalvar.Enabled = true;
-
-                        dtpParticipantesIngresso.Enabled = true;
-                        dtpParticipantesIngresso.Value = DateTime.Now;
-
-                        cboParticipantesPessoas.Enabled = true;
-                        txtParticipantesOcupacao.ReadOnly = false;
-                        txtParticipantesObservacoes.ReadOnly = false;
-                    }
-                    break;
-                case StatusInformacao.ALTERACAO:
-                    if (this.statusInformacao.Equals(StatusInformacao.INCLUSAO) || this.Equals(StatusInformacao.ALTERACAO))
-                    {
-                        btnParticipanteIncluir.Enabled = false;
-                        btnParticipanteEditar.Enabled = false;
-                        btnParticipanteExcluir.Enabled = false;
-                        btnParticipanteSalvar.Enabled = true;
-
-                        dtpParticipantesIngresso.Enabled = true;
-
-                        cboParticipantesPessoas.Enabled = true;
-                        txtParticipantesOcupacao.ReadOnly = false;
-                        txtParticipantesObservacoes.ReadOnly = false;
-                    }
-                    break;
-
-                case StatusInformacao.SELECAO:
-
-                    if (this.statusInformacao.Equals(StatusInformacao.SELECAO))
-                        btnParticipanteIncluir.Enabled = false;
-                    else
-                        btnParticipanteIncluir.Enabled = true;
-
-                    btnParticipanteEditar.Enabled = false;
-                    btnParticipanteExcluir.Enabled = false;
-                    btnParticipanteSalvar.Enabled = false;
-
-                    dtpParticipantesIngresso.Enabled = true;
-
-                    cboParticipantesPessoas.Enabled = false;
-                    txtParticipantesOcupacao.ReadOnly = true;
-                    txtParticipantesObservacoes.ReadOnly = true;
+                    rbEsforcoAdicionalAte10porCento.Enabled = false;
+                    rbEsforcoAdicional11A20PorCento.Enabled = false;
+                    rbEsforcoAdicional21A40PorCento.Enabled = false;
+                    rbEsforcoAdicionalAcima40PorCento.Enabled = false;
                     break;
                 default:
                     break;
             }
         }
 
-        private void CarregarInformacoes()
+        private void MudarStatusInformacaoProjetoReceitaVariavel(StatusInformacao statusinformacao)
         {
-            try
+
+            this._statusInformacaoReceitaVariavel = statusinformacao;
+
+            switch (statusinformacao)
             {
-                if (dtgPrincipal.SelectedRows.Count > 0)
-                {
-                    MudarStatusInformacao(StatusInformacao.SELECAO);
+                case StatusInformacao.INCLUSAO:
+                    btnReceitaVariavelIncluir.Enabled = false;
+                    btnReceitaVariavelExcluir.Enabled = false;
+                    btnReceitaVariavelEditar.Enabled = false;
 
-                    projetosRegraNegocio.Listar(Convert.ToInt64(dtgPrincipal.SelectedRows[0].Cells["dtgPrincipalTxtID"].Value));
+                    btnReceitaVariavelSalvar.Enabled = true;
+                    btnReceitaVariavelCancelar.Visible = true;
 
-                    txtCodigo.Text = projetosRegraNegocio.entidade.ID.ToString();
-                    txtNome.Text = projetosRegraNegocio.entidade.NOME;
-                    txtDescricao.Text = projetosRegraNegocio.entidade.DESCRICAO;
-                    txtDataAlteracao.Text = projetosRegraNegocio.entidade.DATACRIACAO.ToString();
+                    dtpReceitaVariavelPeriodo.Enabled = true;
+                    cboReceitaVariavelFluxo.Enabled = true;
+                    txtReceitaVariavelValor.ReadOnly = false;
+                    txtReceitaVariavelObservacoes.ReadOnly = false;
 
-                    cboGerenteProjeto.DataSource = pessoaRegraNegocio.Listar();
-                    cboGerenteProjeto.SelectedValue = projetosRegraNegocio.entidade.GERENTEPROJETO.ID;
+                    dtgReceitaVariavel.Enabled = false;
+                    break;
+                case StatusInformacao.ALTERACAO:
+                    btnReceitaVariavelIncluir.Enabled = false;
+                    btnReceitaVariavelExcluir.Enabled = false;
+                    btnReceitaVariavelEditar.Enabled = false;
 
-                    txtPrazoConclusao.Text = projetosRegraNegocio.entidade.TEMPOPREVISTOCONCLUSAO.ToString();
-                    txtInvestimentoPrevisto.Text = projetosRegraNegocio.entidade.INVESTIMENTOPREVISTO.ToString();
+                    btnReceitaVariavelSalvar.Enabled = true;
+                    btnReceitaVariavelCancelar.Visible = true;
 
-                    cboApoioAltaGestao.SelectedIndex = Convert.ToInt32(projetosRegraNegocio.entidade.APOIOALTAGESTAO) - 1;
-                    cboApoioSteakholders.SelectedIndex = Convert.ToInt32(projetosRegraNegocio.entidade.APOIOSTEAKHOLDERS) - 1;
-                    cboCapacidadeEntregaEquipe.SelectedIndex = Convert.ToInt32(projetosRegraNegocio.entidade.CAPACIDADEENTREGAEQUIPE) - 1;
+                    dtpReceitaVariavelPeriodo.Enabled = true;
+                    cboReceitaVariavelFluxo.Enabled = true;
+                    txtReceitaVariavelValor.ReadOnly = false;
+                    txtReceitaVariavelObservacoes.ReadOnly = false;
 
-                    if (projetosRegraNegocio.entidade.STATUS >= 1)
-                        btnInativar.Image = projProjetos.Properties.Resources.inativar;
-                    else
-                        btnInativar.Image = projProjetos.Properties.Resources.ativar;
+                    dtgReceitaVariavel.Enabled = false;
+                    break;
+                case StatusInformacao.SELECAO:
+                    btnReceitaVariavelIncluir.Enabled = true;
+                    btnReceitaVariavelExcluir.Enabled = true;
+                    btnReceitaVariavelEditar.Enabled = true;
 
+                    btnReceitaVariavelSalvar.Enabled = false;
+                    btnReceitaVariavelCancelar.Visible = false;
 
-                    switch (projetosRegraNegocio.entidade.ESFORCOADICIONAL)
-                    {
-                        case 1:
-                            rbEsforcoAdicionalAte10porCento.Checked = true;
-                            break;
-                        case 2:
-                            rbEsforcoAdicional11A20PorCento.Checked = true;
-                            break;
-                        case 3:
-                            rbEsforcoAdicional21A40PorCento.Checked = true;
-                            break;
-                        case 4:
-                            rbEsforcoAdicionalAcima40PorCento.Checked = true;
-                            break;
-                    }
+                    dtpReceitaVariavelPeriodo.Enabled = false;
+                    cboReceitaVariavelFluxo.Enabled = false;
+                    txtReceitaVariavelValor.ReadOnly = true;
+                    txtReceitaVariavelObservacoes.ReadOnly = true;
 
-                    txtDescricao.Text = projetosRegraNegocio.entidade.DESCRICAO.ToString();
+                    dtgReceitaVariavel.Enabled = true;
+                    break;
+                case StatusInformacao.SEMACAO:
+                    btnReceitaVariavelIncluir.Enabled = false;
+                    btnReceitaVariavelExcluir.Enabled = false;
+                    btnReceitaVariavelEditar.Enabled = false;
 
-                    CarregarInformacoesGeraisReceitasDespesasVar(true);
+                    btnReceitaVariavelSalvar.Enabled = false;
+                    btnReceitaVariavelCancelar.Visible = false;
 
-                    CarregarInformacoesGeraisParticipantesProjeto(true);
-                }
+                    dtpReceitaVariavelPeriodo.Enabled = false;
+                    cboReceitaVariavelFluxo.Enabled = false;
+                    txtReceitaVariavelValor.ReadOnly = true;
+                    txtReceitaVariavelObservacoes.ReadOnly = true;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dtgReceitaVariavel.Enabled = false;
+                    break;
+                default:
+                    break;
             }
         }
 
-        private void CarregarInformacoesReceitasDespesasPrevistas()
+        private void MudarStatusInformacaoProjetoPessoa(StatusInformacao statusInformacao)
         {
-            try
-            {
-                if (dtgFluxoCaixaProjeto.SelectedRows.Count > 0)
-                {
-                    projetosRegraNegocio.ListarReceitasDespesas(Convert.ToDateTime(dtgFluxoCaixaProjeto.SelectedRows[0].Cells["dtgFluxoCaixaProjetoTxtDataPeriodo"].Value));
+            this._statusInformacaoProjetoPessoa = statusInformacao;
 
-                    dtpFluxoCaixaPeriodo.Value = projetosRegraNegocio.receitaDespesa.DATAPERIODO;
-                    cboFluxoTipo.SelectedItem = projetosRegraNegocio.receitaDespesa.TIPO.ToString();
-                    txtFluxoObservacoes.Text = projetosRegraNegocio.receitaDespesa.OBSERVACOES;
-                    txtFluxoValor.Text = projetosRegraNegocio.receitaDespesa.VALOR.ToString();
-
-                    if (!this.statusInformacao.Equals(StatusInformacao.SELECAO) && this.statusInformacaoReceitasDespesasPrev.Equals(StatusInformacao.SELECAO))
-                    {
-                        btnFluxoEditar.Enabled = true;
-                        btnFluxoExcluir.Enabled = true;
-                    }
-                }
-            }
-            catch (Exception ex)
+            switch (statusInformacao)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                case StatusInformacao.INCLUSAO:
+                    btnProjetoPessoaIncluir.Enabled = false;
+                    btnProjetoPessoaEditar.Enabled = false;
+                    btnprojetoPessoaExcluir.Enabled = false;
+
+                    btnProjetoPessoaCancelar.Enabled = true;
+                    btnprojetoPessoaSalvar.Enabled = true;
+
+                    btnProjetoPessoaPesquisaPessoa.Enabled = true;
+                    txtProjetoPessoaOcupacao.ReadOnly = false;
+                    txtProjetoPessoaObservacoes.ReadOnly = false;
+                    dtpProjetoPessoaDataIngresso.Enabled = true;
+
+                    dtgProjetoPessoa.Enabled = false;
+                    break;
+
+                case StatusInformacao.ALTERACAO:
+                    btnProjetoPessoaIncluir.Enabled = false;
+                    btnProjetoPessoaEditar.Enabled = false;
+                    btnprojetoPessoaExcluir.Enabled = false;
+
+                    btnProjetoPessoaCancelar.Enabled = true;
+                    btnprojetoPessoaSalvar.Enabled = true;
+
+                    btnProjetoPessoaPesquisaPessoa.Enabled = true;
+                    txtProjetoPessoaOcupacao.ReadOnly = false;
+                    txtProjetoPessoaObservacoes.ReadOnly = false;
+                    dtpProjetoPessoaDataIngresso.Enabled = true;
+
+                    dtgProjetoPessoa.Enabled = false;
+                    break;
+                case StatusInformacao.SELECAO:
+
+                    btnProjetoPessoaIncluir.Enabled = true;
+                    btnProjetoPessoaEditar.Enabled = true;
+                    btnprojetoPessoaExcluir.Enabled = true;
+
+                    btnProjetoPessoaCancelar.Enabled = false;
+                    btnprojetoPessoaSalvar.Enabled = false;
+
+                    btnProjetoPessoaPesquisaPessoa.Enabled = false;
+                    txtProjetoPessoaOcupacao.ReadOnly = true;
+                    txtProjetoPessoaObservacoes.ReadOnly = true;
+                    dtpProjetoPessoaDataIngresso.Enabled = false;
+
+                    dtgProjetoPessoa.Enabled = true;
+                    break;
+
+                case StatusInformacao.SEMACAO:
+                    btnProjetoPessoaIncluir.Enabled = false;
+                    btnProjetoPessoaEditar.Enabled = false;
+                    btnprojetoPessoaExcluir.Enabled = false;
+
+                    btnProjetoPessoaCancelar.Enabled = false;
+                    btnprojetoPessoaSalvar.Enabled = false;
+
+                    btnProjetoPessoaPesquisaPessoa.Enabled = false;
+                    txtProjetoPessoaOcupacao.ReadOnly = true;
+                    txtProjetoPessoaObservacoes.ReadOnly = true;
+                    dtpProjetoPessoaDataIngresso.Enabled = false;
+
+                    dtgProjetoPessoa.Enabled = false;
+                    break;
+                default:
+                    break;
             }
         }
 
-        private void CarregarInformacoesParticipantesProjetos()
-        {
-            try
-            {
-                if (dtgParticipantes.SelectedRows.Count > 0)
-                {
-                    projetosRegraNegocio.ListarParticipantesProjetos(Convert.ToInt64(dtgParticipantes.SelectedRows[0].Cells["dtgParticipantesTxtProjetosPessoasID"].Value));
-
-                    cboParticipantesPessoas.DataSource = projetosRegraNegocio.ListarParticipantesProjetos();
-                    cboParticipantesPessoas.SelectedValue = projetosRegraNegocio.participanteProjeto.IDPESSOA;
-
-                    txtParticipantesOcupacao.Text = projetosRegraNegocio.participanteProjeto.OCUPACAO;
-                    txtParticipantesObservacoes.Text = projetosRegraNegocio.participanteProjeto.OBSERVACOES;
-                    dtpParticipantesIngresso.Value = Convert.ToDateTime(projetosRegraNegocio.participanteProjeto.DATAINGRESSO);
-
-                    if (!this.statusInformacao.Equals(StatusInformacao.SELECAO) && this.statusInformacaoParticipantesProjeto.Equals(StatusInformacao.SELECAO))
-                    {
-                        btnParticipanteEditar.Enabled = true;
-                        btnParticipanteExcluir.Enabled = true;
-                    }
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void CarregarInformacoesGerais()
         {
             try
             {
-                dtgPrincipal.DataSource = projetosRegraNegocio.Listar();
-                dtgPrincipal.Columns["dtgPrincipalBtnInativar"].DisplayIndex = 13;
-                dtgPrincipal.Columns["dtgPrincipalBtnEditar"].DisplayIndex = 12;
-
-
-                if (dtgPrincipal.Rows.Count > 0)
+                ///caso o bindinglist estiver vazio, recebera uma nova instancia
+                if (_bindingListView is null)
                 {
-                    foreach (DataGridViewRow linha in dtgPrincipal.Rows)
-                    {
-                        if (linha.Cells["dtgPrincipalTxtStatus"].Value.ToString().Equals("ATIVO"))
-                            linha.Cells["dtgPrincipalBtnInativar"].Value = projProjetos.Properties.Resources.excluir;
-                        else
-                            linha.Cells["dtgPrincipalBtnInativar"].Value = projProjetos.Properties.Resources.miniAtivar;
-                    }
-
-                    dtgPrincipal.Rows[dtgPrincipal.Rows.Count - 1].Selected = true;
-
-                    CarregarInformacoes();
+                    _bindingListView = new BindingListView<RegraNegocio.View.Projetos.ViewProjeto>(projetosRegraNegocio.ToList());
+                    _bindingSource.DataSource = _bindingListView;
                 }
+                else
+                {
+                    _bindingListView.RemoveFilter();
+                    _bindingListView.DataSource = projetosRegraNegocio.ToList();
+                    _bindingListView.Refresh();
+                }
+
+                
+
+                if ((_currentObject is null) && !(_bindingSource.Current is null))
+                {
+                    _currentObject = (_bindingSource.Current as ObjectView<RegraNegocio.View.Projetos.ViewProjeto>).Object;
+                }
+
+                RegraNegocio.View.Projetos.ViewProjeto _bindingSourceCurrentObject = (_bindingSource.Current is null) ? (null) : (_bindingSource.Current as ObjectView<RegraNegocio.View.Projetos.ViewProjeto>).Object;
+
+                if (!(_currentObject is null) && (_bindingSourceCurrentObject is null || _bindingSourceCurrentObject != _currentObject || _bindingSource.Count > 1))
+                {
+                    _bindingListView.ApplyFilter(x => x.EntityObject.Equals(_currentObject.EntityObject));
+                    MudarStatusInformacao(StatusInformacao.SELECAO);
+                }
+                else
+                {
+                    MudarStatusInformacao(StatusInformacao.SEMACAO);
+                }
+
+                _bindingListView.Refresh();
+
+                _bindingSource.ResumeBinding();
+
+                CarregarInformacoes();
+
             }
             catch (Exception ex)
             {
@@ -404,314 +344,818 @@ namespace projProjetos.Forms
             }
         }
 
-        private void CarregarInformacoesGeraisReceitasDespesasVar(bool selecionarRegistroAutomaticamente)
+        private void CarregarInformacoesGeraisProjetoReceitaVariavel()
         {
             try
             {
-                MudarStatusInformacaoReceitasDespesasPrev(StatusInformacao.SELECAO);
-                dtgFluxoCaixaProjeto.DataSource = projetosRegraNegocio.ListarReceitasDespesas();
-
-                if (dtgFluxoCaixaProjeto.Rows.Count > 0)
+                ///caso o bindinglist estiver vazio, recebera uma nova instancia
+                if (_bindingListViewProjetoReceitaVariavel is null)
                 {
-                    dtgFluxoCaixaProjeto.Rows[dtgFluxoCaixaProjeto.Rows.Count - 1].Selected = true;
-                    dtgFluxoCaixaProjeto.Columns["dtgFluxoCaixaProjetoBtnExcluir"].DisplayIndex = 7;
-                    dtgFluxoCaixaProjeto.Columns["dtgFluxoCaixaProjetoBtnEditar"].DisplayIndex = 6;
-                    dtgFluxoCaixaProjeto.Columns["dtgFluxoCaixaProjetoTxtValor"].DisplayIndex = 5;
+                    _bindingListViewProjetoReceitaVariavel = new BindingListView<RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel>(receitaVariavelRegraNegocio.ToList());
+                    _bindingSourceReceitaVariavel.DataSource = _bindingListViewProjetoReceitaVariavel;
+                }
+                else
+                {
+                    _bindingListViewProjetoReceitaVariavel.RemoveFilter();
+                    _bindingListViewProjetoReceitaVariavel.DataSource = receitaVariavelRegraNegocio.ToList();
+                    _bindingListViewProjetoReceitaVariavel.Refresh();
+                }
 
-                    if (selecionarRegistroAutomaticamente) //carrega automaticamente o registro a sofrer alterações
-                        CarregarInformacoesReceitasDespesasPrevistas();
+                _bindingListViewProjetoReceitaVariavel.ApplyFilter(x => x.EntityObject.PROJETO == _currentObject.EntityObject);
+                _bindingListViewProjetoReceitaVariavel.Refresh();
+
+
+                RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel _bindingSourceReceitaVariavelCurrentObject = (_bindingSourceReceitaVariavel.Current is null) ? (null) : (_bindingSourceReceitaVariavel.Current as ObjectView<RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel>).Object;
+
+                if (!(_currentObjectProjetoRececeitaVariavel is null) && (_bindingSourceReceitaVariavelCurrentObject is null || _bindingSourceReceitaVariavelCurrentObject.EntityObject != _currentObjectProjetoRececeitaVariavel.EntityObject))
+                {
+                    //identifica a linha que contem o currentObjectProjetoReceitaVariavel na propriedade databounditem e atribui true a propriedade selected
+                    IEnumerable<DataGridViewRow> dtgReceitaVariavelRowsEnumerable = System.Linq.Enumerable.Cast<DataGridViewRow>(dtgReceitaVariavel.Rows);
+
+                    DataGridViewRow dataRow = new List<DataGridViewRow>(dtgReceitaVariavelRowsEnumerable).First(row => (row.DataBoundItem as ObjectView<RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel>).Object.EntityObject == _currentObjectProjetoRececeitaVariavel.EntityObject);
+
+                    dataRow.Selected = true;
+
+
+                }
+
+                if (_statusInformacao == StatusInformacao.SELECAO)
+                    MudarStatusInformacaoProjetoReceitaVariavel(StatusInformacao.SEMACAO);
+                else
+                    MudarStatusInformacaoProjetoReceitaVariavel(StatusInformacao.SELECAO);
+
+                _bindingSourceReceitaVariavel.ResumeBinding();
+
+                CarregarInformacoesProjetoReceitaVariavel();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CarregarInformacoesGeraisProjetoPessoa()
+        {
+            try
+            {
+                ///caso o bindinglist estiver vazio, recebera uma nova instancia
+                if (_bindingListViewProjetoPessoa is null)
+                {
+                    _bindingListViewProjetoPessoa = new BindingListView<RegraNegocio.View.Projetos.ViewProjetoPessoa>(projetoPessoaRegraNegocio.ToList());
+                    _bindingSourceProjetoPessoa.DataSource = _bindingListViewProjetoPessoa;
+                }
+                else
+                {
+                    _bindingListViewProjetoPessoa.RemoveFilter();
+                    _bindingListViewProjetoPessoa.DataSource = projetoPessoaRegraNegocio.ToList();
+                    _bindingListViewProjetoPessoa.Refresh();
+                }
+
+                _bindingListViewProjetoPessoa.ApplyFilter(x => x.EntityObject.PROJETO == _currentObject.EntityObject);
+                _bindingListViewProjetoPessoa.Refresh();
+
+
+                RegraNegocio.View.Projetos.ViewProjetoPessoa _bindingSourceProjetoPessoaCurrentObject = (_bindingSourceProjetoPessoa.Current is null) ? (null) : (_bindingSourceProjetoPessoa.Current as ObjectView<RegraNegocio.View.Projetos.ViewProjetoPessoa>).Object;
+
+                if (!(_currentObjectProjetoPessoa is null) && (_bindingSourceProjetoPessoaCurrentObject is null || _bindingSourceProjetoPessoaCurrentObject != _currentObjectProjetoPessoa))
+                {
+                    //identifica a linha que contem o currentObjectProjetoReceitaVariavel na propriedade databounditem e atribui true a propriedade selected
+                    IEnumerable<DataGridViewRow> dtgProjetoPessoaRowsEnumerable = System.Linq.Enumerable.Cast<DataGridViewRow>(dtgProjetoPessoa.Rows);
+
+                    DataGridViewRow dataRow = new List<DataGridViewRow>(dtgProjetoPessoaRowsEnumerable).First(row => (row.DataBoundItem as ObjectView<RegraNegocio.View.Projetos.ViewProjetoPessoa>).Object.EntityObject == _currentObjectProjetoPessoa.EntityObject);
+
+                    dataRow.Selected = true;
+
+
+                }
+
+                if (_statusInformacao == StatusInformacao.SELECAO)
+                    MudarStatusInformacaoProjetoPessoa(StatusInformacao.SEMACAO);
+                else
+                    MudarStatusInformacaoProjetoPessoa(StatusInformacao.SELECAO);
+
+                _bindingSourceProjetoPessoa.ResumeBinding();
+
+                CarregarInformacoesProjetoPessoa();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void CarregarInformacoes()
+        {
+            try
+            {
+                if (!(_currentObject is null))
+                {
+                    if (_currentObject.EntityObject.STATUS >= (byte)1)
+                    {
+                        btnInativar.Text = "Inativar";
+                        btnInativar.Image = projProjetos.Properties.Resources.inativar;
+                    }
+                    else
+                    {
+                        btnInativar.Text = "Ativar";
+                        btnInativar.Image = projProjetos.Properties.Resources.ativar;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void CarregarInformacoesGeraisParticipantesProjeto(bool selecionarRegistroAutomaticamente)
+        private void CarregarInformacoesProjetoReceitaVariavel()
+        {
+
+        }
+
+        private void CarregarInformacoesProjetoPessoa()
+        {
+
+        }
+
+
+        public void HabilitarDataBindingComponentes()
         {
             try
             {
-                MudarStatusInformacaoParticipantesProjeto(StatusInformacao.SELECAO);
+                cboApoioAltaGestao.DataSource = _bindingSource;
+                cboApoioAltaGestao.ValueMember = "DescricaoApoioAltaGestao";
+                cboApoioAltaGestao.DisplayMember = "DescricaoApoioAltaGestao";
 
-                cboParticipantesPessoas.DataSource = pessoaRegraNegocio.Listar();
-                cboParticipantesPessoas.SelectedItem = null;
+                cboApoioSteakholders.DataSource = _bindingSource;
+                cboApoioSteakholders.ValueMember = "DescricaoApoioSteakHolders";
+                cboApoioSteakholders.DisplayMember = "DescricaoApoioSteakHolders";
 
-                dtgParticipantes.DataSource = projetosRegraNegocio.ListarParticipantesProjetos();
+                cboCapacidadeEntregaEquipe.DataSource = _bindingSource;
+                cboCapacidadeEntregaEquipe.ValueMember = "DescricaoCapacidadeEntregaEquipe";
+                cboCapacidadeEntregaEquipe.DisplayMember = "DescricaoCapacidadeEntregaEquipe";
 
-                if (dtgParticipantes.Rows.Count > 0)
-                {
-                    dtgParticipantes.Rows[dtgParticipantes.Rows.Count - 1].Selected = true;
-                    dtgParticipantes.Columns["dtgParticipantesBtnExcluir"].DisplayIndex = 9;
-                    dtgParticipantes.Columns["dtgParticipantesBtnEditar"].DisplayIndex = 8;
-
-                    if (selecionarRegistroAutomaticamente) //carrega automaticamente o registro a sofrer alterações
-                        CarregarInformacoesParticipantesProjetos();
-                }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
             }
         }
 
-        private void LimparCampos()
+        public void HabilitarDataBindingComponentesProjetoReceitaVariavel()
         {
-            txtCodigo.Clear();
-            txtNome.Clear();
-
-            cboGerenteProjeto.DataSource = pessoaRegraNegocio.Listar();
-            cboGerenteProjeto.SelectedItem = null;
-
-            txtPrazoConclusao.Clear();
-            txtInvestimentoPrevisto.Clear();
-
-            cboApoioAltaGestao.SelectedIndex = -1;
-            cboApoioSteakholders.SelectedIndex = -1;
-            cboCapacidadeEntregaEquipe.SelectedIndex = -1;
-
-            rbEsforcoAdicionalAte10porCento.Checked = false;
-            rbEsforcoAdicional11A20PorCento.Checked = false;
-            rbEsforcoAdicional21A40PorCento.Checked = false;
-            rbEsforcoAdicionalAcima40PorCento.Checked = false;
-
-            txtDescricao.Clear();
-
-            txtDataAlteracao.Clear();
-
-            LimparCamposReceitasDespesas();
-            LimparCamposParticipantesProjetos();
+            try
+            {
+                cboReceitaVariavelFluxo.DataSource = _bindingSourceReceitaVariavel;
+                cboReceitaVariavelFluxo.ValueMember = "Tipo";
+                cboReceitaVariavelFluxo.DisplayMember = "Tipo";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        private void LimparCamposReceitasDespesas()
+        public void HabilitarDataBindingComponentesProjetoPessoa()
         {
-            dtpFluxoCaixaPeriodo.Value = DateTime.Now;
-            cboFluxoTipo.SelectedValue = null;
-            txtFluxoObservacoes.Clear();
-            txtFluxoValor.Clear();
 
-            CarregarInformacoesGeraisReceitasDespesasVar(false);
         }
 
-        private void LimparCamposParticipantesProjetos()
-        {
-            cboParticipantesPessoas.SelectedItem = null;
-            txtParticipantesOcupacao.Clear();
-            txtParticipantesObservacoes.Clear();
-            dtpParticipantesIngresso.Value = DateTime.Now;
 
-            CarregarInformacoesGeraisParticipantesProjeto(false);
+        private void DesabilitarDataBindingComponentes()
+        {
+            //Obtem o valor selecionado;
+            cboApoioAltaGestao.DataSource = null;
+            cboApoioAltaGestao.Items.Clear();
+            cboApoioAltaGestao.Items.Add("Apoio Formal e Total");
+            cboApoioAltaGestao.Items.Add("Desejam o Sucesso");
+            cboApoioAltaGestao.Items.Add("Neutro");
+            cboApoioAltaGestao.Items.Add("Relutantes");
+            cboApoioAltaGestao.SelectedItem = _currentObject.DescricaoApoioAltaGestao;
+
+            cboApoioSteakholders.DataSource = null;
+            cboApoioSteakholders.Items.Clear();
+            cboApoioSteakholders.Items.Add("Anciosos");
+            cboApoioSteakholders.Items.Add("Dispostos");
+            cboApoioSteakholders.Items.Add("Relutantes");
+            cboApoioSteakholders.Items.Add("Fortemente Relutantes");
+            cboApoioSteakholders.SelectedItem = _currentObject.DescricaoApoioSteakHolders;
+
+            cboCapacidadeEntregaEquipe.DataSource = null;
+            cboCapacidadeEntregaEquipe.Items.Clear();
+            cboCapacidadeEntregaEquipe.Items.Add("Muito Bom");
+            cboCapacidadeEntregaEquipe.Items.Add("Bom");
+            cboCapacidadeEntregaEquipe.Items.Add("Médio");
+            cboCapacidadeEntregaEquipe.Items.Add("Pobre");
+            cboCapacidadeEntregaEquipe.SelectedItem = _currentObject.DescricaoCapacidadeEntregaEquipe;
         }
+
+        private void DesabilitarDataBindingComponentesProjetoPessoa()
+        {
+
+        }
+
+        private void DesabilitarDataBindingComponentesProjetoReceitaVariavel()
+        {
+            cboReceitaVariavelFluxo.DataSource = null;
+            cboReceitaVariavelFluxo.Items.Clear();
+            cboReceitaVariavelFluxo.Items.Add("RECEITA");
+            cboReceitaVariavelFluxo.Items.Add("DESPESA");
+            cboReceitaVariavelFluxo.SelectedItem = _currentObjectProjetoRececeitaVariavel.Tipo;
+        }
+
+
+        private void AtualizarInformacoesCurrentObject()
+        {
+            try
+            {
+                _currentObject.EntityObject.NOME = txtNome.Text;
+                _currentObject.EntityObject.GERENTEPROJETO = _objectPesquisaGerente.EntityObject;
+                _currentObject.EntityObject.TEMPOPREVISTOCONCLUSAO = Convert.ToDecimal(txtPrazoConclusao.Text);
+                _currentObject.EntityObject.INVESTIMENTOPREVISTO = Convert.ToDecimal(txtInvestimentoPrevisto.Text);
+
+                _currentObject.EntityObject.APOIOSTEAKHOLDERS = RegraNegocio.Ferramentas.FrameworkDICE.RetornarIndiceApoioSteakHolders(cboApoioSteakholders.SelectedItem.ToString());
+                _currentObject.EntityObject.CAPACIDADEENTREGAEQUIPE = RegraNegocio.Ferramentas.FrameworkDICE.RetornarIndiceCapacidadeEntregaEquipe(cboCapacidadeEntregaEquipe.SelectedItem.ToString());
+                _currentObject.EntityObject.APOIOALTAGESTAO = RegraNegocio.Ferramentas.FrameworkDICE.RetornarIndiceApoioAltaGestao(cboApoioAltaGestao.SelectedItem.ToString());
+
+
+                if (rbEsforcoAdicionalAte10porCento.Checked)
+                    _currentObject.EntityObject.ESFORCOADICIONAL = RegraNegocio.Ferramentas.FrameworkDICE.RetornarIndiceEsforcoAdicional(rbEsforcoAdicionalAte10porCento.Text);
+
+                else if (rbEsforcoAdicional11A20PorCento.Checked)
+                    _currentObject.EntityObject.ESFORCOADICIONAL = RegraNegocio.Ferramentas.FrameworkDICE.RetornarIndiceEsforcoAdicional(rbEsforcoAdicional11A20PorCento.Text);
+
+                else if (rbEsforcoAdicional21A40PorCento.Checked)
+                    _currentObject.EntityObject.ESFORCOADICIONAL = RegraNegocio.Ferramentas.FrameworkDICE.RetornarIndiceEsforcoAdicional(rbEsforcoAdicional21A40PorCento.Text);
+
+                else if (rbEsforcoAdicionalAcima40PorCento.Checked)
+                    _currentObject.EntityObject.ESFORCOADICIONAL = RegraNegocio.Ferramentas.FrameworkDICE.RetornarIndiceEsforcoAdicional(rbEsforcoAdicionalAcima40PorCento.Text);
+
+
+                _currentObject.EntityObject.DESCRICAO = txtDescricao.Text;
+
+                _currentObject.EntityObject.DATACRIACAO = DateTime.Now;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void AtualizarInformacoesCurrentObjectProjetoReceitaVariavel()
+        {
+            try
+            {
+                _currentObjectProjetoRececeitaVariavel.EntityObject.DATAPERIODO = dtpReceitaVariavelPeriodo.Value;
+                _currentObjectProjetoRececeitaVariavel.EntityObject.TIPO = cboReceitaVariavelFluxo.SelectedItem.ToString();
+                _currentObjectProjetoRececeitaVariavel.EntityObject.VALOR = Convert.ToDecimal(txtReceitaVariavelValor.Text);
+                _currentObjectProjetoRececeitaVariavel.EntityObject.OBSERVACOES = txtReceitaVariavelObservacoes.Text;
+
+                _currentObjectProjetoRececeitaVariavel.EntityObject.STATUS = 1;
+                _currentObjectProjetoRececeitaVariavel.EntityObject.PROJETO = _currentObject.EntityObject;
+                _currentObjectProjetoRececeitaVariavel.EntityObject.DATACRIACAO = DateTime.Now;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void AtualizarInformacoesCurrentObjectProjetoPessoa()
+        {
+            try
+            {
+                _currentObjectProjetoPessoa.EntityObject.PESSOA = _objectPesquisaProjetoPessoaParticipante.EntityObject;
+                _currentObjectProjetoPessoa.EntityObject.OCUPACAO = txtProjetoPessoaOcupacao.Text;
+                _currentObjectProjetoPessoa.EntityObject.DATAINGRESSO = dtpProjetoPessoaDataIngresso.Value;
+                _currentObjectProjetoPessoa.EntityObject.OBSERVACOES = txtProjetoPessoaObservacoes.Text;
+
+                _currentObjectProjetoPessoa.EntityObject.PROJETO = _currentObject.EntityObject;
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         private bool ValidarInformacoes()
         {
-            if (txtNome.Text.Trim().Length < 5)
-            {
-                MessageBox.Show("O campo \"Nome\" Não atende o tamanho minimo ou contem apenas espaços em branco.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtNome.Focus();
-                return false;
-            }
-
-            if (cboGerenteProjeto.SelectedIndex < 0)
-            {
-                MessageBox.Show("A caixa de seleção \"Gerente do Projeto\" não poderá estar vazia.", "Informação.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cboGerenteProjeto.Focus();
-                return false;
-            }
-
             try
             {
-                Convert.ToDouble(txtPrazoConclusao.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("O campo \"Prazo de Conclusão\" contem valores invalidos.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtPrazoConclusao.Focus();
-                return false;
-            }
+                if (txtNome.Text == String.Empty)
+                {
+                    MessageBox.Show("O campo nome do projeto nao pode ser vazio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNome.Focus();
+                    return false;
+                }
 
-            try
-            {
-                Convert.ToDouble(txtInvestimentoPrevisto.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("O campo \"Investimento Previsto\" contem valores invalidos.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtInvestimentoPrevisto.Focus();
-                return false;
-            }
+                if (_objectPesquisaGerente is null)
+                {
+                    MessageBox.Show("'E necessario informar o gerente do projeto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnPesquisaGerenteProjeto.Focus();
+                    return false;
+                }
 
-            if (cboApoioAltaGestao.SelectedIndex < 0)
-            {
-                MessageBox.Show("A caixa de seleção \"Apoio da Alta Gestão\" não pode estar vazia.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cboApoioAltaGestao.Focus();
-                return false;
-            }
+                int prazoConclusao;
+                if (!Int32.TryParse(txtPrazoConclusao.Text, out prazoConclusao))
+                {
+                    MessageBox.Show("O campo Prazo de duracao nao foi preenchido ou contem valores invalidos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtPrazoConclusao.Focus();
+                    return false;
+                }
 
-            if (cboApoioSteakholders.SelectedIndex < 0)
-            {
-                MessageBox.Show("A caixa de seleção \"Apoio SteakHolders\" não pode estar vazia.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cboApoioAltaGestao.Focus();
-                return false;
-            }
+                decimal investimentoPrevisto;
+                if (!Decimal.TryParse(txtInvestimentoPrevisto.Text, out investimentoPrevisto))
+                {
+                    MessageBox.Show("O campo Investimento previsto nao foi preenchido ou contem valores invalidos.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtPrazoConclusao.Focus();
+                    return false;
+                }
 
-            if (cboCapacidadeEntregaEquipe.SelectedIndex < 0)
-            {
-                MessageBox.Show("A caixa de seleção \"Capacidade de Entrega Equipe\" não pode estar vazia.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cboApoioAltaGestao.Focus();
-                return false;
-            }
 
-            if (!rbEsforcoAdicionalAte10porCento.Checked && !rbEsforcoAdicional11A20PorCento.Checked
-                && !rbEsforcoAdicional21A40PorCento.Checked && !rbEsforcoAdicionalAcima40PorCento.Checked)
-            {
-                MessageBox.Show("Dese ser escolhido uma opção para a informação do \"Esforço Adicional\".", "informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                rbEsforcoAdicionalAte10porCento.Focus();
-                return false;
-            }
+                if (cboApoioSteakholders.SelectedIndex < 0)
+                {
+                    MessageBox.Show("A caixa de selecao Apoio SteakHolders deve ser preenchida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cboApoioSteakholders.Focus();
+                    return false;
+                }
 
-            if (txtDescricao.Text.Trim().Length < 5)
-            {
-                MessageBox.Show("O campo \"Observações\" não contem a quantidade de caracteres mínima ou contem apenas espaçõs em branco.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtDescricao.Focus();
-                return false;
-            }
 
-            if (dtgFluxoCaixaProjeto.Rows.Count <= 0)
-            {
-                MessageBox.Show("O projeto não pode ser salvo sem fluxo de Receitas-Despesas.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tbFluxoDeCaixa.Focus();
-                return false;
-            }
+                if (cboCapacidadeEntregaEquipe.SelectedIndex < 0)
+                {
+                    MessageBox.Show("A caixa de selecao Capacidade de Entrega da Equipe deve ser preenchida.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cboCapacidadeEntregaEquipe.Focus();
+                    return false;
+                }
 
-            if (dtgParticipantes.Rows.Count <= 0)
-            {
-                MessageBox.Show("O projeto não pode ser salvo sem Participantes cadastrados.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                tbParticipantes.Focus();
-                return false;
-            }
 
-            return true;
-        }
+                if (cboApoioAltaGestao.SelectedIndex < 0)
+                {
+                    MessageBox.Show("A caixa de selecao Apoio da Alta Gestao deve ser preenchida", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cboApoioAltaGestao.Focus();
+                    return false;
+                }
 
-        private bool ValidarInformacoesReceitasDespesas()
-        {
-            if (cboFluxoTipo.SelectedIndex < 0)
-            {
-                MessageBox.Show("O campo \"Fluxo Despesas-Receitas Tipo\" não pode ser vazio.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cboFluxoTipo.Focus();
-                return false;
-            }
 
-            try
-            {
-                Convert.ToDouble(txtFluxoValor.Text);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("O campo \"Fluxo Despesas-Receitas Valor\" contem valores invalidos", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtFluxoValor.Focus();
-                return false;
-            }
+                if (txtDescricao.Text == String.Empty)
+                {
+                    MessageBox.Show("O campo Descricao nao pode ser vazio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtDescricao.Focus();
+                    return false;
+                }
 
-            if (txtFluxoObservacoes.Text.Trim().Length < 5)
-            {
-                MessageBox.Show("O campo \"Fluxo Despesas-Receitas Observações\" não contem a quantidade de caracteres mínimas ou contem apenas espaços em branco.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtFluxoObservacoes.Focus();
-                return false;
-            }
 
-            return true;
-        }
+                if (!rbEsforcoAdicionalAte10porCento.Checked 
+                    && !rbEsforcoAdicional11A20PorCento.Checked
+                    && !rbEsforcoAdicional21A40PorCento.Checked
+                    && !rbEsforcoAdicionalAcima40PorCento.Checked)
+                {
+                    MessageBox.Show("E necessario informar o esforco Adicional para cadastrar o projeto.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
 
-        private bool ValidarInformacoesParticipantesProjetos()
-        {
-            if (cboParticipantesPessoas.SelectedIndex < 0)
-            {
-                MessageBox.Show("O campo \"Participantes pessoa\" não pode ser vazio.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cboParticipantesPessoas.Focus();
-                return false;
-            }
 
-            if (txtParticipantesOcupacao.Text.Trim().Length < 5)
-            {
-                MessageBox.Show("O campo \"Participantes ocupação\" não contem a quantidade de caracteres mínima ou contem apenas espaços em branco.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtParticipantesOcupacao.Focus();
-                return false;
-            }
+                if (_bindingSourceReceitaVariavel.Count <= 0)
+                {
+                    MessageBox.Show("O cadastro de projeto deve conter ao menos um lancamento de Receita/Despesa.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tbFluxoDeCaixa.Select();
+                    return false;
+                }
 
-            if (txtParticipantesObservacoes.Text.Trim().Length < 5)
-            {
-                MessageBox.Show("O campo \"Participantes Observação\" não contem a quantidade de caracteres mínima ou contem apenas espaços em branco.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtParticipantesOcupacao.Focus();
-                return false;
-            }
 
-            return true;
-        }
+                if (_bindingSourceProjetoPessoa.Count <= 0)
+                {
+                    MessageBox.Show("O cadastro de projeto deve conter ao menos um lancamento de Participantes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tbParticipantes.Select();
+                    return false;
+                }
 
-        private void EnviarInformacoesObjeto()
-        {
-            try
-            {
-                projetosRegraNegocio.entidade.NOME = txtNome.Text;
-                projetosRegraNegocio.entidade.GERENTE = Convert.ToInt64(cboGerenteProjeto.SelectedValue);
-                projetosRegraNegocio.entidade.TEMPOPREVISTOCONCLUSAO = Convert.ToDecimal(txtPrazoConclusao.Text);
-                projetosRegraNegocio.entidade.INVESTIMENTOPREVISTO = Convert.ToDecimal(txtInvestimentoPrevisto.Text);
-
-                projetosRegraNegocio.entidade.APOIOALTAGESTAO = cboApoioAltaGestao.SelectedIndex + 1;
-                projetosRegraNegocio.entidade.APOIOSTEAKHOLDERS = cboApoioSteakholders.SelectedIndex + 1;
-                projetosRegraNegocio.entidade.CAPACIDADEENTREGAEQUIPE = cboCapacidadeEntregaEquipe.SelectedIndex + 1;
-
-                projetosRegraNegocio.entidade.DESCRICAO = txtDescricao.Text;
-                projetosRegraNegocio.entidade.OBSERVACAO = txtDescricao.Text;
-
-                if (rbEsforcoAdicionalAte10porCento.Checked)
-                    projetosRegraNegocio.entidade.ESFORCOADICIONAL = 1;
-
-                else if (rbEsforcoAdicional11A20PorCento.Checked)
-                    projetosRegraNegocio.entidade.ESFORCOADICIONAL = 2;
-
-                else if (rbEsforcoAdicional21A40PorCento.Checked)
-                    projetosRegraNegocio.entidade.ESFORCOADICIONAL = 3;
-
-                else if (rbEsforcoAdicionalAcima40PorCento.Checked)
-                    projetosRegraNegocio.entidade.ESFORCOADICIONAL = 4;
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                throw ex;
             }
         }
 
-        private void EnviarInformacoesObjetoReceitaDespesa()
+        private bool ValidarInformacoesProjetoReceitaVariavel()
         {
-            projetosRegraNegocio.receitaDespesa.DATAPERIODO = dtpFluxoCaixaPeriodo.Value;
-            projetosRegraNegocio.receitaDespesa.TIPO = cboFluxoTipo.SelectedItem.ToString();
-            projetosRegraNegocio.receitaDespesa.VALOR = Convert.ToDecimal(txtFluxoValor.Text);
-            projetosRegraNegocio.receitaDespesa.OBSERVACOES = txtFluxoObservacoes.Text;
+            try
+            {
+
+                if (dtpReceitaVariavelPeriodo.Value.Date < DateTime.Now.Date)
+                {
+                    MessageBox.Show("O periodo do fluxo de caixa do projeto deve ser maior ou igual a data atual", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dtpReceitaVariavelPeriodo.Focus();
+                    return false;
+                }
+
+                if (cboReceitaVariavelFluxo.SelectedIndex < 0)
+                {
+                    MessageBox.Show("E necessario informar o tipo do fluxo a ser cadastrado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cboReceitaVariavelFluxo.Focus();
+                    return false;
+                }
+
+                decimal valorFluxoCaixa;
+                if (!Decimal.TryParse(txtReceitaVariavelValor.Text, out valorFluxoCaixa))
+                {
+                    MessageBox.Show("O campo Valor do fluxo de caixa digitado e vazio ou possui um valor invalido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtReceitaVariavelValor.Focus();
+                    return false;
+                }
+
+
+                if (txtReceitaVariavelObservacoes.Text == String.Empty)
+                {
+                    MessageBox.Show("O campo Observacoes do fluxo de caixa nao pode ser vazio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtReceitaVariavelObservacoes.Focus();
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
-        private void EnviarInformacoesObjetoParticipantesProjeto()
+        private bool ValidarInformacoesProjetoPessoa()
         {
-            projetosRegraNegocio.participanteProjeto.IDPESSOA = Convert.ToInt64(cboParticipantesPessoas.SelectedValue);
-            projetosRegraNegocio.participanteProjeto.OCUPACAO = txtParticipantesOcupacao.Text;
-            projetosRegraNegocio.participanteProjeto.OBSERVACOES = txtParticipantesObservacoes.Text;
-            projetosRegraNegocio.participanteProjeto.DATAINGRESSO = dtpParticipantesIngresso.Value;
+            if (_objectPesquisaProjetoPessoaParticipante is null)
+            {
+                MessageBox.Show("Deve ser informado a Pessoa para cadastrar o participante.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnProjetoPessoaPesquisaPessoa.Focus();
+                return false;
+            }
+
+
+            if (txtProjetoPessoaOcupacao.Text == String.Empty)
+            {
+                MessageBox.Show("O campo Ocupacao deve ser preenchido para cadastrar o participante.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtProjetoPessoaOcupacao.Focus();
+                return false;
+            }
+
+
+            if (txtProjetoPessoaObservacoes.Text == String.Empty)
+            {
+                MessageBox.Show("O campo Observacoes deve ser preenchido para cadastrar o participante.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtProjetoPessoaObservacoes.Focus();
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+        private void CarregarObjetosPesquisa()
+        {
+            try
+            {
+                if (!(_currentObject is null))
+                {
+                    if (!(_currentObject.EntityObject.GERENTEPROJETO is null))
+                        _objectPesquisaGerente = new RegraNegocio.View.Pessoas.ViewPessoa(_currentObject.EntityObject.GERENTEPROJETO);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void CarregarObjetosPesquisaProjetoReceitaVariavel()
+        {
+
+        }
+
+        private void CarregarObjetosPesquisaProjetoPessoa()
+        {
+            try
+            {
+
+                if (!(_currentObjectProjetoPessoa is null))
+                {
+                    if (!(_currentObjectProjetoPessoa.EntityObject.PESSOA is null))
+                        _objectPesquisaProjetoPessoaParticipante = new RegraNegocio.View.Pessoas.ViewPessoa(_currentObjectProjetoPessoa.EntityObject.PESSOA);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        private void frmCadastroProjetos_Load(object sender, EventArgs e)
+        {
+            MudarStatusInformacao(StatusInformacao.SEMACAO);
+            MudarStatusInformacaoProjetoReceitaVariavel(StatusInformacao.SEMACAO);
+            MudarStatusInformacaoProjetoPessoa(StatusInformacao.SEMACAO);
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cadastros.Pesquisa.frmPesquisaProjeto frmPesquisaProjeto = new Cadastros.Pesquisa.frmPesquisaProjeto();
+
+                _currentObject = frmPesquisaProjeto.ShowDialogResultObjectSearch();
+
+                if (_currentObject is null && !(_bindingSource.Current is null))
+                    _currentObject = (_bindingSource.Current as ObjectView<RegraNegocio.View.Projetos.ViewProjeto>).Object;
+
+                if (!(_currentObject is null))
+                {
+                    CarregarInformacoesGerais();
+                    CarregarInformacoesGeraisProjetoReceitaVariavel();
+                    CarregarInformacoesGeraisProjetoPessoa();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             try
             {
-                projetosRegraNegocio.Incluir();
-                LimparCampos();
+                _currentObject = new RegraNegocio.View.Projetos.ViewProjeto(projetosRegraNegocio.Insert());
+
+                _bindingSource.SuspendBinding();
                 MudarStatusInformacao(StatusInformacao.INCLUSAO);
-                txtCodigo.Text = "0";
+                DesabilitarDataBindingComponentes();
+
+                CarregarInformacoesGeraisProjetoReceitaVariavel();
+                CarregarInformacoesGeraisProjetoPessoa();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                throw ex;
+            }
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (!(_currentObject is null))
+                {
+                    projetosRegraNegocio.Update(_currentObject.EntityObject);
+                    MudarStatusInformacao(StatusInformacao.ALTERACAO);
+
+                    CarregarObjetosPesquisa();
+                    DesabilitarDataBindingComponentes();
+
+                    CarregarInformacoesGeraisProjetoReceitaVariavel();
+                    CarregarInformacoesGeraisProjetoPessoa();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show(String.Format("Deseja realmente cancelar a {0} das informações?", (_statusInformacao.Equals(StatusInformacao.INCLUSAO) ? ("INCLUSÃO") : ("ALTERAÇÃO"))), "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    projetosRegraNegocio.RollBackLastOperation();
+
+                    receitaVariavelRegraNegocio.RollBack();
+                    projetoPessoaRegraNegocio.RollBack();
+
+                    if (_statusInformacao == StatusInformacao.INCLUSAO)
+                        _currentObject = null;
+
+                    CarregarInformacoesGerais();
+                    CarregarInformacoesGeraisProjetoReceitaVariavel();
+                    CarregarInformacoesGeraisProjetoPessoa();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnReceitaVariavelIncluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentObjectProjetoRececeitaVariavel = new RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel(receitaVariavelRegraNegocio.Insert());
+
+                _bindingSourceReceitaVariavel.SuspendBinding();
+                MudarStatusInformacaoProjetoReceitaVariavel(StatusInformacao.INCLUSAO);
+
+                DesabilitarDataBindingComponentesProjetoReceitaVariavel();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void btnReceitaVariavelEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!(_currentObjectProjetoRececeitaVariavel is null))
+                {
+                    receitaVariavelRegraNegocio.Update(_currentObjectProjetoRececeitaVariavel.EntityObject);
+                    MudarStatusInformacaoProjetoReceitaVariavel(StatusInformacao.ALTERACAO);
+
+                    CarregarObjetosPesquisaProjetoReceitaVariavel();
+
+                    DesabilitarDataBindingComponentesProjetoReceitaVariavel();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnReceitaVariavelExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!(_currentObjectProjetoRececeitaVariavel is null))
+                {
+                    receitaVariavelRegraNegocio.Delete(_currentObjectProjetoRececeitaVariavel.EntityObject);
+                    CarregarInformacoesGeraisProjetoReceitaVariavel();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnReceitaVariavelCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentObjectProjetoRececeitaVariavel = null;
+                receitaVariavelRegraNegocio.RollBackLastOperation();
+                CarregarInformacoesGeraisProjetoReceitaVariavel();
+                HabilitarDataBindingComponentesProjetoReceitaVariavel();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void btnProjetoPessoaPesquisaPessoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cadastros.Pesquisa.frmPesquisaPessoa frmPesquisaPessoa = new Cadastros.Pesquisa.frmPesquisaPessoa();
+
+                _objectPesquisaProjetoPessoaParticipante = frmPesquisaPessoa.ShowDialogResultObjectSearch();
+
+                if (!(_objectPesquisaProjetoPessoaParticipante is null))
+                {
+                    txtProjetoPessoaCodPessoa.Text = _objectPesquisaProjetoPessoaParticipante.Id.ToString();
+                    txtProjetoPessoaNome.Text = _objectPesquisaProjetoPessoaParticipante.Nome;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnProjetoPessoaIncluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentObjectProjetoPessoa = new RegraNegocio.View.Projetos.ViewProjetoPessoa(projetoPessoaRegraNegocio.Insert());
+
+                _bindingSourceProjetoPessoa.SuspendBinding();
+                MudarStatusInformacaoProjetoPessoa(StatusInformacao.INCLUSAO);
+
+                DesabilitarDataBindingComponentesProjetoPessoa();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnProjetoPessoaEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!(_currentObjectProjetoPessoa is null))
+                {
+                    projetoPessoaRegraNegocio.Update(_currentObjectProjetoPessoa.EntityObject);
+                    MudarStatusInformacaoProjetoPessoa(StatusInformacao.ALTERACAO);
+
+                    CarregarObjetosPesquisaProjetoPessoa();
+
+                    DesabilitarDataBindingComponentesProjetoPessoa();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnprojetoPessoaExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!(_currentObjectProjetoPessoa is null))
+                {
+                    projetoPessoaRegraNegocio.Delete(_currentObjectProjetoPessoa.EntityObject);
+                    CarregarInformacoesGeraisProjetoPessoa();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnprojetoPessoaSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    if (ValidarInformacoesProjetoPessoa())
+                    {
+                        AtualizarInformacoesCurrentObjectProjetoPessoa();
+                        CarregarInformacoesGeraisProjetoPessoa();
+                        HabilitarDataBindingComponentesProjetoPessoa();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private void btnReceitaVariavelSalvar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidarInformacoesProjetoReceitaVariavel())
+                {
+                    AtualizarInformacoesCurrentObjectProjetoReceitaVariavel();
+                    CarregarInformacoesGeraisProjetoReceitaVariavel();
+                    HabilitarDataBindingComponentesProjetoReceitaVariavel();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnProjetoPessoaCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _currentObjectProjetoPessoa = null;
+                projetoPessoaRegraNegocio.RollBackLastOperation();
+                CarregarInformacoesGeraisProjetoPessoa();
+                HabilitarDataBindingComponentesProjetoPessoa();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -721,254 +1165,141 @@ namespace projProjetos.Forms
             {
                 if (ValidarInformacoes())
                 {
-                    MudarStatusInformacao(StatusInformacao.SELECAO);
-                    EnviarInformacoesObjeto();
+                    AtualizarInformacoesCurrentObject();
 
-                    projetosRegraNegocio.Salvar();
+                    projetosRegraNegocio.Commit();
+                    receitaVariavelRegraNegocio.Commit();
+                    projetoPessoaRegraNegocio.Commit();
+
+                    HabilitarDataBindingComponentes();
+                    HabilitarDataBindingComponentesProjetoReceitaVariavel();
+                    HabilitarDataBindingComponentesProjetoPessoa();
 
                     CarregarInformacoesGerais();
+                    CarregarInformacoesGeraisProjetoReceitaVariavel();
+                    CarregarInformacoesGeraisProjetoPessoa();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
             }
         }
 
-        private void dtgPrincipal_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgReceitaVariavel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                if (dtgPrincipal.SelectedRows.Count > 0)
+                if (dtgReceitaVariavel.SelectedRows.Count > 0)
                 {
-                    switch (dtgPrincipal.Columns[e.ColumnIndex].Name)
-                    {
-                        case "dtgPrincipalBtnEditar":
-                            btnAlterar_Click(btnAlterar, new EventArgs());
-                            break;
+                    if (dtgReceitaVariavel.Columns[e.ColumnIndex].Name == "dtgReceitaVariavelBtnEditar")
+                        btnReceitaVariavelEditar_Click(btnReceitaVariavelEditar, new EventArgs());
 
-                        case "dtgPrincipalBtnInativar":
-                            btnInativar_Click(btnInativar, new EventArgs());
-                            break;
-                        default:
-                            MudarStatusInformacao(StatusInformacao.SELECAO);
-                            CarregarInformacoes();
-                            break;
-                    }
+                    if (dtgReceitaVariavel.Columns[e.ColumnIndex].Name == "dtgReceitaVariavelBtnExcluir")
+                        btnReceitaVariavelExcluir_Click(btnReceitaVariavelExcluir, new EventArgs());
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
+            }
+        }
+
+        private void btnPesquisaGerenteProjeto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cadastros.Pesquisa.frmPesquisaPessoa frmPesquisaPessoa = new Pesquisa.frmPesquisaPessoa();
+
+                _objectPesquisaGerente = frmPesquisaPessoa.ShowDialogResultObjectSearch();
+
+                if (!(_objectPesquisaGerente is null))
+                {
+                    txtCodigoGerente.Text = _objectPesquisaGerente.Id.ToString();
+                    txtNomeGerenteProjeto.Text = _objectPesquisaGerente.Nome.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void _bindingSourceReceitaVariavel_CurrentChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //se o objecto corrent do bindingsourcereceitavariavel for diferente de nulo, atribui ao _currentObject projeto receita variavel, se não atribui null
+                if (!(_bindingSourceReceitaVariavel.Current is null))
+                    _currentObjectProjetoRececeitaVariavel = (_bindingSourceReceitaVariavel.Current as ObjectView<RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel>).Object;
+                else
+                    _currentObjectProjetoRececeitaVariavel = null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void _bindingSourceProjetoPessoa_CurrentChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //se o objecto corrent do bindingSourceProjetoPessoa for diferente de nulo, atribui ao _currentObjectProjetopessoa, se não atribui null
+                if (!(_bindingSourceProjetoPessoa.Current is null))
+                    _currentObjectProjetoPessoa = (_bindingSourceProjetoPessoa.Current as ObjectView<RegraNegocio.View.Projetos.ViewProjetoPessoa>).Object;
+                else
+                    _currentObjectProjetoPessoa = null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
         private void btnInativar_Click(object sender, EventArgs e)
         {
-            CarregarInformacoes();
-            MudarStatusInformacao(StatusInformacao.SELECAO);
-
-            if (!(MessageBox.Show(String.Format("Deseja realmente {0} o cadastro \n" +
-                                               "ID: {1} \n" +
-                                               "Nome: {2} ?", (projetosRegraNegocio.entidade.STATUS >= (byte)1) ? ("INATIVAR") : ("ATIVAR"),
-                                               projetosRegraNegocio.entidade.ID, projetosRegraNegocio.entidade.NOME), "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+            try
             {
-                return;
-            }
-
-            projetosRegraNegocio.MudarStatus();
-            CarregarInformacoesGerais();
-        }
-
-        private void btnAlterar_Click(object sender, EventArgs e)
-        {
-            if (dtgPrincipal.SelectedRows.Count > 0)
-            {
-                CarregarInformacoes();
-                MudarStatusInformacao(StatusInformacao.ALTERACAO);
-            }
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(String.Format("Deseja realmente cancelar a {0} das informações?", (statusInformacao.Equals(StatusInformacao.INCLUSAO) ? ("INCLUSÃO") : ("ALTERAÇÃO"))), "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                CarregarInformacoesGerais();
-        }
-
-        private void dtgFluxoCaixaProjeto_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dtgFluxoCaixaProjeto.SelectedRows.Count > 0)
-            {
-                switch (dtgFluxoCaixaProjeto.Columns[e.ColumnIndex].Name)
+                if (MessageBox.Show("Deseja realmente " + btnInativar.Text + " o registro {Id =" + _currentObject.Id + " Nome = " + _currentObject.Nome + "} ?", "Mudar Status",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    case "dtgFluxoCaixaProjetoBtnEditar":
-                        btnFluxoEditar_Click(btnFluxoEditar, new EventArgs());
-                        break;
+                    projetosRegraNegocio.ChangeState(_currentObject.EntityObject);
+                    projetosRegraNegocio.Commit();
 
-                    case "dtgFluxoCaixaProjetoBtnExcluir":
-                        btnFluxoExcluir_Click(btnFluxoExcluir, new EventArgs());
-                        break;
-                    default:
-                        MudarStatusInformacaoReceitasDespesasPrev(StatusInformacao.SELECAO);
-                        CarregarInformacoesReceitasDespesasPrevistas();
-                        break;
+                    CarregarInformacoesGerais();
+                    CarregarInformacoesGeraisProjetoReceitaVariavel();
+                    CarregarInformacoesGeraisProjetoPessoa(); 
                 }
             }
-        }
-
-        private void btnFluxoIncluir_Click(object sender, EventArgs e)
-        {
-            projetosRegraNegocio.IncluirReceitaDespesaVariavel();
-            LimparCamposReceitasDespesas();
-            MudarStatusInformacaoReceitasDespesasPrev(StatusInformacao.INCLUSAO);
-        }
-
-        private void btnFluxoEditar_Click(object sender, EventArgs e)
-        {
-            CarregarInformacoesReceitasDespesasPrevistas();
-            MudarStatusInformacaoReceitasDespesasPrev(StatusInformacao.ALTERACAO);
-        }
-
-        private void btnParticipanteIncluir_Click(object sender, EventArgs e)
-        {
-            projetosRegraNegocio.IncluirParticipanteProjeto();
-            LimparCamposParticipantesProjetos();
-            MudarStatusInformacaoParticipantesProjeto(StatusInformacao.INCLUSAO);
-        }
-
-        private void btnParticipanteEditar_Click(object sender, EventArgs e)
-        {
-            CarregarInformacoesParticipantesProjetos();
-            MudarStatusInformacaoParticipantesProjeto(StatusInformacao.ALTERACAO);
-        }
-
-        private void btnFluxoSalvar_Click(object sender, EventArgs e)
-        {
-            if (ValidarInformacoesReceitasDespesas())
+            catch (Exception ex)
             {
-                EnviarInformacoesObjetoReceitaDespesa();
-                projetosRegraNegocio.SalvarReceitaDespesaVariavel();
-                CarregarInformacoesGeraisReceitasDespesasVar(true);
+                throw ex;
             }
         }
 
-        private void frmProjetos_Load(object sender, EventArgs e)
+        private void dtgProjetoPessoa_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                CarregarInformacoesGerais();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnFluxoExcluir_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CarregarInformacoesReceitasDespesasPrevistas();
-
-                if (MessageBox.Show(String.Format("Deseja realmente excluir a {0} selecionada com a data de {1}?", projetosRegraNegocio.receitaDespesa.TIPO, projetosRegraNegocio.receitaDespesa.DATAPERIODO.ToShortDateString()), "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    projetosRegraNegocio.ExcluirReceitaDespesaVariavel();
-
-                CarregarInformacoesGeraisReceitasDespesasVar(true);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnParticipanteSalvar_Click(object sender, EventArgs e)
-        {
-            if (ValidarInformacoesParticipantesProjetos())
-            {
-                EnviarInformacoesObjetoParticipantesProjeto();
-                projetosRegraNegocio.SalvarParticipanteProjeto();
-                CarregarInformacoesGeraisParticipantesProjeto(true);
-            }
-        }
-
-        private void dtgFluxoCaixaProjeto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dtgParticipantes_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dtgParticipantes.SelectedRows.Count > 0)
-            {
-                switch (dtgParticipantes.Columns[e.ColumnIndex].Name)
+                if (dtgProjetoPessoa.SelectedRows.Count > 0)
                 {
-                    case "dtgParticipantesBtnEditar":
-                        btnParticipanteEditar_Click(btnParticipanteEditar, new EventArgs());
-                        break;
+                    if (dtgProjetoPessoa.Columns[e.ColumnIndex].Name == "dtgProjetoPessoaBtnEditar")
+                        btnProjetoPessoaEditar_Click(btnProjetoPessoaEditar, new EventArgs());
 
-                    case "dtgParticipantesBtnExcluir":
-                        btnParticipanteExcluir_Click(btnParticipanteExcluir, new EventArgs());
-                        break;
-                    default:
-                        MudarStatusInformacaoParticipantesProjeto(StatusInformacao.SELECAO);
-                        CarregarInformacoesParticipantesProjetos();
-                        break;
+                    if (dtgProjetoPessoa.Columns[e.ColumnIndex].Name == "dtgProjetoPessoaBtnExcluir")
+                        btnprojetoPessoaExcluir_Click(btnprojetoPessoaExcluir, new EventArgs());
                 }
             }
-        }
-
-        private void btnParticipanteExcluir_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                CarregarInformacoesParticipantesProjetos();
-
-                if (MessageBox.Show("Deseja realmente excluir o Participante selecionado?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    projetosRegraNegocio.ExcluirParticipanteProjeto();
-
-                CarregarInformacoesGeraisParticipantesProjeto(true);
-            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
             }
         }
+
+        private void _bindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
-
-    public enum StatusInformacao
-    {
-        INCLUSAO = 0,
-        ALTERACAO = 1,
-        SELECAO = 2,
-
-        EFETIVACAO = 3,
-        CANCELAMENTO = 4
-
-    }
-
-    /* alta probalideade de sucesso de 7 a 14
- * 15 a 17 - sucesso preocupante
- * acima de 17 - probabilidade de insucesso 
- */
-
-    /* de 0 a 99 meses */ /*integers */
-
-    /* VALIDAÇÃO 
-     * 1 E 2 MESES = 1.
-     * ENTRE 3 E 4 = 2
-     * ENTRE 5 A 8 = 3
-     * > 8 = 4 */
-
-
-    /*EQUAÇÃO:  DICE = D + (2 * I) + (2 * C1) + C2 + E;
-     * 
-     * {
-     *  D = DURAÇÃO;
-     *  E = ESFORÇO ADICIONAL;
-     *  I = CAPACIDADE DE ENTREGA;
-     *  C1 = APOIO DA ALTA GESTÃO;
-     *  C2 = APOIO DOS STEAKEHOLDERS.
-     * }
-     * */
 }

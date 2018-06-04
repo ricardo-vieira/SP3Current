@@ -17,7 +17,9 @@ namespace projProjetos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new projProjetos.Forms.Cadastros.frmPrincipal());
+            //Application.Run(new projProjetos.Forms.Cadastros.frmCadastroPessoas());
+
+            new projProjetos.Forms.Cadastros.frmCadastroPessoas().ShowDialog();
         }
     }
 }

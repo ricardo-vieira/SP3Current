@@ -9,10 +9,16 @@ namespace RegraNegocio.View.Pessoas
     /// <summary>
     /// Classe para representação de consulta de Pessoas
     /// </summary>
-    public class ViewPessoa : View.IView<EFDados.PESSOA>
+    public class ViewPessoa : View.ViewEntity<EFDados.PESSOA>
     {
-        public string  NOME { get; set; }
-        public string OBSERVACAO { get; set; }
-        public string STATUS { get; set; }
+        public long? Id { get => base.EntityObject.ID; }
+        public string Nome { get => base.EntityObject.NOME; }
+        public string Status { get => (base.EntityObject.STATUS == 1) ? ("ATIVO") : ("INATIVO"); }
+        public string Observacao { get => base.EntityObject.OBSERVACAO; }
+        public DateTime? DataCriacao { get => base.EntityObject.DATACRIACAO; }
+
+        public ViewPessoa(EFDados.PESSOA pessoa) : base(pessoa)
+        {
+        }
     }
 }

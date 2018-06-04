@@ -172,54 +172,21 @@ namespace RegraNegocio
             }
         }
 
-        public Binding.SortableBindingList<RegraNegocio.View.Projetos.ViewPautaProjetoCalculos> ListarProjetosCalculados()
+        public Binding.SortableBindingList<RegraNegocio.View.Projetos.ViewPautaProjeto> ListarProjetosCalculados()
         {
             try
             {
                 if (entidade != null && (entidade.SITUACAO.Equals("EFETIVADO") || entidade.PAUTAPROJETOS.Count > 0 && entidade.SITUACAO.Equals("CANCELADO")))
                 {
 
-                    Binding.SortableBindingList<View.Projetos.ViewPautaProjetoCalculos> listaProjetosCalculos;
+                    Binding.SortableBindingList<View.Projetos.ViewPautaProjeto> listaProjetosCalculos;
 
-                    listaProjetosCalculos = new Binding.SortableBindingList<View.Projetos.ViewPautaProjetoCalculos>(entidade.PAUTAPROJETOS.Select(x => new RegraNegocio.View.Projetos.ViewPautaProjetoCalculos
-                    {
-                        IDPAUTAPROJETOS = x.ID,
-                        NOME = x.PROJETO.NOME,
-                        TEMPOPREVISTOCONCLUSAO = x.TEMPOPREVISTOCONCLUSAO,
-                        GERENTEPROJETO = x.PROJETO.GERENTEPROJETO.NOME,
-                        DESCRICAO = x.PROJETO.DESCRICAO,
-                        INVESTIMENTOPREVISTO = x.INVESTIMENTOPREVISTO,
-                        RAZAORECEITAPERCENTUAL = x.RAZAORECEITAPERCENTUAL,
-                        RAZAORECEITAVALOR = x.RAZAORECEITAVALOR,
-                        RECEITACONSTANTE = x.RECEITACONSTANTE,
-
-                        TOTALVALORRECEITAPREVISTA = x.PAUTARECEITAVARIAVELs.Where(i => i.TIPO.Equals("RECEITA")).Sum(i => i.VALOR),
-                        TOTALVALORDESPESAPREVISTA = x.PAUTARECEITAVARIAVELs.Where(i => i.TIPO.Equals("DESPESA")).Sum(i => i.VALOR),
-
-                        RESULTADOPAYBACK = x.RESULTADOPAYBACK,
-                        ORDEMRESULTADOPAYBACK = x.ORDEMRESULTADOPAYBACK,
-                        APROVACAORESULTADOPAYBACK = x.APROVACAORESULTADOPAYBACK,
-
-                        RESULTADOTAXAINTERNARETORNO = x.RESULTADOTAXAINTERNARETORNO,
-                        ORDEMRESULTADOTAXAINTERNARETORNO = x.ORDEMRESULTADOTAXAINTERNARETORNO,
-                        APROVACAORESULTADOTAXAINTERNARETORNO = x.APROVACAORESULTADOTAXAINTERNARETORNO,
-
-                        RESULTADOVALORPRESENTELIQUIDO = x.RESULTADOVALORPRESENTELIQUIDO,
-                        ORDEMRESULTADOVALORPRESENTELIQUIDO = x.ORDEMRESULTADOVALORPRESENTELIQUIDO,
-                        APROVACAORESULTADOVALORPRESENTELIQUIDO = x.APROVACAORESULTADOVALORPRESENTELIQUIDO,
-                        RESULTADODICE = RetornarStatusDice(Convert.ToInt16(x.RESULTADODICE)),
-                        ORDEMRESULTADODICE = x.ORDEMRESULTADODICE,
-                        APROVACAORESULTADODICE = x.APROVACAORESULTADODICE,
-
-                        RESULTADOAHP = x.RESULTADOAHP,
-                        ORDEMRESULTADOAHP = x.ORDEMRESULTADOAHP,
-                        APROVACAORESULTADOAHP = x.APROVACAORESULTADOAHP
-                    }).ToList());
+                    listaProjetosCalculos = new Binding.SortableBindingList<View.Projetos.ViewPautaProjeto>(entidade.PAUTAPROJETOS.Select(x => new RegraNegocio.View.Projetos.ViewPautaProjeto(x)).ToList());
 
                     return listaProjetosCalculos;
                 }
                 else
-                    return new Binding.SortableBindingList<View.Projetos.ViewPautaProjetoCalculos>(new List<View.Projetos.ViewPautaProjetoCalculos>());
+                    return new Binding.SortableBindingList<View.Projetos.ViewPautaProjeto>(new List<View.Projetos.ViewPautaProjeto>());
 
             }
             catch (Exception ex)
@@ -228,30 +195,11 @@ namespace RegraNegocio
             }
         }
 
-        public List<View.Projetos.ViewPautaProjetos> ListarPautaProjeto()
+        public List<View.Projetos.ViewPautaProjeto> ListarPautaProjeto()
         {
             try
             {
-                return entidade.PAUTAPROJETOS.Select(x => new View.Projetos.ViewPautaProjetos
-                {
-                    ID = x.IDPROJETO,
-                    NOME = ctoProjetos.PROJETOS.AsEnumerable().First(z => z.ID.Equals(x.IDPROJETO)).NOME,
-                    DESCRICAO = ctoProjetos.PROJETOS.AsEnumerable().First(z => z.ID.Equals(x.IDPROJETO)).DESCRICAO,
-                    OBSERVACAO = ctoProjetos.PROJETOS.AsEnumerable().First(z => z.ID.Equals(x.IDPROJETO)).OBSERVACAO,
-                    GERENTEPROJETO = ctoProjetos.PROJETOS.AsEnumerable().First(z => z.ID.Equals(x.IDPROJETO)).GERENTEPROJETO.NOME,
-                    INVESTIMENTOPREVISTO = x.INVESTIMENTOPREVISTO,
-                    RECEITACONSTANTE = x.RECEITACONSTANTE,
-                    RAZAORECEITAPERCENTUAL = x.RAZAORECEITAPERCENTUAL,
-                    RAZAORECEITAVALOR = x.RAZAORECEITAVALOR,
-                    TEMPOPREVISTOCONCLUSAO = x.TEMPOPREVISTOCONCLUSAO,
-                    IDPAUTAPROJETOS = x.ID,
-                    CAPACIDADEENTREGAEQUIPE = x.CAPACIDADEENTREGAEQUPE,
-                    APOIOALTAGESTAO = x.APOIOALTAGESTAO,
-                    APOIOSTEAKHOLDERS = x.APOIOSTEAKHOLDERS,
-                    ESFORCOADICIONAL = x.ESFORCOADICIONAL,
-                    TOTALVALORDESPESAPREVISTA = x.PAUTARECEITAVARIAVELs.Where(z => z.TIPO.Equals("DESPESA")).Sum(z => z.VALOR),
-                    TOTALVALORRECEITAPREVISTA = x.PAUTARECEITAVARIAVELs.Where(z => z.TIPO.Equals("RECEITA")).Sum(z => z.VALOR)
-                }).ToList();
+                return entidade.PAUTAPROJETOS.Select(x => new View.Projetos.ViewPautaProjeto(x)).ToList();
             }
             catch (Exception ex)
             {
@@ -344,15 +292,7 @@ namespace RegraNegocio
             return null;
         }
 
-        private string RetornarStatusDice(int? dice)
-        {
-            if (dice > 17)
-                return "Probabilidade de insucesso. (" + dice + ") ";
-            else if (dice > 14)
-                return " Sucesso preocupante. (" + dice + ")";
-            else
-                return " Alta probabilidade de sucesso. (" + dice + ")";
-        }
+
 
         public void CalcularAHP()
         {

@@ -104,51 +104,16 @@ namespace projProjetos.Forms.Cadastros
             CarregarInformacoesReunioes();
         }
 
-        private void CarregarInformacoesPessoas()
-        {
-            try
-            {
-                RegraNegocio.CampoPessoas campo;
-                RegraNegocio.StatusCadastro status;
-
-                if (cboListaPessoas.SelectedItem != null && cboStatusPessoas.SelectedItem != null)
-                {
-                    Enum.TryParse<RegraNegocio.CampoPessoas>(cboListaPessoas.SelectedItem.ToString(), out campo);
-                    Enum.TryParse<RegraNegocio.StatusCadastro>(cboStatusPessoas.SelectedItem.ToString(), out status);
-
-                    dtgPessoas.DataSource = pessoaRegranegocio.Listar(campo, txtPesquisarPessoas.Text, status);
-
-                    dtgPessoas.Columns["dtgPessoasStatus"].DisplayIndex = 3;
-                    dtgPessoas.Columns["dtgPessoasBtnVisualizar"].DisplayIndex = 3;
-
-                    for (int i = 0; i < dtgPessoas.Rows.Count -1; i++)
-                    {
-                        if (i % 2 == 0)
-                            dtgPessoas.Rows[i].DefaultCellStyle.BackColor = Color.SkyBlue;
-                        else
-                            dtgPessoas.Rows[i].DefaultCellStyle.BackColor = Color.White;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void CarregarInformacoesProjetos()
         {
             try
             {
-                RegraNegocio.CampoProjetos campo;
-                RegraNegocio.StatusCadastro status;
+
 
                 if (cboListaProjetos.SelectedItem != null && cboStatusProjetos.SelectedItem != null)
                 {
-                    Enum.TryParse<RegraNegocio.CampoProjetos>(cboListaProjetos.SelectedItem.ToString(), out campo);
-                    Enum.TryParse<RegraNegocio.StatusCadastro>(cboStatusProjetos.SelectedItem.ToString(), out status);
 
-                    dtgprojetos.DataSource = projetoRegraNegocio.Listar(campo, txtPesquisarProjetos.Text, status);
+
 
                     dtgprojetos.Columns["dtgProjetosNome"].DisplayIndex = 1;
                     dtgprojetos.Columns["dtgProjetosGerente"].DisplayIndex = 2;
@@ -216,18 +181,6 @@ namespace projProjetos.Forms.Cadastros
         {
             try
             {
-                cboListaPessoas.DataSource = Enum.GetValues(typeof(RegraNegocio.CampoPessoas));
-                cboListaPessoas.SelectedIndex = 0;
-
-                cboStatusPessoas.DataSource = Enum.GetValues(typeof(RegraNegocio.StatusCadastro));
-                cboStatusPessoas.SelectedIndex = 0;
-
-                cboListaProjetos.DataSource = Enum.GetValues(typeof(RegraNegocio.CampoProjetos));
-                cboListaProjetos.SelectedIndex = 0;
-
-                cboStatusProjetos.DataSource = Enum.GetValues(typeof(RegraNegocio.StatusCadastro));
-                cboStatusProjetos.SelectedIndex = 0;
-
                 CarregarInformacoesReunioes();
             }
             catch (Exception ex)
@@ -240,7 +193,6 @@ namespace projProjetos.Forms.Cadastros
         {
             try
             {
-                CarregarInformacoesPessoas();
             }
             catch (Exception ex)
             {
@@ -250,12 +202,10 @@ namespace projProjetos.Forms.Cadastros
 
         private void cboStatusPessoas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CarregarInformacoesPessoas();
         }
 
         private void txtPesquisarPessoas_TextChanged(object sender, EventArgs e)
         {
-            CarregarInformacoesPessoas();
         }
 
         private void cboListaProjetos_SelectedIndexChanged(object sender, EventArgs e)

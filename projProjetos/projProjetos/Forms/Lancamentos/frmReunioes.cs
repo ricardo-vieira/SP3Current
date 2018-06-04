@@ -205,7 +205,7 @@ namespace projProjetos.Forms
 
                     txtDataHoraInclusao.Text = reuniaoRegraNegocio.entidade.DATACRIACAO.ToString();
 
-                    cboResponsavel.DataSource = pessoasRegraNegocio.Listar();
+                    cboResponsavel.DataSource = pessoasRegraNegocio.ToList();
                     cboResponsavel.SelectedValue = reuniaoRegraNegocio.entidade.RESPONSAVEL;
 
                     CarregarInformacoesGeraisPautaProjetos(true);
@@ -252,12 +252,12 @@ namespace projProjetos.Forms
                     else
                         reuniaoRegraNegocio.ListarPautaProjetos(Convert.ToInt64(dtgPautaProjetos.SelectedRows[0].Cells["dtgPautaProjetosTxtIdPautaProjeto"].Value));
 
-                    cboPautaProjeto.DataSource = projetoRegraNegocio.Listar();
+                    cboPautaProjeto.DataSource = projetoRegraNegocio.ToList();
                     cboPautaProjeto.SelectedValue = reuniaoRegraNegocio.pautaProjeto.IDPROJETO;
 
-                    projetoRegraNegocio.Listar(reuniaoRegraNegocio.pautaProjeto.IDPROJETO);
+                    //projetoRegraNegocio.ToList(reuniaoRegraNegocio.pautaProjeto.IDPROJETO);
 
-                    txtPautaGerente.Text = projetoRegraNegocio.entidade.GERENTEPROJETO.NOME;
+                    //txtPautaGerente.Text = projetoRegraNegocio.entidade.GERENTEPROJETO.NOME;
                     txtPautaInvestimentoPrevisto.Text = String.Format("R$ {0:0.00}", reuniaoRegraNegocio.pautaProjeto.INVESTIMENTOPREVISTO);
                     txtPautaTempoConclusao.Text = reuniaoRegraNegocio.pautaProjeto.TEMPOPREVISTOCONCLUSAO.ToString();
 
@@ -367,7 +367,7 @@ namespace projProjetos.Forms
             txtLocal.Clear();
             txtDescricaoPauta.Clear();
 
-            cboResponsavel.DataSource = pessoasRegraNegocio.Listar();
+            cboResponsavel.DataSource = pessoasRegraNegocio.ToList();
             cboResponsavel.SelectedItem = null;
 
             LimparCamposPautaProjetos();
@@ -375,7 +375,7 @@ namespace projProjetos.Forms
 
         private void LimparCamposPautaProjetos()
         {
-            cboPautaProjeto.DataSource = projetoRegraNegocio.Listar();
+            cboPautaProjeto.DataSource = projetoRegraNegocio.ToList();
             cboPautaProjeto.SelectedItem = null;
             txtPautaDataInclusao.Clear();
             txtPautaGerente.Clear();
@@ -691,11 +691,11 @@ namespace projProjetos.Forms
             {
                 if (cboPautaProjeto.SelectedItem != null)
                 {
-                    projetoRegraNegocio.Listar(Convert.ToInt64(cboPautaProjeto.SelectedValue));
+                    //projetoRegraNegocio.Listar(Convert.ToInt64(cboPautaProjeto.SelectedValue));
 
-                    txtPautaGerente.Text = projetoRegraNegocio.entidade.GERENTEPROJETO.NOME;
-                    txtPautaInvestimentoPrevisto.Text = String.Format("R$ {0:0.00}", projetoRegraNegocio.entidade.INVESTIMENTOPREVISTO);
-                    txtPautaTempoConclusao.Text = projetoRegraNegocio.entidade.TEMPOPREVISTOCONCLUSAO.ToString();
+                   // txtPautaGerente.Text = projetoRegraNegocio.entidade.GERENTEPROJETO.NOME;
+                    //txtPautaInvestimentoPrevisto.Text = String.Format("R$ {0:0.00}", projetoRegraNegocio.entidade.INVESTIMENTOPREVISTO);
+                    //txtPautaTempoConclusao.Text = projetoRegraNegocio.entidade.TEMPOPREVISTOCONCLUSAO.ToString();
                 }
             }
             catch (Exception ex)

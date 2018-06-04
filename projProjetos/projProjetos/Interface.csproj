@@ -54,6 +54,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedDataGridView, Version=0.1.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ADGV.0.1.0.10\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
       <HintPath>..\packages\CrystalDecisions.CrystalReports.Engine.1.0.0\lib\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
       <Private>True</Private>
@@ -71,6 +74,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Equin.ApplicationFramework.BindingListView, Version=1.4.5222.35545, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Equin.ApplicationFramework.BindingListView.1.4.5222.35545\lib\net40-Client\Equin.ApplicationFramework.BindingListView.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -86,11 +92,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ferramentas\ObjectFilter.cs" />
     <Compile Include="Forms\Cadastros\frmCadastroPessoas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Cadastros\frmCadastroPessoas.Designer.cs">
       <DependentUpon>frmCadastroPessoas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cadastros\Pesquisa\frmPesquisaPessoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cadastros\Pesquisa\frmPesquisaPessoa.Designer.cs">
+      <DependentUpon>frmPesquisaPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Cadastros\Pesquisa\frmPesquisaProjeto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Cadastros\Pesquisa\frmPesquisaProjeto.Designer.cs">
+      <DependentUpon>frmPesquisaProjeto.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -98,11 +117,11 @@
     <Compile Include="Forms\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Cadastros\frmCadastroprojetos.cs">
+    <Compile Include="Forms\Cadastros\frmCadastroProjetos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Cadastros\frmCadastroprojetos.Designer.cs">
-      <DependentUpon>frmCadastroprojetos.cs</DependentUpon>
+    <Compile Include="Forms\Cadastros\frmCadastroProjetos.Designer.cs">
+      <DependentUpon>frmCadastroProjetos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Gerencia\frmComparacoesCriterios.cs">
       <SubType>Form</SubType>
@@ -153,14 +172,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusInformacao.cs" />
     <EmbeddedResource Include="Forms\Cadastros\frmCadastroPessoas.resx">
       <DependentUpon>frmCadastroPessoas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cadastros\Pesquisa\frmPesquisaPessoa.resx">
+      <DependentUpon>frmPesquisaPessoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Cadastros\Pesquisa\frmPesquisaProjeto.resx">
+      <DependentUpon>frmPesquisaProjeto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Cadastros\frmCadastroprojetos.resx">
-      <DependentUpon>frmCadastroprojetos.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cadastros\frmCadastroProjetos.resx">
+      <DependentUpon>frmCadastroProjetos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Gerencia\frmComparacoesCriterios.resx">
       <DependentUpon>frmComparacoesCriterios.cs</DependentUpon>
@@ -206,6 +232,11 @@
       <DependentUpon>dsRelatorio.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\projProjetos.Forms.Cadastros.Pesquisa.Exemplo.datasource" />
+    <None Include="Properties\DataSources\RegraNegocio.View.Pessoas.ViewPessoa1.datasource" />
+    <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewProjeto.datasource" />
+    <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewProjetoPessoa.datasource" />
+    <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroPessoas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
@@ -50,18 +47,12 @@
             this.lblNome = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.Codigo = new System.Windows.Forms.Label();
-            this.dtgPrincipal = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OBSERVACOES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgPrincipalBtnEditar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dtgPrincipalBtnInativar = new System.Windows.Forms.DataGridViewImageColumn();
+            this._bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tspPrincipal.SuspendLayout();
             this.grbInformacoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tspPrincipal
@@ -142,13 +133,14 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
+            this.btnPesquisar.Image = global::projProjetos.Properties.Resources.pesquisa;
+            this.btnPesquisar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(68, 71);
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnPesquisar.Visible = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnSair
             // 
@@ -192,6 +184,7 @@
             // 
             // txtDataEdicao
             // 
+            this.txtDataEdicao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSource, "DataCriacao", true));
             this.txtDataEdicao.Location = new System.Drawing.Point(792, 13);
             this.txtDataEdicao.Mask = "00/00/0000 90:00";
             this.txtDataEdicao.Name = "txtDataEdicao";
@@ -202,6 +195,8 @@
             // 
             // txtObservacoes
             // 
+            this.txtObservacoes.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this._bindingSource, "OBSERVACAO", true));
+            this.txtObservacoes.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSource, "OBSERVACAO", true));
             this.txtObservacoes.Location = new System.Drawing.Point(106, 72);
             this.txtObservacoes.MaxLength = 1024;
             this.txtObservacoes.Multiline = true;
@@ -221,6 +216,8 @@
             // 
             // txtNome
             // 
+            this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this._bindingSource, "NOME", true));
+            this.txtNome.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSource, "NOME", true));
             this.txtNome.Location = new System.Drawing.Point(106, 44);
             this.txtNome.MaxLength = 100;
             this.txtNome.Name = "txtNome";
@@ -239,6 +236,8 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this._bindingSource, "ID", true));
+            this.txtCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSource, "ID", true));
             this.txtCodigo.Location = new System.Drawing.Point(106, 16);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.ReadOnly = true;
@@ -253,30 +252,6 @@
             this.Codigo.Size = new System.Drawing.Size(55, 16);
             this.Codigo.TabIndex = 0;
             this.Codigo.Text = "Código:";
-            // 
-            // dtgPrincipal
-            // 
-            this.dtgPrincipal.AllowUserToAddRows = false;
-            this.dtgPrincipal.AllowUserToDeleteRows = false;
-            this.dtgPrincipal.AllowUserToResizeColumns = false;
-            this.dtgPrincipal.AllowUserToResizeRows = false;
-            this.dtgPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgPrincipal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.NOME,
-            this.OBSERVACOES,
-            this.STATUS,
-            this.dtgPrincipalBtnEditar,
-            this.dtgPrincipalBtnInativar});
-            this.dtgPrincipal.Location = new System.Drawing.Point(16, 287);
-            this.dtgPrincipal.MultiSelect = false;
-            this.dtgPrincipal.Name = "dtgPrincipal";
-            this.dtgPrincipal.ReadOnly = true;
-            this.dtgPrincipal.RowHeadersVisible = false;
-            this.dtgPrincipal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgPrincipal.Size = new System.Drawing.Size(911, 318);
-            this.dtgPrincipal.TabIndex = 1;
-            this.dtgPrincipal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgPrincipal_CellClick);
             // 
             // dataGridViewImageColumn1
             // 
@@ -296,74 +271,15 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 30;
             // 
-            // ID
+            // _bindingSource
             // 
-            this.ID.DataPropertyName = "ID";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ID.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ID.HeaderText = "Código";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // NOME
-            // 
-            this.NOME.DataPropertyName = "NOME";
-            this.NOME.HeaderText = "Nome";
-            this.NOME.Name = "NOME";
-            this.NOME.ReadOnly = true;
-            this.NOME.Width = 250;
-            // 
-            // OBSERVACOES
-            // 
-            this.OBSERVACOES.DataPropertyName = "OBSERVACAO";
-            this.OBSERVACOES.HeaderText = "Observações";
-            this.OBSERVACOES.Name = "OBSERVACOES";
-            this.OBSERVACOES.ReadOnly = true;
-            this.OBSERVACOES.Width = 380;
-            // 
-            // STATUS
-            // 
-            this.STATUS.DataPropertyName = "STATUS";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.STATUS.DefaultCellStyle = dataGridViewCellStyle2;
-            this.STATUS.HeaderText = "Status";
-            this.STATUS.Name = "STATUS";
-            this.STATUS.ReadOnly = true;
-            // 
-            // dtgPrincipalBtnEditar
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            this.dtgPrincipalBtnEditar.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgPrincipalBtnEditar.HeaderText = "";
-            this.dtgPrincipalBtnEditar.Image = ((System.Drawing.Image)(resources.GetObject("dtgPrincipalBtnEditar.Image")));
-            this.dtgPrincipalBtnEditar.Name = "dtgPrincipalBtnEditar";
-            this.dtgPrincipalBtnEditar.ReadOnly = true;
-            this.dtgPrincipalBtnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgPrincipalBtnEditar.Width = 30;
-            // 
-            // dtgPrincipalBtnInativar
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
-            this.dtgPrincipalBtnInativar.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dtgPrincipalBtnInativar.HeaderText = "";
-            this.dtgPrincipalBtnInativar.Image = ((System.Drawing.Image)(resources.GetObject("dtgPrincipalBtnInativar.Image")));
-            this.dtgPrincipalBtnInativar.Name = "dtgPrincipalBtnInativar";
-            this.dtgPrincipalBtnInativar.ReadOnly = true;
-            this.dtgPrincipalBtnInativar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgPrincipalBtnInativar.Width = 30;
+            this._bindingSource.DataSource = typeof(RegraNegocio.View.Pessoas.ViewPessoa);
             // 
             // frmCadastroPessoas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 617);
-            this.Controls.Add(this.dtgPrincipal);
+            this.ClientSize = new System.Drawing.Size(939, 287);
             this.Controls.Add(this.grbInformacoes);
             this.Controls.Add(this.tspPrincipal);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -379,7 +295,7 @@
             this.tspPrincipal.PerformLayout();
             this.grbInformacoes.ResumeLayout(false);
             this.grbInformacoes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgPrincipal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,7 +310,6 @@
         private System.Windows.Forms.ToolStripButton btnPesquisar;
         private System.Windows.Forms.ToolStripButton btnSair;
         private System.Windows.Forms.GroupBox grbInformacoes;
-        private System.Windows.Forms.DataGridView dtgPrincipal;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.Label lblDataCriacao;
@@ -407,11 +322,6 @@
         private System.Windows.Forms.Label Codigo;
         private System.Windows.Forms.ToolStripButton btnSalvar;
         private System.Windows.Forms.ToolStripButton btnCancelar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NOME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OBSERVACOES;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
-        private System.Windows.Forms.DataGridViewImageColumn dtgPrincipalBtnEditar;
-        private System.Windows.Forms.DataGridViewImageColumn dtgPrincipalBtnInativar;
+        private System.Windows.Forms.BindingSource _bindingSource;
     }
 }
