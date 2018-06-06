@@ -82,6 +82,7 @@
             this.blnFiltrar.TabIndex = 16;
             this.blnFiltrar.Text = "Filtrar";
             this.blnFiltrar.UseVisualStyleBackColor = true;
+            this.blnFiltrar.Click += new System.EventHandler(this.blnFiltrar_Click_1);
             // 
             // label3
             // 

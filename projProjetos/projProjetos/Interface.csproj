@@ -172,7 +172,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StatusInformacao.cs" />
+    <Compile Include="Ferramentas\StatusInformacao.cs" />
     <EmbeddedResource Include="Forms\Cadastros\frmCadastroPessoas.resx">
       <DependentUpon>frmCadastroPessoas.cs</DependentUpon>
     </EmbeddedResource>

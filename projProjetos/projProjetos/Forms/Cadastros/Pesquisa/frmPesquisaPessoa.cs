@@ -23,14 +23,10 @@ namespace projProjetos.Forms.Cadastros.Pesquisa
 
         RegraNegocio.View.Pessoas.ViewPessoa _currentObject;
 
+
         public frmPesquisaPessoa()
         {
             InitializeComponent();
-        }
-
-        private void frmPesquisaPessoa_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void CarregarInformacoesGerais()
@@ -69,6 +65,97 @@ namespace projProjetos.Forms.Cadastros.Pesquisa
             }
         }
 
+        private bool ValidarFiltro()
+        {
+            long id;
+            if (txtCodigo.Text != String.Empty && !long.TryParse(txtCodigo.Text, out id))
+            {
+                MessageBox.Show("O valor digitado no campo Codigo e invalido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtCodigo.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void AdicionarFiltro(Expression<Predicate<RegraNegocio.View.Pessoas.ViewPessoa>> filtro, bool reiniciarFiltro = false)
+        {
+            try
+            {
+                if (_objectFilter is null || reiniciarFiltro)
+                {
+                    _objectFilter = new Ferramentas.ObjectFilter<RegraNegocio.View.Pessoas.ViewPessoa>(filtro);
+                }
+                else
+                {
+                    _objectFilter.AddPredicate(Ferramentas.ObjectFilterBinaryLogicalOperators.AND, filtro);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void ApplicarFiltro(bool filtroVazio = false)
+        {
+            try
+            {
+                if (filtroVazio)
+                    _objectFilter = null;
+
+                if (_objectFilter is null)
+                {
+                    _bindingListView.RemoveFilter();
+                    _bindingListView.Refresh();
+                }
+                else
+                {
+                    _bindingListView.ApplyFilter(_objectFilter.Filter);
+                    _bindingListView.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void CriarFiltro()
+        {
+            try
+            {
+                ApplicarFiltro(true);
+
+                if (txtCodigo.Text != String.Empty)
+                    AdicionarFiltro(x => x.Id == Convert.ToInt64(txtCodigo.Text.ToUpper()));
+
+                if (txtNome.Text != String.Empty)
+                    AdicionarFiltro(x => x.Nome.ToUpper().Contains(txtNome.Text));
+
+                if (cboStatus.SelectedIndex > 0)
+                    AdicionarFiltro(x => x.Status.ToUpper() == cboStatus.SelectedItem.ToString().ToUpper());
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        private void frmPesquisaPessoa_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                CarregarInformacoesGerais();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);;
+            }
+        }
+
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
             try
@@ -87,7 +174,7 @@ namespace projProjetos.Forms.Cadastros.Pesquisa
         {
             try
             {
-                CarregarInformacoesGerais();
+
                 ShowDialog();
 
                 return _currentObject;
@@ -101,18 +188,13 @@ namespace projProjetos.Forms.Cadastros.Pesquisa
 
         private void blnFiltrar_Click(object sender, EventArgs e)
         {
+
             try
             {
-                _objectFilter = new Ferramentas.ObjectFilter<RegraNegocio.View.Pessoas.ViewPessoa>();
-
-
-                if (txtNome.Text.Length > 0)
-                    _objectFilter.AddPredicate(Ferramentas.ObjectFilterLogicalOperators.AND, pessoa => pessoa.Nome.Contains(txtNome.Text));
-
-                if (_objectFilter.Count > 0)
+                if (ValidarFiltro())
                 {
-                    _bindingListView.ApplyFilter(_objectFilter.GetFilter());
-                    _bindingListView.Refresh();
+                    CriarFiltro();
+                    ApplicarFiltro();
                 }
             }
             catch (Exception ex)

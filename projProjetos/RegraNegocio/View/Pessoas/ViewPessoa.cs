@@ -12,9 +12,9 @@ namespace RegraNegocio.View.Pessoas
     public class ViewPessoa : View.ViewEntity<EFDados.PESSOA>
     {
         public long? Id { get => base.EntityObject.ID; }
-        public string Nome { get => base.EntityObject.NOME; }
+        public string Nome { get => base.EntityObject.NOME ?? String.Empty; }
         public string Status { get => (base.EntityObject.STATUS == 1) ? ("ATIVO") : ("INATIVO"); }
-        public string Observacao { get => base.EntityObject.OBSERVACAO; }
+        public string Observacao { get => base.EntityObject.OBSERVACAO ?? String.Empty; }
         public DateTime? DataCriacao { get => base.EntityObject.DATACRIACAO; }
 
         public ViewPessoa(EFDados.PESSOA pessoa) : base(pessoa)

@@ -292,15 +292,9 @@ namespace projProjetos.Forms.Cadastros
         {
             try
             {
-<<<<<<< HEAD
                 _currentObject = new RegraNegocio.View.Pessoas.ViewPessoa(pessoasRegraNegocio.Insert());
 
                 _bindingSource.SuspendBinding();
-=======
-                //
-                LimparCampos();
-                pessoasRegraNegocio.Incluir();
->>>>>>> 6ce9b7f3dbb083b45d786a4c04152d2f2156ec53
                 MudarStatusInformacao(StatusInformacao.INCLUSAO);
                 DesabilitarDataBindingComponentes();
 

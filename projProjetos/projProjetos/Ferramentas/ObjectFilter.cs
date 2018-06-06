@@ -8,16 +8,20 @@ using System.Threading.Tasks;
 
 namespace projProjetos.Ferramentas
 {
-    public class ObjectFilter<T> : List<PredicateOperator<T>>
+    public class ObjectFilter<T>
     {
+        PredicateOperator<T> _inicialPredicateOperator;
+        List<PredicateOperator<T>> _listPredicateExpression= new List<PredicateOperator<T>>();
 
-        public void AddPredicate(ObjectFilterLogicalOperators objectFilterLogicalOperator, Func<T, bool> predicate)
+        public ObjectFilter(Expression<Predicate<T>> initialPredicateParameter, bool negativeObjectFilterLogicalOperator = false)
         {
             try
             {
-                PredicateOperator<T> predicateOperator = new PredicateOperator<T> { objectfilterlocalOperator = objectFilterLogicalOperator, predicate = predicate };
+                this._inicialPredicateOperator = new PredicateOperator<T>
+                {
+                    predicate = initialPredicateParameter
+                };
 
-                base.Add(predicateOperator);
             }
             catch (Exception ex)
             {
@@ -25,88 +29,66 @@ namespace projProjetos.Ferramentas
             }
         }
 
-        public virtual Predicate<T> GetFilter()
+        public bool AddPredicate(ObjectFilterBinaryLogicalOperators objectFilterLogicalOperators, Expression<Predicate<T>> predicateParameter)
         {
             try
             {
-                if (base.Count > 0)
+                PredicateOperator<T> predicateOperator = new PredicateOperator<T>
                 {
-                    PredicateOperator<T> predicateOperator = this.ToList().ElementAt(0);
-                    Expression _finalExpression = Expression.Lambda<Func<T, bool>>(Expression.Call(predicateOperator.predicate.Method));
+                    objectfilterBinaryLogicalOperator = objectFilterLogicalOperators,
+                    predicate = predicateParameter
+                };
 
-                    for (int i = 0; i < base.Count; i++)
+                _listPredicateExpression.Add(predicateOperator);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public Predicate<T> Filter
+        {
+            get
+            {
+                Expression<Predicate<T>> resultExpression = _inicialPredicateOperator.predicate;
+                ParameterExpression parameter = _inicialPredicateOperator.predicate.Parameters.Single();
+
+                foreach (PredicateOperator<T> p in _listPredicateExpression)
+                {
+                    switch (p.objectfilterBinaryLogicalOperator)
                     {
-                        Expression nextExpression = Expression.Lambda<Func<T, bool>>(Expression.Call(base[i].predicate.Method));
+                        case ObjectFilterBinaryLogicalOperators.AND:
+                            resultExpression = Expression.Lambda<Predicate<T>>(Expression.And(resultExpression.Body, Expression.Invoke(p.predicate, parameter)), parameter);
+                            break;
 
-                        if (i == 0)
-                        {
-                            if (!(base[i].objectfilterlocalOperator is null) && base[i].objectfilterlocalOperator == ObjectFilterLogicalOperators.NOT)
-                                _finalExpression = CreateExpression(base[i].objectfilterlocalOperator, nextExpression, null);
-                            else
-                                _finalExpression = nextExpression;
-                        }
-                        else
-                            _finalExpression = CreateExpression(base[i].objectfilterlocalOperator, _finalExpression, nextExpression);
+                        case ObjectFilterBinaryLogicalOperators.OR:
+                            resultExpression = Expression.Lambda<Predicate<T>>(Expression.Or(resultExpression.Body, Expression.Invoke(p.predicate, parameter)), parameter);
+                            break;
+                        default:
+                            throw new Exception("Operador nao tratado pelo ObjectFilter");
                     }
 
-                    Predicate<T> predicateExpression = new Predicate<T>(Expression.Lambda<Func<T, bool>>(_finalExpression).Compile());
-
-                    return predicateExpression; 
                 }
 
-                throw new Exception("Não ha nenhum objeto na lista");
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+
+                return resultExpression.Compile();
             }
         }
 
-        protected Expression CreateExpression(ObjectFilterLogicalOperators? objectFilterLogicalOperator, Expression leftExpression, Expression rightExpression)
-        {
-            try
-            {
-
-                Expression returnExpression;
-
-                switch (objectFilterLogicalOperator)
-                {
-                    case ObjectFilterLogicalOperators.AND:
-
-                        returnExpression = Expression.And(leftExpression, rightExpression);
-                        break;
-                    case ObjectFilterLogicalOperators.OR:
-
-                        returnExpression = Expression.Or(leftExpression, rightExpression);
-                        break;
-                    case ObjectFilterLogicalOperators.NOT:
-
-                        returnExpression = Expression.Not(leftExpression);
-                        break;
-
-                    default:
-                        throw new ArgumentException("Operador lógico desconhecido ou não definido para este método.");
-                }
-
-                return returnExpression;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
     }
 
-    public enum ObjectFilterLogicalOperators
+
+    public enum ObjectFilterBinaryLogicalOperators
     {
         AND,
-        OR,
-        NOT
+        OR
     }
 
     public struct PredicateOperator<T>
     {
-        public ObjectFilterLogicalOperators? objectfilterlocalOperator;
-        public Func<T, bool> predicate;
+        public ObjectFilterBinaryLogicalOperators? objectfilterBinaryLogicalOperator;
+        public Expression<Predicate<T>> predicate;
     }
 }
