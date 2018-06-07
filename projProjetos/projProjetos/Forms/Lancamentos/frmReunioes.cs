@@ -190,7 +190,7 @@ namespace projProjetos.Forms
                 if (dtgPrincipal.SelectedRows.Count > 0)
                 {
                     MudarStatusInformacao(StatusInformacao.SELECAO);
-                    reuniaoRegraNegocio.Listar(Convert.ToInt64(dtgPrincipal.SelectedRows[0].Cells["dtgPrincipalTxtId"].Value));
+                    //reuniaoRegraNegocio.Listar(Convert.ToInt64(dtgPrincipal.SelectedRows[0].Cells["dtgPrincipalTxtId"].Value));
 
                     txtCodigo.Text = reuniaoRegraNegocio.entidade.ID.ToString();
                     txtDescricao.Text = reuniaoRegraNegocio.entidade.DESCRICAO.ToString();
@@ -276,7 +276,7 @@ namespace projProjetos.Forms
             try
             {
 
-                dtgPrincipal.DataSource = reuniaoRegraNegocio.Listar();
+                dtgPrincipal.DataSource = reuniaoRegraNegocio.ToList();
                 dtgPrincipal.Columns["btnEditar"].DisplayIndex = 7;
 
                 if (dtgPrincipal.Rows.Count > 0)
@@ -504,7 +504,7 @@ namespace projProjetos.Forms
             {
                 MudarStatusInformacao(StatusInformacao.INCLUSAO);
                 LimparCampos();
-                reuniaoRegraNegocio.Incluir();
+                reuniaoRegraNegocio.Insert();
                 txtCodigo.Text = 0.ToString();
                 CarregarInformacoesGeraisPautaProjetos(false);
                 CarregarInformaoesGeraisRankProjetos();
@@ -524,7 +524,7 @@ namespace projProjetos.Forms
                     MudarStatusInformacao(StatusInformacao.SELECAO);
                     EnviarInformacoesObjeto();
 
-                    reuniaoRegraNegocio.Salvar();
+                    reuniaoRegraNegocio.Commit();
                     CarregarInformacoesGerais();
                 }
             }
@@ -619,7 +619,7 @@ namespace projProjetos.Forms
                 if (MessageBox.Show("Deseja ralmente efetivar esta reunião?", "Efetivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     reuniaoRegraNegocio.MudarSituacao(RegraNegocio.SituacaoReuniao.EFETIVADO);
-                    reuniaoRegraNegocio.Salvar();
+                    reuniaoRegraNegocio.Commit();
                     CarregarInformacoesGerais();
                 }
             }
@@ -632,7 +632,7 @@ namespace projProjetos.Forms
             if (MessageBox.Show("Deseja realmente cancelar esta reunião?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 reuniaoRegraNegocio.MudarSituacao(RegraNegocio.SituacaoReuniao.CANCELADO);
-                reuniaoRegraNegocio.Salvar();
+                reuniaoRegraNegocio.Commit();
                 MudarStatusInformacao(StatusInformacao.SELECAO);
                 CarregarInformacoesGerais();
             }

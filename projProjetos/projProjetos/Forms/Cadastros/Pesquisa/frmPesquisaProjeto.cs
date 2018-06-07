@@ -153,6 +153,22 @@ namespace projProjetos.Forms.Cadastros.Pesquisa
             }
         }
 
+        private void ExecutarFiltro()
+        {
+            try
+            {
+                if (ValidarFiltro())
+                {
+                    CriarFiltro();
+                    ApplicarFiltro();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         private void btnSelecionar_Click(object sender, EventArgs e)
         {
@@ -204,15 +220,11 @@ namespace projProjetos.Forms.Cadastros.Pesquisa
             }
         }
 
-        private void blnFiltrar_Click_1(object sender, EventArgs e)
+        private void BlnFiltrar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (ValidarFiltro())
-                {
-                    CriarFiltro();
-                    ApplicarFiltro();
-                }
+                ExecutarFiltro();
             }
             catch (Exception ex)
             {

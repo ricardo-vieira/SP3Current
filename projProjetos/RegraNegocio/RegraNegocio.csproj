@@ -58,7 +58,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Binding\SortableBindingList.cs" />
     <Compile Include="Criterios.cs" />
     <Compile Include="Entidade.cs" />
     <Compile Include="Ferramentas\FrameworkDICE.cs" />

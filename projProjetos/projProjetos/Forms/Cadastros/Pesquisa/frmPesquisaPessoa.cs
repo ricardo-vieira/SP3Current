@@ -143,6 +143,21 @@ namespace projProjetos.Forms.Cadastros.Pesquisa
             }
         }
 
+        private void ExecutarFiltro()
+        {
+            try
+            {
+                if (ValidarFiltro())
+                {
+                    CriarFiltro();
+                    ApplicarFiltro();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         private void frmPesquisaPessoa_Load(object sender, EventArgs e)
         {
@@ -191,11 +206,7 @@ namespace projProjetos.Forms.Cadastros.Pesquisa
 
             try
             {
-                if (ValidarFiltro())
-                {
-                    CriarFiltro();
-                    ApplicarFiltro();
-                }
+                ExecutarFiltro();
             }
             catch (Exception ex)
             {

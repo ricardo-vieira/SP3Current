@@ -237,6 +237,7 @@
     <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewProjeto.datasource" />
     <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewProjetoPessoa.datasource" />
     <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel.datasource" />
+    <None Include="Properties\DataSources\RegraNegocio.View.Reunioes.ViewReuniao.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
