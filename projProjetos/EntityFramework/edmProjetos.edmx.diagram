@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7c9c40e1dd6e4d1e9dba5d1161a2bb90" Name="Diagram1" DisplayType="true">
+        <EntityTypeShape EntityType="dbProjetosModel.COMPETENCIA" Width="1.5" PointX="4.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetosModel.COMPETENCIASEXIGIDA" Width="1.5" PointX="6.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetosModel.PERFILUSUARIO" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetosModel.PERMISSO" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetosModel.PESSOACOMPETENCIA" Width="1.5" PointX="7" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetosModel.PESSOA" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetosModel.PROJETOSPESSOA" Width="1.5" PointX="9.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetosModel.REUNIOESPARTICIPANTE" Width="1.5" PointX="9.25" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbProjetosModel.USUARIO" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <AssociationConnector Association="dbProjetosModel.FK__COMPETENC__IDCOM__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProjetosModel.FK__PESSOACOM__IDCOM__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProjetosModel.FK__PERMISSOES__ID__1367E606" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProjetosModel.FK__USUARIOS__PERFIL__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProjetosModel.FK__PESSOACOM__IDPES__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProjetosModel.FK__PROJETOSP__IDPES__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="dbProjetosModel.FK__REUNIOESP__IDPES__3D5E1FD2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbProjetosModel.CRITERIO" Width="1.5" PointX="4" PointY="33.125" />
+        <EntityTypeShape EntityType="dbProjetosModel.CRITERIOSCOMPARACO" Width="1.5" PointX="6.25" PointY="36.375" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__CRITE__503BEA1C" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__CRITE__51300E55" />
+        <EntityTypeShape EntityType="dbProjetosModel.CRITERIOSPROJETOSCOMPARACO" Width="3" PointX="6.25" PointY="22.125" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDCRI__76619304" />
+        <EntityTypeShape EntityType="dbProjetosModel.CRITERIOSRESULTADO" Width="2.125" PointX="9.25" PointY="33.875" />
+        <EntityTypeShape EntityType="dbProjetosModel.CRITERIOSRESULTADOLISTA" Width="2.125" PointX="12.125" PointY="34.25" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDCRI__0880433F" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDCRI__0D44F85C" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDCRI__0C50D423" />
+        <EntityTypeShape EntityType="dbProjetosModel.CRITERIOSPROJETOSRESULTADO" Width="1.5" PointX="6.25" PointY="26" />
+        <EntityTypeShape EntityType="dbProjetosModel.CRITERIOSPROJETOSRESULTADOLISTA" Width="2.375" PointX="11.5" PointY="19.25" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDCRI__214BF109" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDCRI__2F9A1060" />
+        <EntityTypeShape EntityType="dbProjetosModel.RECEITAVARIAVEL" Width="1.5" PointX="6.25" PointY="32.75" />
+        <EntityTypeShape EntityType="dbProjetosModel.PAUTARECEITAVARIAVEL" Width="1.5" PointX="12.5" PointY="24.125" />
+        <EntityTypeShape EntityType="dbProjetosModel.PAUTAPROJETO" Width="1.5" PointX="14.25" PointY="16" />
+        <EntityTypeShape EntityType="dbProjetosModel.REUNIO" Width="1.5" PointX="3" PointY="25" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDREU__6ABAD62E" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDREU__52E34C9D" />
+        <AssociationConnector Association="dbProjetosModel.FK__PAUTAPROJ__IDREU__4830B400" />
+        <AssociationConnector Association="dbProjetosModel.FK__PAUTARECE__IDPAU__6F4A8121" />
+        <AssociationConnector Association="dbProjetosModel.FK__REUNIOES__RESPON__37A5467C" />
+        <AssociationConnector Association="dbProjetosModel.FK__REUNIOESP__IDREU__3C69FB99" />
+        <EntityTypeShape EntityType="dbProjetosModel.PROJETO" Width="1.5" PointX="3" PointY="17.125" />
+        <AssociationConnector Association="dbProjetosModel.FK__COMPETENC__IDPRO__2F10007B" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDPRO__7755B73D" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDPRO__7849DB76" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDPRO__68D28DBC" />
+        <AssociationConnector Association="dbProjetosModel.FK__CRITERIOS__IDPRO__308E3499" />
+        <AssociationConnector Association="dbProjetosModel.FK__PAUTAPROJ__IDPRO__4924D839" />
+        <AssociationConnector Association="dbProjetosModel.FK__PROJETOS__GERENT__267ABA7A" />
+        <AssociationConnector Association="dbProjetosModel.FK__PROJETOSP__IDPRO__2A4B4B5E" />
+        <AssociationConnector Association="dbProjetosModel.FK__RECEITAVA__IDPRO__2F650636" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
