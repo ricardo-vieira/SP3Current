@@ -7,61 +7,28 @@ using System.Reflection;
 
 namespace RegraNegocio.View
 {
-    public class IView<T> where T : class
+    public abstract class IView<T> where T : class
     {
-        private EFDados.dbProjetosEntities ctoProjetos;
-
         public long? ID { get; set; }
 
-        //public virtual T getRegistro()
-        //{
-        //    try
-        //    {
-        //        HashSet<T> entitie = getEntitie();
-        //        T registro = entitie.AsEnumerable().First(x => getVelueAtributeID((T)x) == ID);
-        //        return registro;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
 
-        //private HashSet<T> getEntitie()
-        //{
-        //    try
-        //    {
-        //        PropertyInfo[] atributosClasse = typeof(EFDados.dbProjetosEntities).GetProperties();
-        //        PropertyInfo tipoAtributo = atributosClasse.First(x => x.GetType().Equals(typeof(HashSet<T>)));
+        private T _entityObject;
+        public T EntityObject { get => _entityObject; }
 
-        //        //HashSet<T> entidade = tipoAtributo.GetValue(ctoProjetos) as HashSet<T>;
-
-        //        return entidade;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
-
-        /*private long? getVelueAtributeID(T registro)
+        public IView()
+        {
+        }
+        public IView(T entityObject)
         {
             try
             {
-                PropertyInfo[] atributosClasse = typeof(T).GetProperties();
-
-                if (atributosClasse.Any(x => x.Name.Equals("ID")))
-                {
-                    PropertyInfo propriedade = atributosClasse.First(x => x.Name.Equals("ID"));
-                    return Convert.ToInt64(propriedade.GetValue(registro));
-                }
-
-                return null;
+                _entityObject = entityObject;
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
             }
-        }*/
+        }
     }
+
 }

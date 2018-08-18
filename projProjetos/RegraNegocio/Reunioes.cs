@@ -6,88 +6,17 @@ using System.Threading.Tasks;
 
 namespace RegraNegocio
 {
-    public class Reunioes : Entidade
+    public class Reunioes : EFDados.Entity<EFDados.REUNIO>
     {
         public EFDados.REUNIO entidade;
         public EFDados.PAUTAPROJETO pautaProjeto;
+        private EFDados.dbProjetosEntities ctoProjetos = new EFDados.dbProjetosEntities();
 
-        public List<RegraNegocio.View.Reunioes.ViewReuniao> Listar()
+        public List<RegraNegocio.View.Reunioes.ViewReuniao> ToList()
         {
             try
             {
-                return ctoProjetos.REUNIOES.Select(i => new RegraNegocio.View.Reunioes.ViewReuniao
-                {
-                    ID = i.ID,
-                    DESCRICAO = i.DESCRICAO,
-                    DATAHORAEVENTO = i.DATAHORAEVENTO,
-                    RESPONSAVEL = i.PESSOA.NOME,
-                    LOCAL = i.LOCAL,
-                    PAUTADESCRICAO = i.PAUTADESCRICAO,
-                    PAYBACKACEITAVEL = i.PAYBACKACEITAVEL,
-                    QUANTIDADEPROJETOSPAUTA = i.PAUTAPROJETOS.Count,
-                    TAXAREMUNERACAOMERCADO = i.TAXAREMUNERACAOMERCADO,
-                    SITUACAO = i.SITUACAO
-                }).ToList();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        public List<RegraNegocio.View.Reunioes.ViewReuniao> Listar(long? IdReuniao, DateTime dataPeriodo, params SituacaoReuniao[] situacao)
-        {
-            try
-            {
-                List<SituacaoReuniao> situacaoReuniao = situacao.ToList();
-
-                if (IdReuniao.Equals(null))
-                {
-                    List<RegraNegocio.View.Reunioes.ViewReuniao> resultado;
-
-                    resultado = ctoProjetos.REUNIOES.AsEnumerable()
-                                                    .Where(x => x.DATAHORAEVENTO.Value.Date == dataPeriodo.Date
-                                                                && (x.SITUACAO.Equals("EM OPERAÇÃO") && situacaoReuniao.Contains(SituacaoReuniao.OPERAÇÃO)
-                                                                    || x.SITUACAO.Equals("EFETIVADO") && situacaoReuniao.Contains(SituacaoReuniao.EFETIVADO)
-                                                                    || x.SITUACAO.Equals("CANCELADO") && situacaoReuniao.Contains(SituacaoReuniao.CANCELADO)))
-                                                    .Select(i => new View.Reunioes.ViewReuniao
-                                                    {
-                                                        ID = i.ID,
-                                                        DESCRICAO = i.DESCRICAO,
-                                                        DATAHORAEVENTO = i.DATAHORAEVENTO,
-                                                        RESPONSAVEL = i.PESSOA.NOME,
-                                                        LOCAL = i.LOCAL,
-                                                        PAUTADESCRICAO = i.PAUTADESCRICAO,
-                                                        PAYBACKACEITAVEL = i.PAYBACKACEITAVEL,
-                                                        QUANTIDADEPROJETOSPAUTA = i.PAUTAPROJETOS.Count,
-                                                        TAXAREMUNERACAOMERCADO = i.TAXAREMUNERACAOMERCADO,
-                                                        SITUACAO = i.SITUACAO
-                                                    }).ToList();
-
-                    return resultado;
-                }
-
-                return ctoProjetos.REUNIOES.AsEnumerable()
-                                            .Where(x => x.ID.Equals(IdReuniao) 
-                                                        && (x.SITUACAO.Equals("EM OPERAÇÃO") && situacaoReuniao.Contains(SituacaoReuniao.OPERAÇÃO)
-                                                                    || x.SITUACAO.Equals("EFETIVADO") && situacaoReuniao.Contains(SituacaoReuniao.EFETIVADO)
-                                                                    || x.SITUACAO.Equals("CANCELADO") && situacaoReuniao.Contains(SituacaoReuniao.CANCELADO)))
-                                            .Select(i => new View.Reunioes.ViewReuniao
-                                            {
-                                                ID = i.ID,
-                                                DESCRICAO = i.DESCRICAO,
-                                                DATAHORAEVENTO = i.DATAHORAEVENTO,
-                                                RESPONSAVEL = i.PESSOA.NOME,
-                                                LOCAL = i.LOCAL,
-                                                PAUTADESCRICAO = i.PAUTADESCRICAO,
-                                                PAYBACKACEITAVEL = i.PAYBACKACEITAVEL,
-                                                QUANTIDADEPROJETOSPAUTA = i.PAUTAPROJETOS.Count,
-                                                TAXAREMUNERACAOMERCADO = i.TAXAREMUNERACAOMERCADO,
-                                                SITUACAO = i.SITUACAO
-                                            }).ToList();
-
-
-
+                return base.ToList().Select(x => new View.Reunioes.ViewReuniao(x)).ToList();
             }
             catch (Exception ex)
             {
@@ -95,53 +24,42 @@ namespace RegraNegocio
             }
         }
 
-        public void Listar(long Id)
+        public EFDados.REUNIO Insert()
         {
             try
             {
-                entidade = ctoProjetos.REUNIOES.FirstOrDefault(x => x.ID.Equals(Id));
+                return base.Insert();
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
             }
         }
 
-        public bool Incluir()
+        public EFDados.REUNIO Update(EFDados.REUNIO reuniao)
         {
             try
             {
-                entidade = new EFDados.REUNIO();
-                entidade.SITUACAO = "EM OPERAÇÃO";
-                entidade.AHPCALCULADO = 0;
-                return true;
+                return base.Update(reuniao);
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
             }
         }
 
-        public bool Salvar()
+        public bool Delete(EFDados.REUNIO reuniao)
         {
             try
             {
-                if (entidade.ID.Equals(0))
-                    ctoProjetos.REUNIOES.Add(entidade);
-
-                CalcularPriorizacao();
-                OrdenarValoresPriorizacao();
-
-                ctoProjetos.SaveChanges();
-
-                entidade = null;
-                return true;
+                return base.Delete(reuniao);
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
             }
         }
+
 
         public bool MudarSituacao(SituacaoReuniao situacao)
         {
@@ -172,54 +90,21 @@ namespace RegraNegocio
             }
         }
 
-        public Binding.SortableBindingList<RegraNegocio.View.Projetos.ViewPautaProjetoCalculos> ListarProjetosCalculados()
+        public List<RegraNegocio.View.Projetos.ViewPautaProjeto> ListarProjetosCalculados()
         {
             try
             {
                 if (entidade != null && (entidade.SITUACAO.Equals("EFETIVADO") || entidade.PAUTAPROJETOS.Count > 0 && entidade.SITUACAO.Equals("CANCELADO")))
                 {
 
-                    Binding.SortableBindingList<View.Projetos.ViewPautaProjetoCalculos> listaProjetosCalculos;
+                    List<View.Projetos.ViewPautaProjeto> listaProjetosCalculos;
 
-                    listaProjetosCalculos = new Binding.SortableBindingList<View.Projetos.ViewPautaProjetoCalculos>(entidade.PAUTAPROJETOS.Select(x => new RegraNegocio.View.Projetos.ViewPautaProjetoCalculos
-                    {
-                        IDPAUTAPROJETOS = x.ID,
-                        NOME = x.PROJETO.NOME,
-                        TEMPOPREVISTOCONCLUSAO = x.TEMPOPREVISTOCONCLUSAO,
-                        GERENTEPROJETO = x.PROJETO.GERENTEPROJETO.NOME,
-                        DESCRICAO = x.PROJETO.DESCRICAO,
-                        INVESTIMENTOPREVISTO = x.INVESTIMENTOPREVISTO,
-                        RAZAORECEITAPERCENTUAL = x.RAZAORECEITAPERCENTUAL,
-                        RAZAORECEITAVALOR = x.RAZAORECEITAVALOR,
-                        RECEITACONSTANTE = x.RECEITACONSTANTE,
-
-                        TOTALVALORRECEITAPREVISTA = x.PAUTARECEITAVARIAVELs.Where(i => i.TIPO.Equals("RECEITA")).Sum(i => i.VALOR),
-                        TOTALVALORDESPESAPREVISTA = x.PAUTARECEITAVARIAVELs.Where(i => i.TIPO.Equals("DESPESA")).Sum(i => i.VALOR),
-
-                        RESULTADOPAYBACK = x.RESULTADOPAYBACK,
-                        ORDEMRESULTADOPAYBACK = x.ORDEMRESULTADOPAYBACK,
-                        APROVACAORESULTADOPAYBACK = x.APROVACAORESULTADOPAYBACK,
-
-                        RESULTADOTAXAINTERNARETORNO = x.RESULTADOTAXAINTERNARETORNO,
-                        ORDEMRESULTADOTAXAINTERNARETORNO = x.ORDEMRESULTADOTAXAINTERNARETORNO,
-                        APROVACAORESULTADOTAXAINTERNARETORNO = x.APROVACAORESULTADOTAXAINTERNARETORNO,
-
-                        RESULTADOVALORPRESENTELIQUIDO = x.RESULTADOVALORPRESENTELIQUIDO,
-                        ORDEMRESULTADOVALORPRESENTELIQUIDO = x.ORDEMRESULTADOVALORPRESENTELIQUIDO,
-                        APROVACAORESULTADOVALORPRESENTELIQUIDO = x.APROVACAORESULTADOVALORPRESENTELIQUIDO,
-                        RESULTADODICE = RetornarStatusDice(Convert.ToInt16(x.RESULTADODICE)),
-                        ORDEMRESULTADODICE = x.ORDEMRESULTADODICE,
-                        APROVACAORESULTADODICE = x.APROVACAORESULTADODICE,
-
-                        RESULTADOAHP = x.RESULTADOAHP,
-                        ORDEMRESULTADOAHP = x.ORDEMRESULTADOAHP,
-                        APROVACAORESULTADOAHP = x.APROVACAORESULTADOAHP
-                    }).ToList());
+                    listaProjetosCalculos = new List<View.Projetos.ViewPautaProjeto>(entidade.PAUTAPROJETOS.Select(x => new RegraNegocio.View.Projetos.ViewPautaProjeto(x)).ToList());
 
                     return listaProjetosCalculos;
                 }
                 else
-                    return new Binding.SortableBindingList<View.Projetos.ViewPautaProjetoCalculos>(new List<View.Projetos.ViewPautaProjetoCalculos>());
+                    return new List<View.Projetos.ViewPautaProjeto>(new List<View.Projetos.ViewPautaProjeto>());
 
             }
             catch (Exception ex)
@@ -228,30 +113,11 @@ namespace RegraNegocio
             }
         }
 
-        public List<View.Projetos.ViewPautaProjetos> ListarPautaProjeto()
+        public List<View.Projetos.ViewPautaProjeto> ListarPautaProjeto()
         {
             try
             {
-                return entidade.PAUTAPROJETOS.Select(x => new View.Projetos.ViewPautaProjetos
-                {
-                    ID = x.IDPROJETO,
-                    NOME = ctoProjetos.PROJETOS.AsEnumerable().First(z => z.ID.Equals(x.IDPROJETO)).NOME,
-                    DESCRICAO = ctoProjetos.PROJETOS.AsEnumerable().First(z => z.ID.Equals(x.IDPROJETO)).DESCRICAO,
-                    OBSERVACAO = ctoProjetos.PROJETOS.AsEnumerable().First(z => z.ID.Equals(x.IDPROJETO)).OBSERVACAO,
-                    GERENTEPROJETO = ctoProjetos.PROJETOS.AsEnumerable().First(z => z.ID.Equals(x.IDPROJETO)).GERENTEPROJETO.NOME,
-                    INVESTIMENTOPREVISTO = x.INVESTIMENTOPREVISTO,
-                    RECEITACONSTANTE = x.RECEITACONSTANTE,
-                    RAZAORECEITAPERCENTUAL = x.RAZAORECEITAPERCENTUAL,
-                    RAZAORECEITAVALOR = x.RAZAORECEITAVALOR,
-                    TEMPOPREVISTOCONCLUSAO = x.TEMPOPREVISTOCONCLUSAO,
-                    IDPAUTAPROJETOS = x.ID,
-                    CAPACIDADEENTREGAEQUIPE = x.CAPACIDADEENTREGAEQUPE,
-                    APOIOALTAGESTAO = x.APOIOALTAGESTAO,
-                    APOIOSTEAKHOLDERS = x.APOIOSTEAKHOLDERS,
-                    ESFORCOADICIONAL = x.ESFORCOADICIONAL,
-                    TOTALVALORDESPESAPREVISTA = x.PAUTARECEITAVARIAVELs.Where(z => z.TIPO.Equals("DESPESA")).Sum(z => z.VALOR),
-                    TOTALVALORRECEITAPREVISTA = x.PAUTARECEITAVARIAVELs.Where(z => z.TIPO.Equals("RECEITA")).Sum(z => z.VALOR)
-                }).ToList();
+                return entidade.PAUTAPROJETOS.Select(x => new View.Projetos.ViewPautaProjeto(x)).ToList();
             }
             catch (Exception ex)
             {
@@ -342,16 +208,6 @@ namespace RegraNegocio
             }
 
             return null;
-        }
-
-        private string RetornarStatusDice(int? dice)
-        {
-            if (dice > 17)
-                return "Probabilidade de insucesso. (" + dice + ") ";
-            else if (dice > 14)
-                return " Sucesso preocupante. (" + dice + ")";
-            else
-                return " Alta probabilidade de sucesso. (" + dice + ")";
         }
 
         public void CalcularAHP()
@@ -616,7 +472,7 @@ namespace RegraNegocio
 
                 entidade.SITUACAO = "EFETIVADO";
 
-                Salvar();
+                Commit();
             }
             catch (Exception ex)
             {
@@ -630,7 +486,7 @@ namespace RegraNegocio
             {
                 entidade.SITUACAO = "CANCELADO";
 
-                Salvar();
+                Commit();
             }
             catch (Exception ex)
             {
@@ -659,7 +515,3 @@ namespace RegraNegocio
         CANCELADO
     }
 }
-
-
-
-

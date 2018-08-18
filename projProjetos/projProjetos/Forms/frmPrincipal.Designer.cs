@@ -1,6 +1,6 @@
-﻿namespace projProjetos.Forms.Cadastros
+﻿namespace projProjetos.Forms
 {
-    partial class frmPrincipal
+    partial class FrmPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,94 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Agendado"}, -1, System.Drawing.Color.Empty, System.Drawing.SystemColors.HotTrack, null);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Cancelado"}, -1, System.Drawing.Color.Black, System.Drawing.Color.Red, null);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Realizando"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Gold, null);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Atrasado"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Salmon, null);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Reagendado"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.SlateBlue, null);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Priorizada"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.SpringGreen, null);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Improdutiva"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Thistle, null);
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cboListaPessoas = new System.Windows.Forms.ComboBox();
-            this.Label18 = new System.Windows.Forms.Label();
-            this.cboStatusPessoas = new System.Windows.Forms.ComboBox();
-            this.Label1 = new System.Windows.Forms.Label();
-            this.txtPesquisarPessoas = new System.Windows.Forms.TextBox();
-            this.dtgPessoas = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cboListaProjetos = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cboStatusProjetos = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPesquisarProjetos = new System.Windows.Forms.TextBox();
-            this.dtgprojetos = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.cbCancelado = new System.Windows.Forms.CheckBox();
-            this.cbEfetivado = new System.Windows.Forms.CheckBox();
-            this.cbEmoperacao = new System.Windows.Forms.CheckBox();
-            this.mtcReunioes = new System.Windows.Forms.MonthCalendar();
-            this.dtgReunioes = new System.Windows.Forms.DataGridView();
-            this.dtgReunioesID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgReunioesDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgReunioesDataHoraEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgReunioesPayBackAceitavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosTaxaRemuneracaoMercado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgReunioesPautaDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgReunioesLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgReunioesResponsavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgReunioesQuantidadeProjetosPauta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgReunioesStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgReunioesSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dtgReunioesBtnVisualizar = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnCadastros = new System.Windows.Forms.ToolStripDropDownButton();
             this.pessoasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projetosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.criteriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnLancamentos = new System.Windows.Forms.ToolStripDropDownButton();
             this.reuniõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGerencia = new System.Windows.Forms.ToolStripDropDownButton();
-            this.critériosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comparaçõesDeCritériosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comparaçõesCRITERIOPROJETOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSegurança = new System.Windows.Forms.ToolStripDropDownButton();
             this.usuáriosDoSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.perfisDeUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSair = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.dtgPessoasId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgPessoasNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgPessoaObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgPessoasStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgPessoasBtnVisualizar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dtgProjetosId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosObservacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosGerente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosInvestimentoPrevisto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosReceitaConstante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosRazaoReceitaValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosRazaoReceitaPercentual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosTempoPrevistoConclusao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgProjetosVisualizar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnSair = new System.Windows.Forms.ToolStripButton();
+            this.btnRelatorios = new System.Windows.Forms.ToolStripButton();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tbcParincipal = new System.Windows.Forms.TabControl();
+            this.tbpPrincipal = new System.Windows.Forms.TabPage();
+            this.tbpAgenda = new System.Windows.Forms.TabPage();
+            this.grbProjetos = new System.Windows.Forms.GroupBox();
+            this.ckbAgendaFiltroProjetoSelecaoPautado = new System.Windows.Forms.CheckBox();
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtAgendaFiltroProjetosCodigo = new System.Windows.Forms.TextBox();
+            this.txtAgendaFiltroProjetosNome = new System.Windows.Forms.TextBox();
+            this.dtgAgendaProjetos = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeGerenteProjetoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgAgendaProjetosCkbSelecaoPautado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dtgAgendaProjetosCkbSelecaoPriorizado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.investimentoPrevistoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receitaConstanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razaoReceitaValorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataCricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observacaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idGerenteProjetoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoApoioSteakHoldersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoApoioAltaGestaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.entityObjectDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._bindingSourceAgenda_Projetos = new System.Windows.Forms.BindingSource(this.components);
+            this.grbPessoas = new System.Windows.Forms.GroupBox();
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel = new System.Windows.Forms.CheckBox();
+            this.ckbAgendaFiltroPessoaSelecionarGerente = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Label15 = new System.Windows.Forms.Label();
+            this.txtAgendaFiltroPessoasCodigo = new System.Windows.Forms.TextBox();
+            this.txtAgendaFiltroPessoasNome = new System.Windows.Forms.TextBox();
+            this.dtgAgendaPessoas = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgAgendaPessoaCkbSelecaoGerente = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dtgAgendapessoaCkbSelecaoResponsavel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entityObjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._bindingSourceAgenda_Pessoas = new System.Windows.Forms.BindingSource(this.components);
+            this.grbReunioes = new System.Windows.Forms.GroupBox();
+            this.lvwAgendaReuniaoSituacao = new System.Windows.Forms.ListView();
+            this.dtgAgendaReunioes = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.responsavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._bindingSourceAgenda_Reunioes = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.ckbFiltroReuniaoData = new System.Windows.Forms.CheckBox();
+            this.cboAgendaFiltroReuniaoData = new System.Windows.Forms.ComboBox();
+            this.mtcAgendaFiltroReuniao = new System.Windows.Forms.MonthCalendar();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this._timmerAgenda = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgPessoas)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgprojetos)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgReunioes)).BeginInit();
+            this.tbcParincipal.SuspendLayout();
+            this.tbpAgenda.SuspendLayout();
+            this.grbProjetos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAgendaProjetos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourceAgenda_Projetos)).BeginInit();
+            this.grbPessoas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAgendaPessoas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourceAgenda_Pessoas)).BeginInit();
+            this.grbReunioes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAgendaReunioes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourceAgenda_Reunioes)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -130,380 +164,177 @@
             this.btnSegurança,
             this.toolStripSeparator5,
             this.toolStripSeparator2,
-            this.btnSair});
+            this.btnSair,
+            this.btnRelatorios});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1008, 54);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // groupBox1
+            // btnCadastros
             // 
-            this.groupBox1.Controls.Add(this.cboListaPessoas);
-            this.groupBox1.Controls.Add(this.Label18);
-            this.groupBox1.Controls.Add(this.cboStatusPessoas);
-            this.groupBox1.Controls.Add(this.Label1);
-            this.groupBox1.Controls.Add(this.txtPesquisarPessoas);
-            this.groupBox1.Controls.Add(this.dtgPessoas);
-            this.groupBox1.Location = new System.Drawing.Point(12, 57);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(410, 321);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pessoas";
+            this.btnCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pessoasToolStripMenuItem,
+            this.projetosToolStripMenuItem,
+            this.aHPToolStripMenuItem});
+            this.btnCadastros.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastros.Image")));
+            this.btnCadastros.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnCadastros.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCadastros.Name = "btnCadastros";
+            this.btnCadastros.Size = new System.Drawing.Size(72, 51);
+            this.btnCadastros.Text = "Cadastros";
+            this.btnCadastros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // cboListaPessoas
+            // pessoasToolStripMenuItem
             // 
-            this.cboListaPessoas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboListaPessoas.FormattingEnabled = true;
-            this.cboListaPessoas.Location = new System.Drawing.Point(86, 13);
-            this.cboListaPessoas.Name = "cboListaPessoas";
-            this.cboListaPessoas.Size = new System.Drawing.Size(175, 21);
-            this.cboListaPessoas.TabIndex = 5;
-            this.cboListaPessoas.SelectedIndexChanged += new System.EventHandler(this.cboListaPessoas_SelectedIndexChanged);
+            this.pessoasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pessoasToolStripMenuItem.Image")));
+            this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
+            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pessoasToolStripMenuItem.Text = "Pessoas";
+            this.pessoasToolStripMenuItem.Click += new System.EventHandler(this.pessoasToolStripMenuItem_Click);
             // 
-            // Label18
+            // projetosToolStripMenuItem
             // 
-            this.Label18.AutoSize = true;
-            this.Label18.Location = new System.Drawing.Point(3, 16);
-            this.Label18.Name = "Label18";
-            this.Label18.Size = new System.Drawing.Size(74, 13);
-            this.Label18.TabIndex = 4;
-            this.Label18.Text = "Pesquisar por:";
+            this.projetosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("projetosToolStripMenuItem.Image")));
+            this.projetosToolStripMenuItem.Name = "projetosToolStripMenuItem";
+            this.projetosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.projetosToolStripMenuItem.Text = "Projetos";
+            this.projetosToolStripMenuItem.Click += new System.EventHandler(this.projetosToolStripMenuItem_Click);
             // 
-            // cboStatusPessoas
+            // aHPToolStripMenuItem
             // 
-            this.cboStatusPessoas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatusPessoas.FormattingEnabled = true;
-            this.cboStatusPessoas.Location = new System.Drawing.Point(267, 13);
-            this.cboStatusPessoas.Name = "cboStatusPessoas";
-            this.cboStatusPessoas.Size = new System.Drawing.Size(137, 21);
-            this.cboStatusPessoas.TabIndex = 3;
-            this.cboStatusPessoas.SelectedIndexChanged += new System.EventHandler(this.cboStatusPessoas_SelectedIndexChanged);
+            this.aHPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.criteriosToolStripMenuItem});
+            this.aHPToolStripMenuItem.Name = "aHPToolStripMenuItem";
+            this.aHPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aHPToolStripMenuItem.Text = "AHP";
             // 
-            // Label1
+            // criteriosToolStripMenuItem
             // 
-            this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(0, 43);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(37, 13);
-            this.Label1.TabIndex = 2;
-            this.Label1.Text = "Texto:";
+            this.criteriosToolStripMenuItem.Name = "criteriosToolStripMenuItem";
+            this.criteriosToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.criteriosToolStripMenuItem.Text = "Criterios";
             // 
-            // txtPesquisarPessoas
+            // toolStripSeparator4
             // 
-            this.txtPesquisarPessoas.Location = new System.Drawing.Point(43, 40);
-            this.txtPesquisarPessoas.Name = "txtPesquisarPessoas";
-            this.txtPesquisarPessoas.Size = new System.Drawing.Size(361, 20);
-            this.txtPesquisarPessoas.TabIndex = 1;
-            this.txtPesquisarPessoas.TextChanged += new System.EventHandler(this.txtPesquisarPessoas_TextChanged);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 54);
             // 
-            // dtgPessoas
+            // btnLancamentos
             // 
-            this.dtgPessoas.AllowUserToAddRows = false;
-            this.dtgPessoas.AllowUserToDeleteRows = false;
-            this.dtgPessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgPessoas.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dtgPessoas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtgPessoas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgPessoas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dtgPessoasId,
-            this.dtgPessoasNome,
-            this.dtgPessoaObservacao,
-            this.dtgPessoasStatus,
-            this.dtgPessoasBtnVisualizar});
-            this.dtgPessoas.Location = new System.Drawing.Point(6, 66);
-            this.dtgPessoas.MultiSelect = false;
-            this.dtgPessoas.Name = "dtgPessoas";
-            this.dtgPessoas.ReadOnly = true;
-            this.dtgPessoas.RowHeadersVisible = false;
-            this.dtgPessoas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgPessoas.Size = new System.Drawing.Size(398, 249);
-            this.dtgPessoas.TabIndex = 0;
+            this.btnLancamentos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reuniõesToolStripMenuItem});
+            this.btnLancamentos.Image = ((System.Drawing.Image)(resources.GetObject("btnLancamentos.Image")));
+            this.btnLancamentos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnLancamentos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLancamentos.Name = "btnLancamentos";
+            this.btnLancamentos.Size = new System.Drawing.Size(91, 51);
+            this.btnLancamentos.Text = "Lançamentos";
+            this.btnLancamentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // groupBox2
+            // reuniõesToolStripMenuItem
             // 
-            this.groupBox2.Controls.Add(this.cboListaProjetos);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.cboStatusProjetos);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtPesquisarProjetos);
-            this.groupBox2.Controls.Add(this.dtgprojetos);
-            this.groupBox2.Location = new System.Drawing.Point(428, 57);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(568, 321);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Projetos";
+            this.reuniõesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reuniõesToolStripMenuItem.Image")));
+            this.reuniõesToolStripMenuItem.Name = "reuniõesToolStripMenuItem";
+            this.reuniõesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.reuniõesToolStripMenuItem.Text = "Reuniões";
             // 
-            // cboListaProjetos
+            // toolStripSeparator1
             // 
-            this.cboListaProjetos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboListaProjetos.FormattingEnabled = true;
-            this.cboListaProjetos.Location = new System.Drawing.Point(244, 13);
-            this.cboListaProjetos.Name = "cboListaProjetos";
-            this.cboListaProjetos.Size = new System.Drawing.Size(175, 21);
-            this.cboListaProjetos.TabIndex = 10;
-            this.cboListaProjetos.SelectedIndexChanged += new System.EventHandler(this.cboListaProjetos_SelectedIndexChanged);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
             // 
-            // label2
+            // btnGerencia
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(158, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Pesquisar por:";
+            this.btnGerencia.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comparaçõesDeCritériosToolStripMenuItem,
+            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem});
+            this.btnGerencia.Image = ((System.Drawing.Image)(resources.GetObject("btnGerencia.Image")));
+            this.btnGerencia.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnGerencia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGerencia.Name = "btnGerencia";
+            this.btnGerencia.Size = new System.Drawing.Size(66, 51);
+            this.btnGerencia.Text = "Gerência";
+            this.btnGerencia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // cboStatusProjetos
+            // comparaçõesDeCritériosToolStripMenuItem
             // 
-            this.cboStatusProjetos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatusProjetos.FormattingEnabled = true;
-            this.cboStatusProjetos.Location = new System.Drawing.Point(425, 13);
-            this.cboStatusProjetos.Name = "cboStatusProjetos";
-            this.cboStatusProjetos.Size = new System.Drawing.Size(137, 21);
-            this.cboStatusProjetos.TabIndex = 8;
-            this.cboStatusProjetos.SelectedIndexChanged += new System.EventHandler(this.cboStatusProjetos_SelectedIndexChanged);
+            this.comparaçõesDeCritériosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("comparaçõesDeCritériosToolStripMenuItem.Image")));
+            this.comparaçõesDeCritériosToolStripMenuItem.Name = "comparaçõesDeCritériosToolStripMenuItem";
+            this.comparaçõesDeCritériosToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.comparaçõesDeCritériosToolStripMenuItem.Text = "Comparações entre Critérios";
             // 
-            // label3
+            // comparaçõesCRITERIOPROJETOSToolStripMenuItem
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(158, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Texto:";
+            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("comparaçõesCRITERIOPROJETOSToolStripMenuItem.Image")));
+            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem.Name = "comparaçõesCRITERIOPROJETOSToolStripMenuItem";
+            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
+            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem.Text = "Comparações Criterios Projetos";
             // 
-            // txtPesquisarProjetos
+            // toolStripSeparator3
             // 
-            this.txtPesquisarProjetos.Location = new System.Drawing.Point(201, 40);
-            this.txtPesquisarProjetos.Name = "txtPesquisarProjetos";
-            this.txtPesquisarProjetos.Size = new System.Drawing.Size(361, 20);
-            this.txtPesquisarProjetos.TabIndex = 6;
-            this.txtPesquisarProjetos.TextChanged += new System.EventHandler(this.txtPesquisarProjetos_TextChanged);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
             // 
-            // dtgprojetos
+            // btnSegurança
             // 
-            this.dtgprojetos.AllowUserToAddRows = false;
-            this.dtgprojetos.AllowUserToDeleteRows = false;
-            this.dtgprojetos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgprojetos.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dtgprojetos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtgprojetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgprojetos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dtgProjetosId,
-            this.dtgProjetosNome,
-            this.dtgProjetosDescricao,
-            this.dtgProjetosObservacao,
-            this.dtgProjetosGerente,
-            this.dtgProjetosInvestimentoPrevisto,
-            this.dtgProjetosReceitaConstante,
-            this.dtgProjetosRazaoReceitaValor,
-            this.dtgProjetosRazaoReceitaPercentual,
-            this.dtgProjetosTempoPrevistoConclusao,
-            this.dtgProjetosStatus,
-            this.dtgProjetosVisualizar});
-            this.dtgprojetos.Location = new System.Drawing.Point(6, 66);
-            this.dtgprojetos.MultiSelect = false;
-            this.dtgprojetos.Name = "dtgprojetos";
-            this.dtgprojetos.ReadOnly = true;
-            this.dtgprojetos.RowHeadersVisible = false;
-            this.dtgprojetos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgprojetos.Size = new System.Drawing.Size(556, 249);
-            this.dtgprojetos.TabIndex = 1;
+            this.btnSegurança.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuáriosDoSistemaToolStripMenuItem,
+            this.perfisDeUsuáriosToolStripMenuItem});
+            this.btnSegurança.Image = ((System.Drawing.Image)(resources.GetObject("btnSegurança.Image")));
+            this.btnSegurança.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnSegurança.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSegurança.Name = "btnSegurança";
+            this.btnSegurança.Size = new System.Drawing.Size(75, 51);
+            this.btnSegurança.Text = "Segurança";
+            this.btnSegurança.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // groupBox3
+            // usuáriosDoSistemaToolStripMenuItem
             // 
-            this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Controls.Add(this.mtcReunioes);
-            this.groupBox3.Controls.Add(this.dtgReunioes);
-            this.groupBox3.Location = new System.Drawing.Point(12, 384);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(984, 279);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Reuniões";
+            this.usuáriosDoSistemaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuáriosDoSistemaToolStripMenuItem.Image")));
+            this.usuáriosDoSistemaToolStripMenuItem.Name = "usuáriosDoSistemaToolStripMenuItem";
+            this.usuáriosDoSistemaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.usuáriosDoSistemaToolStripMenuItem.Text = "Usuários do sistema";
             // 
-            // groupBox4
+            // perfisDeUsuáriosToolStripMenuItem
             // 
-            this.groupBox4.Controls.Add(this.cbCancelado);
-            this.groupBox4.Controls.Add(this.cbEfetivado);
-            this.groupBox4.Controls.Add(this.cbEmoperacao);
-            this.groupBox4.Location = new System.Drawing.Point(12, 193);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(227, 75);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Situação Renião";
+            this.perfisDeUsuáriosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("perfisDeUsuáriosToolStripMenuItem.Image")));
+            this.perfisDeUsuáriosToolStripMenuItem.Name = "perfisDeUsuáriosToolStripMenuItem";
+            this.perfisDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.perfisDeUsuáriosToolStripMenuItem.Text = "Perfis de usuários";
             // 
-            // cbCancelado
+            // toolStripSeparator5
             // 
-            this.cbCancelado.AutoSize = true;
-            this.cbCancelado.Location = new System.Drawing.Point(6, 42);
-            this.cbCancelado.Name = "cbCancelado";
-            this.cbCancelado.Size = new System.Drawing.Size(77, 17);
-            this.cbCancelado.TabIndex = 7;
-            this.cbCancelado.Text = "Cancelado";
-            this.cbCancelado.UseVisualStyleBackColor = true;
-            this.cbCancelado.CheckedChanged += new System.EventHandler(this.rbCancelado_CheckedChanged);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 54);
             // 
-            // cbEfetivado
+            // toolStripSeparator2
             // 
-            this.cbEfetivado.AutoSize = true;
-            this.cbEfetivado.Location = new System.Drawing.Point(101, 19);
-            this.cbEfetivado.Name = "cbEfetivado";
-            this.cbEfetivado.Size = new System.Drawing.Size(71, 17);
-            this.cbEfetivado.TabIndex = 6;
-            this.cbEfetivado.Text = "Efetivado";
-            this.cbEfetivado.UseVisualStyleBackColor = true;
-            this.cbEfetivado.CheckedChanged += new System.EventHandler(this.rbCancelado_CheckedChanged);
+            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
             // 
-            // cbEmoperacao
+            // btnSair
             // 
-            this.cbEmoperacao.AutoSize = true;
-            this.cbEmoperacao.Location = new System.Drawing.Point(6, 19);
-            this.cbEmoperacao.Name = "cbEmoperacao";
-            this.cbEmoperacao.Size = new System.Drawing.Size(89, 17);
-            this.cbEmoperacao.TabIndex = 5;
-            this.cbEmoperacao.Text = "Em operação";
-            this.cbEmoperacao.UseVisualStyleBackColor = true;
-            this.cbEmoperacao.CheckedChanged += new System.EventHandler(this.rbCancelado_CheckedChanged);
+            this.btnSair.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
+            this.btnSair.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(36, 51);
+            this.btnSair.Text = "Sair";
+            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // mtcReunioes
+            // btnRelatorios
             // 
-            this.mtcReunioes.Location = new System.Drawing.Point(12, 19);
-            this.mtcReunioes.Name = "mtcReunioes";
-            this.mtcReunioes.ShowTodayCircle = false;
-            this.mtcReunioes.TabIndex = 3;
-            this.mtcReunioes.TodayDate = new System.DateTime(2016, 11, 15, 0, 0, 0, 0);
-            this.mtcReunioes.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
-            // 
-            // dtgReunioes
-            // 
-            this.dtgReunioes.AllowUserToAddRows = false;
-            this.dtgReunioes.AllowUserToDeleteRows = false;
-            this.dtgReunioes.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dtgReunioes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtgReunioes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgReunioes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dtgReunioesID,
-            this.dtgReunioesDescricao,
-            this.dtgReunioesDataHoraEvento,
-            this.dtgReunioesPayBackAceitavel,
-            this.dtgProjetosTaxaRemuneracaoMercado,
-            this.dtgReunioesPautaDescricao,
-            this.dtgReunioesLocal,
-            this.dtgReunioesResponsavel,
-            this.dtgReunioesQuantidadeProjetosPauta,
-            this.dtgReunioesStatus,
-            this.dtgReunioesSituacao,
-            this.dtgReunioesBtnVisualizar});
-            this.dtgReunioes.Location = new System.Drawing.Point(245, 19);
-            this.dtgReunioes.MultiSelect = false;
-            this.dtgReunioes.Name = "dtgReunioes";
-            this.dtgReunioes.RowHeadersVisible = false;
-            this.dtgReunioes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgReunioes.Size = new System.Drawing.Size(733, 249);
-            this.dtgReunioes.TabIndex = 2;
-            // 
-            // dtgReunioesID
-            // 
-            this.dtgReunioesID.DataPropertyName = "ID";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dtgReunioesID.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dtgReunioesID.HeaderText = "CÓDIGO";
-            this.dtgReunioesID.Name = "dtgReunioesID";
-            this.dtgReunioesID.ReadOnly = true;
-            this.dtgReunioesID.Width = 70;
-            // 
-            // dtgReunioesDescricao
-            // 
-            this.dtgReunioesDescricao.DataPropertyName = "DESCRICAO";
-            this.dtgReunioesDescricao.HeaderText = "DESCRIÇÃO";
-            this.dtgReunioesDescricao.Name = "dtgReunioesDescricao";
-            this.dtgReunioesDescricao.ReadOnly = true;
-            this.dtgReunioesDescricao.Width = 150;
-            // 
-            // dtgReunioesDataHoraEvento
-            // 
-            this.dtgReunioesDataHoraEvento.DataPropertyName = "DATAHORAEVENTO";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Format = "g";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dtgReunioesDataHoraEvento.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dtgReunioesDataHoraEvento.HeaderText = "DATA EVENTO";
-            this.dtgReunioesDataHoraEvento.Name = "dtgReunioesDataHoraEvento";
-            this.dtgReunioesDataHoraEvento.ReadOnly = true;
-            this.dtgReunioesDataHoraEvento.Width = 120;
-            // 
-            // dtgReunioesPayBackAceitavel
-            // 
-            this.dtgReunioesPayBackAceitavel.DataPropertyName = "PAYBACKACEITAVEL";
-            this.dtgReunioesPayBackAceitavel.HeaderText = "PAYBACK ACEITAVEL";
-            this.dtgReunioesPayBackAceitavel.Name = "dtgReunioesPayBackAceitavel";
-            this.dtgReunioesPayBackAceitavel.ReadOnly = true;
-            this.dtgReunioesPayBackAceitavel.Visible = false;
-            // 
-            // dtgProjetosTaxaRemuneracaoMercado
-            // 
-            this.dtgProjetosTaxaRemuneracaoMercado.DataPropertyName = "TAXAREMUNERACAOMERCADO";
-            this.dtgProjetosTaxaRemuneracaoMercado.HeaderText = "TAXAREMUNERACAOMERCADO";
-            this.dtgProjetosTaxaRemuneracaoMercado.Name = "dtgProjetosTaxaRemuneracaoMercado";
-            this.dtgProjetosTaxaRemuneracaoMercado.ReadOnly = true;
-            this.dtgProjetosTaxaRemuneracaoMercado.Visible = false;
-            // 
-            // dtgReunioesPautaDescricao
-            // 
-            this.dtgReunioesPautaDescricao.DataPropertyName = "PAUTADESCRICAO";
-            this.dtgReunioesPautaDescricao.HeaderText = "PAUTA DESCRIÇÃO";
-            this.dtgReunioesPautaDescricao.Name = "dtgReunioesPautaDescricao";
-            this.dtgReunioesPautaDescricao.ReadOnly = true;
-            this.dtgReunioesPautaDescricao.Visible = false;
-            // 
-            // dtgReunioesLocal
-            // 
-            this.dtgReunioesLocal.DataPropertyName = "LOCAL";
-            this.dtgReunioesLocal.HeaderText = "LOCAL";
-            this.dtgReunioesLocal.Name = "dtgReunioesLocal";
-            this.dtgReunioesLocal.ReadOnly = true;
-            this.dtgReunioesLocal.Width = 120;
-            // 
-            // dtgReunioesResponsavel
-            // 
-            this.dtgReunioesResponsavel.DataPropertyName = "RESPONSAVEL";
-            this.dtgReunioesResponsavel.HeaderText = "RESPONSÁVEL";
-            this.dtgReunioesResponsavel.Name = "dtgReunioesResponsavel";
-            this.dtgReunioesResponsavel.ReadOnly = true;
-            this.dtgReunioesResponsavel.Width = 140;
-            // 
-            // dtgReunioesQuantidadeProjetosPauta
-            // 
-            this.dtgReunioesQuantidadeProjetosPauta.DataPropertyName = "QUANTIDADEPROJETOSPAUTA";
-            this.dtgReunioesQuantidadeProjetosPauta.HeaderText = "QTDE PROJETOS";
-            this.dtgReunioesQuantidadeProjetosPauta.Name = "dtgReunioesQuantidadeProjetosPauta";
-            this.dtgReunioesQuantidadeProjetosPauta.ReadOnly = true;
-            this.dtgReunioesQuantidadeProjetosPauta.Visible = false;
-            // 
-            // dtgReunioesStatus
-            // 
-            this.dtgReunioesStatus.DataPropertyName = "STATUS";
-            this.dtgReunioesStatus.HeaderText = "STATUS";
-            this.dtgReunioesStatus.Name = "dtgReunioesStatus";
-            this.dtgReunioesStatus.ReadOnly = true;
-            this.dtgReunioesStatus.Visible = false;
-            // 
-            // dtgReunioesSituacao
-            // 
-            this.dtgReunioesSituacao.DataPropertyName = "SITUACAO";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtgReunioesSituacao.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dtgReunioesSituacao.HeaderText = "SITUAÇÃO";
-            this.dtgReunioesSituacao.Name = "dtgReunioesSituacao";
-            this.dtgReunioesSituacao.ReadOnly = true;
+            this.btnRelatorios.Image = ((System.Drawing.Image)(resources.GetObject("btnRelatorios.Image")));
+            this.btnRelatorios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnRelatorios.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRelatorios.Name = "btnRelatorios";
+            this.btnRelatorios.Size = new System.Drawing.Size(37, 51);
+            this.btnRelatorios.Text = "Relat";
+            this.btnRelatorios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // dataGridViewImageColumn1
             // 
@@ -531,336 +362,768 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Width = 30;
             // 
-            // dtgReunioesBtnVisualizar
-            // 
-            this.dtgReunioesBtnVisualizar.HeaderText = "";
-            this.dtgReunioesBtnVisualizar.Image = global::projProjetos.Properties.Resources.editar;
-            this.dtgReunioesBtnVisualizar.Name = "dtgReunioesBtnVisualizar";
-            this.dtgReunioesBtnVisualizar.ReadOnly = true;
-            this.dtgReunioesBtnVisualizar.Width = 30;
-            // 
-            // btnCadastros
-            // 
-            this.btnCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pessoasToolStripMenuItem,
-            this.projetosToolStripMenuItem});
-            this.btnCadastros.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastros.Image")));
-            this.btnCadastros.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnCadastros.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCadastros.Name = "btnCadastros";
-            this.btnCadastros.Size = new System.Drawing.Size(72, 51);
-            this.btnCadastros.Text = "Cadastros";
-            this.btnCadastros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // pessoasToolStripMenuItem
-            // 
-            this.pessoasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pessoasToolStripMenuItem.Image")));
-            this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
-            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.pessoasToolStripMenuItem.Text = "Pessoas";
-            this.pessoasToolStripMenuItem.Click += new System.EventHandler(this.pessoasToolStripMenuItem_Click);
-            // 
-            // projetosToolStripMenuItem
-            // 
-            this.projetosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("projetosToolStripMenuItem.Image")));
-            this.projetosToolStripMenuItem.Name = "projetosToolStripMenuItem";
-            this.projetosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.projetosToolStripMenuItem.Text = "Projetos";
-            this.projetosToolStripMenuItem.Click += new System.EventHandler(this.projetosToolStripMenuItem_Click);
-            // 
-            // btnLancamentos
-            // 
-            this.btnLancamentos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reuniõesToolStripMenuItem});
-            this.btnLancamentos.Image = ((System.Drawing.Image)(resources.GetObject("btnLancamentos.Image")));
-            this.btnLancamentos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnLancamentos.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLancamentos.Name = "btnLancamentos";
-            this.btnLancamentos.Size = new System.Drawing.Size(91, 51);
-            this.btnLancamentos.Text = "Lançamentos";
-            this.btnLancamentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // reuniõesToolStripMenuItem
-            // 
-            this.reuniõesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reuniõesToolStripMenuItem.Image")));
-            this.reuniõesToolStripMenuItem.Name = "reuniõesToolStripMenuItem";
-            this.reuniõesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.reuniõesToolStripMenuItem.Text = "Reuniões";
-            this.reuniõesToolStripMenuItem.Click += new System.EventHandler(this.reuniõesToolStripMenuItem_Click);
-            // 
-            // btnGerencia
-            // 
-            this.btnGerencia.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.critériosToolStripMenuItem,
-            this.comparaçõesDeCritériosToolStripMenuItem,
-            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem});
-            this.btnGerencia.Image = ((System.Drawing.Image)(resources.GetObject("btnGerencia.Image")));
-            this.btnGerencia.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnGerencia.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGerencia.Name = "btnGerencia";
-            this.btnGerencia.Size = new System.Drawing.Size(66, 51);
-            this.btnGerencia.Text = "Gerência";
-            this.btnGerencia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // critériosToolStripMenuItem
-            // 
-            this.critériosToolStripMenuItem.Name = "critériosToolStripMenuItem";
-            this.critériosToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.critériosToolStripMenuItem.Text = "Critérios";
-            this.critériosToolStripMenuItem.Click += new System.EventHandler(this.critériosToolStripMenuItem_Click);
-            // 
-            // comparaçõesDeCritériosToolStripMenuItem
-            // 
-            this.comparaçõesDeCritériosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("comparaçõesDeCritériosToolStripMenuItem.Image")));
-            this.comparaçõesDeCritériosToolStripMenuItem.Name = "comparaçõesDeCritériosToolStripMenuItem";
-            this.comparaçõesDeCritériosToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.comparaçõesDeCritériosToolStripMenuItem.Text = "Comparações entre Critérios";
-            this.comparaçõesDeCritériosToolStripMenuItem.Click += new System.EventHandler(this.comparaçõesDeCritériosToolStripMenuItem_Click);
-            // 
-            // comparaçõesCRITERIOPROJETOSToolStripMenuItem
-            // 
-            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("comparaçõesCRITERIOPROJETOSToolStripMenuItem.Image")));
-            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem.Name = "comparaçõesCRITERIOPROJETOSToolStripMenuItem";
-            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem.Text = "Comparações CRITERIO-PROJETOS";
-            this.comparaçõesCRITERIOPROJETOSToolStripMenuItem.Click += new System.EventHandler(this.comparaçõesCRITERIOPROJETOSToolStripMenuItem_Click);
-            // 
-            // btnSegurança
-            // 
-            this.btnSegurança.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usuáriosDoSistemaToolStripMenuItem,
-            this.perfisDeUsuáriosToolStripMenuItem});
-            this.btnSegurança.Image = ((System.Drawing.Image)(resources.GetObject("btnSegurança.Image")));
-            this.btnSegurança.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnSegurança.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSegurança.Name = "btnSegurança";
-            this.btnSegurança.Size = new System.Drawing.Size(75, 51);
-            this.btnSegurança.Text = "Segurança";
-            this.btnSegurança.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSegurança.Click += new System.EventHandler(this.btnSegurança_Click);
-            // 
-            // usuáriosDoSistemaToolStripMenuItem
-            // 
-            this.usuáriosDoSistemaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuáriosDoSistemaToolStripMenuItem.Image")));
-            this.usuáriosDoSistemaToolStripMenuItem.Name = "usuáriosDoSistemaToolStripMenuItem";
-            this.usuáriosDoSistemaToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.usuáriosDoSistemaToolStripMenuItem.Text = "Usuários do sistema";
-            // 
-            // perfisDeUsuáriosToolStripMenuItem
-            // 
-            this.perfisDeUsuáriosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("perfisDeUsuáriosToolStripMenuItem.Image")));
-            this.perfisDeUsuáriosToolStripMenuItem.Name = "perfisDeUsuáriosToolStripMenuItem";
-            this.perfisDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.perfisDeUsuáriosToolStripMenuItem.Text = "Perfis de usuários";
-            // 
-            // btnSair
-            // 
-            this.btnSair.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnSair.Image = ((System.Drawing.Image)(resources.GetObject("btnSair.Image")));
-            this.btnSair.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(36, 51);
-            this.btnSair.Text = "Sair";
-            this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 54);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 54);
-            // 
-            // dtgPessoasId
-            // 
-            this.dtgPessoasId.DataPropertyName = "ID";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dtgPessoasId.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgPessoasId.HeaderText = "CÓDIGO";
-            this.dtgPessoasId.Name = "dtgPessoasId";
-            this.dtgPessoasId.ReadOnly = true;
-            this.dtgPessoasId.Width = 70;
-            // 
-            // dtgPessoasNome
-            // 
-            this.dtgPessoasNome.DataPropertyName = "NOME";
-            this.dtgPessoasNome.HeaderText = "NOME";
-            this.dtgPessoasNome.Name = "dtgPessoasNome";
-            this.dtgPessoasNome.ReadOnly = true;
-            this.dtgPessoasNome.Width = 180;
-            // 
-            // dtgPessoaObservacao
-            // 
-            this.dtgPessoaObservacao.DataPropertyName = "OBSERVACAO";
-            this.dtgPessoaObservacao.HeaderText = "OBSERVAÇÃO";
-            this.dtgPessoaObservacao.Name = "dtgPessoaObservacao";
-            this.dtgPessoaObservacao.ReadOnly = true;
-            this.dtgPessoaObservacao.Visible = false;
-            // 
-            // dtgPessoasStatus
-            // 
-            this.dtgPessoasStatus.DataPropertyName = "STATUS";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgPessoasStatus.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgPessoasStatus.HeaderText = "STATUS";
-            this.dtgPessoasStatus.Name = "dtgPessoasStatus";
-            this.dtgPessoasStatus.ReadOnly = true;
-            // 
-            // dtgPessoasBtnVisualizar
-            // 
-            this.dtgPessoasBtnVisualizar.HeaderText = "";
-            this.dtgPessoasBtnVisualizar.Image = global::projProjetos.Properties.Resources.editar;
-            this.dtgPessoasBtnVisualizar.Name = "dtgPessoasBtnVisualizar";
-            this.dtgPessoasBtnVisualizar.ReadOnly = true;
-            this.dtgPessoasBtnVisualizar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgPessoasBtnVisualizar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dtgPessoasBtnVisualizar.Width = 40;
-            // 
-            // dtgProjetosId
-            // 
-            this.dtgProjetosId.DataPropertyName = "ID";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dtgProjetosId.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgProjetosId.HeaderText = "CÓDIGO";
-            this.dtgProjetosId.Name = "dtgProjetosId";
-            this.dtgProjetosId.ReadOnly = true;
-            this.dtgProjetosId.Width = 70;
-            // 
-            // dtgProjetosNome
-            // 
-            this.dtgProjetosNome.DataPropertyName = "NOME";
-            this.dtgProjetosNome.HeaderText = "NOME";
-            this.dtgProjetosNome.Name = "dtgProjetosNome";
-            this.dtgProjetosNome.ReadOnly = true;
-            this.dtgProjetosNome.Width = 190;
-            // 
-            // dtgProjetosDescricao
-            // 
-            this.dtgProjetosDescricao.DataPropertyName = "DESCRICAO";
-            this.dtgProjetosDescricao.HeaderText = "Descricao";
-            this.dtgProjetosDescricao.Name = "dtgProjetosDescricao";
-            this.dtgProjetosDescricao.ReadOnly = true;
-            this.dtgProjetosDescricao.Visible = false;
-            // 
-            // dtgProjetosObservacao
-            // 
-            this.dtgProjetosObservacao.DataPropertyName = "OBSERVACAO";
-            this.dtgProjetosObservacao.HeaderText = "OBSERVAÇÃO";
-            this.dtgProjetosObservacao.Name = "dtgProjetosObservacao";
-            this.dtgProjetosObservacao.ReadOnly = true;
-            this.dtgProjetosObservacao.Visible = false;
-            // 
-            // dtgProjetosGerente
-            // 
-            this.dtgProjetosGerente.DataPropertyName = "GERENTEPROJETO";
-            this.dtgProjetosGerente.HeaderText = "GERENTE";
-            this.dtgProjetosGerente.Name = "dtgProjetosGerente";
-            this.dtgProjetosGerente.ReadOnly = true;
-            this.dtgProjetosGerente.Width = 150;
-            // 
-            // dtgProjetosInvestimentoPrevisto
-            // 
-            this.dtgProjetosInvestimentoPrevisto.DataPropertyName = "INVESTIMENTOPREVISTO";
-            this.dtgProjetosInvestimentoPrevisto.HeaderText = "INVESTIMENTO PREVISTO";
-            this.dtgProjetosInvestimentoPrevisto.Name = "dtgProjetosInvestimentoPrevisto";
-            this.dtgProjetosInvestimentoPrevisto.ReadOnly = true;
-            this.dtgProjetosInvestimentoPrevisto.Visible = false;
-            // 
-            // dtgProjetosReceitaConstante
-            // 
-            this.dtgProjetosReceitaConstante.DataPropertyName = "RECEITACONSTANTE";
-            this.dtgProjetosReceitaConstante.HeaderText = "RECEITA CONSTANTE";
-            this.dtgProjetosReceitaConstante.Name = "dtgProjetosReceitaConstante";
-            this.dtgProjetosReceitaConstante.ReadOnly = true;
-            this.dtgProjetosReceitaConstante.Visible = false;
-            // 
-            // dtgProjetosRazaoReceitaValor
-            // 
-            this.dtgProjetosRazaoReceitaValor.DataPropertyName = "RAZAORECEITAVALOR";
-            this.dtgProjetosRazaoReceitaValor.HeaderText = "RAZÃO RECEITA VALOR";
-            this.dtgProjetosRazaoReceitaValor.Name = "dtgProjetosRazaoReceitaValor";
-            this.dtgProjetosRazaoReceitaValor.ReadOnly = true;
-            this.dtgProjetosRazaoReceitaValor.Visible = false;
-            // 
-            // dtgProjetosRazaoReceitaPercentual
-            // 
-            this.dtgProjetosRazaoReceitaPercentual.DataPropertyName = "RAZAORECEITAPERCENTUAL";
-            this.dtgProjetosRazaoReceitaPercentual.HeaderText = "RAZÃO RECEITA PERCENTUAL";
-            this.dtgProjetosRazaoReceitaPercentual.Name = "dtgProjetosRazaoReceitaPercentual";
-            this.dtgProjetosRazaoReceitaPercentual.ReadOnly = true;
-            this.dtgProjetosRazaoReceitaPercentual.Visible = false;
-            // 
-            // dtgProjetosTempoPrevistoConclusao
-            // 
-            this.dtgProjetosTempoPrevistoConclusao.DataPropertyName = "TEMPOPREVISTOCONCLUSAO";
-            this.dtgProjetosTempoPrevistoConclusao.HeaderText = "CONCLUSÃO";
-            this.dtgProjetosTempoPrevistoConclusao.Name = "dtgProjetosTempoPrevistoConclusao";
-            this.dtgProjetosTempoPrevistoConclusao.ReadOnly = true;
-            this.dtgProjetosTempoPrevistoConclusao.Visible = false;
-            // 
-            // dtgProjetosStatus
-            // 
-            this.dtgProjetosStatus.DataPropertyName = "STATUS";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dtgProjetosStatus.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dtgProjetosStatus.HeaderText = "STATUS";
-            this.dtgProjetosStatus.Name = "dtgProjetosStatus";
-            this.dtgProjetosStatus.ReadOnly = true;
-            // 
-            // dtgProjetosVisualizar
-            // 
-            this.dtgProjetosVisualizar.HeaderText = "";
-            this.dtgProjetosVisualizar.Image = global::projProjetos.Properties.Resources.editar;
-            this.dtgProjetosVisualizar.Name = "dtgProjetosVisualizar";
-            this.dtgProjetosVisualizar.ReadOnly = true;
-            this.dtgProjetosVisualizar.Width = 40;
-            // 
-            // frmPrincipal
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            // tbcParincipal
+            // 
+            this.tbcParincipal.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tbcParincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbcParincipal.Controls.Add(this.tbpPrincipal);
+            this.tbcParincipal.Controls.Add(this.tbpAgenda);
+            this.tbcParincipal.Location = new System.Drawing.Point(0, 54);
+            this.tbcParincipal.Margin = new System.Windows.Forms.Padding(4);
+            this.tbcParincipal.Name = "tbcParincipal";
+            this.tbcParincipal.SelectedIndex = 0;
+            this.tbcParincipal.Size = new System.Drawing.Size(1009, 649);
+            this.tbcParincipal.TabIndex = 3;
+            // 
+            // tbpPrincipal
+            // 
+            this.tbpPrincipal.Location = new System.Drawing.Point(4, 4);
+            this.tbpPrincipal.Name = "tbpPrincipal";
+            this.tbpPrincipal.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpPrincipal.Size = new System.Drawing.Size(1001, 620);
+            this.tbpPrincipal.TabIndex = 1;
+            this.tbpPrincipal.Text = "Principal";
+            this.tbpPrincipal.UseVisualStyleBackColor = true;
+            // 
+            // tbpAgenda
+            // 
+            this.tbpAgenda.Controls.Add(this.grbProjetos);
+            this.tbpAgenda.Controls.Add(this.grbPessoas);
+            this.tbpAgenda.Controls.Add(this.grbReunioes);
+            this.tbpAgenda.Location = new System.Drawing.Point(4, 4);
+            this.tbpAgenda.Margin = new System.Windows.Forms.Padding(4);
+            this.tbpAgenda.Name = "tbpAgenda";
+            this.tbpAgenda.Padding = new System.Windows.Forms.Padding(4);
+            this.tbpAgenda.Size = new System.Drawing.Size(1001, 620);
+            this.tbpAgenda.TabIndex = 0;
+            this.tbpAgenda.Text = "Agenda";
+            this.tbpAgenda.UseVisualStyleBackColor = true;
+            this.tbpAgenda.Resize += new System.EventHandler(this.tbpAgenda_Resize);
+            // 
+            // grbProjetos
+            // 
+            this.grbProjetos.Controls.Add(this.ckbAgendaFiltroProjetoSelecaoPautado);
+            this.grbProjetos.Controls.Add(this.ckbAgendaFiltroProjetoSelecaoPriorizado);
+            this.grbProjetos.Controls.Add(this.label3);
+            this.grbProjetos.Controls.Add(this.label4);
+            this.grbProjetos.Controls.Add(this.txtAgendaFiltroProjetosCodigo);
+            this.grbProjetos.Controls.Add(this.txtAgendaFiltroProjetosNome);
+            this.grbProjetos.Controls.Add(this.dtgAgendaProjetos);
+            this.grbProjetos.Location = new System.Drawing.Point(436, 350);
+            this.grbProjetos.Margin = new System.Windows.Forms.Padding(4);
+            this.grbProjetos.Name = "grbProjetos";
+            this.grbProjetos.Padding = new System.Windows.Forms.Padding(4);
+            this.grbProjetos.Size = new System.Drawing.Size(556, 284);
+            this.grbProjetos.TabIndex = 2;
+            this.grbProjetos.TabStop = false;
+            this.grbProjetos.Text = "Projetos";
+            // 
+            // ckbAgendaFiltroProjetoSelecaoPautado
+            // 
+            this.ckbAgendaFiltroProjetoSelecaoPautado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbAgendaFiltroProjetoSelecaoPautado.AutoSize = true;
+            this.ckbAgendaFiltroProjetoSelecaoPautado.Location = new System.Drawing.Point(377, 22);
+            this.ckbAgendaFiltroProjetoSelecaoPautado.Name = "ckbAgendaFiltroProjetoSelecaoPautado";
+            this.ckbAgendaFiltroProjetoSelecaoPautado.Size = new System.Drawing.Size(78, 20);
+            this.ckbAgendaFiltroProjetoSelecaoPautado.TabIndex = 18;
+            this.ckbAgendaFiltroProjetoSelecaoPautado.Text = "Pautado";
+            this.ckbAgendaFiltroProjetoSelecaoPautado.UseVisualStyleBackColor = true;
+            this.ckbAgendaFiltroProjetoSelecaoPautado.CheckedChanged += new System.EventHandler(this.ckbAgendaFiltroProjetoPautado_CheckedChanged);
+            // 
+            // ckbAgendaFiltroProjetoSelecaoPriorizado
+            // 
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado.AutoSize = true;
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado.Location = new System.Drawing.Point(461, 22);
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado.Name = "ckbAgendaFiltroProjetoSelecaoPriorizado";
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado.Size = new System.Drawing.Size(88, 20);
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado.TabIndex = 17;
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado.Text = "Priorizado";
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado.UseVisualStyleBackColor = true;
+            this.ckbAgendaFiltroProjetoSelecaoPriorizado.CheckedChanged += new System.EventHandler(this.ckbAgendaFiltroProjetoSelecaoPriorizado_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(93, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 16);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Projeto";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(58, 16);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Codigo";
+            // 
+            // txtAgendaFiltroProjetosCodigo
+            // 
+            this.txtAgendaFiltroProjetosCodigo.Location = new System.Drawing.Point(7, 52);
+            this.txtAgendaFiltroProjetosCodigo.Name = "txtAgendaFiltroProjetosCodigo";
+            this.txtAgendaFiltroProjetosCodigo.Size = new System.Drawing.Size(80, 22);
+            this.txtAgendaFiltroProjetosCodigo.TabIndex = 4;
+            this.txtAgendaFiltroProjetosCodigo.TextChanged += new System.EventHandler(this.txtAgendaFiltroProjetosCodigo_TextChanged);
+            // 
+            // txtAgendaFiltroProjetosNome
+            // 
+            this.txtAgendaFiltroProjetosNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAgendaFiltroProjetosNome.Location = new System.Drawing.Point(93, 52);
+            this.txtAgendaFiltroProjetosNome.Name = "txtAgendaFiltroProjetosNome";
+            this.txtAgendaFiltroProjetosNome.Size = new System.Drawing.Size(455, 22);
+            this.txtAgendaFiltroProjetosNome.TabIndex = 4;
+            this.txtAgendaFiltroProjetosNome.TextChanged += new System.EventHandler(this.txtAgendaFiltroProjetosNome_TextChanged);
+            // 
+            // dtgAgendaProjetos
+            // 
+            this.dtgAgendaProjetos.AllowUserToAddRows = false;
+            this.dtgAgendaProjetos.AllowUserToDeleteRows = false;
+            this.dtgAgendaProjetos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dtgAgendaProjetos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgAgendaProjetos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgAgendaProjetos.AutoGenerateColumns = false;
+            this.dtgAgendaProjetos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgAgendaProjetos.BackgroundColor = System.Drawing.Color.White;
+            this.dtgAgendaProjetos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgAgendaProjetos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgAgendaProjetos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgAgendaProjetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgAgendaProjetos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn2,
+            this.nomeDataGridViewTextBoxColumn1,
+            this.nomeGerenteProjetoDataGridViewTextBoxColumn,
+            this.dtgAgendaProjetosCkbSelecaoPautado,
+            this.dtgAgendaProjetosCkbSelecaoPriorizado,
+            this.investimentoPrevistoDataGridViewTextBoxColumn,
+            this.receitaConstanteDataGridViewTextBoxColumn,
+            this.razaoReceitaValorDataGridViewTextBoxColumn,
+            this.descricaoDataGridViewTextBoxColumn,
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn,
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn,
+            this.dataCricaoDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn1,
+            this.observacaoDataGridViewTextBoxColumn1,
+            this.idGerenteProjetoDataGridViewTextBoxColumn,
+            this.descricaoApoioSteakHoldersDataGridViewTextBoxColumn,
+            this.descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn,
+            this.descricaoApoioAltaGestaoDataGridViewTextBoxColumn,
+            this.boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn,
+            this.boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn,
+            this.boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn,
+            this.boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn,
+            this.entityObjectDataGridViewTextBoxColumn1});
+            this.dtgAgendaProjetos.DataSource = this._bindingSourceAgenda_Projetos;
+            this.dtgAgendaProjetos.Location = new System.Drawing.Point(7, 80);
+            this.dtgAgendaProjetos.MultiSelect = false;
+            this.dtgAgendaProjetos.Name = "dtgAgendaProjetos";
+            this.dtgAgendaProjetos.RowHeadersVisible = false;
+            this.dtgAgendaProjetos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgAgendaProjetos.Size = new System.Drawing.Size(541, 182);
+            this.dtgAgendaProjetos.TabIndex = 2;
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn2.FillWeight = 75F;
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Codigo";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // nomeDataGridViewTextBoxColumn1
+            // 
+            this.nomeDataGridViewTextBoxColumn1.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.FillWeight = 150F;
+            this.nomeDataGridViewTextBoxColumn1.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn1.Name = "nomeDataGridViewTextBoxColumn1";
+            this.nomeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nomeGerenteProjetoDataGridViewTextBoxColumn
+            // 
+            this.nomeGerenteProjetoDataGridViewTextBoxColumn.DataPropertyName = "NomeGerenteProjeto";
+            this.nomeGerenteProjetoDataGridViewTextBoxColumn.FillWeight = 150F;
+            this.nomeGerenteProjetoDataGridViewTextBoxColumn.HeaderText = "Gerente";
+            this.nomeGerenteProjetoDataGridViewTextBoxColumn.Name = "nomeGerenteProjetoDataGridViewTextBoxColumn";
+            this.nomeGerenteProjetoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dtgAgendaProjetosCkbSelecaoPautado
+            // 
+            this.dtgAgendaProjetosCkbSelecaoPautado.DataPropertyName = "SelecaoPautado";
+            this.dtgAgendaProjetosCkbSelecaoPautado.FillWeight = 60F;
+            this.dtgAgendaProjetosCkbSelecaoPautado.HeaderText = "Pautado";
+            this.dtgAgendaProjetosCkbSelecaoPautado.Name = "dtgAgendaProjetosCkbSelecaoPautado";
+            this.dtgAgendaProjetosCkbSelecaoPautado.Visible = false;
+            // 
+            // dtgAgendaProjetosCkbSelecaoPriorizado
+            // 
+            this.dtgAgendaProjetosCkbSelecaoPriorizado.DataPropertyName = "SelecaoPriorizado";
+            this.dtgAgendaProjetosCkbSelecaoPriorizado.FillWeight = 70F;
+            this.dtgAgendaProjetosCkbSelecaoPriorizado.HeaderText = "Priorizado";
+            this.dtgAgendaProjetosCkbSelecaoPriorizado.Name = "dtgAgendaProjetosCkbSelecaoPriorizado";
+            this.dtgAgendaProjetosCkbSelecaoPriorizado.Visible = false;
+            // 
+            // investimentoPrevistoDataGridViewTextBoxColumn
+            // 
+            this.investimentoPrevistoDataGridViewTextBoxColumn.DataPropertyName = "InvestimentoPrevisto";
+            this.investimentoPrevistoDataGridViewTextBoxColumn.HeaderText = "InvestimentoPrevisto";
+            this.investimentoPrevistoDataGridViewTextBoxColumn.Name = "investimentoPrevistoDataGridViewTextBoxColumn";
+            this.investimentoPrevistoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.investimentoPrevistoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // receitaConstanteDataGridViewTextBoxColumn
+            // 
+            this.receitaConstanteDataGridViewTextBoxColumn.DataPropertyName = "ReceitaConstante";
+            this.receitaConstanteDataGridViewTextBoxColumn.HeaderText = "ReceitaConstante";
+            this.receitaConstanteDataGridViewTextBoxColumn.Name = "receitaConstanteDataGridViewTextBoxColumn";
+            this.receitaConstanteDataGridViewTextBoxColumn.ReadOnly = true;
+            this.receitaConstanteDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // razaoReceitaValorDataGridViewTextBoxColumn
+            // 
+            this.razaoReceitaValorDataGridViewTextBoxColumn.DataPropertyName = "RazaoReceitaValor";
+            this.razaoReceitaValorDataGridViewTextBoxColumn.HeaderText = "RazaoReceitaValor";
+            this.razaoReceitaValorDataGridViewTextBoxColumn.Name = "razaoReceitaValorDataGridViewTextBoxColumn";
+            this.razaoReceitaValorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.razaoReceitaValorDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.FillWeight = 150F;
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // razaoReceitaPercentualDataGridViewTextBoxColumn
+            // 
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn.DataPropertyName = "RazaoReceitaPercentual";
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn.HeaderText = "RazaoReceitaPercentual";
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn.Name = "razaoReceitaPercentualDataGridViewTextBoxColumn";
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn.ReadOnly = true;
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // tempoPrevistoConclusaoDataGridViewTextBoxColumn
+            // 
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn.DataPropertyName = "TempoPrevistoConclusao";
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn.HeaderText = "TempoPrevistoConclusao";
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn.Name = "tempoPrevistoConclusaoDataGridViewTextBoxColumn";
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataCricaoDataGridViewTextBoxColumn
+            // 
+            this.dataCricaoDataGridViewTextBoxColumn.DataPropertyName = "DataCricao";
+            this.dataCricaoDataGridViewTextBoxColumn.HeaderText = "DataCricao";
+            this.dataCricaoDataGridViewTextBoxColumn.Name = "dataCricaoDataGridViewTextBoxColumn";
+            this.dataCricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataCricaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // statusDataGridViewTextBoxColumn1
+            // 
+            this.statusDataGridViewTextBoxColumn1.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn1.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn1.Name = "statusDataGridViewTextBoxColumn1";
+            this.statusDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.statusDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // observacaoDataGridViewTextBoxColumn1
+            // 
+            this.observacaoDataGridViewTextBoxColumn1.DataPropertyName = "Observacao";
+            this.observacaoDataGridViewTextBoxColumn1.HeaderText = "Observacao";
+            this.observacaoDataGridViewTextBoxColumn1.Name = "observacaoDataGridViewTextBoxColumn1";
+            this.observacaoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.observacaoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // idGerenteProjetoDataGridViewTextBoxColumn
+            // 
+            this.idGerenteProjetoDataGridViewTextBoxColumn.DataPropertyName = "IdGerenteProjeto";
+            this.idGerenteProjetoDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.idGerenteProjetoDataGridViewTextBoxColumn.HeaderText = "IdGerenteProjeto";
+            this.idGerenteProjetoDataGridViewTextBoxColumn.Name = "idGerenteProjetoDataGridViewTextBoxColumn";
+            this.idGerenteProjetoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idGerenteProjetoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // descricaoApoioSteakHoldersDataGridViewTextBoxColumn
+            // 
+            this.descricaoApoioSteakHoldersDataGridViewTextBoxColumn.DataPropertyName = "DescricaoApoioSteakHolders";
+            this.descricaoApoioSteakHoldersDataGridViewTextBoxColumn.HeaderText = "DescricaoApoioSteakHolders";
+            this.descricaoApoioSteakHoldersDataGridViewTextBoxColumn.Name = "descricaoApoioSteakHoldersDataGridViewTextBoxColumn";
+            this.descricaoApoioSteakHoldersDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoApoioSteakHoldersDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn
+            // 
+            this.descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn.DataPropertyName = "DescricaoCapacidadeEntregaEquipe";
+            this.descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn.HeaderText = "DescricaoCapacidadeEntregaEquipe";
+            this.descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn.Name = "descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn";
+            this.descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // descricaoApoioAltaGestaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoApoioAltaGestaoDataGridViewTextBoxColumn.DataPropertyName = "DescricaoApoioAltaGestao";
+            this.descricaoApoioAltaGestaoDataGridViewTextBoxColumn.HeaderText = "DescricaoApoioAltaGestao";
+            this.descricaoApoioAltaGestaoDataGridViewTextBoxColumn.Name = "descricaoApoioAltaGestaoDataGridViewTextBoxColumn";
+            this.descricaoApoioAltaGestaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoApoioAltaGestaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn
+            // 
+            this.boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn.DataPropertyName = "BoolEsforcoAdicionalAte10PorCento";
+            this.boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn.HeaderText = "BoolEsforcoAdicionalAte10PorCento";
+            this.boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn.Name = "boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn";
+            this.boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn
+            // 
+            this.boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn.DataPropertyName = "BoolEsforcoAdicionalEntre11e20PorCento";
+            this.boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn.HeaderText = "BoolEsforcoAdicionalEntre11e20PorCento";
+            this.boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn.Name = "boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn";
+            this.boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn
+            // 
+            this.boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn.DataPropertyName = "BoolEsforcoAdicionalEntre21e40PorCento";
+            this.boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn.HeaderText = "BoolEsforcoAdicionalEntre21e40PorCento";
+            this.boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn.Name = "boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn";
+            this.boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn
+            // 
+            this.boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn.DataPropertyName = "BoolEsforcoAdicionalmaior40PorCento";
+            this.boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn.HeaderText = "BoolEsforcoAdicionalmaior40PorCento";
+            this.boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn.Name = "boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn";
+            this.boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn.Visible = false;
+            // 
+            // entityObjectDataGridViewTextBoxColumn1
+            // 
+            this.entityObjectDataGridViewTextBoxColumn1.DataPropertyName = "EntityObject";
+            this.entityObjectDataGridViewTextBoxColumn1.HeaderText = "EntityObject";
+            this.entityObjectDataGridViewTextBoxColumn1.Name = "entityObjectDataGridViewTextBoxColumn1";
+            this.entityObjectDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.entityObjectDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // _bindingSourceAgenda_Projetos
+            // 
+            this._bindingSourceAgenda_Projetos.DataSource = typeof(RegraNegocio.View.Projetos.ViewProjeto);
+            // 
+            // grbPessoas
+            // 
+            this.grbPessoas.Controls.Add(this.ckbAgendaFiltroPessoaSelecionarResponsavel);
+            this.grbPessoas.Controls.Add(this.ckbAgendaFiltroPessoaSelecionarGerente);
+            this.grbPessoas.Controls.Add(this.label2);
+            this.grbPessoas.Controls.Add(this.Label15);
+            this.grbPessoas.Controls.Add(this.txtAgendaFiltroPessoasCodigo);
+            this.grbPessoas.Controls.Add(this.txtAgendaFiltroPessoasNome);
+            this.grbPessoas.Controls.Add(this.dtgAgendaPessoas);
+            this.grbPessoas.Location = new System.Drawing.Point(8, 350);
+            this.grbPessoas.Margin = new System.Windows.Forms.Padding(4);
+            this.grbPessoas.Name = "grbPessoas";
+            this.grbPessoas.Padding = new System.Windows.Forms.Padding(4);
+            this.grbPessoas.Size = new System.Drawing.Size(419, 262);
+            this.grbPessoas.TabIndex = 1;
+            this.grbPessoas.TabStop = false;
+            this.grbPessoas.Text = "Pessoas";
+            // 
+            // ckbAgendaFiltroPessoaSelecionarResponsavel
+            // 
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel.AutoSize = true;
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel.Location = new System.Drawing.Point(223, 22);
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel.Name = "ckbAgendaFiltroPessoaSelecionarResponsavel";
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel.Size = new System.Drawing.Size(108, 20);
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel.TabIndex = 16;
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel.Text = "Responsavel";
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel.UseVisualStyleBackColor = true;
+            this.ckbAgendaFiltroPessoaSelecionarResponsavel.CheckedChanged += new System.EventHandler(this.ckbAgendaFiltroPessoaSelecionarResponsavel_CheckedChanged);
+            // 
+            // ckbAgendaFiltroPessoaSelecionarGerente
+            // 
+            this.ckbAgendaFiltroPessoaSelecionarGerente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckbAgendaFiltroPessoaSelecionarGerente.AutoSize = true;
+            this.ckbAgendaFiltroPessoaSelecionarGerente.Location = new System.Drawing.Point(337, 22);
+            this.ckbAgendaFiltroPessoaSelecionarGerente.Name = "ckbAgendaFiltroPessoaSelecionarGerente";
+            this.ckbAgendaFiltroPessoaSelecionarGerente.Size = new System.Drawing.Size(75, 20);
+            this.ckbAgendaFiltroPessoaSelecionarGerente.TabIndex = 15;
+            this.ckbAgendaFiltroPessoaSelecionarGerente.Text = "Gerente";
+            this.ckbAgendaFiltroPessoaSelecionarGerente.UseVisualStyleBackColor = true;
+            this.ckbAgendaFiltroPessoaSelecionarGerente.CheckedChanged += new System.EventHandler(this.ckbAgendaFiltroPessoaSelecionarGerente_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(93, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 16);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Nome";
+            // 
+            // Label15
+            // 
+            this.Label15.AutoSize = true;
+            this.Label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label15.Location = new System.Drawing.Point(7, 33);
+            this.Label15.Name = "Label15";
+            this.Label15.Size = new System.Drawing.Size(58, 16);
+            this.Label15.TabIndex = 13;
+            this.Label15.Text = "Codigo";
+            // 
+            // txtAgendaFiltroPessoasCodigo
+            // 
+            this.txtAgendaFiltroPessoasCodigo.Location = new System.Drawing.Point(7, 52);
+            this.txtAgendaFiltroPessoasCodigo.Name = "txtAgendaFiltroPessoasCodigo";
+            this.txtAgendaFiltroPessoasCodigo.Size = new System.Drawing.Size(80, 22);
+            this.txtAgendaFiltroPessoasCodigo.TabIndex = 3;
+            this.txtAgendaFiltroPessoasCodigo.TextChanged += new System.EventHandler(this.txtAgendaFiltroPessoasCodigo_TextChanged);
+            // 
+            // txtAgendaFiltroPessoasNome
+            // 
+            this.txtAgendaFiltroPessoasNome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAgendaFiltroPessoasNome.Location = new System.Drawing.Point(93, 52);
+            this.txtAgendaFiltroPessoasNome.Name = "txtAgendaFiltroPessoasNome";
+            this.txtAgendaFiltroPessoasNome.Size = new System.Drawing.Size(319, 22);
+            this.txtAgendaFiltroPessoasNome.TabIndex = 2;
+            this.txtAgendaFiltroPessoasNome.TextChanged += new System.EventHandler(this.txtAgendaFiltroPessoasNome_TextChanged);
+            // 
+            // dtgAgendaPessoas
+            // 
+            this.dtgAgendaPessoas.AllowUserToAddRows = false;
+            this.dtgAgendaPessoas.AllowUserToDeleteRows = false;
+            this.dtgAgendaPessoas.AllowUserToResizeRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dtgAgendaPessoas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgAgendaPessoas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgAgendaPessoas.AutoGenerateColumns = false;
+            this.dtgAgendaPessoas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgAgendaPessoas.BackgroundColor = System.Drawing.Color.White;
+            this.dtgAgendaPessoas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgAgendaPessoas.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgAgendaPessoas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgAgendaPessoas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgAgendaPessoas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.nomeDataGridViewTextBoxColumn,
+            this.dtgAgendaPessoaCkbSelecaoGerente,
+            this.dtgAgendapessoaCkbSelecaoResponsavel,
+            this.statusDataGridViewTextBoxColumn,
+            this.observacaoDataGridViewTextBoxColumn,
+            this.dataCriacaoDataGridViewTextBoxColumn,
+            this.entityObjectDataGridViewTextBoxColumn});
+            this.dtgAgendaPessoas.DataSource = this._bindingSourceAgenda_Pessoas;
+            this.dtgAgendaPessoas.Location = new System.Drawing.Point(7, 80);
+            this.dtgAgendaPessoas.MultiSelect = false;
+            this.dtgAgendaPessoas.Name = "dtgAgendaPessoas";
+            this.dtgAgendaPessoas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgAgendaPessoas.RowHeadersVisible = false;
+            this.dtgAgendaPessoas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgAgendaPessoas.Size = new System.Drawing.Size(405, 175);
+            this.dtgAgendaPessoas.TabIndex = 1;
+            this.dtgAgendaPessoas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgAgendaPessoas_CellContentClick);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.FillWeight = 25F;
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Codigo";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nomeDataGridViewTextBoxColumn
+            // 
+            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
+            this.nomeDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
+            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dtgAgendaPessoaCkbSelecaoGerente
+            // 
+            this.dtgAgendaPessoaCkbSelecaoGerente.DataPropertyName = "SelecaoGerente";
+            this.dtgAgendaPessoaCkbSelecaoGerente.FillWeight = 30F;
+            this.dtgAgendaPessoaCkbSelecaoGerente.HeaderText = "Gerente";
+            this.dtgAgendaPessoaCkbSelecaoGerente.Name = "dtgAgendaPessoaCkbSelecaoGerente";
+            this.dtgAgendaPessoaCkbSelecaoGerente.Visible = false;
+            // 
+            // dtgAgendapessoaCkbSelecaoResponsavel
+            // 
+            this.dtgAgendapessoaCkbSelecaoResponsavel.DataPropertyName = "SelecaoResponsavel";
+            this.dtgAgendapessoaCkbSelecaoResponsavel.FillWeight = 30F;
+            this.dtgAgendapessoaCkbSelecaoResponsavel.HeaderText = "Respons.";
+            this.dtgAgendapessoaCkbSelecaoResponsavel.Name = "dtgAgendapessoaCkbSelecaoResponsavel";
+            this.dtgAgendapessoaCkbSelecaoResponsavel.Visible = false;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.statusDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // observacaoDataGridViewTextBoxColumn
+            // 
+            this.observacaoDataGridViewTextBoxColumn.DataPropertyName = "Observacao";
+            this.observacaoDataGridViewTextBoxColumn.HeaderText = "Observacao";
+            this.observacaoDataGridViewTextBoxColumn.Name = "observacaoDataGridViewTextBoxColumn";
+            this.observacaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.observacaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataCriacaoDataGridViewTextBoxColumn
+            // 
+            this.dataCriacaoDataGridViewTextBoxColumn.DataPropertyName = "DataCriacao";
+            this.dataCriacaoDataGridViewTextBoxColumn.HeaderText = "DataCriacao";
+            this.dataCriacaoDataGridViewTextBoxColumn.Name = "dataCriacaoDataGridViewTextBoxColumn";
+            this.dataCriacaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataCriacaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // entityObjectDataGridViewTextBoxColumn
+            // 
+            this.entityObjectDataGridViewTextBoxColumn.DataPropertyName = "EntityObject";
+            this.entityObjectDataGridViewTextBoxColumn.HeaderText = "EntityObject";
+            this.entityObjectDataGridViewTextBoxColumn.Name = "entityObjectDataGridViewTextBoxColumn";
+            this.entityObjectDataGridViewTextBoxColumn.ReadOnly = true;
+            this.entityObjectDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // _bindingSourceAgenda_Pessoas
+            // 
+            this._bindingSourceAgenda_Pessoas.DataSource = typeof(RegraNegocio.View.Pessoas.ViewPessoa);
+            // 
+            // grbReunioes
+            // 
+            this.grbReunioes.Controls.Add(this.lvwAgendaReuniaoSituacao);
+            this.grbReunioes.Controls.Add(this.dtgAgendaReunioes);
+            this.grbReunioes.Controls.Add(this.label1);
+            this.grbReunioes.Controls.Add(this.ckbFiltroReuniaoData);
+            this.grbReunioes.Controls.Add(this.cboAgendaFiltroReuniaoData);
+            this.grbReunioes.Controls.Add(this.mtcAgendaFiltroReuniao);
+            this.grbReunioes.Location = new System.Drawing.Point(8, 8);
+            this.grbReunioes.Margin = new System.Windows.Forms.Padding(4);
+            this.grbReunioes.Name = "grbReunioes";
+            this.grbReunioes.Padding = new System.Windows.Forms.Padding(4);
+            this.grbReunioes.Size = new System.Drawing.Size(983, 334);
+            this.grbReunioes.TabIndex = 0;
+            this.grbReunioes.TabStop = false;
+            this.grbReunioes.Text = "Reunioes Agendadas";
+            // 
+            // lvwAgendaReuniaoSituacao
+            // 
+            this.lvwAgendaReuniaoSituacao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lvwAgendaReuniaoSituacao.CheckBoxes = true;
+            listViewItem1.StateImageIndex = 0;
+            listViewItem2.StateImageIndex = 0;
+            listViewItem3.StateImageIndex = 0;
+            listViewItem4.StateImageIndex = 0;
+            listViewItem5.StateImageIndex = 0;
+            listViewItem6.StateImageIndex = 0;
+            listViewItem7.StateImageIndex = 0;
+            this.lvwAgendaReuniaoSituacao.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7});
+            this.lvwAgendaReuniaoSituacao.Location = new System.Drawing.Point(10, 41);
+            this.lvwAgendaReuniaoSituacao.Name = "lvwAgendaReuniaoSituacao";
+            this.lvwAgendaReuniaoSituacao.Size = new System.Drawing.Size(224, 90);
+            this.lvwAgendaReuniaoSituacao.TabIndex = 14;
+            this.lvwAgendaReuniaoSituacao.UseCompatibleStateImageBehavior = false;
+            this.lvwAgendaReuniaoSituacao.View = System.Windows.Forms.View.List;
+            this.lvwAgendaReuniaoSituacao.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvwAgendaReuniaoSituacao_ItemChecked);
+            // 
+            // dtgAgendaReunioes
+            // 
+            this.dtgAgendaReunioes.AllowUserToOrderColumns = true;
+            this.dtgAgendaReunioes.AllowUserToResizeColumns = false;
+            this.dtgAgendaReunioes.AllowUserToResizeRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dtgAgendaReunioes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgAgendaReunioes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgAgendaReunioes.AutoGenerateColumns = false;
+            this.dtgAgendaReunioes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgAgendaReunioes.BackgroundColor = System.Drawing.Color.White;
+            this.dtgAgendaReunioes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgAgendaReunioes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgAgendaReunioes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtgAgendaReunioes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgAgendaReunioes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.descricaoDataGridViewTextBoxColumn1,
+            this.responsavelDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn2});
+            this.dtgAgendaReunioes.DataSource = this._bindingSourceAgenda_Reunioes;
+            this.dtgAgendaReunioes.Location = new System.Drawing.Point(240, 22);
+            this.dtgAgendaReunioes.Name = "dtgAgendaReunioes";
+            this.dtgAgendaReunioes.RowHeadersVisible = false;
+            this.dtgAgendaReunioes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dtgAgendaReunioes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgAgendaReunioes.Size = new System.Drawing.Size(736, 305);
+            this.dtgAgendaReunioes.TabIndex = 13;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Codigo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // descricaoDataGridViewTextBoxColumn1
+            // 
+            this.descricaoDataGridViewTextBoxColumn1.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn1.FillWeight = 180F;
+            this.descricaoDataGridViewTextBoxColumn1.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn1.Name = "descricaoDataGridViewTextBoxColumn1";
+            this.descricaoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // responsavelDataGridViewTextBoxColumn
+            // 
+            this.responsavelDataGridViewTextBoxColumn.DataPropertyName = "Responsavel";
+            this.responsavelDataGridViewTextBoxColumn.HeaderText = "Responsavel";
+            this.responsavelDataGridViewTextBoxColumn.Name = "responsavelDataGridViewTextBoxColumn";
+            this.responsavelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Local";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Local";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "DataHoraEvento";
+            this.dataGridViewTextBoxColumn2.FillWeight = 70F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Data/Hora";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // _bindingSourceAgenda_Reunioes
+            // 
+            this._bindingSourceAgenda_Reunioes.DataSource = typeof(RegraNegocio.View.Reunioes.ViewReuniao);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(4, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 16);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Status da Reuniao";
+            // 
+            // ckbFiltroReuniaoData
+            // 
+            this.ckbFiltroReuniaoData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ckbFiltroReuniaoData.AutoSize = true;
+            this.ckbFiltroReuniaoData.Checked = true;
+            this.ckbFiltroReuniaoData.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbFiltroReuniaoData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbFiltroReuniaoData.Location = new System.Drawing.Point(7, 139);
+            this.ckbFiltroReuniaoData.Name = "ckbFiltroReuniaoData";
+            this.ckbFiltroReuniaoData.Size = new System.Drawing.Size(68, 20);
+            this.ckbFiltroReuniaoData.TabIndex = 10;
+            this.ckbFiltroReuniaoData.Text = "Data: ";
+            this.ckbFiltroReuniaoData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ckbFiltroReuniaoData.UseVisualStyleBackColor = true;
+            this.ckbFiltroReuniaoData.CheckedChanged += new System.EventHandler(this.ckbFiltroReuniaoData_CheckedChanged);
+            // 
+            // cboAgendaFiltroReuniaoData
+            // 
+            this.cboAgendaFiltroReuniaoData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cboAgendaFiltroReuniaoData.BackColor = System.Drawing.Color.White;
+            this.cboAgendaFiltroReuniaoData.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAgendaFiltroReuniaoData.ForeColor = System.Drawing.Color.White;
+            this.cboAgendaFiltroReuniaoData.FormattingEnabled = true;
+            this.cboAgendaFiltroReuniaoData.Items.AddRange(new object[] {
+            "Cadastro",
+            "Agendamento"});
+            this.cboAgendaFiltroReuniaoData.Location = new System.Drawing.Point(75, 137);
+            this.cboAgendaFiltroReuniaoData.Name = "cboAgendaFiltroReuniaoData";
+            this.cboAgendaFiltroReuniaoData.Size = new System.Drawing.Size(159, 24);
+            this.cboAgendaFiltroReuniaoData.TabIndex = 2;
+            this.cboAgendaFiltroReuniaoData.SelectedIndexChanged += new System.EventHandler(this.cboAgendaFiltroReuniaoData_SelectedIndexChanged);
+            // 
+            // mtcAgendaFiltroReuniao
+            // 
+            this.mtcAgendaFiltroReuniao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.mtcAgendaFiltroReuniao.Location = new System.Drawing.Point(7, 165);
+            this.mtcAgendaFiltroReuniao.MaxSelectionCount = 365;
+            this.mtcAgendaFiltroReuniao.Name = "mtcAgendaFiltroReuniao";
+            this.mtcAgendaFiltroReuniao.TabIndex = 1;
+            this.mtcAgendaFiltroReuniao.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mtcAgendaFiltroReuniao_DateChanged);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 707);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // _timmerAgenda
+            // 
+            this._timmerAgenda.Enabled = true;
+            this._timmerAgenda.Interval = 10000;
+            this._timmerAgenda.Tick += new System.EventHandler(this.timmer_Tick);
+            // 
+            // FrmPrincipal
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 661);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.tbcParincipal);
             this.Controls.Add(this.toolStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "frmPrincipal";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Projetos";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
+            this.Resize += new System.EventHandler(this.frmPrincipal_Resize);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgPessoas)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgprojetos)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgReunioes)).EndInit();
+            this.tbcParincipal.ResumeLayout(false);
+            this.tbpAgenda.ResumeLayout(false);
+            this.grbProjetos.ResumeLayout(false);
+            this.grbProjetos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAgendaProjetos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourceAgenda_Projetos)).EndInit();
+            this.grbPessoas.ResumeLayout(false);
+            this.grbPessoas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAgendaPessoas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourceAgenda_Pessoas)).EndInit();
+            this.grbReunioes.ResumeLayout(false);
+            this.grbReunioes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAgendaReunioes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourceAgenda_Reunioes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -879,42 +1142,8 @@
         private System.Windows.Forms.ToolStripMenuItem reuniõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuáriosDoSistemaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem perfisDeUsuáriosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem critériosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comparaçõesDeCritériosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comparaçõesCRITERIOPROJETOSToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dtgPessoas;
-        private System.Windows.Forms.DataGridView dtgprojetos;
-        private System.Windows.Forms.DataGridView dtgReunioes;
-        private System.Windows.Forms.ComboBox cboListaPessoas;
-        private System.Windows.Forms.Label Label18;
-        private System.Windows.Forms.ComboBox cboStatusPessoas;
-        private System.Windows.Forms.Label Label1;
-        private System.Windows.Forms.TextBox txtPesquisarPessoas;
-        private System.Windows.Forms.ComboBox cboListaProjetos;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cboStatusProjetos;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPesquisarProjetos;
-        private System.Windows.Forms.MonthCalendar mtcReunioes;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.CheckBox cbCancelado;
-        private System.Windows.Forms.CheckBox cbEfetivado;
-        private System.Windows.Forms.CheckBox cbEmoperacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesDescricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesDataHoraEvento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesPayBackAceitavel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosTaxaRemuneracaoMercado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesPautaDescricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesLocal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesResponsavel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesQuantidadeProjetosPauta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgReunioesSituacao;
-        private System.Windows.Forms.DataGridViewImageColumn dtgReunioesBtnVisualizar;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
@@ -923,22 +1152,82 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPessoasId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPessoasNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPessoaObservacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPessoasStatus;
-        private System.Windows.Forms.DataGridViewImageColumn dtgPessoasBtnVisualizar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosDescricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosObservacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosGerente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosInvestimentoPrevisto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosReceitaConstante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosRazaoReceitaValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosRazaoReceitaPercentual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosTempoPrevistoConclusao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgProjetosStatus;
-        private System.Windows.Forms.DataGridViewImageColumn dtgProjetosVisualizar;
+        private System.Windows.Forms.BindingSource _bindingSourceAgenda_Pessoas;
+        private System.Windows.Forms.BindingSource _bindingSourceAgenda_Projetos;
+        private System.Windows.Forms.BindingSource _bindingSourceAgenda_Reunioes;
+        private System.Windows.Forms.TabControl tbcParincipal;
+        private System.Windows.Forms.TabPage tbpAgenda;
+        private System.Windows.Forms.GroupBox grbProjetos;
+        private System.Windows.Forms.GroupBox grbPessoas;
+        private System.Windows.Forms.GroupBox grbReunioes;
+        private System.Windows.Forms.DataGridView dtgAgendaProjetos;
+        private System.Windows.Forms.DataGridView dtgAgendaPessoas;
+        private System.Windows.Forms.MonthCalendar mtcAgendaFiltroReuniao;
+        private System.Windows.Forms.ComboBox cboAgendaFiltroReuniaoData;
+        private System.Windows.Forms.CheckBox ckbFiltroReuniaoData;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtAgendaFiltroProjetosCodigo;
+        private System.Windows.Forms.TextBox txtAgendaFiltroProjetosNome;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Label15;
+        private System.Windows.Forms.TextBox txtAgendaFiltroPessoasCodigo;
+        private System.Windows.Forms.TextBox txtAgendaFiltroPessoasNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dATAHORAEVENTODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pAYBACKACEITAVELDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tAXAREMUNERACAOMERCADODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pAUTADESCRICAODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lOCALDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sITUACAODataGridViewTextBoxColumn;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.DataGridView dtgAgendaReunioes;
+        private System.Windows.Forms.ToolStripMenuItem aHPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem criteriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnRelatorios;
+        private System.Windows.Forms.TabPage tbpPrincipal;
+        private System.Windows.Forms.Timer _timmerAgenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn responsavelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.ListView lvwAgendaReuniaoSituacao;
+        private System.Windows.Forms.CheckBox ckbAgendaFiltroProjetoSelecaoPautado;
+        private System.Windows.Forms.CheckBox ckbAgendaFiltroProjetoSelecaoPriorizado;
+        private System.Windows.Forms.CheckBox ckbAgendaFiltroPessoaSelecionarResponsavel;
+        private System.Windows.Forms.CheckBox ckbAgendaFiltroPessoaSelecionarGerente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dtgAgendaPessoaCkbSelecaoGerente;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dtgAgendapessoaCkbSelecaoResponsavel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn observacaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataCriacaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entityObjectDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeGerenteProjetoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dtgAgendaProjetosCkbSelecaoPautado;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dtgAgendaProjetosCkbSelecaoPriorizado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn investimentoPrevistoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receitaConstanteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn razaoReceitaValorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn razaoReceitaPercentualDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tempoPrevistoConclusaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataCricaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn observacaoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idGerenteProjetoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoApoioSteakHoldersDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoCapacidadeEntregaEquipeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoApoioAltaGestaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn boolEsforcoAdicionalAte10PorCentoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn boolEsforcoAdicionalEntre11e20PorCentoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn boolEsforcoAdicionalEntre21e40PorCentoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn boolEsforcoAdicionalmaior40PorCentoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entityObjectDataGridViewTextBoxColumn1;
     }
 }

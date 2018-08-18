@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReunioes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
@@ -53,16 +54,19 @@
             this.btnCancelarReuniao = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnEfetivarReuniao = new System.Windows.Forms.ToolStripButton();
+            this.btnPesquisar = new System.Windows.Forms.ToolStripButton();
             this.tbcReunioes = new System.Windows.Forms.TabControl();
             this.tbpPrincipal = new System.Windows.Forms.TabPage();
             this.grbInformacoes = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btnPesquisaResponsavel = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtSituacao = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtTaxaCustoCapital = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDataHoraInclusao = new System.Windows.Forms.MaskedTextBox();
             this.lblDataInclusao = new System.Windows.Forms.Label();
-            this.cboResponsavel = new System.Windows.Forms.ComboBox();
             this.dtgPrincipal = new System.Windows.Forms.DataGridView();
             this.dtgPrincipalTxtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,7 +131,6 @@
             this.txtPautaDataInclusao = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboPautaProjeto = new System.Windows.Forms.ComboBox();
             this.grbPautaAcoes = new System.Windows.Forms.GroupBox();
             this.btnPautaExcluir = new System.Windows.Forms.Button();
             this.btnPautaIncluir = new System.Windows.Forms.Button();
@@ -169,6 +172,13 @@
             this.APROVACAORESULTADOVALORPRESENTELIQUIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.APROVACAORESULTADODICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.APROVACAORESULTADOAHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPautaEditar = new System.Windows.Forms.Button();
+            this.btnPautaCancelar = new System.Windows.Forms.Button();
+            this.txtPautaCodigo = new System.Windows.Forms.TextBox();
+            this.txtPautaDescricao = new System.Windows.Forms.TextBox();
+            this.btnPesquisarPautaProjeto = new System.Windows.Forms.Button();
+            this._bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._bindingSourcePauta = new System.Windows.Forms.BindingSource(this.components);
             this.tspPrincipal.SuspendLayout();
             this.tbcReunioes.SuspendLayout();
             this.tbpPrincipal.SuspendLayout();
@@ -181,6 +191,8 @@
             this.grbPautaAcoes.SuspendLayout();
             this.tbpRank.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgRankProjetos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourcePauta)).BeginInit();
             this.SuspendLayout();
             // 
             // tspPrincipal
@@ -196,7 +208,8 @@
             this.toolStripSeparator5,
             this.btnCancelarReuniao,
             this.toolStripSeparator3,
-            this.btnEfetivarReuniao});
+            this.btnEfetivarReuniao,
+            this.btnPesquisar});
             this.tspPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tspPrincipal.Name = "tspPrincipal";
             this.tspPrincipal.Size = new System.Drawing.Size(1176, 72);
@@ -318,6 +331,14 @@
             this.btnEfetivarReuniao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEfetivarReuniao.Click += new System.EventHandler(this.btnEfetivar_Click);
             // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
+            this.btnPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(23, 69);
+            // 
             // tbcReunioes
             // 
             this.tbcReunioes.Controls.Add(this.tbpPrincipal);
@@ -344,13 +365,15 @@
             // 
             // grbInformacoes
             // 
+            this.grbInformacoes.Controls.Add(this.textBox2);
+            this.grbInformacoes.Controls.Add(this.btnPesquisaResponsavel);
+            this.grbInformacoes.Controls.Add(this.textBox1);
             this.grbInformacoes.Controls.Add(this.txtSituacao);
             this.grbInformacoes.Controls.Add(this.label14);
             this.grbInformacoes.Controls.Add(this.txtTaxaCustoCapital);
             this.grbInformacoes.Controls.Add(this.label13);
             this.grbInformacoes.Controls.Add(this.txtDataHoraInclusao);
             this.grbInformacoes.Controls.Add(this.lblDataInclusao);
-            this.grbInformacoes.Controls.Add(this.cboResponsavel);
             this.grbInformacoes.Controls.Add(this.dtgPrincipal);
             this.grbInformacoes.Controls.Add(this.label6);
             this.grbInformacoes.Controls.Add(this.label5);
@@ -374,6 +397,31 @@
             this.grbInformacoes.TabIndex = 0;
             this.grbInformacoes.TabStop = false;
             this.grbInformacoes.Text = "Informações";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(252, 231);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(557, 22);
+            this.textBox2.TabIndex = 25;
+            // 
+            // btnPesquisaResponsavel
+            // 
+            this.btnPesquisaResponsavel.Location = new System.Drawing.Point(207, 231);
+            this.btnPesquisaResponsavel.Name = "btnPesquisaResponsavel";
+            this.btnPesquisaResponsavel.Size = new System.Drawing.Size(39, 23);
+            this.btnPesquisaResponsavel.TabIndex = 24;
+            this.btnPesquisaResponsavel.Text = "button1";
+            this.btnPesquisaResponsavel.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(135, 231);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(66, 22);
+            this.textBox1.TabIndex = 23;
             // 
             // txtSituacao
             // 
@@ -434,18 +482,6 @@
             this.lblDataInclusao.Text = "Data Inclusão:";
             this.lblDataInclusao.Visible = false;
             // 
-            // cboResponsavel
-            // 
-            this.cboResponsavel.DisplayMember = "NOME";
-            this.cboResponsavel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboResponsavel.Enabled = false;
-            this.cboResponsavel.FormattingEnabled = true;
-            this.cboResponsavel.Location = new System.Drawing.Point(136, 231);
-            this.cboResponsavel.Name = "cboResponsavel";
-            this.cboResponsavel.Size = new System.Drawing.Size(673, 24);
-            this.cboResponsavel.TabIndex = 8;
-            this.cboResponsavel.ValueMember = "ID";
-            // 
             // dtgPrincipal
             // 
             this.dtgPrincipal.AllowUserToAddRows = false;
@@ -479,8 +515,8 @@
             // dtgPrincipalTxtId
             // 
             this.dtgPrincipalTxtId.DataPropertyName = "ID";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dtgPrincipalTxtId.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dtgPrincipalTxtId.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtgPrincipalTxtId.HeaderText = "CÓDIGO";
             this.dtgPrincipalTxtId.Name = "dtgPrincipalTxtId";
             this.dtgPrincipalTxtId.ReadOnly = true;
@@ -521,8 +557,8 @@
             // QuantidadeProjetosPauta
             // 
             this.QuantidadeProjetosPauta.DataPropertyName = "QUANTIDADEPROJETOSPAUTA";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.QuantidadeProjetosPauta.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.QuantidadeProjetosPauta.DefaultCellStyle = dataGridViewCellStyle2;
             this.QuantidadeProjetosPauta.HeaderText = "Q. PROJETOS";
             this.QuantidadeProjetosPauta.Name = "QuantidadeProjetosPauta";
             this.QuantidadeProjetosPauta.ReadOnly = true;
@@ -548,10 +584,10 @@
             // PayBackAceitavel
             // 
             this.PayBackAceitavel.DataPropertyName = "PAYBACKACEITAVEL";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.PayBackAceitavel.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.PayBackAceitavel.DefaultCellStyle = dataGridViewCellStyle3;
             this.PayBackAceitavel.HeaderText = "PAYBACK";
             this.PayBackAceitavel.Name = "PayBackAceitavel";
             this.PayBackAceitavel.ReadOnly = true;
@@ -843,10 +879,10 @@
             // dtgPautaProjetosTxtInvestimentoPrevisto
             // 
             this.dtgPautaProjetosTxtInvestimentoPrevisto.DataPropertyName = "INVESTIMENTOPREVISTO";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "C2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.dtgPautaProjetosTxtInvestimentoPrevisto.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dtgPautaProjetosTxtInvestimentoPrevisto.DefaultCellStyle = dataGridViewCellStyle4;
             this.dtgPautaProjetosTxtInvestimentoPrevisto.HeaderText = "Investimento Previsto";
             this.dtgPautaProjetosTxtInvestimentoPrevisto.Name = "dtgPautaProjetosTxtInvestimentoPrevisto";
             this.dtgPautaProjetosTxtInvestimentoPrevisto.ReadOnly = true;
@@ -855,10 +891,10 @@
             // dtgPautaProjetosTxtTempoPrevistoConclusao
             // 
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.DataPropertyName = "TEMPOPREVISTOCONCLUSAO";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.dtgPautaProjetosTxtTempoPrevistoConclusao.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dtgPautaProjetosTxtTempoPrevistoConclusao.DefaultCellStyle = dataGridViewCellStyle5;
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.HeaderText = "Conclusão (MESES)";
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.Name = "dtgPautaProjetosTxtTempoPrevistoConclusao";
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.ReadOnly = true;
@@ -980,6 +1016,10 @@
             // 
             // grbPautaInformacoes
             // 
+            this.grbPautaInformacoes.Controls.Add(this.btnPesquisarPautaProjeto);
+            this.grbPautaInformacoes.Controls.Add(this.txtPautaDescricao);
+            this.grbPautaInformacoes.Controls.Add(this.txtPautaCodigo);
+            this.grbPautaInformacoes.Controls.Add(this.btnPautaCancelar);
             this.grbPautaInformacoes.Controls.Add(this.txtPautaInvestimentoPrevisto);
             this.grbPautaInformacoes.Controls.Add(this.btnPautaSalvar);
             this.grbPautaInformacoes.Controls.Add(this.txtPautaTempoConclusao);
@@ -990,7 +1030,6 @@
             this.grbPautaInformacoes.Controls.Add(this.txtPautaDataInclusao);
             this.grbPautaInformacoes.Controls.Add(this.label8);
             this.grbPautaInformacoes.Controls.Add(this.label7);
-            this.grbPautaInformacoes.Controls.Add(this.cboPautaProjeto);
             this.grbPautaInformacoes.Location = new System.Drawing.Point(100, 21);
             this.grbPautaInformacoes.Name = "grbPautaInformacoes";
             this.grbPautaInformacoes.Size = new System.Drawing.Size(901, 113);
@@ -1095,26 +1134,14 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Projeto";
             // 
-            // cboPautaProjeto
-            // 
-            this.cboPautaProjeto.DisplayMember = "NOME";
-            this.cboPautaProjeto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPautaProjeto.Enabled = false;
-            this.cboPautaProjeto.FormattingEnabled = true;
-            this.cboPautaProjeto.Location = new System.Drawing.Point(63, 21);
-            this.cboPautaProjeto.Name = "cboPautaProjeto";
-            this.cboPautaProjeto.Size = new System.Drawing.Size(510, 24);
-            this.cboPautaProjeto.TabIndex = 0;
-            this.cboPautaProjeto.ValueMember = "ID";
-            this.cboPautaProjeto.SelectedIndexChanged += new System.EventHandler(this.cboPautaProjeto_SelectedIndexChanged);
-            // 
             // grbPautaAcoes
             // 
+            this.grbPautaAcoes.Controls.Add(this.btnPautaEditar);
             this.grbPautaAcoes.Controls.Add(this.btnPautaExcluir);
             this.grbPautaAcoes.Controls.Add(this.btnPautaIncluir);
             this.grbPautaAcoes.Location = new System.Drawing.Point(6, 21);
             this.grbPautaAcoes.Name = "grbPautaAcoes";
-            this.grbPautaAcoes.Size = new System.Drawing.Size(88, 89);
+            this.grbPautaAcoes.Size = new System.Drawing.Size(88, 113);
             this.grbPautaAcoes.TabIndex = 0;
             this.grbPautaAcoes.TabStop = false;
             // 
@@ -1224,10 +1251,10 @@
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "INVESTIMENTOPREVISTO";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "C2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn6.HeaderText = "Inv. Previsto";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -1236,10 +1263,10 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "TEMPOPREVISTOCONCLUSAO";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.Format = "N2";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn10.HeaderText = "Conclusão (MESES)";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -1385,10 +1412,10 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "RESULTADOPAYBACK";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.Format = "N2";
-            dataGridViewCellStyle20.NullValue = null;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn13.HeaderText = "Payback";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -1397,10 +1424,10 @@
             // DTGRANKPROJETOSVALORPRESENTELIQUIDO
             // 
             this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.DataPropertyName = "RESULTADOVALORPRESENTELIQUIDO";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.Format = "C2";
-            dataGridViewCellStyle21.NullValue = null;
-            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.DefaultCellStyle = dataGridViewCellStyle9;
             this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.HeaderText = "VPL";
             this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.Name = "DTGRANKPROJETOSVALORPRESENTELIQUIDO";
             this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.ReadOnly = true;
@@ -1409,10 +1436,10 @@
             // DTGRANKPROJETOTAXAINTERNARETORNO
             // 
             this.DTGRANKPROJETOTAXAINTERNARETORNO.DataPropertyName = "RESULTADOTAXAINTERNARETORNO";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.Format = "N2";
-            dataGridViewCellStyle22.NullValue = null;
-            this.DTGRANKPROJETOTAXAINTERNARETORNO.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.DTGRANKPROJETOTAXAINTERNARETORNO.DefaultCellStyle = dataGridViewCellStyle10;
             this.DTGRANKPROJETOTAXAINTERNARETORNO.HeaderText = "TIR";
             this.DTGRANKPROJETOTAXAINTERNARETORNO.Name = "DTGRANKPROJETOTAXAINTERNARETORNO";
             this.DTGRANKPROJETOTAXAINTERNARETORNO.ReadOnly = true;
@@ -1421,8 +1448,8 @@
             // RANKPROJETOSDICE
             // 
             this.RANKPROJETOSDICE.DataPropertyName = "RESULTADODICE";
-            dataGridViewCellStyle23.NullValue = null;
-            this.RANKPROJETOSDICE.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.NullValue = null;
+            this.RANKPROJETOSDICE.DefaultCellStyle = dataGridViewCellStyle11;
             this.RANKPROJETOSDICE.HeaderText = "DICE";
             this.RANKPROJETOSDICE.Name = "RANKPROJETOSDICE";
             this.RANKPROJETOSDICE.ReadOnly = true;
@@ -1431,9 +1458,9 @@
             // AHP
             // 
             this.AHP.DataPropertyName = "RESULTADOAHP";
-            dataGridViewCellStyle24.Format = "N2";
-            dataGridViewCellStyle24.NullValue = null;
-            this.AHP.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.AHP.DefaultCellStyle = dataGridViewCellStyle12;
             this.AHP.HeaderText = "AHP (%)";
             this.AHP.Name = "AHP";
             this.AHP.ReadOnly = true;
@@ -1519,6 +1546,53 @@
             this.APROVACAORESULTADOAHP.ReadOnly = true;
             this.APROVACAORESULTADOAHP.Visible = false;
             // 
+            // btnPautaEditar
+            // 
+            this.btnPautaEditar.Enabled = false;
+            this.btnPautaEditar.Location = new System.Drawing.Point(6, 79);
+            this.btnPautaEditar.Name = "btnPautaEditar";
+            this.btnPautaEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnPautaEditar.TabIndex = 3;
+            this.btnPautaEditar.Text = "Editar";
+            this.btnPautaEditar.UseVisualStyleBackColor = true;
+            // 
+            // btnPautaCancelar
+            // 
+            this.btnPautaCancelar.Enabled = false;
+            this.btnPautaCancelar.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnPautaCancelar.Location = new System.Drawing.Point(737, 79);
+            this.btnPautaCancelar.Name = "btnPautaCancelar";
+            this.btnPautaCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnPautaCancelar.TabIndex = 12;
+            this.btnPautaCancelar.Text = "Cancelar";
+            this.btnPautaCancelar.UseVisualStyleBackColor = true;
+            // 
+            // txtPautaCodigo
+            // 
+            this.txtPautaCodigo.Enabled = false;
+            this.txtPautaCodigo.Location = new System.Drawing.Point(63, 21);
+            this.txtPautaCodigo.Name = "txtPautaCodigo";
+            this.txtPautaCodigo.Size = new System.Drawing.Size(56, 22);
+            this.txtPautaCodigo.TabIndex = 13;
+            // 
+            // txtPautaDescricao
+            // 
+            this.txtPautaDescricao.Enabled = false;
+            this.txtPautaDescricao.Location = new System.Drawing.Point(165, 21);
+            this.txtPautaDescricao.Name = "txtPautaDescricao";
+            this.txtPautaDescricao.Size = new System.Drawing.Size(408, 22);
+            this.txtPautaDescricao.TabIndex = 14;
+            // 
+            // btnPesquisarPautaProjeto
+            // 
+            this.btnPesquisarPautaProjeto.Location = new System.Drawing.Point(125, 21);
+            this.btnPesquisarPautaProjeto.Name = "btnPesquisarPautaProjeto";
+            this.btnPesquisarPautaProjeto.Size = new System.Drawing.Size(34, 23);
+            this.btnPesquisarPautaProjeto.TabIndex = 15;
+            this.btnPesquisarPautaProjeto.Text = "...";
+            this.btnPesquisarPautaProjeto.UseVisualStyleBackColor = true;
+            this.btnPesquisarPautaProjeto.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmReunioes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1548,6 +1622,8 @@
             this.grbPautaAcoes.ResumeLayout(false);
             this.tbpRank.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgRankProjetos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourcePauta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1583,7 +1659,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtLocal;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dtgPrincipal;
         private System.Windows.Forms.GroupBox grbPautaProjeto;
         private System.Windows.Forms.DataGridView dtgPautaProjetos;
         private System.Windows.Forms.GroupBox grbPautaInformacoes;
@@ -1595,13 +1670,11 @@
         private System.Windows.Forms.MaskedTextBox txtPautaDataInclusao;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cboPautaProjeto;
         private System.Windows.Forms.GroupBox grbPautaAcoes;
         private System.Windows.Forms.Button btnPautaExcluir;
         private System.Windows.Forms.Button btnPautaIncluir;
         private System.Windows.Forms.MaskedTextBox txtDataHoraInclusao;
         private System.Windows.Forms.Label lblDataInclusao;
-        private System.Windows.Forms.ComboBox cboResponsavel;
         private System.Windows.Forms.DataGridView dtgRankProjetos;
         private System.Windows.Forms.Button btnAHPCalcular;
         private System.Windows.Forms.Label label12;
@@ -1616,18 +1689,6 @@
         private System.Windows.Forms.ToolStripButton btnImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPrincipalTxtId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Responsavel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPrincipalTxtSituacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QuantidadeProjetosPauta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PautaDescricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataHoraEvento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PayBackAceitavel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TaxaRemuneracaoMercado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPrincipalTxtStatus;
-        private System.Windows.Forms.DataGridViewImageColumn btnEditar;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtgPautaProjetosTxtNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtgPautaProjetosTxtDescricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtgPautaProjetosTxtGerenteProjeto;
@@ -1683,5 +1744,29 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADOVALORPRESENTELIQUIDO;
         private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADODICE;
         private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADOAHP;
+        private System.Windows.Forms.ToolStripButton btnPesquisar;
+        private System.Windows.Forms.DataGridView dtgPrincipal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPrincipalTxtId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Local;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Responsavel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPrincipalTxtSituacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantidadeProjetosPauta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PautaDescricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataHoraEvento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PayBackAceitavel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TaxaRemuneracaoMercado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtgPrincipalTxtStatus;
+        private System.Windows.Forms.DataGridViewImageColumn btnEditar;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnPesquisaResponsavel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnPautaEditar;
+        private System.Windows.Forms.Button btnPautaCancelar;
+        private System.Windows.Forms.Button btnPesquisarPautaProjeto;
+        private System.Windows.Forms.TextBox txtPautaDescricao;
+        private System.Windows.Forms.TextBox txtPautaCodigo;
+        private System.Windows.Forms.BindingSource _bindingSource;
+        private System.Windows.Forms.BindingSource _bindingSourcePauta;
     }
 }

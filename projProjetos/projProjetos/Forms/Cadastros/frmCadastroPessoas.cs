@@ -8,21 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Equin.ApplicationFramework;
+
 namespace projProjetos.Forms.Cadastros
 {
-    public partial class frmCadastroPessoas : Form
+    public partial class FrmCadastroPessoas : Form
     {
-        public frmCadastroPessoas()
+        RegraNegocio.Pessoas pessoasRegraNegocio = new RegraNegocio.Pessoas();
+
+        StatusInformacao _statusInformacao = StatusInformacao.SEMACAO;
+
+        BindingListView<RegraNegocio.View.Pessoas.ViewPessoa> _bindingListView;
+
+        RegraNegocio.View.Pessoas.ViewPessoa _currentObject;
+
+        public FrmCadastroPessoas()
         {
             InitializeComponent();
         }
 
-        StatusInformacao statusInformacao = StatusInformacao.SELECAO;
-        RegraNegocio.Pessoas pessoasRegraNegocio = new RegraNegocio.Pessoas();
-
         private void MudarStatusInformacao(StatusInformacao statusInformacao)
         {
-            this.statusInformacao = statusInformacao;
+            this._statusInformacao = statusInformacao;
 
             switch (statusInformacao)
             {
@@ -30,11 +37,10 @@ namespace projProjetos.Forms.Cadastros
 
                     btnNovo.Enabled = false;
                     btnSalvar.Enabled = true;
-                    btnEditar.Enabled = true;
+                    btnEditar.Enabled = false;
                     btnCancelar.Enabled = true;
                     btnInativar.Enabled = false;
                     btnPesquisar.Enabled = false;
-                    btnEditar.Enabled = false;
 
                     txtNome.ReadOnly = false;
                     txtObservacoes.ReadOnly = false;
@@ -47,11 +53,10 @@ namespace projProjetos.Forms.Cadastros
 
                     btnNovo.Enabled = false;
                     btnSalvar.Enabled = true;
-                    btnEditar.Enabled = true;
+                    btnEditar.Enabled = false;
                     btnCancelar.Enabled = true;
                     btnInativar.Enabled = false;
                     btnPesquisar.Enabled = false;
-                    btnEditar.Enabled = false;
 
                     txtNome.ReadOnly = false;
                     txtObservacoes.ReadOnly = false;
@@ -63,11 +68,25 @@ namespace projProjetos.Forms.Cadastros
 
                     btnNovo.Enabled = true;
                     btnSalvar.Enabled = false;
-                    btnEditar.Enabled = false;
+                    btnEditar.Enabled = true;
                     btnCancelar.Enabled = false;
                     btnInativar.Enabled = true;
                     btnPesquisar.Enabled = true;
-                    btnEditar.Enabled = true;
+
+                    txtNome.ReadOnly = true;
+                    txtObservacoes.ReadOnly = true;
+
+                    txtDataEdicao.Visible = true;
+                    lblDataCriacao.Visible = true;
+                    break;
+
+                case StatusInformacao.SEMACAO:
+                    btnNovo.Enabled = true;
+                    btnSalvar.Enabled = false;
+                    btnEditar.Enabled = false;
+                    btnCancelar.Enabled = false;
+                    btnInativar.Enabled = false;
+                    btnPesquisar.Enabled = true;
 
                     txtNome.ReadOnly = true;
                     txtObservacoes.ReadOnly = true;
@@ -80,26 +99,73 @@ namespace projProjetos.Forms.Cadastros
             }
         }
 
+
+        private void CarregarInformacoesGerais()
+        {
+            try
+            {
+                ///caso o bindinglist estiver vazio, recebera uma nova instancia
+                if (_bindingListView is null)
+                {
+                    _bindingListView = new BindingListView<RegraNegocio.View.Pessoas.ViewPessoa>(pessoasRegraNegocio.ToList());
+                    _bindingSource.DataSource = _bindingListView;
+                }
+                else
+                {
+                    _bindingListView.RemoveFilter();
+                    _bindingListView.DataSource = pessoasRegraNegocio.ToList();
+                    _bindingListView.Refresh();
+                }
+
+
+
+                if ((_currentObject is null) && !(_bindingSource.Current is null))
+                {
+                    _currentObject = (_bindingSource.Current as ObjectView<RegraNegocio.View.Pessoas.ViewPessoa>).Object;
+                }
+
+                RegraNegocio.View.Pessoas.ViewPessoa _bindingSourceCurrentObject = (_bindingSource.Current is null) ? (null) : (_bindingSource.Current as ObjectView<RegraNegocio.View.Pessoas.ViewPessoa>).Object;
+
+                if (!(_currentObject is null) && (_bindingSourceCurrentObject is null || _bindingSourceCurrentObject != _currentObject || _bindingSource.Count > 1))
+                {
+                    _bindingListView.ApplyFilter(x => x.EntityObject.Equals(_currentObject.EntityObject));
+                    MudarStatusInformacao(StatusInformacao.SELECAO);
+                }
+                else
+                {
+                    MudarStatusInformacao(StatusInformacao.SEMACAO);
+                }
+
+                _bindingListView.Refresh();
+
+                _bindingSource.ResumeBinding();
+
+                CarregarInformacoes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
         private void CarregarInformacoes()
         {
             try
             {
-                pessoasRegraNegocio.Listar(Convert.ToInt64(dtgPrincipal.SelectedRows[0].Cells["ID"].Value));
 
-                txtCodigo.Text = pessoasRegraNegocio.entidade.ID.ToString();
-                txtNome.Text = pessoasRegraNegocio.entidade.NOME;
-                txtObservacoes.Text = pessoasRegraNegocio.entidade.OBSERVACAO;
-                txtDataEdicao.Text = pessoasRegraNegocio.entidade.DATACRIACAO.ToString();
-
-                if (pessoasRegraNegocio.entidade.STATUS >= (byte) 1)
+                if (!(_currentObject is null))
                 {
-                    btnInativar.Text = "Inativar";
-                    btnInativar.Image = projProjetos.Properties.Resources.inativar;
-                }
-                else
-                {
-                    btnInativar.Text = "Ativar";
-                    btnInativar.Image = projProjetos.Properties.Resources.ativar;
+                    if (_currentObject.EntityObject.STATUS >= (byte)1)
+                    {
+                        btnInativar.Text = "Inativar";
+                        btnInativar.Image = projProjetos.Properties.Resources.inativar;
+                    }
+                    else
+                    {
+                        btnInativar.Text = "Ativar";
+                        btnInativar.Image = projProjetos.Properties.Resources.ativar;
+                    }
                 }
             }
             catch (Exception ex)
@@ -108,57 +174,64 @@ namespace projProjetos.Forms.Cadastros
             }
         }
 
-        private void CarregarInformacoesGerais()
+
+        private void HabilitarDataBindingComponentes()
+        {
+
+        }
+
+
+        private void DesabilitarDataBindingComponentes()
+        {
+
+        }
+
+
+        private void AtualizarInformacoesCurrentObject()
         {
             try
             {
-                dtgPrincipal.DataSource = pessoasRegraNegocio.Listar();
-
-                if (dtgPrincipal.Rows.Count > 0)
-                {
-                    dtgPrincipal.Rows[dtgPrincipal.Rows.Count - 1].Selected = true;
-                    CarregarInformacoes();
-
-
-                    foreach (DataGridViewRow linha in dtgPrincipal.Rows)
-                        if (linha.Cells["STATUS"].Value.ToString().Equals("ATIVO"))
-                            linha.Cells["dtgPrincipalBtnInativar"].Value = projProjetos.Properties.Resources.excluir;
-                        else
-                            linha.Cells["dtgPrincipalBtnInativar"].Value = projProjetos.Properties.Resources.miniAtivar;
-
-                    dtgPrincipal.Columns["dtgPrincipalBtnInativar"].DisplayIndex = 5;
-                    dtgPrincipal.Columns["dtgPrincipalBtnEditar"].DisplayIndex = 4;
-                }
+                _currentObject.EntityObject.NOME = txtNome.Text;
+                _currentObject.EntityObject.OBSERVACAO = txtObservacoes.Text;
+                _currentObject.EntityObject.DATACRIACAO = DateTime.Now;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw ex;
             }
         }
 
+
         private bool ValidarInformacoes()
         {
-            if (txtNome.Text.Trim().Length < 5)
+            if (txtNome.Text == String.Empty)
             {
-                MessageBox.Show("O campo \"Nome\" não possui a quantidade de caracteres validas necessárias.");
+                MessageBox.Show("O campo nome deve ser preenchido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtNome.Focus();
+                return false;
+            }
+
+            if (txtObservacoes.Text == String.Empty)
+            {
+                MessageBox.Show("O campo observacoes deve ser preenchido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtObservacoes.Focus();
                 return false;
             }
 
             return true;
         }
 
-        private void LimparCampos()
+
+        private void CarregarObjetosPesquisa()
         {
-            txtCodigo.Clear();
-            txtNome.Clear();
-            txtObservacoes.Clear();
+
         }
+
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             //mensagem antes de sair sem salvar as informações
-            if ((statusInformacao.Equals(StatusInformacao.INCLUSAO) || statusInformacao.Equals(StatusInformacao.ALTERACAO))                                                              // se a informação estiver sendo inserida ou alterada
+            if ((_statusInformacao.Equals(StatusInformacao.INCLUSAO) || _statusInformacao.Equals(StatusInformacao.ALTERACAO))                                                              // se a informação estiver sendo inserida ou alterada
                 && !(MessageBox.Show("Deseja sair do formulário sem salvar as informações?", "Informação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)) // e o resultado da caixa não diferente "SIM"
             {
                 return;               //então finaliza o metodo
@@ -168,80 +241,68 @@ namespace projProjetos.Forms.Cadastros
             return;
         }
 
-        private void dtgPrincipal_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dtgPrincipal.SelectedRows.Count > 0)
+                if (!(_currentObject is null))
                 {
-                    switch (dtgPrincipal.Columns[e.ColumnIndex].Name)
-                    {
-                        case "dtgPrincipalBtnEditar":
-                            btnEditar_Click(btnEditar, new EventArgs());
-                            break;
+                    pessoasRegraNegocio.Update(_currentObject.EntityObject);
+                    MudarStatusInformacao(StatusInformacao.ALTERACAO);
 
-                        case "dtgPrincipalBtnInativar":
-                            btnInativar_Click(btnInativar, new EventArgs());
-                            break;
-                        default:
-                            CarregarInformacoes();
-                            MudarStatusInformacao(StatusInformacao.SELECAO);
-                            break; 
-                    }
+                    CarregarObjetosPesquisa();
+                    DesabilitarDataBindingComponentes();
+
+
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (dtgPrincipal.SelectedRows.Count > 0)
-            {
-                CarregarInformacoes();
-                MudarStatusInformacao(StatusInformacao.ALTERACAO);
+                throw ex;
             }
         }
 
         private void btnInativar_Click(object sender, EventArgs e)
         {
-            CarregarInformacoes();
-            MudarStatusInformacao(StatusInformacao.SELECAO);
-
-            if (!(MessageBox.Show(String.Format("Deseja realmente {0} o cadastro \n" +
-                                               "ID: {1} \n" +
-                                               "Nome: {2} ?", (pessoasRegraNegocio.entidade.STATUS >= (byte)1) ? ("INATIVAR") : ("ATIVAR"),
-                                               pessoasRegraNegocio.entidade.ID, pessoasRegraNegocio.entidade.NOME), "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+            try
             {
-                return;
-            }
+                if (MessageBox.Show("Deseja realmente " + btnInativar.Text + " o registro {Id =" + _currentObject.Id + " Nome = " + _currentObject.Nome + "} ?", "Mudar Status",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    pessoasRegraNegocio.ChangeState(_currentObject.EntityObject);
+                    pessoasRegraNegocio.Commit();
 
-            pessoasRegraNegocio.MudarStatus();
-            CarregarInformacoesGerais();
-            
+                    CarregarInformacoesGerais();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void frmPessoas_Load(object sender, EventArgs e)
         {
-            MudarStatusInformacao(StatusInformacao.SELECAO);
-            CarregarInformacoesGerais();
+            MudarStatusInformacao(StatusInformacao.SEMACAO);
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
             try
             {
-                //
-                LimparCampos();
-                pessoasRegraNegocio.Incluir();
+                _currentObject = new RegraNegocio.View.Pessoas.ViewPessoa(pessoasRegraNegocio.Insert());
+
+                _bindingSource.SuspendBinding();
                 MudarStatusInformacao(StatusInformacao.INCLUSAO);
-                txtCodigo.Text = "0";
+                DesabilitarDataBindingComponentes();
+
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error) ;
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -251,12 +312,11 @@ namespace projProjetos.Forms.Cadastros
             {
                 if (ValidarInformacoes())
                 {
-                    MudarStatusInformacao(StatusInformacao.SELECAO);
+                    AtualizarInformacoesCurrentObject();
 
-                    pessoasRegraNegocio.entidade.NOME = txtNome.Text;
-                    pessoasRegraNegocio.entidade.OBSERVACAO = txtObservacoes.Text;
+                    pessoasRegraNegocio.Commit();
 
-                    pessoasRegraNegocio.Salvar();
+                    HabilitarDataBindingComponentes();
 
                     CarregarInformacoesGerais();
                 }
@@ -271,15 +331,43 @@ namespace projProjetos.Forms.Cadastros
         {
             try
             {
-                if (MessageBox.Show(String.Format("Deseja realmente cancelar a {0} das informações?", (statusInformacao.Equals(StatusInformacao.INCLUSAO) ? ("INCLUSÃO") : ("ALTERAÇÃO")) ), "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show(String.Format("Deseja realmente cancelar a {0} das informações?", (_statusInformacao.Equals(StatusInformacao.INCLUSAO) ? ("INCLUSÃO") : ("ALTERAÇÃO"))), "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MudarStatusInformacao(StatusInformacao.SELECAO);
-                    CarregarInformacoes();
+                    pessoasRegraNegocio.RollBackLastOperation();
+
+                    if (_statusInformacao == StatusInformacao.INCLUSAO)
+                        _currentObject = null;
+
+                    CarregarInformacoesGerais();
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Pesquisa.frmPesquisaPessoa frmPesquisaPessoa = new Pesquisa.frmPesquisaPessoa();
+
+                _currentObject = frmPesquisaPessoa.ShowDialogResultObjectSearch();
+
+                if (_currentObject is null && !(_bindingSource.Current is null))
+                    _currentObject = (_bindingSource.Current as ObjectView<RegraNegocio.View.Pessoas.ViewPessoa>).Object;
+
+                if (!(_currentObject is null))
+                {
+                    CarregarInformacoesGerais();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
             }
         }
     }
