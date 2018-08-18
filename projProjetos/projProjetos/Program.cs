@@ -19,7 +19,7 @@ namespace projProjetos
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new projProjetos.Forms.Cadastros.frmCadastroPessoas());
 
-            new projProjetos.Forms.frmPrincipal().ShowDialog();
+            new projProjetos.Forms.FrmPrincipal().ShowDialog();
         }
     }
 }

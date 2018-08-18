@@ -39,5 +39,12 @@ namespace RegraNegocio.View.Projetos
         public ViewProjeto(EFDados.PROJETO projeto) : base(projeto)
         {
         }
+
+        #region Auxiliares de Filtro
+
+        public bool SelecaoPriorizado { get; set; }
+        public bool SelecaoPautado { get; set; }
+
+        #endregion
     }
 }

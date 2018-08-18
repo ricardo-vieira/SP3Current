@@ -20,5 +20,13 @@ namespace RegraNegocio.View.Pessoas
         public ViewPessoa(EFDados.PESSOA pessoa) : base(pessoa)
         {
         }
+
+        #region Auxiliares de Filtro
+
+        public bool SelecaoGerente { get; set; }
+        public bool SelecaoResponsavel { get; set; }
+
+        #endregion
+
     }
 }

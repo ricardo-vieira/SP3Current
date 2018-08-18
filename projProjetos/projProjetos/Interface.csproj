@@ -93,11 +93,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ferramentas\ObjectFilter.cs" />
-    <Compile Include="Forms\Cadastros\frmCadastroPessoas.cs">
+    <Compile Include="Forms\Cadastros\FrmCadastroPessoas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Cadastros\frmCadastroPessoas.Designer.cs">
-      <DependentUpon>frmCadastroPessoas.cs</DependentUpon>
+    <Compile Include="Forms\Cadastros\FrmCadastroPessoas.Designer.cs">
+      <DependentUpon>FrmCadastroPessoas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Cadastros\Pesquisa\frmPesquisaPessoa.cs">
       <SubType>Form</SubType>
@@ -111,34 +111,34 @@
     <Compile Include="Forms\Cadastros\Pesquisa\frmPesquisaProjeto.Designer.cs">
       <DependentUpon>frmPesquisaProjeto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmPrincipal.cs">
+    <Compile Include="Forms\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmPrincipal.Designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <Compile Include="Forms\FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Cadastros\frmCadastroProjetos.cs">
+    <Compile Include="Forms\Cadastros\FrmCadastroProjetos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Cadastros\frmCadastroProjetos.Designer.cs">
-      <DependentUpon>frmCadastroProjetos.cs</DependentUpon>
+    <Compile Include="Forms\Cadastros\FrmCadastroProjetos.Designer.cs">
+      <DependentUpon>FrmCadastroProjetos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Gerencia\frmComparacoesCriterios.cs">
+    <Compile Include="Forms\Cadastros\Gerencia\frmComparacoesCriterios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Gerencia\frmComparacoesCriterios.Designer.cs">
+    <Compile Include="Forms\Cadastros\Gerencia\frmComparacoesCriterios.Designer.cs">
       <DependentUpon>frmComparacoesCriterios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Gerencia\frmComparacoesCriteriosProjetos.cs">
+    <Compile Include="Forms\Cadastros\Gerencia\frmComparacoesCriteriosProjetos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Gerencia\frmComparacoesCriteriosProjetos.Designer.cs">
+    <Compile Include="Forms\Cadastros\Gerencia\frmComparacoesCriteriosProjetos.Designer.cs">
       <DependentUpon>frmComparacoesCriteriosProjetos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Gerencia\frmCriterios.cs">
+    <Compile Include="Forms\Cadastros\Gerencia\frmCriterios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Gerencia\frmCriterios.Designer.cs">
+    <Compile Include="Forms\Cadastros\Gerencia\frmCriterios.Designer.cs">
       <DependentUpon>frmCriterios.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Lancamentos\frmReunioes.cs">
@@ -173,8 +173,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ferramentas\StatusInformacao.cs" />
-    <EmbeddedResource Include="Forms\Cadastros\frmCadastroPessoas.resx">
-      <DependentUpon>frmCadastroPessoas.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cadastros\FrmCadastroPessoas.resx">
+      <DependentUpon>FrmCadastroPessoas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Cadastros\Pesquisa\frmPesquisaPessoa.resx">
       <DependentUpon>frmPesquisaPessoa.cs</DependentUpon>
@@ -182,19 +182,19 @@
     <EmbeddedResource Include="Forms\Cadastros\Pesquisa\frmPesquisaProjeto.resx">
       <DependentUpon>frmPesquisaProjeto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Cadastros\frmCadastroProjetos.resx">
-      <DependentUpon>frmCadastroProjetos.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Cadastros\FrmCadastroProjetos.resx">
+      <DependentUpon>FrmCadastroProjetos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Gerencia\frmComparacoesCriterios.resx">
+    <EmbeddedResource Include="Forms\Cadastros\Gerencia\frmComparacoesCriterios.resx">
       <DependentUpon>frmComparacoesCriterios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Gerencia\frmComparacoesCriteriosProjetos.resx">
+    <EmbeddedResource Include="Forms\Cadastros\Gerencia\frmComparacoesCriteriosProjetos.resx">
       <DependentUpon>frmComparacoesCriteriosProjetos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Gerencia\frmCriterios.resx">
+    <EmbeddedResource Include="Forms\Cadastros\Gerencia\frmCriterios.resx">
       <DependentUpon>frmCriterios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Lancamentos\frmReunioes.resx">

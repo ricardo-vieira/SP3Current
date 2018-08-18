@@ -12,9 +12,11 @@ using System.Windows.Forms;
 using Equin.ApplicationFramework;
 using projProjetos.Ferramentas;
 
+using projProjetos.Forms.Cadastros;
+
 namespace projProjetos.Forms
 {
-    public partial class frmPrincipal : Form
+    public partial class FrmPrincipal : Form
     {
         RegraNegocio.Reunioes reunioesRegraNegocio = new RegraNegocio.Reunioes();
         RegraNegocio.Projetos projetosRegraNegocio = new RegraNegocio.Projetos();
@@ -30,7 +32,11 @@ namespace projProjetos.Forms
         ObjectFilter<RegraNegocio.View.Projetos.ViewProjeto> _objectFilterAgenda_Projeto;
         ObjectFilter<RegraNegocio.View.Pessoas.ViewPessoa> _objectFilterAgenda_Pessoa;
 
-        public frmPrincipal()
+
+        FrmCadastroPessoas frmCadastroPessoas;
+        FrmCadastroProjetos frmCadastroProjetos;
+
+        public FrmPrincipal()
         {
             InitializeComponent();
         }
@@ -45,6 +51,8 @@ namespace projProjetos.Forms
         {
             try
             {
+                FinalizarEdicaoComponentesAgenda();
+
                 CarregarInformacoesGeraisAgenda_Reuniao();
                 CarregarInformacoesGeraisAgenda_Pessoa();
                 CarregarInformacoesGeraisAgenda_Projeto();
@@ -92,7 +100,7 @@ namespace projProjetos.Forms
                 else
                 {
                     _bindingListViewAgenda_Pessoa.RemoveFilter();
-                    _bindingListViewAgenda_Pessoa.DataSource = pessoasRegraNegocio.ToList();
+                    _bindingListViewAgenda_Pessoa.DataSource = ListarObjetosAgenda_Pessoa();
                     _bindingListViewAgenda_Pessoa.Refresh();
                 }
             }
@@ -118,6 +126,26 @@ namespace projProjetos.Forms
                     _bindingListViewAgenda_Projeto.DataSource = projetosRegraNegocio.ToList();
                     _bindingListViewAgenda_Projeto.Refresh();
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        private void FinalizarEdicaoComponentes()
+        {
+
+        }
+
+        private void FinalizarEdicaoComponentesAgenda()
+        {
+            try
+            {
+                dtgAgendaReunioes.EndEdit();
+                dtgAgendaPessoas.EndEdit();
+                dtgAgendaProjetos.EndEdit();
             }
             catch (Exception ex)
             {
@@ -325,19 +353,19 @@ namespace projProjetos.Forms
             {
                 AplicarFiltroAgenda_Reuniao(true);
 
-                if (cblAgendaFiltroReuniao.SelectedItems.Count > 0)
+                if (lvwAgendaReuniaoSituacao.CheckedItems.Count > 0)
                 {
                     List<string> situacaoReuniao = new List<string>();
 
-                    foreach (var cboSelectedItem in cblAgendaFiltroReuniao.SelectedItems)
+                    foreach (ListViewItem lvwAgendaReuniaoSituacaoItem in lvwAgendaReuniaoSituacao.CheckedItems)
                     {
-                        situacaoReuniao.Add(cboSelectedItem.ToString().ToUpper());
+                        situacaoReuniao.Add(lvwAgendaReuniaoSituacaoItem.Text.ToUpper());
                     }
 
                     AdicionarFiltroAgenda_Reuniao(x => situacaoReuniao.Contains(x.Situacao.ToUpper()));
                 }
 
-                if (ckbFiltroReuniaoData.Checked)
+                if (ckbFiltroReuniaoData.Checked && !(cboAgendaFiltroReuniaoData.SelectedItem is null))
                 {
                     if (cboAgendaFiltroReuniaoData.SelectedItem.ToString() == "Cadastro")
                         AdicionarFiltroAgenda_Reuniao(x => x.DataHoraCriacao.Date >= mtcAgendaFiltroReuniao.SelectionStart && x.DataHoraCriacao.Date <= mtcAgendaFiltroReuniao.SelectionEnd);
@@ -364,7 +392,7 @@ namespace projProjetos.Forms
                     AdicionarFiltroAgenda_Pessoa(x => x.Id == Convert.ToInt64(txtAgendaFiltroPessoasCodigo.Text));
 
                 if (txtAgendaFiltroPessoasNome.Text != String.Empty)
-                    AdicionarFiltroAgenda_Pessoa(x => x.Nome.Contains(txtAgendaFiltroPessoasNome.Text));
+                    AdicionarFiltroAgenda_Pessoa(x => x.Nome.ToUpper().Contains(txtAgendaFiltroPessoasNome.Text.ToUpper()));
 
             }
             catch (Exception ex)
@@ -384,7 +412,7 @@ namespace projProjetos.Forms
                     AdicionarFiltroAgenda_Projeto(x => x.Id == Convert.ToInt64(txtAgendaFiltroProjetosCodigo.Text));
 
                 if (txtAgendaFiltroProjetosNome.Text != String.Empty)
-                    AdicionarFiltroAgenda_Projeto(x => x.Nome.Contains(txtAgendaFiltroProjetosNome.Text));
+                    AdicionarFiltroAgenda_Projeto(x => x.Nome.ToUpper().Contains(txtAgendaFiltroProjetosNome.Text.ToUpper()));
             }
             catch (Exception ex)
             {
@@ -462,8 +490,64 @@ namespace projProjetos.Forms
             grbProjetos.Height = (tbcParincipal.Height - grbProjetos.Location.Y - 40);
 
 
-            cblAgendaFiltroReuniao.Height = ckbFiltroReuniaoData.Location.Y - 35;
+            lvwAgendaReuniaoSituacao.Height = (ckbFiltroReuniaoData.Location.Y - 5 - lvwAgendaReuniaoSituacao.Location.Y);
 
+        }
+
+
+        private List<RegraNegocio.View.Reunioes.ViewReuniao> ListarObjetosSelecionadosAgenda_Reuniao()
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<RegraNegocio.View.Pessoas.ViewPessoa> ListarObjetosSelecionadosAgenda_Pessoa()
+        {
+            try
+            {
+                return _bindingListViewAgenda_Pessoa.Where(x => x.SelecaoGerente || x.SelecaoResponsavel).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private List<RegraNegocio.View.Projetos.ViewProjeto> ListarObjetosSelecionadosAgenda_Projeto()
+        {
+            try
+            {
+                return _bindingListViewAgenda_Projeto.Where(x => x.SelecaoPautado || x.SelecaoPriorizado).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        private List<RegraNegocio.View.Reunioes.ViewReuniao> ListarObjetosAgenda_Reuniao()
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<RegraNegocio.View.Pessoas.ViewPessoa> ListarObjetosAgenda_Pessoa()
+        {
+            try
+            {
+                List<RegraNegocio.View.Pessoas.ViewPessoa> objetosSelecionadosAgenda_Pessoa = ListarObjetosSelecionadosAgenda_Pessoa();
+
+                List<RegraNegocio.View.Pessoas.ViewPessoa> novosObjetosPessoa = pessoasRegraNegocio.ToList();
+
+                return novosObjetosPessoa
+                       .Select(novo => (objetosSelecionadosAgenda_Pessoa.Any(selecionado => selecionado.EntityObject == novo.EntityObject)) 
+                                        ? (objetosSelecionadosAgenda_Pessoa.First(selecionado => selecionado.EntityObject == novo.EntityObject)) 
+                                        : (novo))
+                       .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
 
@@ -472,6 +556,7 @@ namespace projProjetos.Forms
             RedimensionarComponentesAgenda();
             CarregarInformacoesGerais();
             CarregarInformacoesGeraisAgenda();
+
         }
 
         private void frmPrincipal_Resize(object sender, EventArgs e)
@@ -607,6 +692,70 @@ namespace projProjetos.Forms
         private void tbpAgenda_Resize(object sender, EventArgs e)
         {
             RedimensionarComponentesAgenda();
+        }
+
+
+        private void lvwAgendaReuniaoSituacao_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            try
+            {
+                e.Item.Checked.ToString();
+                ExecutarFiltroAgenda_Reuniao();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void ckbAgendaFiltroPessoaSelecionarResponsavel_CheckedChanged(object sender, EventArgs e)
+        {
+            dtgAgendapessoaCkbSelecaoResponsavel.Visible = ckbAgendaFiltroPessoaSelecionarResponsavel.Checked;
+        }
+
+        private void ckbAgendaFiltroPessoaSelecionarGerente_CheckedChanged(object sender, EventArgs e)
+        {
+            dtgAgendaPessoaCkbSelecaoGerente.Visible = ckbAgendaFiltroPessoaSelecionarGerente.Checked;
+        }
+
+        private void ckbAgendaFiltroProjetoPautado_CheckedChanged(object sender, EventArgs e)
+        {
+            dtgAgendaProjetosCkbSelecaoPautado.Visible = ckbAgendaFiltroProjetoSelecaoPautado.Checked;
+        }
+
+        private void ckbAgendaFiltroProjetoSelecaoPriorizado_CheckedChanged(object sender, EventArgs e)
+        {
+            dtgAgendaProjetosCkbSelecaoPriorizado.Visible = ckbAgendaFiltroProjetoSelecaoPriorizado.Checked;
+        }
+
+        private void dtgAgendaPessoas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void pessoasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmCadastroPessoas = new FrmCadastroPessoas();
+                frmCadastroPessoas.Show();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void projetosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmCadastroProjetos = new FrmCadastroProjetos();
+                frmCadastroProjetos.Show();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

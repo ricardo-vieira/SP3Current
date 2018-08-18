@@ -61,6 +61,7 @@
     <Compile Include="Criterios.cs" />
     <Compile Include="Entidade.cs" />
     <Compile Include="Ferramentas\FrameworkDICE.cs" />
+    <Compile Include="PautaProjetos.cs" />
     <Compile Include="Pessoas.cs" />
     <Compile Include="Projetos.cs" />
     <Compile Include="ProjetosPessoas.cs" />

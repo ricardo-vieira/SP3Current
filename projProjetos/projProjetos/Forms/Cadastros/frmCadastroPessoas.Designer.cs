@@ -1,6 +1,6 @@
 ﻿namespace projProjetos.Forms.Cadastros
 {
-    partial class frmCadastroPessoas
+    partial class FrmCadastroPessoas
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroPessoas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCadastroPessoas));
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
@@ -41,6 +41,7 @@
             this.grbInformacoes = new System.Windows.Forms.GroupBox();
             this.lblDataCriacao = new System.Windows.Forms.Label();
             this.txtDataEdicao = new System.Windows.Forms.MaskedTextBox();
+            this._bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtObservacoes = new System.Windows.Forms.TextBox();
             this.lblObServações = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.Codigo = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this._bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tspPrincipal.SuspendLayout();
             this.grbInformacoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).BeginInit();
@@ -193,6 +193,10 @@
             this.txtDataEdicao.TabIndex = 3;
             this.txtDataEdicao.ValidatingType = typeof(System.DateTime);
             // 
+            // _bindingSource
+            // 
+            this._bindingSource.DataSource = typeof(RegraNegocio.View.Pessoas.ViewPessoa);
+            // 
             // txtObservacoes
             // 
             this.txtObservacoes.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this._bindingSource, "OBSERVACAO", true));
@@ -271,15 +275,12 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 30;
             // 
-            // _bindingSource
-            // 
-            this._bindingSource.DataSource = typeof(RegraNegocio.View.Pessoas.ViewPessoa);
-            // 
-            // frmCadastroPessoas
+            // FrmCadastroPessoas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 287);
+            this.ControlBox = false;
             this.Controls.Add(this.grbInformacoes);
             this.Controls.Add(this.tspPrincipal);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -287,7 +288,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmCadastroPessoas";
+            this.Name = "FrmCadastroPessoas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SP3 :: Cadastro de Pessoas";
             this.Load += new System.EventHandler(this.frmPessoas_Load);

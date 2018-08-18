@@ -12,7 +12,7 @@ using Equin.ApplicationFramework;
 
 namespace projProjetos.Forms.Cadastros
 {
-    public partial class frmCadastroPessoas : Form
+    public partial class FrmCadastroPessoas : Form
     {
         RegraNegocio.Pessoas pessoasRegraNegocio = new RegraNegocio.Pessoas();
 
@@ -22,7 +22,7 @@ namespace projProjetos.Forms.Cadastros
 
         RegraNegocio.View.Pessoas.ViewPessoa _currentObject;
 
-        public frmCadastroPessoas()
+        public FrmCadastroPessoas()
         {
             InitializeComponent();
         }
