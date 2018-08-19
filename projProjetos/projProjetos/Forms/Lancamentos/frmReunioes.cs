@@ -297,16 +297,10 @@ namespace projProjetos.Forms
             }
         }
 
+        /* ------------------------------------------------------------- */
 
 
-
-
-
-
-
-
-
-
+        
 
 
         private void MudarStatusInformacao(StatusInformacao statusInformacao)
