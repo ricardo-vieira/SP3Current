@@ -275,9 +275,9 @@ namespace projProjetos.Forms
 
         private void CarregarInformacoes()
         {
-            try
+            /* try
             {
-                if (!(_currentObject is null))
+                /*if (!(_currentObject is null))
                 {
                     if (_currentObject.EntityObject.STATUS >= (byte)1)
                     {
@@ -288,22 +288,17 @@ namespace projProjetos.Forms
                     {
                         btnInativar.Text = "Ativar";
                         btnInativar.Image = projProjetos.Properties.Resources.ativar;
-                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            } */
         }
 
         /* ------------------------------------------------------------- */
 
-
-        
-
-
-        private void MudarStatusInformacao(StatusInformacao statusInformacao)
+        /*private void MudarStatusInformacao(StatusInformacao statusInformacao)
         {
             this._statusInformacao = statusInformacao;
 
@@ -416,9 +411,9 @@ namespace projProjetos.Forms
                     MudarStatusInformacaoPautaProjeto(StatusInformacao.SELECAO);
                     break;
             }
-        }
+        } */
 
-        private void MudarStatusInformacaoPautaProjeto(StatusInformacao statusInformacaoPautaProjeto)
+        /* private void MudarStatusInformacaoPautaProjeto(StatusInformacao statusInformacaoPautaProjeto)
         {
             this._statusInformacaoPautaProjeto = statusInformacaoPautaProjeto;
 
@@ -458,9 +453,9 @@ namespace projProjetos.Forms
 
                     break;
             }
-        }
+        } */
 
-        private void CarregarInformacoes()
+        /* private void CarregarInformacoes()
         {
             try
             {
@@ -517,7 +512,7 @@ namespace projProjetos.Forms
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        } */
 
         private void CarregarInformacoesPautaProjeto()
         {
@@ -531,8 +526,8 @@ namespace projProjetos.Forms
                     else
                         reunioesRegraNegocio.ListarPautaProjetos(Convert.ToInt64(dtgPautaProjetos.SelectedRows[0].Cells["dtgPautaProjetosTxtIdPautaProjeto"].Value));
 
-                    cboPautaProjeto.DataSource = projetosRegraNegocio.ToList();
-                    cboPautaProjeto.SelectedValue = reunioesRegraNegocio.pautaProjeto.IDPROJETO;
+                    //cboPautaProjeto.DataSource = projetosRegraNegocio.ToList();
+                    //cboPautaProjeto.SelectedValue = reunioesRegraNegocio.pautaProjeto.IDPROJETO;
 
                     //projetoRegraNegocio.ToList(reuniaoRegraNegocio.pautaProjeto.IDPROJETO);
 
@@ -550,7 +545,7 @@ namespace projProjetos.Forms
             }
         }
 
-        private void CarregarInformacoesGerais()
+        /* private void CarregarInformacoesGerais()
         {
             try
             {
@@ -570,7 +565,7 @@ namespace projProjetos.Forms
 
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
+        } */
 
         private void CarregarInformacoesGeraisPautaProjetos(bool selecionarRegistroAutomaticamente)
         {
@@ -646,16 +641,16 @@ namespace projProjetos.Forms
             txtLocal.Clear();
             txtDescricaoPauta.Clear();
 
-            cboResponsavel.DataSource = pessoasRegraNegocio.ToList();
-            cboResponsavel.SelectedItem = null;
+            //cboResponsavel.DataSource = pessoasRegraNegocio.ToList();
+            //cboResponsavel.SelectedItem = null;
 
             LimparCamposPautaProjetos();
         }
 
         private void LimparCamposPautaProjetos()
         {
-            cboPautaProjeto.DataSource = projetosRegraNegocio.ToList();
-            cboPautaProjeto.SelectedItem = null;
+            //cboPautaProjeto.DataSource = projetosRegraNegocio.ToList();
+            //cboPautaProjeto.SelectedItem = null;
             txtPautaDataInclusao.Clear();
             txtPautaGerente.Clear();
             txtPautaInvestimentoPrevisto.Clear();
@@ -677,12 +672,12 @@ namespace projProjetos.Forms
                 return false;
             }
 
-            if (cboResponsavel.SelectedItem == null)
+            /*if (cboResponsavel.SelectedItem == null)
             {
                 MessageBox.Show("Deve ser selecionado o resposável pela reunião", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cboResponsavel.Focus();
                 return false;
-            }
+            }*/
 
             if (this._statusInformacao.Equals(StatusInformacao.EFETIVACAO))
             {
@@ -736,12 +731,12 @@ namespace projProjetos.Forms
 
         private bool ValidarInformacoesPautaProjetos()
         {
-            if (cboPautaProjeto.SelectedItem == null)
+            /*if (cboPautaProjeto.SelectedItem == null)
             {
                 MessageBox.Show("Deve ser indicado o projeto a ser incluso na pauta.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboPautaProjeto.Focus();
                 return false;
-            }
+            }*/
 
             return true;
         }
@@ -753,7 +748,7 @@ namespace projProjetos.Forms
                 reunioesRegraNegocio.entidade.DESCRICAO = txtDescricao.Text;
                 reunioesRegraNegocio.entidade.LOCAL = txtLocal.Text;
                 reunioesRegraNegocio.entidade.DATAHORAEVENTO = dtpDataHoraEvento.Value;
-                reunioesRegraNegocio.entidade.RESPONSAVEL = Convert.ToInt64(cboResponsavel.SelectedValue);
+                //reunioesRegraNegocio.entidade.RESPONSAVEL = Convert.ToInt64(cboResponsavel.SelectedValue);
                 reunioesRegraNegocio.entidade.PAYBACKACEITAVEL = Convert.ToDecimal(txtPayBackAceitavel.Text);
                 reunioesRegraNegocio.entidade.TAXAREMUNERACAOMERCADO = Convert.ToDecimal(txtTIR.Text);
                 reunioesRegraNegocio.entidade.TAXACUSTOCAPITAL = Convert.ToDecimal(txtTaxaCustoCapital.Text);
@@ -769,7 +764,7 @@ namespace projProjetos.Forms
         {
             try
             {
-                reunioesRegraNegocio.pautaProjeto.IDPROJETO = Convert.ToInt64(cboPautaProjeto.SelectedValue);
+                //reunioesRegraNegocio.pautaProjeto.IDPROJETO = Convert.ToInt64(cboPautaProjeto.SelectedValue);
             }
             catch (Exception ex)
             {
@@ -779,19 +774,12 @@ namespace projProjetos.Forms
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            try
-            {
                 MudarStatusInformacao(StatusInformacao.INCLUSAO);
                 LimparCampos();
                 reunioesRegraNegocio.Insert();
                 txtCodigo.Text = 0.ToString();
                 CarregarInformacoesGeraisPautaProjetos(false);
                 CarregarInformaoesGeraisRankProjetos();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -966,7 +954,7 @@ namespace projProjetos.Forms
 
         private void cboPautaProjeto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            /* try
             {
                 if (cboPautaProjeto.SelectedItem != null)
                 {
@@ -980,7 +968,7 @@ namespace projProjetos.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            } */
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

@@ -8,8 +8,6 @@ namespace RegraNegocio
 {
     public class Reunioes : EFDados.Entity<EFDados.REUNIO>
     {
-        public EFDados.REUNIO entidade;
-        public EFDados.PAUTAPROJETO pautaProjeto;
         private EFDados.dbProjetosEntities ctoProjetos = new EFDados.dbProjetosEntities();
 
         public List<RegraNegocio.View.Reunioes.ViewReuniao> ToList()
@@ -61,10 +59,12 @@ namespace RegraNegocio
         }
 
 
-        public bool MudarSituacao(SituacaoReuniao situacao)
+        public bool MudarSituacao(EFDados.REUNIO reuniao, SituacaoReuniao situacao)
         {
             try
             {
+                var entidade = base.DbEntity.First(x => x.ID == reuniao.ID);
+
                 if (situacao.Equals(SituacaoReuniao.EFETIVADO) && entidade.PAUTAPROJETOS.Count <= 0)
                     throw new Exception("Reunião sem projetos lançados na pauta.");
 
@@ -90,10 +90,12 @@ namespace RegraNegocio
             }
         }
 
-        public List<RegraNegocio.View.Projetos.ViewPautaProjeto> ListarProjetosCalculados()
+        public List<RegraNegocio.View.Projetos.ViewPautaProjeto> ListarProjetosCalculados(EFDados.REUNIO reuniao)
         {
             try
             {
+                var entidade = base.DbEntity.First(x => x.ID == reuniao.ID);
+
                 if (entidade != null && (entidade.SITUACAO.Equals("EFETIVADO") || entidade.PAUTAPROJETOS.Count > 0 && entidade.SITUACAO.Equals("CANCELADO")))
                 {
 
@@ -113,11 +115,15 @@ namespace RegraNegocio
             }
         }
 
-        public List<View.Projetos.ViewPautaProjeto> ListarPautaProjeto()
+        public List<View.Projetos.ViewPautaProjeto> ListarPautaProjeto(EFDados.REUNIO reuniao)
         {
             try
             {
-                return entidade.PAUTAPROJETOS.Select(x => new View.Projetos.ViewPautaProjeto(x)).ToList();
+                return base.DbEntity
+                           .First(x => x.ID == reuniao.ID)
+                           .PAUTAPROJETOS
+                           .Select(x => new View.Projetos.ViewPautaProjeto(x))
+                           .ToList();
             }
             catch (Exception ex)
             {

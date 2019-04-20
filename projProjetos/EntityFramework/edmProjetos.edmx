@@ -11,7 +11,7 @@
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DESCRICAO" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="OBSERVAO" Type="text" />
+          <Property Name="OBSERVAO" Type="varchar(max)" />
           <Property Name="NIVEL" Type="int" />
           <Property Name="STATUS" Type="tinyint" />
         </EntityType>
@@ -23,7 +23,7 @@
           <Property Name="IDPROJETO" Type="bigint" Nullable="false" />
           <Property Name="IDCOMPETENCIA" Type="bigint" Nullable="false" />
           <Property Name="NIVEL" Type="int" />
-          <Property Name="OBSERVACOES" Type="text" />
+          <Property Name="OBSERVACOES" Type="varchar(max)" />
           <Property Name="STATUS" Type="tinyint" />
         </EntityType>
         <EntityType Name="CRITERIOS">
@@ -31,7 +31,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DESCRICAO" Type="text" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
           <Property Name="STATUS" Type="tinyint" />
           <Property Name="DATACRIACAO" Type="datetime" />
         </EntityType>
@@ -54,19 +54,19 @@
           <Property Name="IDPROJETOB" Type="bigint" />
           <Property Name="COMPARACAO" Type="varchar" MaxLength="3" />
         </EntityType>
-        <EntityType Name="CRITERIOSPROJETOSRESULTADO">
+        <EntityType Name="CRITERIOSPROJETOSRESULTADOes">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDCRITERIOSRESULTADO" Type="bigint" Nullable="false" />
           <Property Name="IDPROJETO" Type="bigint" Nullable="false" />
-          <Property Name="DATACOMPARACAO" Type="datetime" />
           <Property Name="RESULTADO" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="DATACOMPARACAO" Type="datetime" />
           <Property Name="RESULTADOGLOBAL" Type="decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="IDREUNIAO" Type="bigint" Nullable="false" />
         </EntityType>
-        <EntityType Name="CRITERIOSPROJETOSRESULTADOLISTA">
+        <EntityType Name="CRITERIOSPROJETOSRESULTADOLISTAs">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -75,7 +75,7 @@
           <Property Name="IDPROJETO" Type="bigint" Nullable="false" />
           <Property Name="COMPARACAO" Type="char" MaxLength="3" />
         </EntityType>
-        <EntityType Name="CRITERIOSRESULTADO">
+        <EntityType Name="CRITERIOSRESULTADOes">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -86,7 +86,7 @@
           <Property Name="RESULTADOGLOBAL" Type="decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="IDREUNIAO" Type="bigint" />
         </EntityType>
-        <EntityType Name="CRITERIOSRESULTADOLISTA">
+        <EntityType Name="CRITERIOSRESULTADOLISTAs">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -127,20 +127,20 @@
           <Property Name="ORDEMRESULTADOAHP" Type="int" />
           <Property Name="APROVACAORESULTADOAHP" Type="varchar" MaxLength="5" />
         </EntityType>
-        <EntityType Name="PAUTARECEITAVARIAVEL">
+        <EntityType Name="PAUTARECEITAVARIAVELs">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDPAUTAPROJETO" Type="bigint" Nullable="false" />
-          <Property Name="DATAPERIODO" Type="date" />
+          <Property Name="DATAPERIODO" Type="datetime" />
           <Property Name="TIPO" Type="varchar" MaxLength="10" />
           <Property Name="DATACRIACAO" Type="datetime" />
           <Property Name="VALOR" Type="decimal" Precision="15" Scale="4" />
           <Property Name="STATUS" Type="tinyint" />
-          <Property Name="OBSERVACOES" Type="text" />
+          <Property Name="OBSERVACOES" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="PERFILUSUARIO">
+        <EntityType Name="PERFILUSUARIOs">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -165,7 +165,7 @@
           </Key>
           <Property Name="IDPESSOA" Type="bigint" Nullable="false" />
           <Property Name="IDCOMPETENCIA" Type="bigint" Nullable="false" />
-          <Property Name="OBSERVACAO" Type="text" Nullable="false" />
+          <Property Name="OBSERVACAO" Type="varchar(max)" Nullable="false" />
           <Property Name="STATUS" Type="tinyint" />
         </EntityType>
         <EntityType Name="PESSOAS">
@@ -174,7 +174,7 @@
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOME" Type="varchar" MaxLength="50" />
-          <Property Name="OBSERVACAO" Type="text" />
+          <Property Name="OBSERVACAO" Type="varchar(max)" />
           <Property Name="DATACRIACAO" Type="datetime" />
           <Property Name="STATUS" Type="tinyint" />
         </EntityType>
@@ -185,7 +185,7 @@
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOME" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DESCRICAO" Type="nvarchar" MaxLength="100" />
-          <Property Name="OBSERVACAO" Type="text" />
+          <Property Name="OBSERVACAO" Type="varchar(max)" />
           <Property Name="GERENTE" Type="bigint" Nullable="false" />
           <Property Name="DATACRIACAO" Type="datetime" />
           <Property Name="INVESTIMENTOPREVISTO" Type="decimal" Precision="15" Scale="4" />
@@ -206,22 +206,22 @@
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDPROJETO" Type="bigint" Nullable="false" />
           <Property Name="IDPESSOA" Type="bigint" />
-          <Property Name="DATAINGRESSO" Type="date" />
+          <Property Name="DATAINGRESSO" Type="datetime" />
           <Property Name="OCUPACAO" Type="varchar" MaxLength="50" />
-          <Property Name="OBSERVACOES" Type="text" />
+          <Property Name="OBSERVACOES" Type="varchar(max)" />
         </EntityType>
-        <EntityType Name="RECEITAVARIAVEL">
+        <EntityType Name="RECEITAVARIAVELs">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDPROJETO" Type="bigint" Nullable="false" />
-          <Property Name="DATAPERIODO" Type="date" Nullable="false" />
+          <Property Name="DATAPERIODO" Type="datetime" Nullable="false" />
           <Property Name="TIPO" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="DATACRIACAO" Type="datetime" />
           <Property Name="VALOR" Type="decimal" Precision="15" Scale="4" />
           <Property Name="STATUS" Type="tinyint" />
-          <Property Name="OBSERVACOES" Type="text" />
+          <Property Name="OBSERVACOES" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="REUNIOES">
           <Key>
@@ -233,7 +233,7 @@
           <Property Name="DATACRIACAO" Type="datetime" />
           <Property Name="PAYBACKACEITAVEL" Type="decimal" Precision="15" Scale="4" />
           <Property Name="TAXAREMUNERACAOMERCADO" Type="decimal" Precision="15" Scale="4" />
-          <Property Name="PAUTADESCRICAO" Type="text" />
+          <Property Name="PAUTADESCRICAO" Type="varchar(max)" />
           <Property Name="LOCAL" Type="nvarchar" MaxLength="50" />
           <Property Name="RESPONSAVEL" Type="bigint" />
           <Property Name="AHPCALCULADO" Type="tinyint" />
@@ -247,7 +247,7 @@
           </Key>
           <Property Name="IDREUNIAO" Type="bigint" Nullable="false" />
           <Property Name="IDPESSOA" Type="bigint" Nullable="false" />
-          <Property Name="OBSERVACAO" Type="text" />
+          <Property Name="OBSERVACAO" Type="varchar(max)" />
           <Property Name="COMPARECIMENTO" Type="tinyint" />
           <Property Name="STATUS" Type="tinyint" />
         </EntityType>
@@ -312,63 +312,63 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CRITERIOS__IDCRI__0D44F85C">
+        <Association Name="FK__CRITERIOS__IDCRI__0880433F">
           <End Role="CRITERIOS" Type="Self.CRITERIOS" Multiplicity="1" />
-          <End Role="CRITERIOSRESULTADOLISTA" Type="Self.CRITERIOSRESULTADOLISTA" Multiplicity="*" />
+          <End Role="CRITERIOSRESULTADOes" Type="Self.CRITERIOSRESULTADOes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CRITERIOS">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CRITERIOSRESULTADOLISTA">
+            <Dependent Role="CRITERIOSRESULTADOes">
               <PropertyRef Name="IDCRITERIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CRITERIOS__IDCRI__1F63A897">
-          <End Role="CRITERIOSRESULTADO" Type="Self.CRITERIOSRESULTADO" Multiplicity="1" />
-          <End Role="CRITERIOSRESULTADOLISTA" Type="Self.CRITERIOSRESULTADOLISTA" Multiplicity="*" />
+        <Association Name="FK__CRITERIOS__IDCRI__0C50D423">
+          <End Role="CRITERIOSRESULTADOes" Type="Self.CRITERIOSRESULTADOes" Multiplicity="1" />
+          <End Role="CRITERIOSRESULTADOLISTAs" Type="Self.CRITERIOSRESULTADOLISTAs" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CRITERIOSRESULTADO">
+            <Principal Role="CRITERIOSRESULTADOes">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CRITERIOSRESULTADOLISTA">
+            <Dependent Role="CRITERIOSRESULTADOLISTAs">
               <PropertyRef Name="IDCRITERIORESULTADO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CRITERIOS__IDCRI__2057CCD0">
+        <Association Name="FK__CRITERIOS__IDCRI__0D44F85C">
           <End Role="CRITERIOS" Type="Self.CRITERIOS" Multiplicity="1" />
-          <End Role="CRITERIOSRESULTADO" Type="Self.CRITERIOSRESULTADO" Multiplicity="*" />
+          <End Role="CRITERIOSRESULTADOLISTAs" Type="Self.CRITERIOSRESULTADOLISTAs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CRITERIOS">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CRITERIOSRESULTADO">
+            <Dependent Role="CRITERIOSRESULTADOLISTAs">
               <PropertyRef Name="IDCRITERIO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CRITERIOS__IDCRI__67DE6983">
-          <End Role="CRITERIOSPROJETOSRESULTADO" Type="Self.CRITERIOSPROJETOSRESULTADO" Multiplicity="1" />
-          <End Role="CRITERIOSPROJETOSRESULTADOLISTA" Type="Self.CRITERIOSPROJETOSRESULTADOLISTA" Multiplicity="*" />
+        <Association Name="FK__CRITERIOS__IDCRI__214BF109">
+          <End Role="CRITERIOSRESULTADOes" Type="Self.CRITERIOSRESULTADOes" Multiplicity="1" />
+          <End Role="CRITERIOSPROJETOSRESULTADOes" Type="Self.CRITERIOSPROJETOSRESULTADOes" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CRITERIOSPROJETOSRESULTADO">
+            <Principal Role="CRITERIOSRESULTADOes">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CRITERIOSPROJETOSRESULTADOLISTA">
-              <PropertyRef Name="IDCRITERIOSPROJETOSRESULTADO" />
+            <Dependent Role="CRITERIOSPROJETOSRESULTADOes">
+              <PropertyRef Name="IDCRITERIOSRESULTADO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CRITERIOS__IDCRI__69C6B1F5">
-          <End Role="CRITERIOSRESULTADO" Type="Self.CRITERIOSRESULTADO" Multiplicity="1" />
-          <End Role="CRITERIOSPROJETOSRESULTADO" Type="Self.CRITERIOSPROJETOSRESULTADO" Multiplicity="*" />
+        <Association Name="FK__CRITERIOS__IDCRI__2F9A1060">
+          <End Role="CRITERIOSPROJETOSRESULTADOes" Type="Self.CRITERIOSPROJETOSRESULTADOes" Multiplicity="1" />
+          <End Role="CRITERIOSPROJETOSRESULTADOLISTAs" Type="Self.CRITERIOSPROJETOSRESULTADOLISTAs" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CRITERIOSRESULTADO">
+            <Principal Role="CRITERIOSPROJETOSRESULTADOes">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CRITERIOSPROJETOSRESULTADO">
-              <PropertyRef Name="IDCRITERIOSRESULTADO" />
+            <Dependent Role="CRITERIOSPROJETOSRESULTADOLISTAs">
+              <PropertyRef Name="IDCRITERIOSPROJETOSRESULTADO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -386,24 +386,24 @@
         </Association>
         <Association Name="FK__CRITERIOS__IDPRO__308E3499">
           <End Role="PROJETOS" Type="Self.PROJETOS" Multiplicity="1" />
-          <End Role="CRITERIOSPROJETOSRESULTADOLISTA" Type="Self.CRITERIOSPROJETOSRESULTADOLISTA" Multiplicity="*" />
+          <End Role="CRITERIOSPROJETOSRESULTADOLISTAs" Type="Self.CRITERIOSPROJETOSRESULTADOLISTAs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROJETOS">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CRITERIOSPROJETOSRESULTADOLISTA">
+            <Dependent Role="CRITERIOSPROJETOSRESULTADOLISTAs">
               <PropertyRef Name="IDPROJETO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CRITERIOS__IDPRO__68D28DBC">
           <End Role="PROJETOS" Type="Self.PROJETOS" Multiplicity="1" />
-          <End Role="CRITERIOSPROJETOSRESULTADO" Type="Self.CRITERIOSPROJETOSRESULTADO" Multiplicity="*" />
+          <End Role="CRITERIOSPROJETOSRESULTADOes" Type="Self.CRITERIOSPROJETOSRESULTADOes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROJETOS">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CRITERIOSPROJETOSRESULTADO">
+            <Dependent Role="CRITERIOSPROJETOSRESULTADOes">
               <PropertyRef Name="IDPROJETO" />
             </Dependent>
           </ReferentialConstraint>
@@ -434,24 +434,24 @@
         </Association>
         <Association Name="FK__CRITERIOS__IDREU__52E34C9D">
           <End Role="REUNIOES" Type="Self.REUNIOES" Multiplicity="0..1" />
-          <End Role="CRITERIOSRESULTADO" Type="Self.CRITERIOSRESULTADO" Multiplicity="*" />
+          <End Role="CRITERIOSRESULTADOes" Type="Self.CRITERIOSRESULTADOes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="REUNIOES">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CRITERIOSRESULTADO">
+            <Dependent Role="CRITERIOSRESULTADOes">
               <PropertyRef Name="IDREUNIAO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__CRITERIOS__IDREU__6ABAD62E">
           <End Role="REUNIOES" Type="Self.REUNIOES" Multiplicity="1" />
-          <End Role="CRITERIOSPROJETOSRESULTADO" Type="Self.CRITERIOSPROJETOSRESULTADO" Multiplicity="*" />
+          <End Role="CRITERIOSPROJETOSRESULTADOes" Type="Self.CRITERIOSPROJETOSRESULTADOes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="REUNIOES">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="CRITERIOSPROJETOSRESULTADO">
+            <Dependent Role="CRITERIOSPROJETOSRESULTADOes">
               <PropertyRef Name="IDREUNIAO" />
             </Dependent>
           </ReferentialConstraint>
@@ -488,23 +488,23 @@
           <End Role="PAUTAPROJETOS" Type="Self.PAUTAPROJETOS" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="PAUTARECEITAVARIAVEL" Type="Self.PAUTARECEITAVARIAVEL" Multiplicity="*" />
+          <End Role="PAUTARECEITAVARIAVELs" Type="Self.PAUTARECEITAVARIAVELs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PAUTAPROJETOS">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="PAUTARECEITAVARIAVEL">
+            <Dependent Role="PAUTARECEITAVARIAVELs">
               <PropertyRef Name="IDPAUTAPROJETO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PERMISSOES__ID__1367E606">
-          <End Role="PERFILUSUARIO" Type="Self.PERFILUSUARIO" Multiplicity="1">
+          <End Role="PERFILUSUARIOs" Type="Self.PERFILUSUARIOs" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="PERMISSOES" Type="Self.PERMISSOES" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="PERFILUSUARIO">
+            <Principal Role="PERFILUSUARIOs">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="PERMISSOES">
@@ -584,12 +584,12 @@
           <End Role="PROJETOS" Type="Self.PROJETOS" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="RECEITAVARIAVEL" Type="Self.RECEITAVARIAVEL" Multiplicity="*" />
+          <End Role="RECEITAVARIAVELs" Type="Self.RECEITAVARIAVELs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PROJETOS">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="RECEITAVARIAVEL">
+            <Dependent Role="RECEITAVARIAVELs">
               <PropertyRef Name="IDPROJETO" />
             </Dependent>
           </ReferentialConstraint>
@@ -635,10 +635,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__USUARIOS__PERFIL__173876EA">
-          <End Role="PERFILUSUARIO" Type="Self.PERFILUSUARIO" Multiplicity="0..1" />
+          <End Role="PERFILUSUARIOs" Type="Self.PERFILUSUARIOs" Multiplicity="0..1" />
           <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="PERFILUSUARIO">
+            <Principal Role="PERFILUSUARIOs">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="USUARIOS">
@@ -652,19 +652,19 @@
           <EntitySet Name="CRITERIOS" EntityType="Self.CRITERIOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CRITERIOSCOMPARACOES" EntityType="Self.CRITERIOSCOMPARACOES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CRITERIOSPROJETOSCOMPARACOES" EntityType="Self.CRITERIOSPROJETOSCOMPARACOES" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CRITERIOSPROJETOSRESULTADO" EntityType="Self.CRITERIOSPROJETOSRESULTADO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CRITERIOSPROJETOSRESULTADOLISTA" EntityType="Self.CRITERIOSPROJETOSRESULTADOLISTA" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CRITERIOSRESULTADO" EntityType="Self.CRITERIOSRESULTADO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CRITERIOSRESULTADOLISTA" EntityType="Self.CRITERIOSRESULTADOLISTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRITERIOSPROJETOSRESULTADOes" EntityType="Self.CRITERIOSPROJETOSRESULTADOes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRITERIOSPROJETOSRESULTADOLISTAs" EntityType="Self.CRITERIOSPROJETOSRESULTADOLISTAs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRITERIOSRESULTADOes" EntityType="Self.CRITERIOSRESULTADOes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CRITERIOSRESULTADOLISTAs" EntityType="Self.CRITERIOSRESULTADOLISTAs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PAUTAPROJETOS" EntityType="Self.PAUTAPROJETOS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PAUTARECEITAVARIAVEL" EntityType="Self.PAUTARECEITAVARIAVEL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PERFILUSUARIO" EntityType="Self.PERFILUSUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAUTARECEITAVARIAVELs" EntityType="Self.PAUTARECEITAVARIAVELs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERFILUSUARIOs" EntityType="Self.PERFILUSUARIOs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PERMISSOES" EntityType="Self.PERMISSOES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PESSOACOMPETENCIAS" EntityType="Self.PESSOACOMPETENCIAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PESSOAS" EntityType="Self.PESSOAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROJETOS" EntityType="Self.PROJETOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROJETOSPESSOAS" EntityType="Self.PROJETOSPESSOAS" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RECEITAVARIAVEL" EntityType="Self.RECEITAVARIAVEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RECEITAVARIAVELs" EntityType="Self.RECEITAVARIAVELs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIOES" EntityType="Self.REUNIOES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="REUNIOESPARTICIPANTES" EntityType="Self.REUNIOESPARTICIPANTES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
@@ -684,25 +684,25 @@
             <End Role="CRITERIOS" EntitySet="CRITERIOS" />
             <End Role="CRITERIOSCOMPARACOES" EntitySet="CRITERIOSCOMPARACOES" />
           </AssociationSet>
+          <AssociationSet Name="FK__CRITERIOS__IDCRI__0880433F" Association="Self.FK__CRITERIOS__IDCRI__0880433F">
+            <End Role="CRITERIOS" EntitySet="CRITERIOS" />
+            <End Role="CRITERIOSRESULTADOes" EntitySet="CRITERIOSRESULTADOes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CRITERIOS__IDCRI__0C50D423" Association="Self.FK__CRITERIOS__IDCRI__0C50D423">
+            <End Role="CRITERIOSRESULTADOes" EntitySet="CRITERIOSRESULTADOes" />
+            <End Role="CRITERIOSRESULTADOLISTAs" EntitySet="CRITERIOSRESULTADOLISTAs" />
+          </AssociationSet>
           <AssociationSet Name="FK__CRITERIOS__IDCRI__0D44F85C" Association="Self.FK__CRITERIOS__IDCRI__0D44F85C">
             <End Role="CRITERIOS" EntitySet="CRITERIOS" />
-            <End Role="CRITERIOSRESULTADOLISTA" EntitySet="CRITERIOSRESULTADOLISTA" />
+            <End Role="CRITERIOSRESULTADOLISTAs" EntitySet="CRITERIOSRESULTADOLISTAs" />
           </AssociationSet>
-          <AssociationSet Name="FK__CRITERIOS__IDCRI__1F63A897" Association="Self.FK__CRITERIOS__IDCRI__1F63A897">
-            <End Role="CRITERIOSRESULTADO" EntitySet="CRITERIOSRESULTADO" />
-            <End Role="CRITERIOSRESULTADOLISTA" EntitySet="CRITERIOSRESULTADOLISTA" />
+          <AssociationSet Name="FK__CRITERIOS__IDCRI__214BF109" Association="Self.FK__CRITERIOS__IDCRI__214BF109">
+            <End Role="CRITERIOSRESULTADOes" EntitySet="CRITERIOSRESULTADOes" />
+            <End Role="CRITERIOSPROJETOSRESULTADOes" EntitySet="CRITERIOSPROJETOSRESULTADOes" />
           </AssociationSet>
-          <AssociationSet Name="FK__CRITERIOS__IDCRI__2057CCD0" Association="Self.FK__CRITERIOS__IDCRI__2057CCD0">
-            <End Role="CRITERIOS" EntitySet="CRITERIOS" />
-            <End Role="CRITERIOSRESULTADO" EntitySet="CRITERIOSRESULTADO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CRITERIOS__IDCRI__67DE6983" Association="Self.FK__CRITERIOS__IDCRI__67DE6983">
-            <End Role="CRITERIOSPROJETOSRESULTADO" EntitySet="CRITERIOSPROJETOSRESULTADO" />
-            <End Role="CRITERIOSPROJETOSRESULTADOLISTA" EntitySet="CRITERIOSPROJETOSRESULTADOLISTA" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CRITERIOS__IDCRI__69C6B1F5" Association="Self.FK__CRITERIOS__IDCRI__69C6B1F5">
-            <End Role="CRITERIOSRESULTADO" EntitySet="CRITERIOSRESULTADO" />
-            <End Role="CRITERIOSPROJETOSRESULTADO" EntitySet="CRITERIOSPROJETOSRESULTADO" />
+          <AssociationSet Name="FK__CRITERIOS__IDCRI__2F9A1060" Association="Self.FK__CRITERIOS__IDCRI__2F9A1060">
+            <End Role="CRITERIOSPROJETOSRESULTADOes" EntitySet="CRITERIOSPROJETOSRESULTADOes" />
+            <End Role="CRITERIOSPROJETOSRESULTADOLISTAs" EntitySet="CRITERIOSPROJETOSRESULTADOLISTAs" />
           </AssociationSet>
           <AssociationSet Name="FK__CRITERIOS__IDCRI__76619304" Association="Self.FK__CRITERIOS__IDCRI__76619304">
             <End Role="CRITERIOS" EntitySet="CRITERIOS" />
@@ -710,11 +710,11 @@
           </AssociationSet>
           <AssociationSet Name="FK__CRITERIOS__IDPRO__308E3499" Association="Self.FK__CRITERIOS__IDPRO__308E3499">
             <End Role="PROJETOS" EntitySet="PROJETOS" />
-            <End Role="CRITERIOSPROJETOSRESULTADOLISTA" EntitySet="CRITERIOSPROJETOSRESULTADOLISTA" />
+            <End Role="CRITERIOSPROJETOSRESULTADOLISTAs" EntitySet="CRITERIOSPROJETOSRESULTADOLISTAs" />
           </AssociationSet>
           <AssociationSet Name="FK__CRITERIOS__IDPRO__68D28DBC" Association="Self.FK__CRITERIOS__IDPRO__68D28DBC">
             <End Role="PROJETOS" EntitySet="PROJETOS" />
-            <End Role="CRITERIOSPROJETOSRESULTADO" EntitySet="CRITERIOSPROJETOSRESULTADO" />
+            <End Role="CRITERIOSPROJETOSRESULTADOes" EntitySet="CRITERIOSPROJETOSRESULTADOes" />
           </AssociationSet>
           <AssociationSet Name="FK__CRITERIOS__IDPRO__7755B73D" Association="Self.FK__CRITERIOS__IDPRO__7755B73D">
             <End Role="PROJETOS" EntitySet="PROJETOS" />
@@ -726,11 +726,11 @@
           </AssociationSet>
           <AssociationSet Name="FK__CRITERIOS__IDREU__52E34C9D" Association="Self.FK__CRITERIOS__IDREU__52E34C9D">
             <End Role="REUNIOES" EntitySet="REUNIOES" />
-            <End Role="CRITERIOSRESULTADO" EntitySet="CRITERIOSRESULTADO" />
+            <End Role="CRITERIOSRESULTADOes" EntitySet="CRITERIOSRESULTADOes" />
           </AssociationSet>
           <AssociationSet Name="FK__CRITERIOS__IDREU__6ABAD62E" Association="Self.FK__CRITERIOS__IDREU__6ABAD62E">
             <End Role="REUNIOES" EntitySet="REUNIOES" />
-            <End Role="CRITERIOSPROJETOSRESULTADO" EntitySet="CRITERIOSPROJETOSRESULTADO" />
+            <End Role="CRITERIOSPROJETOSRESULTADOes" EntitySet="CRITERIOSPROJETOSRESULTADOes" />
           </AssociationSet>
           <AssociationSet Name="FK__PAUTAPROJ__IDPRO__4924D839" Association="Self.FK__PAUTAPROJ__IDPRO__4924D839">
             <End Role="PROJETOS" EntitySet="PROJETOS" />
@@ -742,10 +742,10 @@
           </AssociationSet>
           <AssociationSet Name="FK__PAUTARECE__IDPAU__6F4A8121" Association="Self.FK__PAUTARECE__IDPAU__6F4A8121">
             <End Role="PAUTAPROJETOS" EntitySet="PAUTAPROJETOS" />
-            <End Role="PAUTARECEITAVARIAVEL" EntitySet="PAUTARECEITAVARIAVEL" />
+            <End Role="PAUTARECEITAVARIAVELs" EntitySet="PAUTARECEITAVARIAVELs" />
           </AssociationSet>
           <AssociationSet Name="FK__PERMISSOES__ID__1367E606" Association="Self.FK__PERMISSOES__ID__1367E606">
-            <End Role="PERFILUSUARIO" EntitySet="PERFILUSUARIO" />
+            <End Role="PERFILUSUARIOs" EntitySet="PERFILUSUARIOs" />
             <End Role="PERMISSOES" EntitySet="PERMISSOES" />
           </AssociationSet>
           <AssociationSet Name="FK__PESSOACOM__IDCOM__22AA2996" Association="Self.FK__PESSOACOM__IDCOM__22AA2996">
@@ -770,7 +770,7 @@
           </AssociationSet>
           <AssociationSet Name="FK__RECEITAVA__IDPRO__2F650636" Association="Self.FK__RECEITAVA__IDPRO__2F650636">
             <End Role="PROJETOS" EntitySet="PROJETOS" />
-            <End Role="RECEITAVARIAVEL" EntitySet="RECEITAVARIAVEL" />
+            <End Role="RECEITAVARIAVELs" EntitySet="RECEITAVARIAVELs" />
           </AssociationSet>
           <AssociationSet Name="FK__REUNIOES__RESPON__37A5467C" Association="Self.FK__REUNIOES__RESPON__37A5467C">
             <End Role="PESSOAS" EntitySet="PESSOAS" />
@@ -785,7 +785,7 @@
             <End Role="REUNIOESPARTICIPANTES" EntitySet="REUNIOESPARTICIPANTES" />
           </AssociationSet>
           <AssociationSet Name="FK__USUARIOS__PERFIL__173876EA" Association="Self.FK__USUARIOS__PERFIL__173876EA">
-            <End Role="PERFILUSUARIO" EntitySet="PERFILUSUARIO" />
+            <End Role="PERFILUSUARIOs" EntitySet="PERFILUSUARIOs" />
             <End Role="USUARIOS" EntitySet="USUARIOS" />
           </AssociationSet>
         </EntityContainer>
@@ -873,7 +873,7 @@
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
           <Property Name="IDPESSOA" Type="Int64" />
-          <Property Name="DATAINGRESSO" Type="DateTime" Precision="0" />
+          <Property Name="DATAINGRESSO" Type="DateTime" Precision="3" />
           <Property Name="OCUPACAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PESSOA" Relationship="Self.FK__PROJETOSP__IDPES__29572725" FromRole="PROJETOSPESSOAS" ToRole="PESSOAS" />
           <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -1334,7 +1334,7 @@
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
-          <Property Name="DATAPERIODO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DATAPERIODO" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TIPO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
           <Property Name="VALOR" Type="Decimal" Precision="15" Scale="4" />
@@ -1348,7 +1348,7 @@
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDPAUTAPROJETO" Type="Int64" Nullable="false" />
-          <Property Name="DATAPERIODO" Type="DateTime" Precision="0" />
+          <Property Name="DATAPERIODO" Type="DateTime" Precision="3" />
           <Property Name="TIPO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
           <Property Name="VALOR" Type="Decimal" Precision="15" Scale="4" />
@@ -1641,286 +1641,285 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dbProjetosModelStoreContainer" CdmEntityContainer="dbProjetosEntities">
-          <EntitySetMapping Name="COMPETENCIAS">
-            <EntityTypeMapping TypeName="dbProjetosModel.COMPETENCIA">
-              <MappingFragment StoreEntitySet="COMPETENCIAS">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="OBSERVAO" ColumnName="OBSERVAO" />
-                <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="COMPETENCIASEXIGIDAS">
-            <EntityTypeMapping TypeName="dbProjetosModel.COMPETENCIASEXIGIDA">
-              <MappingFragment StoreEntitySet="COMPETENCIASEXIGIDAS">
-                <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
-                <ScalarProperty Name="IDCOMPETENCIA" ColumnName="IDCOMPETENCIA" />
-                <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
-                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PERFILUSUARIOs">
-            <EntityTypeMapping TypeName="dbProjetosModel.PERFILUSUARIO">
-              <MappingFragment StoreEntitySet="PERFILUSUARIO">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NOME" ColumnName="NOME" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="DATACRICAO" ColumnName="DATACRICAO" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PERMISSOES">
-            <EntityTypeMapping TypeName="dbProjetosModel.PERMISSO">
-              <MappingFragment StoreEntitySet="PERMISSOES">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="DATA_CRIACAO" ColumnName="DATA_CRIACAO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PESSOACOMPETENCIAS">
-            <EntityTypeMapping TypeName="dbProjetosModel.PESSOACOMPETENCIA">
-              <MappingFragment StoreEntitySet="PESSOACOMPETENCIAS">
-                <ScalarProperty Name="IDPESSOA" ColumnName="IDPESSOA" />
-                <ScalarProperty Name="IDCOMPETENCIA" ColumnName="IDCOMPETENCIA" />
-                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PESSOAS">
-            <EntityTypeMapping TypeName="dbProjetosModel.PESSOA">
-              <MappingFragment StoreEntitySet="PESSOAS">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NOME" ColumnName="NOME" />
-                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
-                <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PROJETOSPESSOAS">
-            <EntityTypeMapping TypeName="dbProjetosModel.PROJETOSPESSOA">
-              <MappingFragment StoreEntitySet="PROJETOSPESSOAS">
-                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
-                <ScalarProperty Name="IDPESSOA" ColumnName="IDPESSOA" />
-                <ScalarProperty Name="DATAINGRESSO" ColumnName="DATAINGRESSO" />
-                <ScalarProperty Name="OCUPACAO" ColumnName="OCUPACAO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="REUNIOESPARTICIPANTES">
-            <EntityTypeMapping TypeName="dbProjetosModel.REUNIOESPARTICIPANTE">
-              <MappingFragment StoreEntitySet="REUNIOESPARTICIPANTES">
-                <ScalarProperty Name="IDREUNIAO" ColumnName="IDREUNIAO" />
-                <ScalarProperty Name="IDPESSOA" ColumnName="IDPESSOA" />
-                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
-                <ScalarProperty Name="COMPARECIMENTO" ColumnName="COMPARECIMENTO" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="USUARIOS">
-            <EntityTypeMapping TypeName="dbProjetosModel.USUARIO">
-              <MappingFragment StoreEntitySet="USUARIOS">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
-                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-                <ScalarProperty Name="PERFILUSUARIO" ColumnName="PERFILUSUARIO" />
-                <ScalarProperty Name="DATACRICAO" ColumnName="DATACRICAO" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CRITERIOS">
-            <EntityTypeMapping TypeName="dbProjetosModel.CRITERIO">
-              <MappingFragment StoreEntitySet="CRITERIOS">
-                <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CRITERIOSCOMPARACOES">
-            <EntityTypeMapping TypeName="dbProjetosModel.CRITERIOSCOMPARACO">
-              <MappingFragment StoreEntitySet="CRITERIOSCOMPARACOES">
-                <ScalarProperty Name="COMPARACAO" ColumnName="COMPARACAO" />
-                <ScalarProperty Name="IDCRITERIOB" ColumnName="IDCRITERIOB" />
-                <ScalarProperty Name="IDCRITERIOA" ColumnName="IDCRITERIOA" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CRITERIOSPROJETOSCOMPARACOES">
-            <EntityTypeMapping TypeName="dbProjetosModel.CRITERIOSPROJETOSCOMPARACO">
-              <MappingFragment StoreEntitySet="CRITERIOSPROJETOSCOMPARACOES">
-                <ScalarProperty Name="COMPARACAO" ColumnName="COMPARACAO" />
-                <ScalarProperty Name="IDPROJETOB" ColumnName="IDPROJETOB" />
-                <ScalarProperty Name="IDPROJETOA" ColumnName="IDPROJETOA" />
-                <ScalarProperty Name="IDCRITERIO" ColumnName="IDCRITERIO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CRITERIOSRESULTADOes">
-            <EntityTypeMapping TypeName="dbProjetosModel.CRITERIOSRESULTADO">
-              <MappingFragment StoreEntitySet="CRITERIOSRESULTADO">
-                <ScalarProperty Name="IDREUNIAO" ColumnName="IDREUNIAO" />
-                <ScalarProperty Name="RESULTADOGLOBAL" ColumnName="RESULTADOGLOBAL" />
-                <ScalarProperty Name="RESULTADOCOMPARACAO" ColumnName="RESULTADOCOMPARACAO" />
-                <ScalarProperty Name="DATACOMPARACAO" ColumnName="DATACOMPARACAO" />
-                <ScalarProperty Name="IDCRITERIO" ColumnName="IDCRITERIO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CRITERIOSRESULTADOLISTAs">
-            <EntityTypeMapping TypeName="dbProjetosModel.CRITERIOSRESULTADOLISTA">
-              <MappingFragment StoreEntitySet="CRITERIOSRESULTADOLISTA">
-                <ScalarProperty Name="COMPARACAO" ColumnName="COMPARACAO" />
-                <ScalarProperty Name="IDCRITERIO" ColumnName="IDCRITERIO" />
-                <ScalarProperty Name="IDCRITERIORESULTADO" ColumnName="IDCRITERIORESULTADO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CRITERIOSPROJETOSRESULTADOes">
-            <EntityTypeMapping TypeName="dbProjetosModel.CRITERIOSPROJETOSRESULTADO">
-              <MappingFragment StoreEntitySet="CRITERIOSPROJETOSRESULTADO">
-                <ScalarProperty Name="IDREUNIAO" ColumnName="IDREUNIAO" />
-                <ScalarProperty Name="RESULTADOGLOBAL" ColumnName="RESULTADOGLOBAL" />
-                <ScalarProperty Name="DATACOMPARACAO" ColumnName="DATACOMPARACAO" />
-                <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
-                <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
-                <ScalarProperty Name="IDCRITERIOSRESULTADO" ColumnName="IDCRITERIOSRESULTADO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CRITERIOSPROJETOSRESULTADOLISTAs">
-            <EntityTypeMapping TypeName="dbProjetosModel.CRITERIOSPROJETOSRESULTADOLISTA">
-              <MappingFragment StoreEntitySet="CRITERIOSPROJETOSRESULTADOLISTA">
-                <ScalarProperty Name="COMPARACAO" ColumnName="COMPARACAO" />
-                <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
-                <ScalarProperty Name="IDCRITERIOSPROJETOSRESULTADO" ColumnName="IDCRITERIOSPROJETOSRESULTADO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RECEITAVARIAVELs">
-            <EntityTypeMapping TypeName="dbProjetosModel.RECEITAVARIAVEL">
-              <MappingFragment StoreEntitySet="RECEITAVARIAVEL">
-                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
-                <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
-                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
-                <ScalarProperty Name="DATAPERIODO" ColumnName="DATAPERIODO" />
-                <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PAUTARECEITAVARIAVELs">
-            <EntityTypeMapping TypeName="dbProjetosModel.PAUTARECEITAVARIAVEL">
-              <MappingFragment StoreEntitySet="PAUTARECEITAVARIAVEL">
-                <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
-                <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
-                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
-                <ScalarProperty Name="DATAPERIODO" ColumnName="DATAPERIODO" />
-                <ScalarProperty Name="IDPAUTAPROJETO" ColumnName="IDPAUTAPROJETO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PAUTAPROJETOS">
-            <EntityTypeMapping TypeName="dbProjetosModel.PAUTAPROJETO">
-              <MappingFragment StoreEntitySet="PAUTAPROJETOS">
-                <ScalarProperty Name="APROVACAORESULTADOAHP" ColumnName="APROVACAORESULTADOAHP" />
-                <ScalarProperty Name="ORDEMRESULTADOAHP" ColumnName="ORDEMRESULTADOAHP" />
-                <ScalarProperty Name="RESULTADOAHP" ColumnName="RESULTADOAHP" />
-                <ScalarProperty Name="ESFORCOADICIONAL" ColumnName="ESFORCOADICIONAL" />
-                <ScalarProperty Name="APOIOSTEAKHOLDERS" ColumnName="APOIOSTEAKHOLDERS" />
-                <ScalarProperty Name="APOIOALTAGESTAO" ColumnName="APOIOALTAGESTAO" />
-                <ScalarProperty Name="CAPACIDADEENTREGAEQUPE" ColumnName="CAPACIDADEENTREGAEQUPE" />
-                <ScalarProperty Name="APROVACAORESULTADODICE" ColumnName="APROVACAORESULTADODICE" />
-                <ScalarProperty Name="ORDEMRESULTADODICE" ColumnName="ORDEMRESULTADODICE" />
-                <ScalarProperty Name="RESULTADODICE" ColumnName="RESULTADODICE" />
-                <ScalarProperty Name="APROVACAORESULTADOTAXAINTERNARETORNO" ColumnName="APROVACAORESULTADOTAXAINTERNARETORNO" />
-                <ScalarProperty Name="ORDEMRESULTADOTAXAINTERNARETORNO" ColumnName="ORDEMRESULTADOTAXAINTERNARETORNO" />
-                <ScalarProperty Name="RESULTADOTAXAINTERNARETORNO" ColumnName="RESULTADOTAXAINTERNARETORNO" />
-                <ScalarProperty Name="APROVACAORESULTADOVALORPRESENTELIQUIDO" ColumnName="APROVACAORESULTADOVALORPRESENTELIQUIDO" />
-                <ScalarProperty Name="ORDEMRESULTADOVALORPRESENTELIQUIDO" ColumnName="ORDEMRESULTADOVALORPRESENTELIQUIDO" />
-                <ScalarProperty Name="RESULTADOVALORPRESENTELIQUIDO" ColumnName="RESULTADOVALORPRESENTELIQUIDO" />
-                <ScalarProperty Name="APROVACAORESULTADOPAYBACK" ColumnName="APROVACAORESULTADOPAYBACK" />
-                <ScalarProperty Name="ORDEMRESULTADOPAYBACK" ColumnName="ORDEMRESULTADOPAYBACK" />
-                <ScalarProperty Name="RESULTADOPAYBACK" ColumnName="RESULTADOPAYBACK" />
-                <ScalarProperty Name="INVESTIMENTOPREVISTO" ColumnName="INVESTIMENTOPREVISTO" />
-                <ScalarProperty Name="RAZAORECEITAPERCENTUAL" ColumnName="RAZAORECEITAPERCENTUAL" />
-                <ScalarProperty Name="RAZAORECEITAVALOR" ColumnName="RAZAORECEITAVALOR" />
-                <ScalarProperty Name="RECEITACONSTANTE" ColumnName="RECEITACONSTANTE" />
-                <ScalarProperty Name="TEMPOPREVISTOCONCLUSAO" ColumnName="TEMPOPREVISTOCONCLUSAO" />
-                <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
-                <ScalarProperty Name="IDREUNIAO" ColumnName="IDREUNIAO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="REUNIOES">
-            <EntityTypeMapping TypeName="dbProjetosModel.REUNIO">
-              <MappingFragment StoreEntitySet="REUNIOES">
-                <ScalarProperty Name="TAXACUSTOCAPITAL" ColumnName="TAXACUSTOCAPITAL" />
-                <ScalarProperty Name="SITUACAO" ColumnName="SITUACAO" />
-                <ScalarProperty Name="AHPCALCULADO" ColumnName="AHPCALCULADO" />
-                <ScalarProperty Name="RESPONSAVEL" ColumnName="RESPONSAVEL" />
-                <ScalarProperty Name="LOCAL" ColumnName="LOCAL" />
-                <ScalarProperty Name="PAUTADESCRICAO" ColumnName="PAUTADESCRICAO" />
-                <ScalarProperty Name="TAXAREMUNERACAOMERCADO" ColumnName="TAXAREMUNERACAOMERCADO" />
-                <ScalarProperty Name="PAYBACKACEITAVEL" ColumnName="PAYBACKACEITAVEL" />
-                <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
-                <ScalarProperty Name="DATAHORAEVENTO" ColumnName="DATAHORAEVENTO" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PROJETOS">
-            <EntityTypeMapping TypeName="dbProjetosModel.PROJETO">
-              <MappingFragment StoreEntitySet="PROJETOS">
-                <ScalarProperty Name="ESFORCOADICIONAL" ColumnName="ESFORCOADICIONAL" />
-                <ScalarProperty Name="APOIOSTEAKHOLDERS" ColumnName="APOIOSTEAKHOLDERS" />
-                <ScalarProperty Name="APOIOALTAGESTAO" ColumnName="APOIOALTAGESTAO" />
-                <ScalarProperty Name="CAPACIDADEENTREGAEQUIPE" ColumnName="CAPACIDADEENTREGAEQUIPE" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="TEMPOPREVISTOCONCLUSAO" ColumnName="TEMPOPREVISTOCONCLUSAO" />
-                <ScalarProperty Name="RAZAORECEITAPERCENTUAL" ColumnName="RAZAORECEITAPERCENTUAL" />
-                <ScalarProperty Name="RAZAORECEITAVALOR" ColumnName="RAZAORECEITAVALOR" />
-                <ScalarProperty Name="RECEITACONSTANTE" ColumnName="RECEITACONSTANTE" />
-                <ScalarProperty Name="INVESTIMENTOPREVISTO" ColumnName="INVESTIMENTOPREVISTO" />
-                <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
-                <ScalarProperty Name="GERENTE" ColumnName="GERENTE" />
-                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
-                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
-                <ScalarProperty Name="NOME" ColumnName="NOME" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbProjetosModelStoreContainer" CdmEntityContainer="dbProjetosEntities">
+    <EntitySetMapping Name="COMPETENCIAS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.COMPETENCIA)">
+        <MappingFragment StoreEntitySet="COMPETENCIAS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+          <ScalarProperty Name="OBSERVAO" ColumnName="OBSERVAO" />
+          <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPETENCIASEXIGIDAS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.COMPETENCIASEXIGIDA)">
+        <MappingFragment StoreEntitySet="COMPETENCIASEXIGIDAS">
+          <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
+          <ScalarProperty Name="IDCOMPETENCIA" ColumnName="IDCOMPETENCIA" />
+          <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
+          <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFILUSUARIOs">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.PERFILUSUARIO)">
+        <MappingFragment StoreEntitySet="PERFILUSUARIOs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+          <ScalarProperty Name="DATACRICAO" ColumnName="DATACRICAO" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERMISSOES">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.PERMISSO)">
+        <MappingFragment StoreEntitySet="PERMISSOES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+          <ScalarProperty Name="DATA_CRIACAO" ColumnName="DATA_CRIACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PESSOACOMPETENCIAS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.PESSOACOMPETENCIA)">
+        <MappingFragment StoreEntitySet="PESSOACOMPETENCIAS">
+          <ScalarProperty Name="IDPESSOA" ColumnName="IDPESSOA" />
+          <ScalarProperty Name="IDCOMPETENCIA" ColumnName="IDCOMPETENCIA" />
+          <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PESSOAS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.PESSOA)">
+        <MappingFragment StoreEntitySet="PESSOAS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+          <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROJETOSPESSOAS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.PROJETOSPESSOA)">
+        <MappingFragment StoreEntitySet="PROJETOSPESSOAS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
+          <ScalarProperty Name="IDPESSOA" ColumnName="IDPESSOA" />
+          <ScalarProperty Name="DATAINGRESSO" ColumnName="DATAINGRESSO" />
+          <ScalarProperty Name="OCUPACAO" ColumnName="OCUPACAO" />
+          <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REUNIOESPARTICIPANTES">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.REUNIOESPARTICIPANTE)">
+        <MappingFragment StoreEntitySet="REUNIOESPARTICIPANTES">
+          <ScalarProperty Name="IDREUNIAO" ColumnName="IDREUNIAO" />
+          <ScalarProperty Name="IDPESSOA" ColumnName="IDPESSOA" />
+          <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+          <ScalarProperty Name="COMPARECIMENTO" ColumnName="COMPARECIMENTO" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.USUARIO)">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="PERFILUSUARIO" ColumnName="PERFILUSUARIO" />
+          <ScalarProperty Name="DATACRICAO" ColumnName="DATACRICAO" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRITERIOS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.CRITERIO)">
+        <MappingFragment StoreEntitySet="CRITERIOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRITERIOSCOMPARACOES">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.CRITERIOSCOMPARACO)">
+        <MappingFragment StoreEntitySet="CRITERIOSCOMPARACOES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCRITERIOA" ColumnName="IDCRITERIOA" />
+          <ScalarProperty Name="IDCRITERIOB" ColumnName="IDCRITERIOB" />
+          <ScalarProperty Name="COMPARACAO" ColumnName="COMPARACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRITERIOSPROJETOSCOMPARACOES">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.CRITERIOSPROJETOSCOMPARACO)">
+        <MappingFragment StoreEntitySet="CRITERIOSPROJETOSCOMPARACOES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCRITERIO" ColumnName="IDCRITERIO" />
+          <ScalarProperty Name="IDPROJETOA" ColumnName="IDPROJETOA" />
+          <ScalarProperty Name="IDPROJETOB" ColumnName="IDPROJETOB" />
+          <ScalarProperty Name="COMPARACAO" ColumnName="COMPARACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRITERIOSRESULTADOes">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.CRITERIOSRESULTADO)">
+        <MappingFragment StoreEntitySet="CRITERIOSRESULTADOes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCRITERIO" ColumnName="IDCRITERIO" />
+          <ScalarProperty Name="DATACOMPARACAO" ColumnName="DATACOMPARACAO" />
+          <ScalarProperty Name="RESULTADOCOMPARACAO" ColumnName="RESULTADOCOMPARACAO" />
+          <ScalarProperty Name="RESULTADOGLOBAL" ColumnName="RESULTADOGLOBAL" />
+          <ScalarProperty Name="IDREUNIAO" ColumnName="IDREUNIAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRITERIOSRESULTADOLISTAs">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.CRITERIOSRESULTADOLISTA)">
+        <MappingFragment StoreEntitySet="CRITERIOSRESULTADOLISTAs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCRITERIORESULTADO" ColumnName="IDCRITERIORESULTADO" />
+          <ScalarProperty Name="IDCRITERIO" ColumnName="IDCRITERIO" />
+          <ScalarProperty Name="COMPARACAO" ColumnName="COMPARACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRITERIOSPROJETOSRESULTADOes">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.CRITERIOSPROJETOSRESULTADO)">
+        <MappingFragment StoreEntitySet="CRITERIOSPROJETOSRESULTADOes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCRITERIOSRESULTADO" ColumnName="IDCRITERIOSRESULTADO" />
+          <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="DATACOMPARACAO" ColumnName="DATACOMPARACAO" />
+          <ScalarProperty Name="RESULTADOGLOBAL" ColumnName="RESULTADOGLOBAL" />
+          <ScalarProperty Name="IDREUNIAO" ColumnName="IDREUNIAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CRITERIOSPROJETOSRESULTADOLISTAs">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.CRITERIOSPROJETOSRESULTADOLISTA)">
+        <MappingFragment StoreEntitySet="CRITERIOSPROJETOSRESULTADOLISTAs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDCRITERIOSPROJETOSRESULTADO" ColumnName="IDCRITERIOSPROJETOSRESULTADO" />
+          <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
+          <ScalarProperty Name="COMPARACAO" ColumnName="COMPARACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECEITAVARIAVELs">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.RECEITAVARIAVEL)">
+        <MappingFragment StoreEntitySet="RECEITAVARIAVELs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
+          <ScalarProperty Name="DATAPERIODO" ColumnName="DATAPERIODO" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAUTARECEITAVARIAVELs">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.PAUTARECEITAVARIAVEL)">
+        <MappingFragment StoreEntitySet="PAUTARECEITAVARIAVELs">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDPAUTAPROJETO" ColumnName="IDPAUTAPROJETO" />
+          <ScalarProperty Name="DATAPERIODO" ColumnName="DATAPERIODO" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+          <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="OBSERVACOES" ColumnName="OBSERVACOES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAUTAPROJETOS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.PAUTAPROJETO)">
+        <MappingFragment StoreEntitySet="PAUTAPROJETOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IDREUNIAO" ColumnName="IDREUNIAO" />
+          <ScalarProperty Name="IDPROJETO" ColumnName="IDPROJETO" />
+          <ScalarProperty Name="TEMPOPREVISTOCONCLUSAO" ColumnName="TEMPOPREVISTOCONCLUSAO" />
+          <ScalarProperty Name="RECEITACONSTANTE" ColumnName="RECEITACONSTANTE" />
+          <ScalarProperty Name="RAZAORECEITAVALOR" ColumnName="RAZAORECEITAVALOR" />
+          <ScalarProperty Name="RAZAORECEITAPERCENTUAL" ColumnName="RAZAORECEITAPERCENTUAL" />
+          <ScalarProperty Name="INVESTIMENTOPREVISTO" ColumnName="INVESTIMENTOPREVISTO" />
+          <ScalarProperty Name="RESULTADOPAYBACK" ColumnName="RESULTADOPAYBACK" />
+          <ScalarProperty Name="ORDEMRESULTADOPAYBACK" ColumnName="ORDEMRESULTADOPAYBACK" />
+          <ScalarProperty Name="APROVACAORESULTADOPAYBACK" ColumnName="APROVACAORESULTADOPAYBACK" />
+          <ScalarProperty Name="RESULTADOVALORPRESENTELIQUIDO" ColumnName="RESULTADOVALORPRESENTELIQUIDO" />
+          <ScalarProperty Name="ORDEMRESULTADOVALORPRESENTELIQUIDO" ColumnName="ORDEMRESULTADOVALORPRESENTELIQUIDO" />
+          <ScalarProperty Name="APROVACAORESULTADOVALORPRESENTELIQUIDO" ColumnName="APROVACAORESULTADOVALORPRESENTELIQUIDO" />
+          <ScalarProperty Name="RESULTADOTAXAINTERNARETORNO" ColumnName="RESULTADOTAXAINTERNARETORNO" />
+          <ScalarProperty Name="ORDEMRESULTADOTAXAINTERNARETORNO" ColumnName="ORDEMRESULTADOTAXAINTERNARETORNO" />
+          <ScalarProperty Name="APROVACAORESULTADOTAXAINTERNARETORNO" ColumnName="APROVACAORESULTADOTAXAINTERNARETORNO" />
+          <ScalarProperty Name="RESULTADODICE" ColumnName="RESULTADODICE" />
+          <ScalarProperty Name="ORDEMRESULTADODICE" ColumnName="ORDEMRESULTADODICE" />
+          <ScalarProperty Name="APROVACAORESULTADODICE" ColumnName="APROVACAORESULTADODICE" />
+          <ScalarProperty Name="CAPACIDADEENTREGAEQUPE" ColumnName="CAPACIDADEENTREGAEQUPE" />
+          <ScalarProperty Name="APOIOALTAGESTAO" ColumnName="APOIOALTAGESTAO" />
+          <ScalarProperty Name="APOIOSTEAKHOLDERS" ColumnName="APOIOSTEAKHOLDERS" />
+          <ScalarProperty Name="ESFORCOADICIONAL" ColumnName="ESFORCOADICIONAL" />
+          <ScalarProperty Name="RESULTADOAHP" ColumnName="RESULTADOAHP" />
+          <ScalarProperty Name="ORDEMRESULTADOAHP" ColumnName="ORDEMRESULTADOAHP" />
+          <ScalarProperty Name="APROVACAORESULTADOAHP" ColumnName="APROVACAORESULTADOAHP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REUNIOES">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.REUNIO)">
+        <MappingFragment StoreEntitySet="REUNIOES">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+          <ScalarProperty Name="DATAHORAEVENTO" ColumnName="DATAHORAEVENTO" />
+          <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
+          <ScalarProperty Name="PAYBACKACEITAVEL" ColumnName="PAYBACKACEITAVEL" />
+          <ScalarProperty Name="TAXAREMUNERACAOMERCADO" ColumnName="TAXAREMUNERACAOMERCADO" />
+          <ScalarProperty Name="PAUTADESCRICAO" ColumnName="PAUTADESCRICAO" />
+          <ScalarProperty Name="LOCAL" ColumnName="LOCAL" />
+          <ScalarProperty Name="RESPONSAVEL" ColumnName="RESPONSAVEL" />
+          <ScalarProperty Name="AHPCALCULADO" ColumnName="AHPCALCULADO" />
+          <ScalarProperty Name="SITUACAO" ColumnName="SITUACAO" />
+          <ScalarProperty Name="TAXACUSTOCAPITAL" ColumnName="TAXACUSTOCAPITAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROJETOS">
+      <EntityTypeMapping TypeName="IsTypeOf(dbProjetosModel.PROJETO)">
+        <MappingFragment StoreEntitySet="PROJETOS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NOME" ColumnName="NOME" />
+          <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
+          <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+          <ScalarProperty Name="GERENTE" ColumnName="GERENTE" />
+          <ScalarProperty Name="DATACRIACAO" ColumnName="DATACRIACAO" />
+          <ScalarProperty Name="INVESTIMENTOPREVISTO" ColumnName="INVESTIMENTOPREVISTO" />
+          <ScalarProperty Name="RECEITACONSTANTE" ColumnName="RECEITACONSTANTE" />
+          <ScalarProperty Name="RAZAORECEITAVALOR" ColumnName="RAZAORECEITAVALOR" />
+          <ScalarProperty Name="RAZAORECEITAPERCENTUAL" ColumnName="RAZAORECEITAPERCENTUAL" />
+          <ScalarProperty Name="TEMPOPREVISTOCONCLUSAO" ColumnName="TEMPOPREVISTOCONCLUSAO" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CAPACIDADEENTREGAEQUIPE" ColumnName="CAPACIDADEENTREGAEQUIPE" />
+          <ScalarProperty Name="APOIOALTAGESTAO" ColumnName="APOIOALTAGESTAO" />
+          <ScalarProperty Name="APOIOSTEAKHOLDERS" ColumnName="APOIOSTEAKHOLDERS" />
+          <ScalarProperty Name="ESFORCOADICIONAL" ColumnName="ESFORCOADICIONAL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -1934,7 +1933,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

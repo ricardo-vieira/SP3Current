@@ -190,7 +190,7 @@
             // 
             this.pessoasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pessoasToolStripMenuItem.Image")));
             this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
-            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.pessoasToolStripMenuItem.Text = "Pessoas";
             this.pessoasToolStripMenuItem.Click += new System.EventHandler(this.pessoasToolStripMenuItem_Click);
             // 
@@ -198,7 +198,7 @@
             // 
             this.projetosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("projetosToolStripMenuItem.Image")));
             this.projetosToolStripMenuItem.Name = "projetosToolStripMenuItem";
-            this.projetosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.projetosToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.projetosToolStripMenuItem.Text = "Projetos";
             this.projetosToolStripMenuItem.Click += new System.EventHandler(this.projetosToolStripMenuItem_Click);
             // 
@@ -207,7 +207,7 @@
             this.aHPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.criteriosToolStripMenuItem});
             this.aHPToolStripMenuItem.Name = "aHPToolStripMenuItem";
-            this.aHPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aHPToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.aHPToolStripMenuItem.Text = "AHP";
             // 
             // criteriosToolStripMenuItem
@@ -237,8 +237,9 @@
             // 
             this.reuniõesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reuniõesToolStripMenuItem.Image")));
             this.reuniõesToolStripMenuItem.Name = "reuniõesToolStripMenuItem";
-            this.reuniõesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.reuniõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reuniõesToolStripMenuItem.Text = "Reuniões";
+            this.reuniõesToolStripMenuItem.Click += new System.EventHandler(this.reuniõesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 

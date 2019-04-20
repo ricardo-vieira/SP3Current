@@ -121,6 +121,10 @@
             this.dtgPautaProjetosTxtTotalValorReceitaPrevista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgPautaProjetosTxtTotalValorDespesaPrevista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbPautaInformacoes = new System.Windows.Forms.GroupBox();
+            this.btnPesquisarPautaProjeto = new System.Windows.Forms.Button();
+            this.txtPautaDescricao = new System.Windows.Forms.TextBox();
+            this.txtPautaCodigo = new System.Windows.Forms.TextBox();
+            this.btnPautaCancelar = new System.Windows.Forms.Button();
             this.txtPautaInvestimentoPrevisto = new System.Windows.Forms.MaskedTextBox();
             this.btnPautaSalvar = new System.Windows.Forms.Button();
             this.txtPautaTempoConclusao = new System.Windows.Forms.TextBox();
@@ -132,6 +136,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.grbPautaAcoes = new System.Windows.Forms.GroupBox();
+            this.btnPautaEditar = new System.Windows.Forms.Button();
             this.btnPautaExcluir = new System.Windows.Forms.Button();
             this.btnPautaIncluir = new System.Windows.Forms.Button();
             this.tbpRank = new System.Windows.Forms.TabPage();
@@ -172,11 +177,6 @@
             this.APROVACAORESULTADOVALORPRESENTELIQUIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.APROVACAORESULTADODICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.APROVACAORESULTADOAHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPautaEditar = new System.Windows.Forms.Button();
-            this.btnPautaCancelar = new System.Windows.Forms.Button();
-            this.txtPautaCodigo = new System.Windows.Forms.TextBox();
-            this.txtPautaDescricao = new System.Windows.Forms.TextBox();
-            this.btnPesquisarPautaProjeto = new System.Windows.Forms.Button();
             this._bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._bindingSourcePauta = new System.Windows.Forms.BindingSource(this.components);
             this.tspPrincipal.SuspendLayout();
@@ -412,7 +412,7 @@
             this.btnPesquisaResponsavel.Name = "btnPesquisaResponsavel";
             this.btnPesquisaResponsavel.Size = new System.Drawing.Size(39, 23);
             this.btnPesquisaResponsavel.TabIndex = 24;
-            this.btnPesquisaResponsavel.Text = "button1";
+            this.btnPesquisaResponsavel.Text = "...";
             this.btnPesquisaResponsavel.UseVisualStyleBackColor = true;
             // 
             // textBox1
@@ -1037,6 +1037,43 @@
             this.grbPautaInformacoes.TabStop = false;
             this.grbPautaInformacoes.Text = "Informações";
             // 
+            // btnPesquisarPautaProjeto
+            // 
+            this.btnPesquisarPautaProjeto.Location = new System.Drawing.Point(125, 21);
+            this.btnPesquisarPautaProjeto.Name = "btnPesquisarPautaProjeto";
+            this.btnPesquisarPautaProjeto.Size = new System.Drawing.Size(34, 23);
+            this.btnPesquisarPautaProjeto.TabIndex = 15;
+            this.btnPesquisarPautaProjeto.Text = "...";
+            this.btnPesquisarPautaProjeto.UseVisualStyleBackColor = true;
+            this.btnPesquisarPautaProjeto.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtPautaDescricao
+            // 
+            this.txtPautaDescricao.Enabled = false;
+            this.txtPautaDescricao.Location = new System.Drawing.Point(165, 21);
+            this.txtPautaDescricao.Name = "txtPautaDescricao";
+            this.txtPautaDescricao.Size = new System.Drawing.Size(408, 22);
+            this.txtPautaDescricao.TabIndex = 14;
+            // 
+            // txtPautaCodigo
+            // 
+            this.txtPautaCodigo.Enabled = false;
+            this.txtPautaCodigo.Location = new System.Drawing.Point(63, 21);
+            this.txtPautaCodigo.Name = "txtPautaCodigo";
+            this.txtPautaCodigo.Size = new System.Drawing.Size(56, 22);
+            this.txtPautaCodigo.TabIndex = 13;
+            // 
+            // btnPautaCancelar
+            // 
+            this.btnPautaCancelar.Enabled = false;
+            this.btnPautaCancelar.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnPautaCancelar.Location = new System.Drawing.Point(737, 79);
+            this.btnPautaCancelar.Name = "btnPautaCancelar";
+            this.btnPautaCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnPautaCancelar.TabIndex = 12;
+            this.btnPautaCancelar.Text = "Cancelar";
+            this.btnPautaCancelar.UseVisualStyleBackColor = true;
+            // 
             // txtPautaInvestimentoPrevisto
             // 
             this.txtPautaInvestimentoPrevisto.Location = new System.Drawing.Point(150, 82);
@@ -1144,6 +1181,16 @@
             this.grbPautaAcoes.Size = new System.Drawing.Size(88, 113);
             this.grbPautaAcoes.TabIndex = 0;
             this.grbPautaAcoes.TabStop = false;
+            // 
+            // btnPautaEditar
+            // 
+            this.btnPautaEditar.Enabled = false;
+            this.btnPautaEditar.Location = new System.Drawing.Point(6, 79);
+            this.btnPautaEditar.Name = "btnPautaEditar";
+            this.btnPautaEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnPautaEditar.TabIndex = 3;
+            this.btnPautaEditar.Text = "Editar";
+            this.btnPautaEditar.UseVisualStyleBackColor = true;
             // 
             // btnPautaExcluir
             // 
@@ -1545,53 +1592,6 @@
             this.APROVACAORESULTADOAHP.Name = "APROVACAORESULTADOAHP";
             this.APROVACAORESULTADOAHP.ReadOnly = true;
             this.APROVACAORESULTADOAHP.Visible = false;
-            // 
-            // btnPautaEditar
-            // 
-            this.btnPautaEditar.Enabled = false;
-            this.btnPautaEditar.Location = new System.Drawing.Point(6, 79);
-            this.btnPautaEditar.Name = "btnPautaEditar";
-            this.btnPautaEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnPautaEditar.TabIndex = 3;
-            this.btnPautaEditar.Text = "Editar";
-            this.btnPautaEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnPautaCancelar
-            // 
-            this.btnPautaCancelar.Enabled = false;
-            this.btnPautaCancelar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.btnPautaCancelar.Location = new System.Drawing.Point(737, 79);
-            this.btnPautaCancelar.Name = "btnPautaCancelar";
-            this.btnPautaCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnPautaCancelar.TabIndex = 12;
-            this.btnPautaCancelar.Text = "Cancelar";
-            this.btnPautaCancelar.UseVisualStyleBackColor = true;
-            // 
-            // txtPautaCodigo
-            // 
-            this.txtPautaCodigo.Enabled = false;
-            this.txtPautaCodigo.Location = new System.Drawing.Point(63, 21);
-            this.txtPautaCodigo.Name = "txtPautaCodigo";
-            this.txtPautaCodigo.Size = new System.Drawing.Size(56, 22);
-            this.txtPautaCodigo.TabIndex = 13;
-            // 
-            // txtPautaDescricao
-            // 
-            this.txtPautaDescricao.Enabled = false;
-            this.txtPautaDescricao.Location = new System.Drawing.Point(165, 21);
-            this.txtPautaDescricao.Name = "txtPautaDescricao";
-            this.txtPautaDescricao.Size = new System.Drawing.Size(408, 22);
-            this.txtPautaDescricao.TabIndex = 14;
-            // 
-            // btnPesquisarPautaProjeto
-            // 
-            this.btnPesquisarPautaProjeto.Location = new System.Drawing.Point(125, 21);
-            this.btnPesquisarPautaProjeto.Name = "btnPesquisarPautaProjeto";
-            this.btnPesquisarPautaProjeto.Size = new System.Drawing.Size(34, 23);
-            this.btnPesquisarPautaProjeto.TabIndex = 15;
-            this.btnPesquisarPautaProjeto.Text = "...";
-            this.btnPesquisarPautaProjeto.UseVisualStyleBackColor = true;
-            this.btnPesquisarPautaProjeto.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmReunioes
             // 
