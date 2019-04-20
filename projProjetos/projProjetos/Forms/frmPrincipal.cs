@@ -35,6 +35,7 @@ namespace projProjetos.Forms
 
         FrmCadastroPessoas frmCadastroPessoas;
         FrmCadastroProjetos frmCadastroProjetos;
+        frmReunioes frmReunioes;
 
         public FrmPrincipal()
         {
@@ -751,6 +752,19 @@ namespace projProjetos.Forms
             {
                 frmCadastroProjetos = new FrmCadastroProjetos();
                 frmCadastroProjetos.Show();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void reuniõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmReunioes = new frmReunioes();
+                frmReunioes.Show();
             }
             catch (Exception ex)
             {

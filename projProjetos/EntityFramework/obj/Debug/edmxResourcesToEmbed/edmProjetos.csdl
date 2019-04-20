@@ -80,7 +80,7 @@
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
     <Property Name="IDPESSOA" Type="Int64" />
-    <Property Name="DATAINGRESSO" Type="DateTime" Precision="0" />
+    <Property Name="DATAINGRESSO" Type="DateTime" Precision="3" />
     <Property Name="OCUPACAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="PESSOA" Relationship="Self.FK__PROJETOSP__IDPES__29572725" FromRole="PROJETOSPESSOAS" ToRole="PESSOAS" />
     <Property Name="OBSERVACOES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -541,7 +541,7 @@
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IDPROJETO" Type="Int64" Nullable="false" />
-    <Property Name="DATAPERIODO" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DATAPERIODO" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="TIPO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
     <Property Name="VALOR" Type="Decimal" Precision="15" Scale="4" />
@@ -555,7 +555,7 @@
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IDPAUTAPROJETO" Type="Int64" Nullable="false" />
-    <Property Name="DATAPERIODO" Type="DateTime" Precision="0" />
+    <Property Name="DATAPERIODO" Type="DateTime" Precision="3" />
     <Property Name="TIPO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="DATACRIACAO" Type="DateTime" Precision="3" />
     <Property Name="VALOR" Type="Decimal" Precision="15" Scale="4" />

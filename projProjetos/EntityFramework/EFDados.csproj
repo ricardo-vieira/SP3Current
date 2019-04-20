@@ -178,6 +178,7 @@
       <LastGenOutput>edmProjetos.Context.cs</LastGenOutput>
       <DependentUpon>edmProjetos.edmx</DependentUpon>
     </Content>
+    <Content Include="edmProjetos.edmx.sql" />
     <Content Include="edmProjetos.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>edmProjetos.edmx</DependentUpon>
