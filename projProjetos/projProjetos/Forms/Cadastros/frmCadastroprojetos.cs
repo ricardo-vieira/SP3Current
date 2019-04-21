@@ -1301,5 +1301,17 @@ namespace projProjetos.Forms.Cadastros
         {
 
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            if ((_statusInformacao.Equals(StatusInformacao.INCLUSAO) || _statusInformacao.Equals(StatusInformacao.ALTERACAO))                                                              // se a informação estiver sendo inserida ou alterada
+                && !(MessageBox.Show("Deseja sair do formulário sem salvar as informações?", "Informação", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)) // e o resultado da caixa não diferente "SIM"
+            {
+                return;               //então finaliza o metodo
+            }
+
+            this.Close();             //fecha o formulário
+            return;
+        }
     }
 }
