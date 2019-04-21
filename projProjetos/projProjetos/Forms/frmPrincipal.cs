@@ -771,5 +771,23 @@ namespace projProjetos.Forms
                 throw ex;
             }
         }
+
+        private void comparaçõesDeCritériosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmComparacoesCriterios = new Gerencia.frmComparacoesCriterios();
+            frmComparacoesCriterios.ShowDialog();
+        }
+
+        private void comparaçõesCRITERIOPROJETOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmComparacoesCriteriosProjetos = new Gerencia.frmComparacoesCriteriosProjetos();
+            frmComparacoesCriteriosProjetos.ShowDialog();
+        }
+
+        private void criteriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmCriterios = new Gerencia.frmCriterios();
+            frmCriterios.ShowDialog();
+        }
     }
 }

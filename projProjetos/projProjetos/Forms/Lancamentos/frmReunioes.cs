@@ -579,7 +579,7 @@ namespace projProjetos.Forms
                 if (_bindingListViewPautaProjetos == null)
                 {
                     _bindingListViewPautaProjetos = new BindingListView<RegraNegocio.View.Projetos.ViewPautaProjeto>(reunioesRegraNegocio
-                                                    .ListarPautaProjeto(_currentObject.EntityObject));
+                                                    .ListarPautaProjeto(_currentObject.EntityObject) ?? new List<RegraNegocio.View.Projetos.ViewPautaProjeto>());
 
                     _bindingSourcePauta.DataSource = _bindingListViewPautaProjetos;
                 }

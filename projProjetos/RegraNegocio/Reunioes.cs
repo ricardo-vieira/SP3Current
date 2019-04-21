@@ -62,7 +62,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID == reuniao.ID);
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
 
                 if (situacao.Equals(SituacaoReuniao.EFETIVADO) && entidade.PAUTAPROJETOS.Count <= 0)
                     throw new Exception("Reunião sem projetos lançados na pauta.");
@@ -93,9 +93,9 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID == reuniao.ID);
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
 
-                if (entidade != null && (entidade.SITUACAO.Equals("EFETIVADO") || entidade.PAUTAPROJETOS.Count > 0 && entidade.SITUACAO.Equals("CANCELADO")))
+                if (entidade != null && (entidade.SITUACAO == "EFETIVADO" || entidade.PAUTAPROJETOS.Count > 0 && entidade.SITUACAO == "CANCELADO"))
                 {
 
                     List<View.Projetos.ViewPautaProjeto> listaProjetosCalculos;
@@ -118,12 +118,14 @@ namespace RegraNegocio
         {
             try
             {
-                return base.DbEntity
-                           .First(x => x.ID == reuniao.ID)
-                           .PAUTAPROJETOS
+
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
+
+                return reuniao.PAUTAPROJETOS
                            .Select(x => new View.Projetos.ViewPautaProjeto(x))
                            .ToList();
             }
+
             catch (Exception ex)
             {
                 throw ex;
@@ -134,7 +136,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 return entidade.PAUTAPROJETOS.FirstOrDefault(x => x.ID.Equals(IdPautaProjeto));
             }
             catch (Exception ex)
@@ -147,7 +149,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 return entidade.PAUTAPROJETOS.First(x => x.IDPROJETO.Equals(IdProjeto));
             }
             catch (Exception ex)
@@ -160,7 +162,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 var pauta = entidade.PAUTAPROJETOS.First(x => x.ID.Equals(pautaprojeto.ID));
                 entidade.PAUTAPROJETOS.Remove(pauta);
                 base.Commit();
@@ -175,7 +177,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 var pautaProjeto = new EFDados.PAUTAPROJETO();
                 entidade.PAUTAPROJETOS.Add(pautaProjeto);
                 return pautaProjeto;
@@ -191,7 +193,7 @@ namespace RegraNegocio
             try
             {
 
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 pautaProjeto.REUNIO = reuniao;
                 CopiarInformacoesPautaProjeto(pautaProjeto);
 
@@ -227,7 +229,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
 
                 List<EFDados.CRITERIOSPROJETOSRESULTADO> criteriosProjetosResultado = new Criterios().CalcularPrioridadeGlobalProjeto(entidade);
 
@@ -259,7 +261,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 return entidade.PAUTAPROJETOS.Any(x => x.IDPROJETO.Equals(idProjeto));
             }
             catch (Exception ex)
@@ -289,7 +291,7 @@ namespace RegraNegocio
 
         private double[] calcularVPLTIR(EFDados.PAUTAPROJETO pautaProjeto)
         {
-            var entidade = base.DbEntity.First(x => x.ID.Equals(pautaProjeto.IDREUNIAO));
+            var entidade = pautaProjeto.IDREUNIAO != 0 ? base.DbEntity.First(x => x.ID.Equals(pautaProjeto.IDREUNIAO)) : pautaProjeto.REUNIO;
             List<FluxoCaixa> fluxoCaixa = CalcularFluxoCaixa(pautaProjeto);
 
             //Cálculo do VPL
@@ -329,7 +331,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 EFDados.PAUTAPROJETO pautaProjeto = new EFDados.PAUTAPROJETO
                 {
                     IDPROJETO = ctoProjetos.PROJETOS.FirstOrDefault(i => i.ID.Equals(Id)).ID,
@@ -344,16 +346,16 @@ namespace RegraNegocio
                                                          OBSERVACOES = receita.OBSERVACOES,
                                                          TIPO = receita.TIPO,
                                                          DATACRIACAO = receita.DATAPERIODO
-                                                         //STATUS = (byte)receita.STATUS,
-                                                     }).ToList().Select(x => new EFDados.PAUTARECEITAVARIAVEL
+                                                 //STATUS = (byte)receita.STATUS,
+                                             }).ToList().Select(x => new EFDados.PAUTARECEITAVARIAVEL
                                                      {
                                                          DATAPERIODO = x.PERIODO,
                                                          VALOR = x.VALOR,
                                                          OBSERVACOES = x.OBSERVACOES,
                                                          TIPO = x.TIPO,
                                                          DATACRIACAO = x.DATACRIACAO
-                                                         //STATUS = x.STATUS
-                                                     }).ToList()),
+                                                 //STATUS = x.STATUS
+                                             }).ToList()),
 
                     RAZAORECEITAPERCENTUAL = ctoProjetos.PROJETOS.FirstOrDefault(i => i.ID.Equals(Id)).RAZAORECEITAPERCENTUAL,
                     RAZAORECEITAVALOR = ctoProjetos.PROJETOS.FirstOrDefault(i => i.ID.Equals(Id)).RAZAORECEITAVALOR,
@@ -383,7 +385,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 entidade.PAUTAPROJETOS.Remove(ctoProjetos.PAUTAPROJETOS.First(i => i.IDPROJETO.Equals(IdProjeto)));
                 return true;
             }
@@ -435,7 +437,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 List<FluxoCaixa> fluxoCaixa;
 
                 entidade.PAUTAPROJETOS.ToList().ForEach(x =>
@@ -461,7 +463,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
 
                 int contador = 1;
                 entidade.PAUTAPROJETOS.OrderBy(x => x.RESULTADOPAYBACK).ToList().ForEach(z => z.ORDEMRESULTADOPAYBACK = contador++);
@@ -489,7 +491,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
 
                 if (entidade.PAUTAPROJETOS.Count <= 0)
                     throw new Exception("Não é possivel efetivar a reunião, pois a mesma não possui nenhum projeto pautado.");
@@ -508,7 +510,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 entidade.SITUACAO = "CANCELADO";
                 Commit();
             }
