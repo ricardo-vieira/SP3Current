@@ -67,19 +67,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtDataHoraInclusao = new System.Windows.Forms.MaskedTextBox();
             this.lblDataInclusao = new System.Windows.Forms.Label();
-            this.dtgPrincipal = new System.Windows.Forms.DataGridView();
-            this.dtgPrincipalTxtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Responsavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgPrincipalTxtSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuantidadeProjetosPauta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PautaDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataHoraEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PayBackAceitavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TaxaRemuneracaoMercado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgPrincipalTxtStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEditar = new System.Windows.Forms.DataGridViewImageColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtLocal = new System.Windows.Forms.TextBox();
@@ -95,6 +82,19 @@
             this.lblDescricao = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.dtgPrincipal = new System.Windows.Forms.DataGridView();
+            this.dtgPrincipalTxtId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Responsavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgPrincipalTxtSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantidadeProjetosPauta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PautaDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataHoraEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PayBackAceitavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TaxaRemuneracaoMercado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgPrincipalTxtStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditar = new System.Windows.Forms.DataGridViewImageColumn();
             this.tbpPautaProjetos = new System.Windows.Forms.TabPage();
             this.grbPautaProjeto = new System.Windows.Forms.GroupBox();
             this.btnAHPCalcular = new System.Windows.Forms.Button();
@@ -259,7 +259,7 @@
             this.btnAlterar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(54, 69);
-            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.Text = "Editar";
             this.btnAlterar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
@@ -374,7 +374,6 @@
             this.grbInformacoes.Controls.Add(this.label13);
             this.grbInformacoes.Controls.Add(this.txtDataHoraInclusao);
             this.grbInformacoes.Controls.Add(this.lblDataInclusao);
-            this.grbInformacoes.Controls.Add(this.dtgPrincipal);
             this.grbInformacoes.Controls.Add(this.label6);
             this.grbInformacoes.Controls.Add(this.label5);
             this.grbInformacoes.Controls.Add(this.txtLocal);
@@ -390,6 +389,7 @@
             this.grbInformacoes.Controls.Add(this.lblDescricao);
             this.grbInformacoes.Controls.Add(this.lblCodigo);
             this.grbInformacoes.Controls.Add(this.txtCodigo);
+            this.grbInformacoes.Controls.Add(this.dtgPrincipal);
             this.grbInformacoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grbInformacoes.Location = new System.Drawing.Point(3, 3);
             this.grbInformacoes.Name = "grbInformacoes";
@@ -425,7 +425,7 @@
             // 
             // txtSituacao
             // 
-            this.txtSituacao.Location = new System.Drawing.Point(1018, 18);
+            this.txtSituacao.Location = new System.Drawing.Point(673, 12);
             this.txtSituacao.Name = "txtSituacao";
             this.txtSituacao.ReadOnly = true;
             this.txtSituacao.Size = new System.Drawing.Size(138, 22);
@@ -436,7 +436,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(957, 21);
+            this.label14.Location = new System.Drawing.Point(612, 15);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 16);
             this.label14.TabIndex = 22;
@@ -464,7 +464,7 @@
             // 
             // txtDataHoraInclusao
             // 
-            this.txtDataHoraInclusao.Location = new System.Drawing.Point(680, 18);
+            this.txtDataHoraInclusao.Location = new System.Drawing.Point(456, 15);
             this.txtDataHoraInclusao.Name = "txtDataHoraInclusao";
             this.txtDataHoraInclusao.ReadOnly = true;
             this.txtDataHoraInclusao.Size = new System.Drawing.Size(129, 22);
@@ -475,149 +475,12 @@
             // lblDataInclusao
             // 
             this.lblDataInclusao.AutoSize = true;
-            this.lblDataInclusao.Location = new System.Drawing.Point(581, 21);
+            this.lblDataInclusao.Location = new System.Drawing.Point(357, 21);
             this.lblDataInclusao.Name = "lblDataInclusao";
             this.lblDataInclusao.Size = new System.Drawing.Size(93, 16);
             this.lblDataInclusao.TabIndex = 18;
             this.lblDataInclusao.Text = "Data Inclusão:";
             this.lblDataInclusao.Visible = false;
-            // 
-            // dtgPrincipal
-            // 
-            this.dtgPrincipal.AllowUserToAddRows = false;
-            this.dtgPrincipal.AllowUserToDeleteRows = false;
-            this.dtgPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgPrincipal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dtgPrincipalTxtId,
-            this.Descricao,
-            this.Local,
-            this.Responsavel,
-            this.dtgPrincipalTxtSituacao,
-            this.QuantidadeProjetosPauta,
-            this.PautaDescricao,
-            this.DataHoraEvento,
-            this.PayBackAceitavel,
-            this.TaxaRemuneracaoMercado,
-            this.dtgPrincipalTxtStatus,
-            this.btnEditar});
-            this.dtgPrincipal.Location = new System.Drawing.Point(9, 261);
-            this.dtgPrincipal.MultiSelect = false;
-            this.dtgPrincipal.Name = "dtgPrincipal";
-            this.dtgPrincipal.ReadOnly = true;
-            this.dtgPrincipal.RowHeadersVisible = false;
-            this.dtgPrincipal.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dtgPrincipal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgPrincipal.Size = new System.Drawing.Size(1147, 316);
-            this.dtgPrincipal.TabIndex = 16;
-            this.dtgPrincipal.TabStop = false;
-            this.dtgPrincipal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgPrincipal_CellClick);
-            // 
-            // dtgPrincipalTxtId
-            // 
-            this.dtgPrincipalTxtId.DataPropertyName = "ID";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dtgPrincipalTxtId.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgPrincipalTxtId.HeaderText = "CÓDIGO";
-            this.dtgPrincipalTxtId.Name = "dtgPrincipalTxtId";
-            this.dtgPrincipalTxtId.ReadOnly = true;
-            this.dtgPrincipalTxtId.Width = 70;
-            // 
-            // Descricao
-            // 
-            this.Descricao.DataPropertyName = "DESCRICAO";
-            this.Descricao.HeaderText = "DESCRIÇÃO";
-            this.Descricao.Name = "Descricao";
-            this.Descricao.ReadOnly = true;
-            this.Descricao.Width = 300;
-            // 
-            // Local
-            // 
-            this.Local.DataPropertyName = "LOCAL";
-            this.Local.HeaderText = "LOCAL";
-            this.Local.Name = "Local";
-            this.Local.ReadOnly = true;
-            this.Local.Width = 250;
-            // 
-            // Responsavel
-            // 
-            this.Responsavel.DataPropertyName = "RESPONSAVEL";
-            this.Responsavel.HeaderText = "RESPONSÁVEL";
-            this.Responsavel.Name = "Responsavel";
-            this.Responsavel.ReadOnly = true;
-            this.Responsavel.Width = 250;
-            // 
-            // dtgPrincipalTxtSituacao
-            // 
-            this.dtgPrincipalTxtSituacao.DataPropertyName = "SITUACAO";
-            this.dtgPrincipalTxtSituacao.HeaderText = "SITUAÇÃO";
-            this.dtgPrincipalTxtSituacao.Name = "dtgPrincipalTxtSituacao";
-            this.dtgPrincipalTxtSituacao.ReadOnly = true;
-            this.dtgPrincipalTxtSituacao.Width = 110;
-            // 
-            // QuantidadeProjetosPauta
-            // 
-            this.QuantidadeProjetosPauta.DataPropertyName = "QUANTIDADEPROJETOSPAUTA";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.QuantidadeProjetosPauta.DefaultCellStyle = dataGridViewCellStyle2;
-            this.QuantidadeProjetosPauta.HeaderText = "Q. PROJETOS";
-            this.QuantidadeProjetosPauta.Name = "QuantidadeProjetosPauta";
-            this.QuantidadeProjetosPauta.ReadOnly = true;
-            this.QuantidadeProjetosPauta.Width = 120;
-            // 
-            // PautaDescricao
-            // 
-            this.PautaDescricao.DataPropertyName = "PAUTADESCRICAO";
-            this.PautaDescricao.HeaderText = "DESCRIÇÃO DA PAUTA";
-            this.PautaDescricao.Name = "PautaDescricao";
-            this.PautaDescricao.ReadOnly = true;
-            this.PautaDescricao.Visible = false;
-            this.PautaDescricao.Width = 300;
-            // 
-            // DataHoraEvento
-            // 
-            this.DataHoraEvento.DataPropertyName = "DATAHORAEVENTO";
-            this.DataHoraEvento.HeaderText = "DATA / HORA EVENTO";
-            this.DataHoraEvento.Name = "DataHoraEvento";
-            this.DataHoraEvento.ReadOnly = true;
-            this.DataHoraEvento.Visible = false;
-            // 
-            // PayBackAceitavel
-            // 
-            this.PayBackAceitavel.DataPropertyName = "PAYBACKACEITAVEL";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.PayBackAceitavel.DefaultCellStyle = dataGridViewCellStyle3;
-            this.PayBackAceitavel.HeaderText = "PAYBACK";
-            this.PayBackAceitavel.Name = "PayBackAceitavel";
-            this.PayBackAceitavel.ReadOnly = true;
-            this.PayBackAceitavel.Visible = false;
-            // 
-            // TaxaRemuneracaoMercado
-            // 
-            this.TaxaRemuneracaoMercado.DataPropertyName = "TAXAREMUNERACAOMERCADO";
-            this.TaxaRemuneracaoMercado.HeaderText = "TAXA DE REMUNERACAO";
-            this.TaxaRemuneracaoMercado.Name = "TaxaRemuneracaoMercado";
-            this.TaxaRemuneracaoMercado.ReadOnly = true;
-            this.TaxaRemuneracaoMercado.Visible = false;
-            // 
-            // dtgPrincipalTxtStatus
-            // 
-            this.dtgPrincipalTxtStatus.DataPropertyName = "STATUS";
-            this.dtgPrincipalTxtStatus.HeaderText = "STATUS";
-            this.dtgPrincipalTxtStatus.Name = "dtgPrincipalTxtStatus";
-            this.dtgPrincipalTxtStatus.ReadOnly = true;
-            this.dtgPrincipalTxtStatus.Visible = false;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.HeaderText = "";
-            this.btnEditar.Image = global::projProjetos.Properties.Resources.editar;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.ReadOnly = true;
-            this.btnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnEditar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnEditar.Width = 30;
             // 
             // label6
             // 
@@ -756,6 +619,143 @@
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.TabStop = false;
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // dtgPrincipal
+            // 
+            this.dtgPrincipal.AllowUserToAddRows = false;
+            this.dtgPrincipal.AllowUserToDeleteRows = false;
+            this.dtgPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgPrincipal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgPrincipalTxtId,
+            this.Descricao,
+            this.Local,
+            this.Responsavel,
+            this.dtgPrincipalTxtSituacao,
+            this.QuantidadeProjetosPauta,
+            this.PautaDescricao,
+            this.DataHoraEvento,
+            this.PayBackAceitavel,
+            this.TaxaRemuneracaoMercado,
+            this.dtgPrincipalTxtStatus,
+            this.btnEditar});
+            this.dtgPrincipal.Location = new System.Drawing.Point(9, 261);
+            this.dtgPrincipal.MultiSelect = false;
+            this.dtgPrincipal.Name = "dtgPrincipal";
+            this.dtgPrincipal.ReadOnly = true;
+            this.dtgPrincipal.RowHeadersVisible = false;
+            this.dtgPrincipal.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dtgPrincipal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgPrincipal.Size = new System.Drawing.Size(1147, 316);
+            this.dtgPrincipal.TabIndex = 16;
+            this.dtgPrincipal.TabStop = false;
+            this.dtgPrincipal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgPrincipal_CellClick);
+            // 
+            // dtgPrincipalTxtId
+            // 
+            this.dtgPrincipalTxtId.DataPropertyName = "ID";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dtgPrincipalTxtId.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgPrincipalTxtId.HeaderText = "CÓDIGO";
+            this.dtgPrincipalTxtId.Name = "dtgPrincipalTxtId";
+            this.dtgPrincipalTxtId.ReadOnly = true;
+            this.dtgPrincipalTxtId.Width = 70;
+            // 
+            // Descricao
+            // 
+            this.Descricao.DataPropertyName = "DESCRICAO";
+            this.Descricao.HeaderText = "DESCRIÇÃO";
+            this.Descricao.Name = "Descricao";
+            this.Descricao.ReadOnly = true;
+            this.Descricao.Width = 300;
+            // 
+            // Local
+            // 
+            this.Local.DataPropertyName = "LOCAL";
+            this.Local.HeaderText = "LOCAL";
+            this.Local.Name = "Local";
+            this.Local.ReadOnly = true;
+            this.Local.Width = 250;
+            // 
+            // Responsavel
+            // 
+            this.Responsavel.DataPropertyName = "RESPONSAVEL";
+            this.Responsavel.HeaderText = "RESPONSÁVEL";
+            this.Responsavel.Name = "Responsavel";
+            this.Responsavel.ReadOnly = true;
+            this.Responsavel.Width = 250;
+            // 
+            // dtgPrincipalTxtSituacao
+            // 
+            this.dtgPrincipalTxtSituacao.DataPropertyName = "SITUACAO";
+            this.dtgPrincipalTxtSituacao.HeaderText = "SITUAÇÃO";
+            this.dtgPrincipalTxtSituacao.Name = "dtgPrincipalTxtSituacao";
+            this.dtgPrincipalTxtSituacao.ReadOnly = true;
+            this.dtgPrincipalTxtSituacao.Width = 110;
+            // 
+            // QuantidadeProjetosPauta
+            // 
+            this.QuantidadeProjetosPauta.DataPropertyName = "QUANTIDADEPROJETOSPAUTA";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.QuantidadeProjetosPauta.DefaultCellStyle = dataGridViewCellStyle2;
+            this.QuantidadeProjetosPauta.HeaderText = "Q. PROJETOS";
+            this.QuantidadeProjetosPauta.Name = "QuantidadeProjetosPauta";
+            this.QuantidadeProjetosPauta.ReadOnly = true;
+            this.QuantidadeProjetosPauta.Width = 120;
+            // 
+            // PautaDescricao
+            // 
+            this.PautaDescricao.DataPropertyName = "PAUTADESCRICAO";
+            this.PautaDescricao.HeaderText = "DESCRIÇÃO DA PAUTA";
+            this.PautaDescricao.Name = "PautaDescricao";
+            this.PautaDescricao.ReadOnly = true;
+            this.PautaDescricao.Visible = false;
+            this.PautaDescricao.Width = 300;
+            // 
+            // DataHoraEvento
+            // 
+            this.DataHoraEvento.DataPropertyName = "DATAHORAEVENTO";
+            this.DataHoraEvento.HeaderText = "DATA / HORA EVENTO";
+            this.DataHoraEvento.Name = "DataHoraEvento";
+            this.DataHoraEvento.ReadOnly = true;
+            this.DataHoraEvento.Visible = false;
+            // 
+            // PayBackAceitavel
+            // 
+            this.PayBackAceitavel.DataPropertyName = "PAYBACKACEITAVEL";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.PayBackAceitavel.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PayBackAceitavel.HeaderText = "PAYBACK";
+            this.PayBackAceitavel.Name = "PayBackAceitavel";
+            this.PayBackAceitavel.ReadOnly = true;
+            this.PayBackAceitavel.Visible = false;
+            // 
+            // TaxaRemuneracaoMercado
+            // 
+            this.TaxaRemuneracaoMercado.DataPropertyName = "TAXAREMUNERACAOMERCADO";
+            this.TaxaRemuneracaoMercado.HeaderText = "TAXA DE REMUNERACAO";
+            this.TaxaRemuneracaoMercado.Name = "TaxaRemuneracaoMercado";
+            this.TaxaRemuneracaoMercado.ReadOnly = true;
+            this.TaxaRemuneracaoMercado.Visible = false;
+            // 
+            // dtgPrincipalTxtStatus
+            // 
+            this.dtgPrincipalTxtStatus.DataPropertyName = "STATUS";
+            this.dtgPrincipalTxtStatus.HeaderText = "STATUS";
+            this.dtgPrincipalTxtStatus.Name = "dtgPrincipalTxtStatus";
+            this.dtgPrincipalTxtStatus.ReadOnly = true;
+            this.dtgPrincipalTxtStatus.Visible = false;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.HeaderText = "";
+            this.btnEditar.Image = global::projProjetos.Properties.Resources.editar;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.ReadOnly = true;
+            this.btnEditar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnEditar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnEditar.Width = 30;
             // 
             // tbpPautaProjetos
             // 
@@ -1039,27 +1039,29 @@
             // 
             // btnPesquisarPautaProjeto
             // 
-            this.btnPesquisarPautaProjeto.Location = new System.Drawing.Point(125, 21);
+            this.btnPesquisarPautaProjeto.Location = new System.Drawing.Point(63, 21);
             this.btnPesquisarPautaProjeto.Name = "btnPesquisarPautaProjeto";
             this.btnPesquisarPautaProjeto.Size = new System.Drawing.Size(34, 23);
             this.btnPesquisarPautaProjeto.TabIndex = 15;
             this.btnPesquisarPautaProjeto.Text = "...";
             this.btnPesquisarPautaProjeto.UseVisualStyleBackColor = true;
-            this.btnPesquisarPautaProjeto.Click += new System.EventHandler(this.button1_Click);
+            this.btnPesquisarPautaProjeto.Click += new System.EventHandler(this.btnPesquisarPautaProjeto_Click);
             // 
             // txtPautaDescricao
             // 
             this.txtPautaDescricao.Enabled = false;
             this.txtPautaDescricao.Location = new System.Drawing.Point(165, 21);
             this.txtPautaDescricao.Name = "txtPautaDescricao";
+            this.txtPautaDescricao.ReadOnly = true;
             this.txtPautaDescricao.Size = new System.Drawing.Size(408, 22);
             this.txtPautaDescricao.TabIndex = 14;
             // 
             // txtPautaCodigo
             // 
             this.txtPautaCodigo.Enabled = false;
-            this.txtPautaCodigo.Location = new System.Drawing.Point(63, 21);
+            this.txtPautaCodigo.Location = new System.Drawing.Point(103, 21);
             this.txtPautaCodigo.Name = "txtPautaCodigo";
+            this.txtPautaCodigo.ReadOnly = true;
             this.txtPautaCodigo.Size = new System.Drawing.Size(56, 22);
             this.txtPautaCodigo.TabIndex = 13;
             // 
@@ -1073,6 +1075,7 @@
             this.btnPautaCancelar.TabIndex = 12;
             this.btnPautaCancelar.Text = "Cancelar";
             this.btnPautaCancelar.UseVisualStyleBackColor = true;
+            this.btnPautaCancelar.Click += new System.EventHandler(this.btnPautaCancelar_Click);
             // 
             // txtPautaInvestimentoPrevisto
             // 
@@ -1088,7 +1091,7 @@
             // 
             this.btnPautaSalvar.Enabled = false;
             this.btnPautaSalvar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.btnPautaSalvar.Location = new System.Drawing.Point(818, 78);
+            this.btnPautaSalvar.Location = new System.Drawing.Point(818, 79);
             this.btnPautaSalvar.Name = "btnPautaSalvar";
             this.btnPautaSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnPautaSalvar.TabIndex = 10;
@@ -1167,9 +1170,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 24);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 16);
+            this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Projeto";
+            this.label7.Text = "Projeto:";
             // 
             // grbPautaAcoes
             // 
@@ -1185,17 +1188,18 @@
             // btnPautaEditar
             // 
             this.btnPautaEditar.Enabled = false;
-            this.btnPautaEditar.Location = new System.Drawing.Point(6, 79);
+            this.btnPautaEditar.Location = new System.Drawing.Point(6, 50);
             this.btnPautaEditar.Name = "btnPautaEditar";
             this.btnPautaEditar.Size = new System.Drawing.Size(75, 23);
             this.btnPautaEditar.TabIndex = 3;
             this.btnPautaEditar.Text = "Editar";
             this.btnPautaEditar.UseVisualStyleBackColor = true;
+            this.btnPautaEditar.Click += new System.EventHandler(this.btnPautaEditar_Click);
             // 
             // btnPautaExcluir
             // 
             this.btnPautaExcluir.Enabled = false;
-            this.btnPautaExcluir.Location = new System.Drawing.Point(7, 50);
+            this.btnPautaExcluir.Location = new System.Drawing.Point(6, 79);
             this.btnPautaExcluir.Name = "btnPautaExcluir";
             this.btnPautaExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnPautaExcluir.TabIndex = 2;
@@ -1745,6 +1749,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADODICE;
         private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADOAHP;
         private System.Windows.Forms.ToolStripButton btnPesquisar;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnPesquisaResponsavel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnPautaEditar;
+        private System.Windows.Forms.Button btnPautaCancelar;
+        private System.Windows.Forms.Button btnPesquisarPautaProjeto;
+        private System.Windows.Forms.TextBox txtPautaDescricao;
+        private System.Windows.Forms.TextBox txtPautaCodigo;
+        private System.Windows.Forms.BindingSource _bindingSource;
+        private System.Windows.Forms.BindingSource _bindingSourcePauta;
         private System.Windows.Forms.DataGridView dtgPrincipal;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtgPrincipalTxtId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
@@ -1758,15 +1772,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TaxaRemuneracaoMercado;
         private System.Windows.Forms.DataGridViewTextBoxColumn dtgPrincipalTxtStatus;
         private System.Windows.Forms.DataGridViewImageColumn btnEditar;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btnPesquisaResponsavel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnPautaEditar;
-        private System.Windows.Forms.Button btnPautaCancelar;
-        private System.Windows.Forms.Button btnPesquisarPautaProjeto;
-        private System.Windows.Forms.TextBox txtPautaDescricao;
-        private System.Windows.Forms.TextBox txtPautaCodigo;
-        private System.Windows.Forms.BindingSource _bindingSource;
-        private System.Windows.Forms.BindingSource _bindingSourcePauta;
     }
 }

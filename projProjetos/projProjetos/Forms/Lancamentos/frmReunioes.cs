@@ -32,7 +32,7 @@ namespace projProjetos.Forms
         RegraNegocio.View.Projetos.ViewPautaProjeto _currentObjectPautaProjeto;
 
         RegraNegocio.View.Pessoas.ViewPessoa _objectPesquisaResponsavel;
-        RegraNegocio.View.Projetos.ViewPautaProjeto _objectPesquisaPautaProjetoProjeto;
+        RegraNegocio.View.Projetos.ViewProjeto _objectPesquisaPautaProjetoProjeto;
 
         public frmReunioes()
         {
@@ -272,6 +272,12 @@ namespace projProjetos.Forms
                 MessageBox.Show(ex.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void DesabilitarDataBindingComponentes()
+        {
+
+        }
+
 
         private void CarregarInformacoes()
         {
@@ -516,15 +522,18 @@ namespace projProjetos.Forms
 
         private void CarregarInformacoesPautaProjeto()
         {
-            try
+            /*try
             {
                 if (dtgPautaProjetos.SelectedRows.Count > 0)
                 {
                     if (Convert.ToInt64(dtgPautaProjetos.SelectedRows[0].Cells["dtgPautaProjetosTxtIdPautaProjeto"].Value) == 0)
-                        reunioesRegraNegocio.ListarPautaProjetoSemId(Convert.ToInt64(dtgPautaProjetos.SelectedRows[0].Cells["dtgPautaProjetosTxtIdProjeto"].Value));
-
+                    {
+                        _c reunioesRegraNegocio.ListarPautaProjetoSemId(_currentObject.EntityObject, Convert.ToInt64(dtgPautaProjetos.SelectedRows[0].Cells["dtgPautaProjetosTxtIdProjeto"].Value));
+                    }
                     else
-                        reunioesRegraNegocio.ListarPautaProjetos(Convert.ToInt64(dtgPautaProjetos.SelectedRows[0].Cells["dtgPautaProjetosTxtIdPautaProjeto"].Value));
+                    {
+                        reunioesRegraNegocio.RetornarPautaProjeto(_currentObject.EntityObject, Convert.ToInt64(dtgPautaProjetos.SelectedRows[0].Cells["dtgPautaProjetosTxtIdPautaProjeto"].Value));
+                    }
 
                     //cboPautaProjeto.DataSource = projetosRegraNegocio.ToList();
                     //cboPautaProjeto.SelectedValue = reunioesRegraNegocio.pautaProjeto.IDPROJETO;
@@ -542,7 +551,7 @@ namespace projProjetos.Forms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            } */
         }
 
         /* private void CarregarInformacoesGerais()
@@ -571,10 +580,53 @@ namespace projProjetos.Forms
         {
             try
             {
-                MudarStatusInformacaoPautaProjeto(StatusInformacao.SELECAO);
-                dtgPautaProjetos.DataSource = reunioesRegraNegocio.ListarPautaProjeto();
+                if (_bindingListViewPautaProjetos == null)
+                {
+                    _bindingListViewPautaProjetos = new BindingListView<RegraNegocio.View.Projetos.ViewPautaProjeto>(reunioesRegraNegocio
+                                                    .ListarPautaProjeto(_currentObject.EntityObject));
 
-                if (reunioesRegraNegocio.entidade.AHPCALCULADO != null && reunioesRegraNegocio.entidade.AHPCALCULADO >= 1)
+                    _bindingSourcePauta.DataSource = _bindingListViewPautaProjetos;
+                }
+                else
+                {
+                    _bindingListViewProjetos.RemoveFilter();
+                    _bindingListViewPautaProjetos.DataSource = reunioesRegraNegocio.ListarPautaProjeto(_currentObject.EntityObject);
+                    _bindingListViewPautaProjetos.Refresh();
+                }
+
+                _bindingListViewPautaProjetos.ApplyFilter(x => x.EntityObject.REUNIO == _currentObject.EntityObject);
+                _bindingListViewPautaProjetos.Refresh();
+
+                RegraNegocio.View.Projetos.ViewPautaProjeto _bindingSourcePautaProjetoCurrentObject = (_bindingSourcePauta.Current is null)
+                                                                                                      ? (null)
+                                                                                                      : (_bindingSourcePauta.Current as ObjectView<RegraNegocio.View.Projetos.ViewPautaProjeto>).Object;
+
+
+                if (!(_currentObjectPautaProjeto is null) && (_bindingSourcePautaProjetoCurrentObject is null
+                                                              || _bindingSourcePautaProjetoCurrentObject != _currentObjectPautaProjeto))
+                {
+                    //identifica a linha que contem o currentObjectProjetoReceitaVariavel na propriedade databounditem e atribui true a propriedade selected
+                    IEnumerable<DataGridViewRow> dtgPautaProjetosRowsEnumerable = System.Linq.Enumerable.Cast<DataGridViewRow>(dtgPautaProjetos.Rows);
+                    DataGridViewRow dataRow = new List<DataGridViewRow>(dtgPautaProjetosRowsEnumerable).First(row => (row.DataBoundItem as ObjectView<RegraNegocio.View.Projetos.ViewPautaProjeto>).Object.EntityObject == _currentObjectPautaProjeto.EntityObject);
+
+                    dataRow.Selected = true;
+                }
+
+                if (_statusInformacao == StatusInformacao.SELECAO)
+                {
+                    MudarStatusInformacaoPautaProjeto(StatusInformacao.SEMACAO);
+                }
+
+                else
+                {
+                    MudarStatusInformacaoPautaProjeto(StatusInformacao.SELECAO);
+                }
+
+                _bindingSourcePauta.ResumeBinding();
+                CarregarInformacoesPautaProjeto();
+
+
+                if (_currentObject.EntityObject.AHPCALCULADO != null && _currentObject.EntityObject.AHPCALCULADO >= 1)
                 {
                     txtAHPCalculado.Text = "SIM";
                     txtAHPCalculado.ForeColor = Color.Green;
@@ -583,12 +635,6 @@ namespace projProjetos.Forms
                 {
                     txtAHPCalculado.Text = "NÃO";
                     txtAHPCalculado.ForeColor = Color.Red;
-                }
-
-                if (dtgPautaProjetos.Rows.Count > 0)
-                {
-                    if (selecionarRegistroAutomaticamente)
-                        CarregarInformacoesPautaProjeto();
                 }
             }
             catch (Exception ex)
@@ -601,9 +647,12 @@ namespace projProjetos.Forms
         {
             try
             {
-                dtgRankProjetos.DataSource = reunioesRegraNegocio.ListarProjetosCalculados();
+                dtgRankProjetos.DataSource = reunioesRegraNegocio.ListarProjetosCalculados(_currentObject.EntityObject);
 
-                if (reunioesRegraNegocio.entidade.SITUACAO.Equals("EFETIVADO") || (reunioesRegraNegocio.entidade.SITUACAO.Equals("CANCELADO") && reunioesRegraNegocio.entidade.AHPCALCULADO != null && reunioesRegraNegocio.entidade.AHPCALCULADO >= 1))
+                if (_currentObject.EntityObject.SITUACAO.Equals("EFETIVADO") 
+                    || (_currentObject.EntityObject.SITUACAO.Equals("CANCELADO") 
+                        && _currentObject.EntityObject.AHPCALCULADO != null
+                        && _currentObject.EntityObject.AHPCALCULADO >= 1))
                 {
                     dtgRankProjetos.Visible = true;
                     //dtgRankProjetos.DataSource = null;
@@ -710,14 +759,14 @@ namespace projProjetos.Forms
                     return false;
                 }
 
-                if (reunioesRegraNegocio.entidade.PAUTAPROJETOS.Count < 0)
+                if (_currentObject.EntityObject.PAUTAPROJETOS.Count < 0)
                 {
                     MessageBox.Show("A reunião não pode ser efetivada pois não contem projetos na pauta.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tbpPautaProjetos.Focus();
                     return false;
                 }
 
-                if (reunioesRegraNegocio.entidade.AHPCALCULADO == null || reunioesRegraNegocio.entidade.AHPCALCULADO < 1)
+                if (_currentObject.EntityObject.AHPCALCULADO == null || _currentObject.EntityObject.AHPCALCULADO < 1)
                 {
                     MessageBox.Show("A reunião não pode ser efetivada pois o critério AHP não foi priorizado para os projetos pautados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tbpPautaProjetos.Focus();
@@ -745,14 +794,14 @@ namespace projProjetos.Forms
         {
             try
             {
-                reunioesRegraNegocio.entidade.DESCRICAO = txtDescricao.Text;
-                reunioesRegraNegocio.entidade.LOCAL = txtLocal.Text;
-                reunioesRegraNegocio.entidade.DATAHORAEVENTO = dtpDataHoraEvento.Value;
+                _currentObject.EntityObject.DESCRICAO = txtDescricao.Text;
+                _currentObject.EntityObject.LOCAL = txtLocal.Text;
+                _currentObject.EntityObject.DATAHORAEVENTO = dtpDataHoraEvento.Value;
                 //reunioesRegraNegocio.entidade.RESPONSAVEL = Convert.ToInt64(cboResponsavel.SelectedValue);
-                reunioesRegraNegocio.entidade.PAYBACKACEITAVEL = Convert.ToDecimal(txtPayBackAceitavel.Text);
-                reunioesRegraNegocio.entidade.TAXAREMUNERACAOMERCADO = Convert.ToDecimal(txtTIR.Text);
-                reunioesRegraNegocio.entidade.TAXACUSTOCAPITAL = Convert.ToDecimal(txtTaxaCustoCapital.Text);
-                reunioesRegraNegocio.entidade.PAUTADESCRICAO = txtDescricaoPauta.Text;
+                _currentObject.EntityObject.PAYBACKACEITAVEL = Convert.ToDecimal(txtPayBackAceitavel.Text);
+                _currentObject.EntityObject.TAXAREMUNERACAOMERCADO = Convert.ToDecimal(txtTIR.Text);
+                _currentObject.EntityObject.TAXACUSTOCAPITAL = Convert.ToDecimal(txtTaxaCustoCapital.Text);
+                _currentObject.EntityObject.PAUTADESCRICAO = txtDescricaoPauta.Text;
             }
             catch (Exception ex)
             {
@@ -774,12 +823,14 @@ namespace projProjetos.Forms
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-                MudarStatusInformacao(StatusInformacao.INCLUSAO);
-                LimparCampos();
-                reunioesRegraNegocio.Insert();
-                txtCodigo.Text = 0.ToString();
-                CarregarInformacoesGeraisPautaProjetos(false);
-                CarregarInformaoesGeraisRankProjetos();
+            _currentObject = new RegraNegocio.View.Reunioes.ViewReuniao(reunioesRegraNegocio.Insert());
+
+            _bindingSource.SuspendBinding();
+            MudarStatusInformacao(StatusInformacao.INCLUSAO);
+            DesabilitarDataBindingComponentes();
+
+            CarregarInformacoesGeraisPautaProjetos(false);
+            CarregarInformaoesGeraisRankProjetos();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -788,82 +839,115 @@ namespace projProjetos.Forms
             {
                 if (ValidarInformacoes())
                 {
-                    MudarStatusInformacao(StatusInformacao.SELECAO);
-                    EnviarInformacoesObjeto();
+                    AtualizaInformacoesCurrentObject();
 
                     reunioesRegraNegocio.Commit();
                     CarregarInformacoesGerais();
+                    CarregarInformacoesGeraisPautaProjetos(false);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void AtualizaInformacoesCurrentObject()
+        {
+            _currentObject.EntityObject.DESCRICAO = txtDescricao.Text;
+            _currentObject.EntityObject.DATAHORAEVENTO = dtpDataHoraEvento.Value;
+            _currentObject.EntityObject.LOCAL = txtLocal.Text;
+            _currentObject.EntityObject.PAYBACKACEITAVEL = Convert.ToDecimal(txtPayBackAceitavel.Text);
+            _currentObject.EntityObject.TAXAREMUNERACAOMERCADO = Convert.ToDecimal(txtTIR.Text);
+            _currentObject.EntityObject.TAXACUSTOCAPITAL = Convert.ToDecimal(txtTaxaCustoCapital.Text);
+            _currentObject.EntityObject.PAUTADESCRICAO = txtDescricaoPauta.Text;
+
+            _currentObject.EntityObject.PESSOA = _objectPesquisaResponsavel.EntityObject;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(String.Format("Deseja realmente cancelar a {0} das informações?", (_statusInformacao.Equals(StatusInformacao.INCLUSAO) ? ("INCLUSÃO") : ("ALTERAÇÃO"))), "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(String.Format("Deseja realmente cancelar a {0} das informações?",
+                               (_statusInformacao.Equals(StatusInformacao.INCLUSAO) ? ("INCLUSÃO") : ("ALTERAÇÃO"))),
+                               "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                == DialogResult.Yes)
+            {
+                reunioesRegraNegocio.RollBackLastOperation();
+
+                if (_statusInformacao == StatusInformacao.INCLUSAO)
+                {
+                    _currentObject = null;
+                }
+
                 CarregarInformacoesGerais();
+                CarregarInformacoesGeraisPautaProjetos(false);
+                CarregarInformacoesGeraisProjetoReceitaVariavel();
+            }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            if (dtgPrincipal.SelectedRows.Count > 0)
+            if (!(_currentObject is null))
             {
-                if (reunioesRegraNegocio.entidade.SITUACAO.Equals("EM OPERAÇÃO"))
+                if (_currentObject.EntityObject.SITUACAO.Equals("EM OPERAÇÃO"))
                 {
-                    CarregarInformacoes();
+                    reunioesRegraNegocio.Update(_currentObject.EntityObject);
                     MudarStatusInformacao(StatusInformacao.ALTERACAO);
+
+                    CarregarObjetosPesquisa();
+                    DesabilitarDataBindingComponentes();
+
+                    CarregarInformacoesGeraisPautaProjetos(false);
+                    CarregarInformacoesGeraisProjetoReceitaVariavel();
+
                 }
-                else
+            }
+        }
+
+        private void CarregarObjetosPesquisa()
+        {
+            if (!(_currentObject is null))
+            {
+                if (!(_currentObject.EntityObject.PESSOA is null))
                 {
-                    MessageBox.Show(String.Format("Não é possivel alterar a reunião, pois a mesma está {0}.", reunioesRegraNegocio.entidade.SITUACAO), "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    CarregarInformacoes();
-                    MudarStatusInformacao(StatusInformacao.SELECAO);
+                    _objectPesquisaResponsavel = new RegraNegocio.View
+                                                                 .Pessoas
+                                                                 .ViewPessoa(_currentObject.EntityObject.PESSOA);
                 }
-
-
-                }
+            }
         }
 
         private void btnPautaIncluir_Click(object sender, EventArgs e)
         {
-            if (this._statusInformacao.Equals(StatusInformacao.INCLUSAO) || this._statusInformacao.Equals(StatusInformacao.ALTERACAO))
-            {
-                if (reunioesRegraNegocio.entidade.PAUTAPROJETOS.Count <= 0 ||
-                    reunioesRegraNegocio.entidade.AHPCALCULADO <= 0 ||
-                    reunioesRegraNegocio.entidade.AHPCALCULADO >= 1 && reunioesRegraNegocio.entidade.PAUTAPROJETOS.Count > 0 &&
-                    MessageBox.Show("Deseja realmente incluir um novo projeto com o critério do AHP já priorizado?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    MudarStatusInformacaoPautaProjeto(StatusInformacao.INCLUSAO);
-                    LimparCamposPautaProjetos();
-                    reunioesRegraNegocio.IncluirPautaProjeto();
-                }
-            }
+            _currentObjectPautaProjeto = new RegraNegocio.View
+                                                         .Projetos
+                                                         .ViewPautaProjeto(reunioesRegraNegocio
+                                                                          .IncluirPautaProjeto(_currentObject.EntityObject));
+
+            _bindingSourcePauta.SuspendBinding();
+            MudarStatusInformacaoPautaProjeto(StatusInformacao.INCLUSAO);
+            DesabilitarDataBindingComponentesPautaProjetos();
+        }
+
+        private void DesabilitarDataBindingComponentesPautaProjetos()
+        {
+
         }
 
         private void btnPautaSalvar_Click(object sender, EventArgs e)
         {
-            try
+            if (ValidarInformacoesPautaProjetos())
             {
-                if (ValidarInformacoesPautaProjetos())
-                {
-                    EnviarInformacoesObjetoPautaProjetos();
-
-                    if (reunioesRegraNegocio.VerificarExistenciaProjetoPautaProjeto())
-                        MessageBox.Show("Este projeto já está sendo pautado na reunião.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    else
-                        reunioesRegraNegocio.SalvarPautaProjeto();
-
-                    MudarStatusInformacaoPautaProjeto(StatusInformacao.SELECAO);
-                    CarregarInformacoesGeraisPautaProjetos(true);
-                }
+                AtualizaInformacoesCurrentObjectPautaProjeto();
+                CarregarInformacoesGeraisPautaProjetos(false);
+                HabilitarDataBindingComponentesPautaProjetos();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        }
+
+        private void AtualizaInformacoesCurrentObjectPautaProjeto()
+        {
+            _currentObjectPautaProjeto.EntityObject.PROJETO = _objectPesquisaPautaProjetoProjeto.EntityObject;
+            _currentObjectPautaProjeto.EntityObject.REUNIO = _currentObject.EntityObject;
         }
 
         private void txtTaxaCustoCapital_Validating(object sender, CancelEventArgs e)
@@ -881,11 +965,11 @@ namespace projProjetos.Forms
         {
             MudarStatusInformacao(StatusInformacao.EFETIVACAO);
 
-            if (ValidarInformacoes() && reunioesRegraNegocio.entidade.SITUACAO.Equals("EM OPERAÇÃO"))
+            if (ValidarInformacoes() && _currentObject.EntityObject.SITUACAO.Equals("EM OPERAÇÃO"))
             {
                 if (MessageBox.Show("Deseja ralmente efetivar esta reunião?", "Efetivar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    reunioesRegraNegocio.MudarSituacao(RegraNegocio.SituacaoReuniao.EFETIVADO);
+                    reunioesRegraNegocio.MudarSituacao(_currentObject.EntityObject, RegraNegocio.SituacaoReuniao.EFETIVADO);
                     reunioesRegraNegocio.Commit();
                     CarregarInformacoesGerais();
                 }
@@ -898,7 +982,7 @@ namespace projProjetos.Forms
 
             if (MessageBox.Show("Deseja realmente cancelar esta reunião?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                reunioesRegraNegocio.MudarSituacao(RegraNegocio.SituacaoReuniao.CANCELADO);
+                reunioesRegraNegocio.MudarSituacao(_currentObject.EntityObject, RegraNegocio.SituacaoReuniao.CANCELADO);
                 reunioesRegraNegocio.Commit();
                 MudarStatusInformacao(StatusInformacao.SELECAO);
                 CarregarInformacoesGerais();
@@ -932,23 +1016,10 @@ namespace projProjetos.Forms
 
         private void btnPautaExcluir_Click(object sender, EventArgs e)
         {
-            try
+            if (_currentObjectPautaProjeto != null)
             {
-                if (dtgPautaProjetos.SelectedRows.Count > 0)
-                {
-                    CarregarInformacoesPautaProjeto();
-
-                    if (MessageBox.Show("Deseja realmente excluir este projeto da pauta?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        reunioesRegraNegocio.ExcluirPautaProjeto();
-                        LimparCamposPautaProjetos();
-                        CarregarInformacoesGeraisPautaProjetos(true);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                pautaProjetosRegraNegocio.Delete(_currentObjectPautaProjeto.EntityObject);
+                CarregarInformacoesGeraisPautaProjetos(false);
             }
         }
 
@@ -986,20 +1057,13 @@ namespace projProjetos.Forms
 
         private void btnAHPCalcular_Click(object sender, EventArgs e)
         {
-            try
+            if (_currentObject.EntityObject.AHPCALCULADO == null ||
+                _currentObject.EntityObject.PAUTAPROJETOS.Count > 0 && (_currentObject.EntityObject.AHPCALCULADO <= 0 || (_currentObject.EntityObject.AHPCALCULADO >= 1
+                && MessageBox.Show("Deseja realmente recalcular o critério do AHP para esta reunião?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)))
             {
-                if (reunioesRegraNegocio.entidade.AHPCALCULADO == null ||
-                    reunioesRegraNegocio.entidade.PAUTAPROJETOS.Count > 0 && (reunioesRegraNegocio.entidade.AHPCALCULADO <= 0 || (reunioesRegraNegocio.entidade.AHPCALCULADO >= 1
-                    && MessageBox.Show("Deseja realmente recalcular o critério do AHP para esta reunião?", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)))
-                {
-                    reunioesRegraNegocio.CalcularAHP();
-                    txtAHPCalculado.Text = "SIM";
-                    txtAHPCalculado.ForeColor = Color.Green;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                reunioesRegraNegocio.CalcularAHP(_currentObject.EntityObject);
+                txtAHPCalculado.Text = "SIM";
+                txtAHPCalculado.ForeColor = Color.Green;
             }
         }
 
@@ -1064,6 +1128,57 @@ namespace projProjetos.Forms
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPautaEditar_Click(object sender, EventArgs e)
+        {
+            if (_currentObjectPautaProjeto != null)
+            {
+                pautaProjetosRegraNegocio.Update(_currentObjectPautaProjeto.EntityObject);
+                MudarStatusInformacaoPautaProjeto(StatusInformacao.ALTERACAO);
+                CarregarObjetosPesquisaPautaProjetos();
+                DesabilitarDataBindingComponentesPautaProjetos();
+            }
+        }
+
+        private void CarregarObjetosPesquisaPautaProjetos()
+        {
+            if (_currentObjectPautaProjeto != null)
+            {
+                if (_currentObjectPautaProjeto.EntityObject.PROJETO != null)
+                {
+                    _objectPesquisaPautaProjetoProjeto = new RegraNegocio
+                                                             .View
+                                                             .Projetos
+                                                             .ViewProjeto(_currentObjectPautaProjeto
+                                                                          .EntityObject.PROJETO);
+                }
+            }
+        }
+
+        private void btnPautaCancelar_Click(object sender, EventArgs e)
+        {
+            _currentObjectPautaProjeto = null;
+            pautaProjetosRegraNegocio.RollBackLastOperation();
+            CarregarInformacoesGeraisPautaProjetos(false);
+            HabilitarDataBindingComponentesPautaProjetos();
+        }
+
+        private void HabilitarDataBindingComponentesPautaProjetos()
+        {
+
+        }
+
+        private void btnPesquisarPautaProjeto_Click(object sender, EventArgs e)
+        {
+            var frmPesquisaProjeto = new Cadastros.Pesquisa.frmPesquisaProjeto();
+            _objectPesquisaPautaProjetoProjeto = frmPesquisaProjeto.ShowDialogResultObjectSearch();
+
+            if (_objectPesquisaPautaProjetoProjeto != null)
+            {
+                txtPautaCodigo.Text = _objectPesquisaPautaProjetoProjeto.Id.ToString();
+                txtPautaDescricao.Text = _objectPesquisaPautaProjetoProjeto.Descricao;
+            }
         }
     }
 }

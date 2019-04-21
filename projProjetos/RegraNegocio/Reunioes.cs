@@ -58,7 +58,6 @@ namespace RegraNegocio
             }
         }
 
-
         public bool MudarSituacao(EFDados.REUNIO reuniao, SituacaoReuniao situacao)
         {
             try
@@ -131,11 +130,12 @@ namespace RegraNegocio
             }
         }
 
-        public void ListarPautaProjetos(long IdPautaProjeto)
+        public EFDados.PAUTAPROJETO RetornarPautaProjeto(EFDados.REUNIO reuniao, long IdPautaProjeto)
         {
             try
             {
-                pautaProjeto = entidade.PAUTAPROJETOS.FirstOrDefault(x => x.ID.Equals(IdPautaProjeto));
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                return entidade.PAUTAPROJETOS.FirstOrDefault(x => x.ID.Equals(IdPautaProjeto));
             }
             catch (Exception ex)
             {
@@ -143,11 +143,12 @@ namespace RegraNegocio
             }
         }
 
-        public void ListarPautaProjetoSemId(long IdProjeto)
+        public EFDados.PAUTAPROJETO ListarPautaProjetoSemId(EFDados.REUNIO reuniao, long IdProjeto)
         {
             try
             {
-                pautaProjeto = entidade.PAUTAPROJETOS.First(x => x.IDPROJETO.Equals(IdProjeto));
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                return entidade.PAUTAPROJETOS.First(x => x.IDPROJETO.Equals(IdProjeto));
             }
             catch (Exception ex)
             {
@@ -155,12 +156,14 @@ namespace RegraNegocio
             }
         }
 
-        public void ExcluirPautaProjeto()
+        public void ExcluirPautaProjeto(EFDados.REUNIO reuniao, EFDados.PAUTAPROJETO pautaprojeto)
         {
             try
             {
-                entidade.PAUTAPROJETOS.Remove(pautaProjeto);
-                pautaProjeto = null;
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var pauta = entidade.PAUTAPROJETOS.First(x => x.ID.Equals(pautaprojeto.ID));
+                entidade.PAUTAPROJETOS.Remove(pauta);
+                base.Commit();
             }
             catch (Exception ex)
             {
@@ -168,11 +171,14 @@ namespace RegraNegocio
             }
         }
 
-        public void IncluirPautaProjeto()
+        public EFDados.PAUTAPROJETO IncluirPautaProjeto(EFDados.REUNIO reuniao)
         {
             try
             {
-                pautaProjeto = new EFDados.PAUTAPROJETO();
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                var pautaProjeto = new EFDados.PAUTAPROJETO();
+                entidade.PAUTAPROJETOS.Add(pautaProjeto);
+                return pautaProjeto;
             }
             catch (Exception ex)
             {
@@ -180,21 +186,22 @@ namespace RegraNegocio
             }
         }
 
-        public void SalvarPautaProjeto()
+        public void SalvarPautaProjeto(EFDados.REUNIO reuniao, EFDados.PAUTAPROJETO pautaProjeto)
         {
             try
             {
-                CopiarInformacoesPautaProjeto();
+
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                pautaProjeto.REUNIO = reuniao;
+                CopiarInformacoesPautaProjeto(pautaProjeto);
 
                 if (pautaProjeto.ID.Equals(0))
                     entidade.PAUTAPROJETOS.Add(pautaProjeto);
-
 
                 entidade.AHPCALCULADO = 0;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -216,10 +223,12 @@ namespace RegraNegocio
             return null;
         }
 
-        public void CalcularAHP()
+        public void CalcularAHP(EFDados.REUNIO reuniao)
         {
             try
             {
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+
                 List<EFDados.CRITERIOSPROJETOSRESULTADO> criteriosProjetosResultado = new Criterios().CalcularPrioridadeGlobalProjeto(entidade);
 
                 double resultado;
@@ -246,11 +255,12 @@ namespace RegraNegocio
             }
         }
 
-        public bool VerificarExistenciaProjetoPautaProjeto()
+        public bool VerificarExistenciaProjetoPautaProjeto(EFDados.REUNIO reuniao, long idProjeto)
         {
             try
             {
-                return entidade.PAUTAPROJETOS.Any(x => x.IDPROJETO.Equals(pautaProjeto.IDPROJETO));
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+                return entidade.PAUTAPROJETOS.Any(x => x.IDPROJETO.Equals(idProjeto));
             }
             catch (Exception ex)
             {
@@ -279,6 +289,7 @@ namespace RegraNegocio
 
         private double[] calcularVPLTIR(EFDados.PAUTAPROJETO pautaProjeto)
         {
+            var entidade = base.DbEntity.First(x => x.ID.Equals(pautaProjeto.IDREUNIAO));
             List<FluxoCaixa> fluxoCaixa = CalcularFluxoCaixa(pautaProjeto);
 
             //Cálculo do VPL
@@ -314,10 +325,11 @@ namespace RegraNegocio
 
         }
 
-        private bool IncluirProjetoPauta(long Id)
+        private bool IncluirProjetoPauta(EFDados.REUNIO reuniao, long Id)
         {
             try
             {
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
                 EFDados.PAUTAPROJETO pautaProjeto = new EFDados.PAUTAPROJETO
                 {
                     IDPROJETO = ctoProjetos.PROJETOS.FirstOrDefault(i => i.ID.Equals(Id)).ID,
@@ -367,20 +379,21 @@ namespace RegraNegocio
             }
         }
 
-        private bool ExcluirProjetoPauta(long IdProjeto)
+        private bool ExcluirProjetoPauta(EFDados.REUNIO reuniao, long IdProjeto)
         {
             try
             {
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
                 entidade.PAUTAPROJETOS.Remove(ctoProjetos.PAUTAPROJETOS.First(i => i.IDPROJETO.Equals(IdProjeto)));
                 return true;
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
             }
         }
 
-        private void CopiarInformacoesPautaProjeto()
+        private void CopiarInformacoesPautaProjeto(EFDados.PAUTAPROJETO pautaProjeto)
         {
             try
             {
@@ -418,13 +431,14 @@ namespace RegraNegocio
             }
         }
 
-        private void CalcularPriorizacao()
+        private void CalcularPriorizacao(EFDados.REUNIO reuniao)
         {
             try
             {
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
                 List<FluxoCaixa> fluxoCaixa;
 
-                entidade.PAUTAPROJETOS.ToList().ForEach(x => 
+                entidade.PAUTAPROJETOS.ToList().ForEach(x =>
                 {
                     fluxoCaixa = CalcularFluxoCaixa(x);
                     x.RESULTADOPAYBACK = (fluxoCaixa.Count > 0 && fluxoCaixa.Sum(z => z.valor) > 0) ? (x.INVESTIMENTOPREVISTO / Convert.ToDecimal(fluxoCaixa.Average(z => z.valor))) : (x.INVESTIMENTOPREVISTO / x.TEMPOPREVISTOCONCLUSAO);
@@ -443,10 +457,12 @@ namespace RegraNegocio
             }
         }
 
-        private void OrdenarValoresPriorizacao()
+        private void OrdenarValoresPriorizacao(EFDados.REUNIO reuniao)
         {
             try
             {
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+
                 int contador = 1;
                 entidade.PAUTAPROJETOS.OrderBy(x => x.RESULTADOPAYBACK).ToList().ForEach(z => z.ORDEMRESULTADOPAYBACK = contador++);
 
@@ -469,10 +485,12 @@ namespace RegraNegocio
             }
         }
 
-        private void EfetivarReuniao()
+        private void EfetivarReuniao(EFDados.REUNIO reuniao)
         {
             try
             {
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
+
                 if (entidade.PAUTAPROJETOS.Count <= 0)
                     throw new Exception("Não é possivel efetivar a reunião, pois a mesma não possui nenhum projeto pautado.");
 
@@ -486,12 +504,12 @@ namespace RegraNegocio
             }
         }
 
-        private void CancelarReuniao()
+        private void CancelarReuniao(EFDados.REUNIO reuniao)
         {
             try
             {
+                var entidade = base.DbEntity.First(x => x.ID.Equals(reuniao.ID));
                 entidade.SITUACAO = "CANCELADO";
-
                 Commit();
             }
             catch (Exception ex)

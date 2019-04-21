@@ -288,6 +288,7 @@ namespace projProjetos.Forms.Cadastros
             this.btnSair.Size = new System.Drawing.Size(36, 69);
             this.btnSair.Text = "Sair";
             this.btnSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // tbReunioesProjeto
             // 

@@ -33,7 +33,7 @@ namespace RegraNegocio
             }
         }
 
-        public EFDados.PAUTAPROJETO Update(EFDados.PAUTAPROJETO pautaProjeto = null)
+        public EFDados.PAUTAPROJETO Update(EFDados.PAUTAPROJETO pautaProjeto)
         {
             try
             {
