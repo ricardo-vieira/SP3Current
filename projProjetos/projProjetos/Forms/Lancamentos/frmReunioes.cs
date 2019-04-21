@@ -50,7 +50,6 @@ namespace projProjetos.Forms
                     btnSalvar.Enabled = true;
                     btnAlterar.Enabled = false;
                     btnCancelar.Enabled = true;
-                    btnPesquisar.Enabled = false;
 
                     txtDescricao.Enabled = true;
                     dtpDataHoraEvento.Enabled = true;
@@ -67,7 +66,6 @@ namespace projProjetos.Forms
                     btnSalvar.Enabled = true;
                     btnAlterar.Enabled = false;
                     btnCancelar.Enabled = true;
-                    btnPesquisar.Enabled = false;
 
 
                     txtDescricao.Enabled = true;
@@ -85,7 +83,6 @@ namespace projProjetos.Forms
                     btnSalvar.Enabled = false;
                     btnAlterar.Enabled = true;
                     btnCancelar.Enabled = false;
-                    btnPesquisar.Enabled = true;
 
                     txtDescricao.Enabled = true;
                     dtpDataHoraEvento.Enabled = true;
@@ -102,7 +99,6 @@ namespace projProjetos.Forms
                     btnSalvar.Enabled = false;
                     btnAlterar.Enabled = false;
                     btnCancelar.Enabled = false;
-                    btnPesquisar.Enabled = true;
 
                     txtDescricao.ReadOnly = true;
                     dtpDataHoraEvento.Enabled = false;
@@ -1069,22 +1065,22 @@ namespace projProjetos.Forms
 
         private void dtgPrincipal_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (dtgPrincipal.CurrentRow != null)
             {
-                switch (dtgPrincipal.Columns[e.ColumnIndex].Name)
+                _currentObject = (RegraNegocio.View.Reunioes.ViewReuniao)dtgPrincipal.CurrentRow.DataBoundItem;
+
+                if (_currentObject != null)
                 {
-                    case "btnEditar":
-                        btnAlterar_Click(this.btnAlterar, new EventArgs());
-                        break;
-                    default:
-                        CarregarInformacoes();
-                        break;
+                    CarregarInformacoesGerais();
+                    CarregarInformacoesGeraisPautaProjetos(false);
+
+                    if (dtgPrincipal.Columns[e.ColumnIndex].Name.Equals("btnEditar"))
+                    {
+                        btnAlterar_Click(sender, new EventArgs());
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
 
         private void ColorirDataGridRankProjetos()
@@ -1179,6 +1175,16 @@ namespace projProjetos.Forms
                 txtPautaCodigo.Text = _objectPesquisaPautaProjetoProjeto.Id.ToString();
                 txtPautaDescricao.Text = _objectPesquisaPautaProjetoProjeto.Descricao;
             }
+        }
+
+        private void _bindingSourcePauta_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _bindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
