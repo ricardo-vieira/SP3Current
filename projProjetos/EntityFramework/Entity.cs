@@ -32,21 +32,21 @@ namespace EFDados
         }
 
         private List<Infraestrutura.Modifieditem<TEntity>> _modifiedItens = new List<Infraestrutura.Modifieditem<TEntity>>();
-        private List<TEntity> _addedItens
+        protected List<TEntity> _addedItens
         {
             get
             {
                 return _modifiedItens.Where(x => x.status == EntityState.Added).Select(x => x.entity).ToList();
             }
         }
-        private List<TEntity> _updatdeItens
+        protected List<TEntity> _updatdeItens
         {
             get
             {
                 return _modifiedItens.Where(x => x.status == EntityState.Modified).Select(x => x.entity).ToList();
             }
         }
-        private List<TEntity> _deletedItens
+        protected List<TEntity> _deletedItens
         {
             get
             {

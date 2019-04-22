@@ -8,7 +8,8 @@ namespace RegraNegocio.View.Projetos
 {
     public class ViewPautaProjeto : ViewEntity<EFDados.PAUTAPROJETO>
     {
-        public string NomeProjeto { get => base.EntityObject.PROJETO.NOME; }
+        public long IdProjeto { get => base.EntityObject.PROJETO != null ? base.EntityObject.PROJETO.ID : 0; }
+        public string NomeProjeto { get => base.EntityObject.PROJETO?.NOME; }
         public string Descricao { get => base.EntityObject.PROJETO.DESCRICAO; }
         public string Observacao { get => base.EntityObject.PROJETO.OBSERVACAO; }
         public string GerenteProjeto { get => base.EntityObject.PROJETO.GERENTEPROJETO.NOME; }

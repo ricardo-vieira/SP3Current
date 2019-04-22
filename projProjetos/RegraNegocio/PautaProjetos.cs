@@ -56,5 +56,49 @@ namespace RegraNegocio
                 throw ex;
             }
         }
+
+        public override bool Commit()
+        {
+            base._addedItens.ForEach(pj => CopiarInformacoesPautaProjeto(pj));
+            return base.Commit();
+        }
+
+        private void CopiarInformacoesPautaProjeto(EFDados.PAUTAPROJETO pautaProjeto)
+        {
+            try
+            {
+                EFDados.PROJETO projeto = base.CtoProjetos.PROJETOS.AsEnumerable().First(x => x.ID == pautaProjeto.PROJETO.ID);
+
+                pautaProjeto.APOIOALTAGESTAO = projeto.APOIOALTAGESTAO;
+
+                pautaProjeto.APOIOSTEAKHOLDERS = projeto.APOIOSTEAKHOLDERS;
+                pautaProjeto.CAPACIDADEENTREGAEQUPE = projeto.APOIOSTEAKHOLDERS;
+                pautaProjeto.ESFORCOADICIONAL = projeto.ESFORCOADICIONAL;
+
+                pautaProjeto.INVESTIMENTOPREVISTO = projeto.INVESTIMENTOPREVISTO;
+                pautaProjeto.RAZAORECEITAPERCENTUAL = projeto.RAZAORECEITAPERCENTUAL;
+                pautaProjeto.RAZAORECEITAVALOR = projeto.RAZAORECEITAVALOR;
+                pautaProjeto.TEMPOPREVISTOCONCLUSAO = projeto.TEMPOPREVISTOCONCLUSAO;
+
+                pautaProjeto.PAUTARECEITAVARIAVELs.ToList().ForEach(x => pautaProjeto.PAUTARECEITAVARIAVELs.Remove(x));
+
+                projeto.RECEITAVARIAVELs.ToList().ForEach(x =>
+                {
+                    pautaProjeto.PAUTARECEITAVARIAVELs.Add(new EFDados.PAUTARECEITAVARIAVEL
+                    {
+                        DATACRIACAO = x.DATACRIACAO,
+                        DATAPERIODO = x.DATAPERIODO,
+                        OBSERVACOES = x.OBSERVACOES,
+                        STATUS = x.STATUS,
+                        TIPO = x.TIPO,
+                        VALOR = x.VALOR
+                    });
+                });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

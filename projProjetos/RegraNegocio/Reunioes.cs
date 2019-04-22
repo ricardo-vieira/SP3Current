@@ -26,7 +26,10 @@ namespace RegraNegocio
         {
             try
             {
-                return base.Insert();
+                var entidade = base.Insert();
+                entidade.SITUACAO = "EM OPERAÇÃO";
+                entidade.DATACRIACAO = DateTime.Now;
+                return entidade;
             }
             catch (Exception ex)
             {
@@ -38,7 +41,9 @@ namespace RegraNegocio
         {
             try
             {
-                return base.Update(reuniao);
+                var entidade = base.Update(reuniao);
+                entidade.DATAHORAEVENTO = DateTime.Now;
+                return entidade;
             }
             catch (Exception ex)
             {
@@ -72,6 +77,7 @@ namespace RegraNegocio
                     case SituacaoReuniao.OPERAÇÃO:
                         break;
                     case SituacaoReuniao.EFETIVADO:
+                        EfetivarReuniao(reuniao);
                         entidade.SITUACAO = "EFETIVADO";
                         break;
                     case SituacaoReuniao.CANCELADO:
@@ -101,7 +107,6 @@ namespace RegraNegocio
                     List<View.Projetos.ViewPautaProjeto> listaProjetosCalculos;
 
                     listaProjetosCalculos = new List<View.Projetos.ViewPautaProjeto>(entidade.PAUTAPROJETOS.Select(x => new RegraNegocio.View.Projetos.ViewPautaProjeto(x)).ToList());
-
                     return listaProjetosCalculos;
                 }
                 else
@@ -163,13 +168,27 @@ namespace RegraNegocio
             try
             {
                 var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
-                var pauta = entidade.PAUTAPROJETOS.First(x => x.ID.Equals(pautaprojeto.ID));
+                var pauta = entidade.PAUTAPROJETOS.First(x => x == pautaprojeto);
                 entidade.PAUTAPROJETOS.Remove(pauta);
-                base.Commit();
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public EFDados.PAUTAPROJETO AlterarPautaProjeto(EFDados.REUNIO reuniao, EFDados.PAUTAPROJETO pautaprojeto)
+        {
+            try
+            {
+                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
+                var pauta = entidade.PAUTAPROJETOS.First(x => x == pautaprojeto);
+
+                return pauta;
+            }
+            catch (Exception ex)
+            {
+                throw ex; 
             }
         }
 
@@ -195,9 +214,9 @@ namespace RegraNegocio
 
                 var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
                 pautaProjeto.REUNIO = reuniao;
-                CopiarInformacoesPautaProjeto(pautaProjeto);
+                //CopiarInformacoesPautaProjeto(pautaProjeto);
 
-                if (pautaProjeto.ID.Equals(0))
+                if (!entidade.PAUTAPROJETOS.Contains(pautaProjeto))
                     entidade.PAUTAPROJETOS.Add(pautaProjeto);
 
                 entidade.AHPCALCULADO = 0;
@@ -229,13 +248,11 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
-
-                List<EFDados.CRITERIOSPROJETOSRESULTADO> criteriosProjetosResultado = new Criterios().CalcularPrioridadeGlobalProjeto(entidade);
+                List<EFDados.CRITERIOSPROJETOSRESULTADO> criteriosProjetosResultado = new Criterios().CalcularPrioridadeGlobalProjeto(reuniao);
 
                 double resultado;
 
-                foreach (EFDados.PAUTAPROJETO pautaProjeto in entidade.PAUTAPROJETOS)
+                foreach (EFDados.PAUTAPROJETO pautaProjeto in reuniao.PAUTAPROJETOS)
                 {
                     resultado = 0;
 
@@ -249,7 +266,7 @@ namespace RegraNegocio
                 }
 
 
-                entidade.AHPCALCULADO = (byte)1;
+                reuniao.AHPCALCULADO = (byte)1;
             }
             catch (Exception ex)
             {
@@ -395,11 +412,11 @@ namespace RegraNegocio
             }
         }
 
-        private void CopiarInformacoesPautaProjeto(EFDados.PAUTAPROJETO pautaProjeto)
+        /*private void CopiarInformacoesPautaProjeto(EFDados.PAUTAPROJETO pautaProjeto)
         {
             try
             {
-                EFDados.PROJETO projeto = ctoProjetos.PROJETOS.AsEnumerable().First(x => x.ID.Equals(pautaProjeto.IDPROJETO));
+                EFDados.PROJETO projeto = ctoProjetos.PROJETOS.AsEnumerable().First(x => x.ID == pautaProjeto.PROJETO.ID]);
 
                 pautaProjeto.APOIOALTAGESTAO = projeto.APOIOALTAGESTAO;
 
@@ -431,7 +448,7 @@ namespace RegraNegocio
             {
                 throw ex;
             }
-        }
+        } */
 
         private void CalcularPriorizacao(EFDados.REUNIO reuniao)
         {
@@ -497,7 +514,7 @@ namespace RegraNegocio
                     throw new Exception("Não é possivel efetivar a reunião, pois a mesma não possui nenhum projeto pautado.");
 
                 entidade.SITUACAO = "EFETIVADO";
-
+                CalcularPriorizacao(reuniao);
                 Commit();
             }
             catch (Exception ex)
@@ -518,11 +535,6 @@ namespace RegraNegocio
             {
                 throw ex;
             }
-        }
-
-        private void MetodoTeste(EFDados.PAUTAPROJETO paua)
-        {
-            EFDados.PAUTAPROJETO teste = paua;
         }
 
     }

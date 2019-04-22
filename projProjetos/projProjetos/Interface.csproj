@@ -234,6 +234,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\projProjetos.Forms.Cadastros.Pesquisa.Exemplo.datasource" />
     <None Include="Properties\DataSources\RegraNegocio.View.Pessoas.ViewPessoa1.datasource" />
+    <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewPautaProjeto.datasource" />
     <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewProjeto.datasource" />
     <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewProjetoPessoa.datasource" />
     <None Include="Properties\DataSources\RegraNegocio.View.Projetos.ViewProjetosReceitaVariavel.datasource" />
