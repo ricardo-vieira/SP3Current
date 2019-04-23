@@ -60,7 +60,7 @@ namespace EFDados
             {
                 try
                 {
-                    
+
 
                     IEnumerable<TEntity> addItens = _addedItens.AsEnumerable();
                     IEnumerable<TEntity> updateItens = _updatdeItens.AsEnumerable();
@@ -184,7 +184,7 @@ namespace EFDados
                             if (DbEntity.AsEnumerable().Any(x => x == item.entity))
                             {
                                 _ctoProjetos.Entry(item.entity).CurrentValues.SetValues(_ctoProjetos.Entry(item.entity).OriginalValues);
-                                _ctoProjetos.Entry(item.entity).State = EntityState.Unchanged; 
+                                _ctoProjetos.Entry(item.entity).State = EntityState.Unchanged;
                             }
                             break;
                     }
@@ -204,7 +204,7 @@ namespace EFDados
         {
             try
             {
-                Infraestrutura.Modifieditem<TEntity> lastItem = _modifiedItens.Last();
+                Infraestrutura.Modifieditem<TEntity> lastItem = _modifiedItens.Count > 0 ? _modifiedItens.Last() : null;
 
                 if (!(lastItem is null))
                 {
@@ -235,6 +235,11 @@ namespace EFDados
             {
                 throw ex;
             }
+        }
+
+        public virtual long CountModifiedItens()
+        {
+            return _modifiedItens.Count();
         }
     }
 }

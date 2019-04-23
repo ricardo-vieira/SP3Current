@@ -484,14 +484,13 @@ namespace RegraNegocio
         {
             try
             {
-
                 double resultadoCriterioComparacao = 1;
 
                 EFDados.CRITERIOSPROJETOSRESULTADO criterioProjetoResultado = new EFDados.CRITERIOSPROJETOSRESULTADO
                 {
                     CRITERIOSRESULTADO = criterioResultado,
-                    REUNIO = reuniao,
-                    PROJETO = projeto,
+                    IDREUNIAO = reuniao.ID,
+                    IDPROJETO = projeto.ID,
                     DATACOMPARACAO = DateTime.Now,
                     RESULTADO = 1
                 };
@@ -585,7 +584,7 @@ namespace RegraNegocio
                         //double somaResultadoComparacao = Convert.ToDouble(listaCriterioResultado.Sum(z => z.RESULTADOCOMPARACAO));
                         criterioR.RESULTADOGLOBAL = criterioR.RESULTADOCOMPARACAO / listaCriterioResultado.Sum(z => z.RESULTADOCOMPARACAO);
 
-                        criterioProjetoResultado = CalcularCriteriosProjetosResultado(criterioR, reuniao, ctoProjetos.PROJETOS.First(x => x.ID.Equals(pautaProjeto.IDPROJETO)));
+                        criterioProjetoResultado = CalcularCriteriosProjetosResultado(criterioR, reuniao, pautaProjeto.PROJETO);
                         listacriteriosProjetoResultado.Add(criterioProjetoResultado);
                     }
                 }
@@ -598,10 +597,16 @@ namespace RegraNegocio
 
                 foreach (var x in listacriteriosProjetoResultado)
                 {
-                    if (reuniao.CRITERIOSPROJETOSRESULTADOes.Any(z => z.CRITERIOSRESULTADO.CRITERIO.Equals(x.CRITERIOSRESULTADO.CRITERIO) && z.PROJETO.Equals(x.PROJETO)))
-                        reuniao.CRITERIOSPROJETOSRESULTADOes.Remove(reuniao.CRITERIOSPROJETOSRESULTADOes.First(z => z.CRITERIOSRESULTADO.CRITERIO.Equals(x.CRITERIOSRESULTADO.CRITERIO) && z.PROJETO.Equals(x.PROJETO)));
+                    if (ctoProjetos.CRITERIOSPROJETOSRESULTADOes.AsEnumerable()
+                                                                .Any(z => z.REUNIO.Equals(reuniao)
+                                                                          && z.CRITERIOSRESULTADO.CRITERIO.Equals(x.CRITERIOSRESULTADO.CRITERIO) 
+                                                                          && z.PROJETO.Equals(x.PROJETO)))
+                        ctoProjetos.CRITERIOSPROJETOSRESULTADOes.Remove(ctoProjetos.CRITERIOSPROJETOSRESULTADOes.AsEnumerable()
+                                                                                                                .First(z => z.REUNIO.Equals(reuniao)
+                                                                                                                            && z.CRITERIOSRESULTADO.CRITERIO.Equals(x.CRITERIOSRESULTADO.CRITERIO)
+                                                                                                                            && z.PROJETO.Equals(x.PROJETO)));
 
-                    reuniao.CRITERIOSPROJETOSRESULTADOes.Add(x);
+                    ctoProjetos.CRITERIOSPROJETOSRESULTADOes.Add(x);
                 }
 
                 return listacriteriosProjetoResultado;

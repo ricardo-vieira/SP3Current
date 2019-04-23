@@ -249,14 +249,13 @@ namespace RegraNegocio
             try
             {
                 List<EFDados.CRITERIOSPROJETOSRESULTADO> criteriosProjetosResultado = new Criterios().CalcularPrioridadeGlobalProjeto(reuniao);
-
                 double resultado;
 
-                foreach (EFDados.PAUTAPROJETO pautaProjeto in reuniao.PAUTAPROJETOS)
+                foreach (EFDados.PAUTAPROJETO pautaProjeto in reuniao.PAUTAPROJETOS.ToList())
                 {
                     resultado = 0;
 
-                    foreach (var criterioProjetoR in criteriosProjetosResultado.Where(x => x.PROJETO.Equals(ctoProjetos.PROJETOS.First(z => z.ID.Equals(pautaProjeto.IDPROJETO)))))
+                    foreach (var criterioProjetoR in criteriosProjetosResultado.Where(x => x.IDPROJETO.Equals(ctoProjetos.PROJETOS.First(z => z.ID.Equals(pautaProjeto.IDPROJETO)).ID)))
                     {
                         criterioProjetoR.RESULTADOGLOBAL = Convert.ToDecimal(Convert.ToDouble(criterioProjetoR.RESULTADOGLOBAL) * Convert.ToDouble(criterioProjetoR.CRITERIOSRESULTADO.RESULTADOGLOBAL));
                         resultado += Convert.ToDouble(criterioProjetoR.RESULTADOGLOBAL);
@@ -454,7 +453,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
+                var entidade = reuniao;
                 List<FluxoCaixa> fluxoCaixa;
 
                 entidade.PAUTAPROJETOS.ToList().ForEach(x =>
@@ -480,7 +479,7 @@ namespace RegraNegocio
         {
             try
             {
-                var entidade = reuniao.ID != 0 ? base.DbEntity.First(x => x.ID == reuniao.ID) : reuniao;
+                var entidade = reuniao;
 
                 int contador = 1;
                 entidade.PAUTAPROJETOS.OrderBy(x => x.RESULTADOPAYBACK).ToList().ForEach(z => z.ORDEMRESULTADOPAYBACK = contador++);
@@ -515,6 +514,7 @@ namespace RegraNegocio
 
                 entidade.SITUACAO = "EFETIVADO";
                 CalcularPriorizacao(reuniao);
+                OrdenarValoresPriorizacao(reuniao);
                 Commit();
             }
             catch (Exception ex)

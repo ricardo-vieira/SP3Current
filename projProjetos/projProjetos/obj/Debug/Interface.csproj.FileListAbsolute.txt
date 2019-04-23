@@ -195,3 +195,7 @@ F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\EntityFramework.SqlServer.
 F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\fr\AdvancedDataGridView.resources.dll
 F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\ru\AdvancedDataGridView.resources.dll
 F:\Git\SP3Current\projProjetos\projProjetos\obj\Debug\Interface.csproj.CopyComplete
+F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\SP3.Utils.dll
+F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\INIFileParser.dll
+F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\SP3.Utils.pdb
+F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\INIFileParser.xml

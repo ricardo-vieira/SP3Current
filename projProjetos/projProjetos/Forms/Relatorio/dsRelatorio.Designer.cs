@@ -2481,8 +2481,8 @@ namespace projProjetos.Forms.Relatorio.dsRelatorioTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            //this._connection.ConnectionString = global::projProjetos.Properties.Settings.Default.dbProjetosRelatorio;
-            this._connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @System.Windows.Forms.Application.StartupPath + @"\Database\dbProjetos.mdf;Integrated Security=True";
+            this._connection.ConnectionString = SP3.Utils.IniSP3Config.ConnectionString;
+            //this._connection.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @System.Windows.Forms.Application.StartupPath + @"\Database\dbProjetos.mdf;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

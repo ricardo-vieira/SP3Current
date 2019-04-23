@@ -49,7 +49,6 @@ namespace RegraNegocio.View.Projetos
 
         public string AHPCalculado { get => (base.EntityObject.REUNIO.AHPCALCULADO == (byte)1) ? ("SIM") : ("NÃO"); }
 
-
         public ViewPautaProjeto(EFDados.PAUTAPROJETO pautaProjeto) : base(pautaProjeto)
         {
 

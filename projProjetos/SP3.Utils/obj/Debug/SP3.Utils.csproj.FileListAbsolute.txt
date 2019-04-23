@@ -1,0 +1,9 @@
+F:\Git\SP3Current\projProjetos\SP3.Utils\bin\Debug\SP3.Utils.dll
+F:\Git\SP3Current\projProjetos\SP3.Utils\bin\Debug\SP3.Utils.pdb
+F:\Git\SP3Current\projProjetos\SP3.Utils\bin\Debug\INIFileParser.dll
+F:\Git\SP3Current\projProjetos\SP3.Utils\bin\Debug\INIFileParser.xml
+F:\Git\SP3Current\projProjetos\SP3.Utils\obj\Debug\SP3.Utils.csprojAssemblyReference.cache
+F:\Git\SP3Current\projProjetos\SP3.Utils\obj\Debug\SP3.Utils.csproj.CoreCompileInputs.cache
+F:\Git\SP3Current\projProjetos\SP3.Utils\obj\Debug\SP3.Utils.csproj.CopyComplete
+F:\Git\SP3Current\projProjetos\SP3.Utils\obj\Debug\SP3.Utils.dll
+F:\Git\SP3Current\projProjetos\SP3.Utils\obj\Debug\SP3.Utils.pdb

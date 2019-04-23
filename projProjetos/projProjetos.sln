@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "projProjetos\Interface.csproj", "{6929089F-D844-4AB8-8E6B-EA278C602F68}"
 EndProject
@@ -9,22 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegraNegocio", "RegraNegoci
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDados", "EntityFramework\EFDados.csproj", "{B1D79897-68AA-4EDE-9FB7-8AC097312F33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SP3.Utils", "SP3.Utils\SP3.Utils.csproj", "{439FC999-4FC6-44B1-8429-520D69F654EF}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://projetospiic.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = EntityFramework\\EFDados.csproj
-		SccProjectName1 = EntityFramework
-		SccLocalPath1 = EntityFramework
-		SccProjectUniqueName2 = projProjetos\\Interface.csproj
-		SccProjectName2 = projProjetos
-		SccLocalPath2 = projProjetos
-		SccProjectUniqueName3 = RegraNegocio\\RegraNegocio.csproj
-		SccProjectName3 = RegraNegocio
-		SccLocalPath3 = RegraNegocio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -42,8 +29,15 @@ Global
 		{B1D79897-68AA-4EDE-9FB7-8AC097312F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1D79897-68AA-4EDE-9FB7-8AC097312F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1D79897-68AA-4EDE-9FB7-8AC097312F33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{439FC999-4FC6-44B1-8429-520D69F654EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{439FC999-4FC6-44B1-8429-520D69F654EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{439FC999-4FC6-44B1-8429-520D69F654EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{439FC999-4FC6-44B1-8429-520D69F654EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C417C280-E0E9-4F08-AFCE-5BAE573F56BC}
 	EndGlobalSection
 EndGlobal

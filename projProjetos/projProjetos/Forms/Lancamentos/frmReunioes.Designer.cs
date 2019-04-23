@@ -30,18 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReunioes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
@@ -58,6 +51,7 @@
             this.tbpPrincipal = new System.Windows.Forms.TabPage();
             this.grbInformacoes = new System.Windows.Forms.GroupBox();
             this.txtResponsavelNome = new System.Windows.Forms.TextBox();
+            this._bindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnPesquisaResponsavel = new System.Windows.Forms.Button();
             this.txtResponsavelCodigo = new System.Windows.Forms.TextBox();
             this.txtSituacao = new System.Windows.Forms.TextBox();
@@ -93,6 +87,19 @@
             this.PayBackAceitavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TaxaRemuneracaoMercado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgPrincipalTxtStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataHoraEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.payBackAceitavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pautaDescricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.responsavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantidadeProjetosPautaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.situacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataHoraCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entityObjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEditar = new System.Windows.Forms.DataGridViewImageColumn();
             this.tbpPautaProjetos = new System.Windows.Forms.TabPage();
             this.grbPautaProjeto = new System.Windows.Forms.GroupBox();
@@ -100,27 +107,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtAHPCalculado = new System.Windows.Forms.TextBox();
             this.dtgPautaProjetos = new System.Windows.Forms.DataGridView();
-            this.grbPautaInformacoes = new System.Windows.Forms.GroupBox();
-            this.btnPesquisarPautaProjeto = new System.Windows.Forms.Button();
-            this.txtPautaDescricao = new System.Windows.Forms.TextBox();
-            this.txtPautaCodigo = new System.Windows.Forms.TextBox();
-            this.btnPautaCancelar = new System.Windows.Forms.Button();
-            this.txtPautaInvestimentoPrevisto = new System.Windows.Forms.MaskedTextBox();
-            this.btnPautaSalvar = new System.Windows.Forms.Button();
-            this.txtPautaTempoConclusao = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtPautaGerente = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtPautaDataInclusao = new System.Windows.Forms.MaskedTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.grbPautaAcoes = new System.Windows.Forms.GroupBox();
-            this.btnPautaEditar = new System.Windows.Forms.Button();
-            this.btnPautaExcluir = new System.Windows.Forms.Button();
-            this.btnPautaIncluir = new System.Windows.Forms.Button();
-            this.tbpRank = new System.Windows.Forms.TabPage();
-            this.dtgRankProjetos = new System.Windows.Forms.DataGridView();
             this.dtgPautaProjetosTxtNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgPautaProjetosTxtDescricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgPautaProjetosTxtGerenteProjeto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -141,56 +127,6 @@
             this.dtgPautaProjetosTxtEsforcoAdicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgPautaProjetosTxtTotalValorReceitaPrevista = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtgPautaProjetosTxtTotalValorDespesaPrevista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgRankProjetosNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RANKPROJETOSAHPCALCULADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DTGRANKPROJETOTAXAINTERNARETORNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RANKPROJETOSDICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ORDEMRESULTADOPAYBACK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ORDEMRESULTADOTAXAINTERNARETORNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ORDEMRESULTADOVALORPRESENTELIQUIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ORDEMRESULTADODICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ORDEMRESULTADOAHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APROVACAORESULTADOPAYBACK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APROVACAORESULTADOTAXAINTERNARETORNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APROVACAORESULTADOVALORPRESENTELIQUIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APROVACAORESULTADODICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APROVACAORESULTADOAHP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataHoraEventoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.payBackAceitavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pautaDescricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.responsavelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantidadeProjetosPautaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.situacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataHoraCriacaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.entityObjectDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idProjetoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeProjetoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -226,21 +162,76 @@
             this.aHPCalculadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entityObjectDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._bindingSourcePauta = new System.Windows.Forms.BindingSource(this.components);
+            this.grbPautaInformacoes = new System.Windows.Forms.GroupBox();
+            this.btnPesquisarPautaProjeto = new System.Windows.Forms.Button();
+            this.txtPautaDescricao = new System.Windows.Forms.TextBox();
+            this.txtPautaCodigo = new System.Windows.Forms.TextBox();
+            this.btnPautaCancelar = new System.Windows.Forms.Button();
+            this.txtPautaInvestimentoPrevisto = new System.Windows.Forms.MaskedTextBox();
+            this.btnPautaSalvar = new System.Windows.Forms.Button();
+            this.txtPautaTempoConclusao = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtPautaGerente = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtPautaDataInclusao = new System.Windows.Forms.MaskedTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.grbPautaAcoes = new System.Windows.Forms.GroupBox();
+            this.btnPautaEditar = new System.Windows.Forms.Button();
+            this.btnPautaExcluir = new System.Windows.Forms.Button();
+            this.btnPautaIncluir = new System.Windows.Forms.Button();
+            this.tbpRank = new System.Windows.Forms.TabPage();
+            this.dtgRankProjetos = new System.Windows.Forms.DataGridView();
             this._bsRankProjetos = new System.Windows.Forms.BindingSource(this.components);
+            this.idProjetoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomeProjetoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observacaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gerenteProjetoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.investimentoPrevistoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receitaConstanteDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razaoReceitaValorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPautaProjetosDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacidadeEntregaEquipeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apoioAltaGestaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apoioSteakHoldersDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.esforcoAdicionalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalValorDespesaPrevistaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalValorReceitaPrevistaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultadoPayBackDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.odemResultadoPayBackDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aprovacaoResultadoPayBackDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultadoTaxaInternaRetornoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultadoValorPresenteLiquidoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultadoDICEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordemResultadoDICEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aprovacaoResultadoDICEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resultadoAHPDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordemResultadoAHPDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aprovacaoResultadoAHPDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aHPCalculadoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entityObjectDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tspPrincipal.SuspendLayout();
             this.tbcReunioes.SuspendLayout();
             this.tbpPrincipal.SuspendLayout();
             this.grbInformacoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPrincipal)).BeginInit();
             this.tbpPautaProjetos.SuspendLayout();
             this.grbPautaProjeto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPautaProjetos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourcePauta)).BeginInit();
             this.grbPautaInformacoes.SuspendLayout();
             this.grbPautaAcoes.SuspendLayout();
             this.tbpRank.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgRankProjetos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._bindingSourcePauta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._bsRankProjetos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -446,6 +437,11 @@
             this.txtResponsavelNome.Name = "txtResponsavelNome";
             this.txtResponsavelNome.Size = new System.Drawing.Size(557, 22);
             this.txtResponsavelNome.TabIndex = 25;
+            // 
+            // _bindingSource
+            // 
+            this._bindingSource.DataSource = typeof(RegraNegocio.View.Reunioes.ViewReuniao);
+            this._bindingSource.CurrentChanged += new System.EventHandler(this._bindingSource_CurrentChanged);
             // 
             // btnPesquisaResponsavel
             // 
@@ -721,8 +717,8 @@
             // dtgPrincipalTxtId
             // 
             this.dtgPrincipalTxtId.DataPropertyName = "ID";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dtgPrincipalTxtId.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dtgPrincipalTxtId.DefaultCellStyle = dataGridViewCellStyle16;
             this.dtgPrincipalTxtId.HeaderText = "CÓDIGO";
             this.dtgPrincipalTxtId.Name = "dtgPrincipalTxtId";
             this.dtgPrincipalTxtId.ReadOnly = true;
@@ -763,8 +759,8 @@
             // QuantidadeProjetosPauta
             // 
             this.QuantidadeProjetosPauta.DataPropertyName = "QUANTIDADEPROJETOSPAUTA";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.QuantidadeProjetosPauta.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.QuantidadeProjetosPauta.DefaultCellStyle = dataGridViewCellStyle17;
             this.QuantidadeProjetosPauta.HeaderText = "Q. PROJETOS";
             this.QuantidadeProjetosPauta.Name = "QuantidadeProjetosPauta";
             this.QuantidadeProjetosPauta.ReadOnly = true;
@@ -790,10 +786,10 @@
             // PayBackAceitavel
             // 
             this.PayBackAceitavel.DataPropertyName = "PAYBACKACEITAVEL";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.PayBackAceitavel.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "N2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.PayBackAceitavel.DefaultCellStyle = dataGridViewCellStyle18;
             this.PayBackAceitavel.HeaderText = "PAYBACK";
             this.PayBackAceitavel.Name = "PayBackAceitavel";
             this.PayBackAceitavel.ReadOnly = true;
@@ -814,6 +810,110 @@
             this.dtgPrincipalTxtStatus.Name = "dtgPrincipalTxtStatus";
             this.dtgPrincipalTxtStatus.ReadOnly = true;
             this.dtgPrincipalTxtStatus.Visible = false;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataHoraEventoDataGridViewTextBoxColumn
+            // 
+            this.dataHoraEventoDataGridViewTextBoxColumn.DataPropertyName = "DataHoraEvento";
+            this.dataHoraEventoDataGridViewTextBoxColumn.HeaderText = "DataHoraEvento";
+            this.dataHoraEventoDataGridViewTextBoxColumn.Name = "dataHoraEventoDataGridViewTextBoxColumn";
+            this.dataHoraEventoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataHoraEventoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // payBackAceitavelDataGridViewTextBoxColumn
+            // 
+            this.payBackAceitavelDataGridViewTextBoxColumn.DataPropertyName = "PayBackAceitavel";
+            this.payBackAceitavelDataGridViewTextBoxColumn.HeaderText = "PayBackAceitavel";
+            this.payBackAceitavelDataGridViewTextBoxColumn.Name = "payBackAceitavelDataGridViewTextBoxColumn";
+            this.payBackAceitavelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.payBackAceitavelDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // taxaRemuneracaoMercadoDataGridViewTextBoxColumn
+            // 
+            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.DataPropertyName = "TaxaRemuneracaoMercado";
+            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.HeaderText = "TaxaRemuneracaoMercado";
+            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.Name = "taxaRemuneracaoMercadoDataGridViewTextBoxColumn";
+            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // pautaDescricaoDataGridViewTextBoxColumn
+            // 
+            this.pautaDescricaoDataGridViewTextBoxColumn.DataPropertyName = "PautaDescricao";
+            this.pautaDescricaoDataGridViewTextBoxColumn.HeaderText = "PautaDescricao";
+            this.pautaDescricaoDataGridViewTextBoxColumn.Name = "pautaDescricaoDataGridViewTextBoxColumn";
+            this.pautaDescricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pautaDescricaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // localDataGridViewTextBoxColumn
+            // 
+            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
+            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
+            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
+            this.localDataGridViewTextBoxColumn.ReadOnly = true;
+            this.localDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // responsavelDataGridViewTextBoxColumn
+            // 
+            this.responsavelDataGridViewTextBoxColumn.DataPropertyName = "Responsavel";
+            this.responsavelDataGridViewTextBoxColumn.HeaderText = "Responsavel";
+            this.responsavelDataGridViewTextBoxColumn.Name = "responsavelDataGridViewTextBoxColumn";
+            this.responsavelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.responsavelDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // quantidadeProjetosPautaDataGridViewTextBoxColumn
+            // 
+            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.DataPropertyName = "QuantidadeProjetosPauta";
+            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.HeaderText = "QuantidadeProjetosPauta";
+            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.Name = "quantidadeProjetosPautaDataGridViewTextBoxColumn";
+            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
+            this.statusDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // situacaoDataGridViewTextBoxColumn
+            // 
+            this.situacaoDataGridViewTextBoxColumn.DataPropertyName = "Situacao";
+            this.situacaoDataGridViewTextBoxColumn.HeaderText = "Situacao";
+            this.situacaoDataGridViewTextBoxColumn.Name = "situacaoDataGridViewTextBoxColumn";
+            this.situacaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.situacaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataHoraCriacaoDataGridViewTextBoxColumn
+            // 
+            this.dataHoraCriacaoDataGridViewTextBoxColumn.DataPropertyName = "DataHoraCriacao";
+            this.dataHoraCriacaoDataGridViewTextBoxColumn.HeaderText = "DataHoraCriacao";
+            this.dataHoraCriacaoDataGridViewTextBoxColumn.Name = "dataHoraCriacaoDataGridViewTextBoxColumn";
+            this.dataHoraCriacaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataHoraCriacaoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // entityObjectDataGridViewTextBoxColumn
+            // 
+            this.entityObjectDataGridViewTextBoxColumn.DataPropertyName = "EntityObject";
+            this.entityObjectDataGridViewTextBoxColumn.HeaderText = "EntityObject";
+            this.entityObjectDataGridViewTextBoxColumn.Name = "entityObjectDataGridViewTextBoxColumn";
+            this.entityObjectDataGridViewTextBoxColumn.ReadOnly = true;
+            this.entityObjectDataGridViewTextBoxColumn.Visible = false;
             // 
             // btnEditar
             // 
@@ -959,281 +1059,6 @@
             this.dtgPautaProjetos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgPautaProjetos_CellClick);
             this.dtgPautaProjetos.SelectionChanged += new System.EventHandler(this.dtgPautaProjetos_SelectionChanged);
             // 
-            // grbPautaInformacoes
-            // 
-            this.grbPautaInformacoes.Controls.Add(this.btnPesquisarPautaProjeto);
-            this.grbPautaInformacoes.Controls.Add(this.txtPautaDescricao);
-            this.grbPautaInformacoes.Controls.Add(this.txtPautaCodigo);
-            this.grbPautaInformacoes.Controls.Add(this.btnPautaCancelar);
-            this.grbPautaInformacoes.Controls.Add(this.txtPautaInvestimentoPrevisto);
-            this.grbPautaInformacoes.Controls.Add(this.btnPautaSalvar);
-            this.grbPautaInformacoes.Controls.Add(this.txtPautaTempoConclusao);
-            this.grbPautaInformacoes.Controls.Add(this.label11);
-            this.grbPautaInformacoes.Controls.Add(this.label10);
-            this.grbPautaInformacoes.Controls.Add(this.txtPautaGerente);
-            this.grbPautaInformacoes.Controls.Add(this.label9);
-            this.grbPautaInformacoes.Controls.Add(this.txtPautaDataInclusao);
-            this.grbPautaInformacoes.Controls.Add(this.label8);
-            this.grbPautaInformacoes.Controls.Add(this.label7);
-            this.grbPautaInformacoes.Location = new System.Drawing.Point(100, 21);
-            this.grbPautaInformacoes.Name = "grbPautaInformacoes";
-            this.grbPautaInformacoes.Size = new System.Drawing.Size(901, 113);
-            this.grbPautaInformacoes.TabIndex = 1;
-            this.grbPautaInformacoes.TabStop = false;
-            this.grbPautaInformacoes.Text = "Informações";
-            // 
-            // btnPesquisarPautaProjeto
-            // 
-            this.btnPesquisarPautaProjeto.Location = new System.Drawing.Point(63, 21);
-            this.btnPesquisarPautaProjeto.Name = "btnPesquisarPautaProjeto";
-            this.btnPesquisarPautaProjeto.Size = new System.Drawing.Size(34, 23);
-            this.btnPesquisarPautaProjeto.TabIndex = 15;
-            this.btnPesquisarPautaProjeto.Text = "...";
-            this.btnPesquisarPautaProjeto.UseVisualStyleBackColor = true;
-            this.btnPesquisarPautaProjeto.Click += new System.EventHandler(this.btnPesquisarPautaProjeto_Click);
-            // 
-            // txtPautaDescricao
-            // 
-            this.txtPautaDescricao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "NomeProjeto", true));
-            this.txtPautaDescricao.Enabled = false;
-            this.txtPautaDescricao.Location = new System.Drawing.Point(165, 21);
-            this.txtPautaDescricao.Name = "txtPautaDescricao";
-            this.txtPautaDescricao.ReadOnly = true;
-            this.txtPautaDescricao.Size = new System.Drawing.Size(408, 22);
-            this.txtPautaDescricao.TabIndex = 14;
-            // 
-            // txtPautaCodigo
-            // 
-            this.txtPautaCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "IdProjeto", true));
-            this.txtPautaCodigo.Enabled = false;
-            this.txtPautaCodigo.Location = new System.Drawing.Point(103, 21);
-            this.txtPautaCodigo.Name = "txtPautaCodigo";
-            this.txtPautaCodigo.ReadOnly = true;
-            this.txtPautaCodigo.Size = new System.Drawing.Size(56, 22);
-            this.txtPautaCodigo.TabIndex = 13;
-            // 
-            // btnPautaCancelar
-            // 
-            this.btnPautaCancelar.Enabled = false;
-            this.btnPautaCancelar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.btnPautaCancelar.Location = new System.Drawing.Point(737, 79);
-            this.btnPautaCancelar.Name = "btnPautaCancelar";
-            this.btnPautaCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnPautaCancelar.TabIndex = 12;
-            this.btnPautaCancelar.Text = "Cancelar";
-            this.btnPautaCancelar.UseVisualStyleBackColor = true;
-            this.btnPautaCancelar.Click += new System.EventHandler(this.btnPautaCancelar_Click);
-            // 
-            // txtPautaInvestimentoPrevisto
-            // 
-            this.txtPautaInvestimentoPrevisto.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "InvestimentoPrevisto", true));
-            this.txtPautaInvestimentoPrevisto.Location = new System.Drawing.Point(150, 82);
-            this.txtPautaInvestimentoPrevisto.Name = "txtPautaInvestimentoPrevisto";
-            this.txtPautaInvestimentoPrevisto.ReadOnly = true;
-            this.txtPautaInvestimentoPrevisto.Size = new System.Drawing.Size(141, 22);
-            this.txtPautaInvestimentoPrevisto.TabIndex = 11;
-            this.txtPautaInvestimentoPrevisto.TabStop = false;
-            this.txtPautaInvestimentoPrevisto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnPautaSalvar
-            // 
-            this.btnPautaSalvar.Enabled = false;
-            this.btnPautaSalvar.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.btnPautaSalvar.Location = new System.Drawing.Point(818, 79);
-            this.btnPautaSalvar.Name = "btnPautaSalvar";
-            this.btnPautaSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnPautaSalvar.TabIndex = 10;
-            this.btnPautaSalvar.Text = "Salvar";
-            this.btnPautaSalvar.UseVisualStyleBackColor = true;
-            this.btnPautaSalvar.Click += new System.EventHandler(this.btnPautaSalvar_Click);
-            // 
-            // txtPautaTempoConclusao
-            // 
-            this.txtPautaTempoConclusao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "TempoPrevistoConclusao", true));
-            this.txtPautaTempoConclusao.Location = new System.Drawing.Point(442, 82);
-            this.txtPautaTempoConclusao.Name = "txtPautaTempoConclusao";
-            this.txtPautaTempoConclusao.ReadOnly = true;
-            this.txtPautaTempoConclusao.Size = new System.Drawing.Size(131, 22);
-            this.txtPautaTempoConclusao.TabIndex = 9;
-            this.txtPautaTempoConclusao.TabStop = false;
-            this.txtPautaTempoConclusao.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(297, 85);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(139, 16);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Tempo de conclusão:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 85);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(138, 16);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Investimento Previsto:";
-            // 
-            // txtPautaGerente
-            // 
-            this.txtPautaGerente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "GerenteProjeto", true));
-            this.txtPautaGerente.Location = new System.Drawing.Point(63, 54);
-            this.txtPautaGerente.Name = "txtPautaGerente";
-            this.txtPautaGerente.ReadOnly = true;
-            this.txtPautaGerente.Size = new System.Drawing.Size(510, 22);
-            this.txtPautaGerente.TabIndex = 5;
-            this.txtPautaGerente.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 57);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 16);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Gerente:";
-            // 
-            // txtPautaDataInclusao
-            // 
-            this.txtPautaDataInclusao.Location = new System.Drawing.Point(710, 21);
-            this.txtPautaDataInclusao.Name = "txtPautaDataInclusao";
-            this.txtPautaDataInclusao.ReadOnly = true;
-            this.txtPautaDataInclusao.Size = new System.Drawing.Size(183, 22);
-            this.txtPautaDataInclusao.TabIndex = 3;
-            this.txtPautaDataInclusao.TabStop = false;
-            this.txtPautaDataInclusao.Visible = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(614, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 16);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Data Inclusão:";
-            this.label8.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 16);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Projeto:";
-            // 
-            // grbPautaAcoes
-            // 
-            this.grbPautaAcoes.Controls.Add(this.btnPautaEditar);
-            this.grbPautaAcoes.Controls.Add(this.btnPautaExcluir);
-            this.grbPautaAcoes.Controls.Add(this.btnPautaIncluir);
-            this.grbPautaAcoes.Location = new System.Drawing.Point(6, 21);
-            this.grbPautaAcoes.Name = "grbPautaAcoes";
-            this.grbPautaAcoes.Size = new System.Drawing.Size(88, 113);
-            this.grbPautaAcoes.TabIndex = 0;
-            this.grbPautaAcoes.TabStop = false;
-            // 
-            // btnPautaEditar
-            // 
-            this.btnPautaEditar.Enabled = false;
-            this.btnPautaEditar.Location = new System.Drawing.Point(6, 50);
-            this.btnPautaEditar.Name = "btnPautaEditar";
-            this.btnPautaEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnPautaEditar.TabIndex = 3;
-            this.btnPautaEditar.Text = "Editar";
-            this.btnPautaEditar.UseVisualStyleBackColor = true;
-            this.btnPautaEditar.Click += new System.EventHandler(this.btnPautaEditar_Click);
-            // 
-            // btnPautaExcluir
-            // 
-            this.btnPautaExcluir.Enabled = false;
-            this.btnPautaExcluir.Location = new System.Drawing.Point(6, 79);
-            this.btnPautaExcluir.Name = "btnPautaExcluir";
-            this.btnPautaExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnPautaExcluir.TabIndex = 2;
-            this.btnPautaExcluir.Text = "Excluir";
-            this.btnPautaExcluir.UseVisualStyleBackColor = true;
-            this.btnPautaExcluir.Click += new System.EventHandler(this.btnPautaExcluir_Click);
-            // 
-            // btnPautaIncluir
-            // 
-            this.btnPautaIncluir.Enabled = false;
-            this.btnPautaIncluir.Location = new System.Drawing.Point(6, 21);
-            this.btnPautaIncluir.Name = "btnPautaIncluir";
-            this.btnPautaIncluir.Size = new System.Drawing.Size(75, 23);
-            this.btnPautaIncluir.TabIndex = 0;
-            this.btnPautaIncluir.Text = "Incluir";
-            this.btnPautaIncluir.UseVisualStyleBackColor = true;
-            this.btnPautaIncluir.Click += new System.EventHandler(this.btnPautaIncluir_Click);
-            // 
-            // tbpRank
-            // 
-            this.tbpRank.Controls.Add(this.dtgRankProjetos);
-            this.tbpRank.Location = new System.Drawing.Point(4, 25);
-            this.tbpRank.Name = "tbpRank";
-            this.tbpRank.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpRank.Size = new System.Drawing.Size(1168, 589);
-            this.tbpRank.TabIndex = 2;
-            this.tbpRank.Text = "Rank de projetos";
-            this.tbpRank.UseVisualStyleBackColor = true;
-            // 
-            // dtgRankProjetos
-            // 
-            this.dtgRankProjetos.AllowUserToAddRows = false;
-            this.dtgRankProjetos.AllowUserToDeleteRows = false;
-            this.dtgRankProjetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgRankProjetos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dtgRankProjetosNome,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn1,
-            this.RANKPROJETOSAHPCALCULADO,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn13,
-            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO,
-            this.DTGRANKPROJETOTAXAINTERNARETORNO,
-            this.RANKPROJETOSDICE,
-            this.AHP,
-            this.ORDEMRESULTADOPAYBACK,
-            this.ORDEMRESULTADOTAXAINTERNARETORNO,
-            this.ORDEMRESULTADOVALORPRESENTELIQUIDO,
-            this.ORDEMRESULTADODICE,
-            this.ORDEMRESULTADOAHP,
-            this.APROVACAORESULTADOPAYBACK,
-            this.APROVACAORESULTADOTAXAINTERNARETORNO,
-            this.APROVACAORESULTADOVALORPRESENTELIQUIDO,
-            this.APROVACAORESULTADODICE,
-            this.APROVACAORESULTADOAHP});
-            this.dtgRankProjetos.Location = new System.Drawing.Point(6, 6);
-            this.dtgRankProjetos.Name = "dtgRankProjetos";
-            this.dtgRankProjetos.ReadOnly = true;
-            this.dtgRankProjetos.RowHeadersVisible = false;
-            this.dtgRankProjetos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dtgRankProjetos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgRankProjetos.Size = new System.Drawing.Size(1154, 580);
-            this.dtgRankProjetos.TabIndex = 3;
-            this.dtgRankProjetos.TabStop = false;
-            this.dtgRankProjetos.Visible = false;
-            this.dtgRankProjetos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgRankProjetos_ColumnHeaderMouseClick);
-            this.dtgRankProjetos.Sorted += new System.EventHandler(this.dtgRankProjetos_Sorted);
-            // 
             // dtgPautaProjetosTxtNome
             // 
             this.dtgPautaProjetosTxtNome.DataPropertyName = "NomeProjeto";
@@ -1261,10 +1086,10 @@
             // dtgPautaProjetosTxtInvestimentoPrevisto
             // 
             this.dtgPautaProjetosTxtInvestimentoPrevisto.DataPropertyName = "INVESTIMENTOPREVISTO";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dtgPautaProjetosTxtInvestimentoPrevisto.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Format = "C2";
+            dataGridViewCellStyle19.NullValue = null;
+            this.dtgPautaProjetosTxtInvestimentoPrevisto.DefaultCellStyle = dataGridViewCellStyle19;
             this.dtgPautaProjetosTxtInvestimentoPrevisto.HeaderText = "Investimento Previsto";
             this.dtgPautaProjetosTxtInvestimentoPrevisto.Name = "dtgPautaProjetosTxtInvestimentoPrevisto";
             this.dtgPautaProjetosTxtInvestimentoPrevisto.ReadOnly = true;
@@ -1273,10 +1098,10 @@
             // dtgPautaProjetosTxtTempoPrevistoConclusao
             // 
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.DataPropertyName = "TEMPOPREVISTOCONCLUSAO";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dtgPautaProjetosTxtTempoPrevistoConclusao.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N2";
+            dataGridViewCellStyle20.NullValue = null;
+            this.dtgPautaProjetosTxtTempoPrevistoConclusao.DefaultCellStyle = dataGridViewCellStyle20;
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.HeaderText = "Conclusão (MESES)";
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.Name = "dtgPautaProjetosTxtTempoPrevistoConclusao";
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.ReadOnly = true;
@@ -1405,429 +1230,6 @@
             this.dtgPautaProjetosTxtTotalValorDespesaPrevista.Name = "dtgPautaProjetosTxtTotalValorDespesaPrevista";
             this.dtgPautaProjetosTxtTotalValorDespesaPrevista.ReadOnly = true;
             this.dtgPautaProjetosTxtTotalValorDespesaPrevista.Visible = false;
-            // 
-            // dtgRankProjetosNome
-            // 
-            this.dtgRankProjetosNome.DataPropertyName = "NOME";
-            this.dtgRankProjetosNome.HeaderText = "Projeto";
-            this.dtgRankProjetosNome.Name = "dtgRankProjetosNome";
-            this.dtgRankProjetosNome.ReadOnly = true;
-            this.dtgRankProjetosNome.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "GERENTEPROJETO";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Gerente";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 140;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "INVESTIMENTOPREVISTO";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Inv. Previsto";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "TEMPOPREVISTOCONCLUSAO";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn10.HeaderText = "Conclusão (MESES)";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "PAUTAPROJETOSIDPROJETO";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // RANKPROJETOSAHPCALCULADO
-            // 
-            this.RANKPROJETOSAHPCALCULADO.DataPropertyName = "AHPCALCULADO";
-            this.RANKPROJETOSAHPCALCULADO.HeaderText = "AHPCALCULADO";
-            this.RANKPROJETOSAHPCALCULADO.Name = "RANKPROJETOSAHPCALCULADO";
-            this.RANKPROJETOSAHPCALCULADO.ReadOnly = true;
-            this.RANKPROJETOSAHPCALCULADO.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "DESCRICAO";
-            this.dataGridViewTextBoxColumn3.HeaderText = "PAUTAPROJETOSDESCRICAO";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "OBSERVACAO";
-            this.dataGridViewTextBoxColumn4.HeaderText = "PAUTAPROJETOSOBSERVACAO";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "RECEITACONSTANTE";
-            this.dataGridViewTextBoxColumn7.HeaderText = "PAUTAPROJETOSRECEITACONSTANTE";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "RAZAORECEITAVALOR";
-            this.dataGridViewTextBoxColumn8.HeaderText = "PAUTAPROJETOSRECEITAVALOR";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "RAZAORECEITAPERCENTUAL";
-            this.dataGridViewTextBoxColumn9.HeaderText = "PAUTAPROJETOSRECEITAPERCENTUAL";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "STATUS";
-            this.dataGridViewTextBoxColumn11.HeaderText = "PAUTAPROJETOSSTATUS";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "IDPAUTAPROJETOS";
-            this.dataGridViewTextBoxColumn12.HeaderText = "PAUTAPROJETOSIDPAUTAPROJETOS";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "ResultadoPayBack";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Payback D*";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Visible = false;
-            this.dataGridViewTextBoxColumn18.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "RETORNOSOBREINVESTIMENTO";
-            this.dataGridViewTextBoxColumn15.HeaderText = "ROI*";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "TOTALVALORRECEITAPREVISTA";
-            this.dataGridViewTextBoxColumn16.HeaderText = "PAUTAPROJETOSTOTALRECEITAPREVISTA";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "TOTALVALORDESPESAPREVISTA";
-            this.dataGridViewTextBoxColumn17.HeaderText = "PAUTAPROJETOSTOTALDESPESAPREVISTA";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "CAPACIDADEENTREGAEQUIPE";
-            this.dataGridViewTextBoxColumn19.HeaderText = "PAUTAPROJETOSCAPACIDADEENTREGAEQUIPE";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "APOIOALTAGESTAO";
-            this.dataGridViewTextBoxColumn20.HeaderText = "PAUTAPROJETOSAPOIOALTAGESTAO";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "APOIOSTEAKHOLDERS";
-            this.dataGridViewTextBoxColumn21.HeaderText = "PAUTAPROJETOSAPOIOSTEAKHOLDERS";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            this.dataGridViewTextBoxColumn21.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "ESFORCOADICIONAL";
-            this.dataGridViewTextBoxColumn22.HeaderText = "PAUTAPROJETOSESFORCOADICIONAL";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            this.dataGridViewTextBoxColumn22.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "RESULTADOPAYBACK";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn13.HeaderText = "Payback";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 70;
-            // 
-            // DTGRANKPROJETOSVALORPRESENTELIQUIDO
-            // 
-            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.DataPropertyName = "RESULTADOVALORPRESENTELIQUIDO";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "C2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.DefaultCellStyle = dataGridViewCellStyle9;
-            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.HeaderText = "VPL";
-            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.Name = "DTGRANKPROJETOSVALORPRESENTELIQUIDO";
-            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.ReadOnly = true;
-            this.DTGRANKPROJETOSVALORPRESENTELIQUIDO.Width = 120;
-            // 
-            // DTGRANKPROJETOTAXAINTERNARETORNO
-            // 
-            this.DTGRANKPROJETOTAXAINTERNARETORNO.DataPropertyName = "RESULTADOTAXAINTERNARETORNO";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.DTGRANKPROJETOTAXAINTERNARETORNO.DefaultCellStyle = dataGridViewCellStyle10;
-            this.DTGRANKPROJETOTAXAINTERNARETORNO.HeaderText = "TIR";
-            this.DTGRANKPROJETOTAXAINTERNARETORNO.Name = "DTGRANKPROJETOTAXAINTERNARETORNO";
-            this.DTGRANKPROJETOTAXAINTERNARETORNO.ReadOnly = true;
-            this.DTGRANKPROJETOTAXAINTERNARETORNO.Width = 80;
-            // 
-            // RANKPROJETOSDICE
-            // 
-            this.RANKPROJETOSDICE.DataPropertyName = "RESULTADODICE";
-            dataGridViewCellStyle11.NullValue = null;
-            this.RANKPROJETOSDICE.DefaultCellStyle = dataGridViewCellStyle11;
-            this.RANKPROJETOSDICE.HeaderText = "DICE";
-            this.RANKPROJETOSDICE.Name = "RANKPROJETOSDICE";
-            this.RANKPROJETOSDICE.ReadOnly = true;
-            this.RANKPROJETOSDICE.Width = 220;
-            // 
-            // AHP
-            // 
-            this.AHP.DataPropertyName = "RESULTADOAHP";
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.AHP.DefaultCellStyle = dataGridViewCellStyle12;
-            this.AHP.HeaderText = "AHP (%)";
-            this.AHP.Name = "AHP";
-            this.AHP.ReadOnly = true;
-            this.AHP.Width = 90;
-            // 
-            // ORDEMRESULTADOPAYBACK
-            // 
-            this.ORDEMRESULTADOPAYBACK.DataPropertyName = "ORDEMRESULTADOPAYBACK";
-            this.ORDEMRESULTADOPAYBACK.HeaderText = "ORDEMRESULTADOPAYBACK";
-            this.ORDEMRESULTADOPAYBACK.Name = "ORDEMRESULTADOPAYBACK";
-            this.ORDEMRESULTADOPAYBACK.ReadOnly = true;
-            this.ORDEMRESULTADOPAYBACK.Visible = false;
-            // 
-            // ORDEMRESULTADOTAXAINTERNARETORNO
-            // 
-            this.ORDEMRESULTADOTAXAINTERNARETORNO.DataPropertyName = "ORDEMRESULTADOTAXAINTERNARETORNO";
-            this.ORDEMRESULTADOTAXAINTERNARETORNO.HeaderText = "ORDEMRESULTADOTAXAINTERNARETORNO";
-            this.ORDEMRESULTADOTAXAINTERNARETORNO.Name = "ORDEMRESULTADOTAXAINTERNARETORNO";
-            this.ORDEMRESULTADOTAXAINTERNARETORNO.ReadOnly = true;
-            this.ORDEMRESULTADOTAXAINTERNARETORNO.Visible = false;
-            // 
-            // ORDEMRESULTADOVALORPRESENTELIQUIDO
-            // 
-            this.ORDEMRESULTADOVALORPRESENTELIQUIDO.DataPropertyName = "ORDEMRESULTADOVALORPRESENTELIQUIDO";
-            this.ORDEMRESULTADOVALORPRESENTELIQUIDO.HeaderText = "ORDEMRESULTADOVALORPRESENTELIQUIDO";
-            this.ORDEMRESULTADOVALORPRESENTELIQUIDO.Name = "ORDEMRESULTADOVALORPRESENTELIQUIDO";
-            this.ORDEMRESULTADOVALORPRESENTELIQUIDO.ReadOnly = true;
-            this.ORDEMRESULTADOVALORPRESENTELIQUIDO.Visible = false;
-            // 
-            // ORDEMRESULTADODICE
-            // 
-            this.ORDEMRESULTADODICE.DataPropertyName = "ORDEMRESULTADODICE";
-            this.ORDEMRESULTADODICE.HeaderText = "ORDEMRESULTADODICE";
-            this.ORDEMRESULTADODICE.Name = "ORDEMRESULTADODICE";
-            this.ORDEMRESULTADODICE.ReadOnly = true;
-            this.ORDEMRESULTADODICE.Visible = false;
-            // 
-            // ORDEMRESULTADOAHP
-            // 
-            this.ORDEMRESULTADOAHP.DataPropertyName = "ORDEMRESULTADOAHP";
-            this.ORDEMRESULTADOAHP.HeaderText = "ORDEMRESULTADOAHP";
-            this.ORDEMRESULTADOAHP.Name = "ORDEMRESULTADOAHP";
-            this.ORDEMRESULTADOAHP.ReadOnly = true;
-            this.ORDEMRESULTADOAHP.Visible = false;
-            // 
-            // APROVACAORESULTADOPAYBACK
-            // 
-            this.APROVACAORESULTADOPAYBACK.DataPropertyName = "APROVACAORESULTADOPAYBACK";
-            this.APROVACAORESULTADOPAYBACK.HeaderText = "APROVACAORESULTADOPAYBACK";
-            this.APROVACAORESULTADOPAYBACK.Name = "APROVACAORESULTADOPAYBACK";
-            this.APROVACAORESULTADOPAYBACK.ReadOnly = true;
-            this.APROVACAORESULTADOPAYBACK.Visible = false;
-            // 
-            // APROVACAORESULTADOTAXAINTERNARETORNO
-            // 
-            this.APROVACAORESULTADOTAXAINTERNARETORNO.DataPropertyName = "APROVACAORESULTADOTAXAINTERNARETORNO";
-            this.APROVACAORESULTADOTAXAINTERNARETORNO.HeaderText = "APROVACAORESULTADOTAXAINTERNARETORNO";
-            this.APROVACAORESULTADOTAXAINTERNARETORNO.Name = "APROVACAORESULTADOTAXAINTERNARETORNO";
-            this.APROVACAORESULTADOTAXAINTERNARETORNO.ReadOnly = true;
-            this.APROVACAORESULTADOTAXAINTERNARETORNO.Visible = false;
-            // 
-            // APROVACAORESULTADOVALORPRESENTELIQUIDO
-            // 
-            this.APROVACAORESULTADOVALORPRESENTELIQUIDO.DataPropertyName = "APROVACAORESULTADOVALORPRESENTELIQUIDO";
-            this.APROVACAORESULTADOVALORPRESENTELIQUIDO.HeaderText = "APROVACAORESULTADOVALORPRESENTELIQUIDO";
-            this.APROVACAORESULTADOVALORPRESENTELIQUIDO.Name = "APROVACAORESULTADOVALORPRESENTELIQUIDO";
-            this.APROVACAORESULTADOVALORPRESENTELIQUIDO.ReadOnly = true;
-            this.APROVACAORESULTADOVALORPRESENTELIQUIDO.Visible = false;
-            // 
-            // APROVACAORESULTADODICE
-            // 
-            this.APROVACAORESULTADODICE.DataPropertyName = "APROVACAORESULTADODICE";
-            this.APROVACAORESULTADODICE.HeaderText = "APROVACAORESULTADODICE";
-            this.APROVACAORESULTADODICE.Name = "APROVACAORESULTADODICE";
-            this.APROVACAORESULTADODICE.ReadOnly = true;
-            this.APROVACAORESULTADODICE.Visible = false;
-            // 
-            // APROVACAORESULTADOAHP
-            // 
-            this.APROVACAORESULTADOAHP.DataPropertyName = "APROVACAORESULTADOAHP";
-            this.APROVACAORESULTADOAHP.HeaderText = "APROVACAORESULTADOAHP";
-            this.APROVACAORESULTADOAHP.Name = "APROVACAORESULTADOAHP";
-            this.APROVACAORESULTADOAHP.ReadOnly = true;
-            this.APROVACAORESULTADOAHP.Visible = false;
-            // 
-            // _bindingSource
-            // 
-            this._bindingSource.DataSource = typeof(RegraNegocio.View.Reunioes.ViewReuniao);
-            this._bindingSource.CurrentChanged += new System.EventHandler(this._bindingSource_CurrentChanged);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dataHoraEventoDataGridViewTextBoxColumn
-            // 
-            this.dataHoraEventoDataGridViewTextBoxColumn.DataPropertyName = "DataHoraEvento";
-            this.dataHoraEventoDataGridViewTextBoxColumn.HeaderText = "DataHoraEvento";
-            this.dataHoraEventoDataGridViewTextBoxColumn.Name = "dataHoraEventoDataGridViewTextBoxColumn";
-            this.dataHoraEventoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataHoraEventoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // payBackAceitavelDataGridViewTextBoxColumn
-            // 
-            this.payBackAceitavelDataGridViewTextBoxColumn.DataPropertyName = "PayBackAceitavel";
-            this.payBackAceitavelDataGridViewTextBoxColumn.HeaderText = "PayBackAceitavel";
-            this.payBackAceitavelDataGridViewTextBoxColumn.Name = "payBackAceitavelDataGridViewTextBoxColumn";
-            this.payBackAceitavelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.payBackAceitavelDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // taxaRemuneracaoMercadoDataGridViewTextBoxColumn
-            // 
-            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.DataPropertyName = "TaxaRemuneracaoMercado";
-            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.HeaderText = "TaxaRemuneracaoMercado";
-            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.Name = "taxaRemuneracaoMercadoDataGridViewTextBoxColumn";
-            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.taxaRemuneracaoMercadoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // pautaDescricaoDataGridViewTextBoxColumn
-            // 
-            this.pautaDescricaoDataGridViewTextBoxColumn.DataPropertyName = "PautaDescricao";
-            this.pautaDescricaoDataGridViewTextBoxColumn.HeaderText = "PautaDescricao";
-            this.pautaDescricaoDataGridViewTextBoxColumn.Name = "pautaDescricaoDataGridViewTextBoxColumn";
-            this.pautaDescricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pautaDescricaoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // localDataGridViewTextBoxColumn
-            // 
-            this.localDataGridViewTextBoxColumn.DataPropertyName = "Local";
-            this.localDataGridViewTextBoxColumn.HeaderText = "Local";
-            this.localDataGridViewTextBoxColumn.Name = "localDataGridViewTextBoxColumn";
-            this.localDataGridViewTextBoxColumn.ReadOnly = true;
-            this.localDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // responsavelDataGridViewTextBoxColumn
-            // 
-            this.responsavelDataGridViewTextBoxColumn.DataPropertyName = "Responsavel";
-            this.responsavelDataGridViewTextBoxColumn.HeaderText = "Responsavel";
-            this.responsavelDataGridViewTextBoxColumn.Name = "responsavelDataGridViewTextBoxColumn";
-            this.responsavelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.responsavelDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // quantidadeProjetosPautaDataGridViewTextBoxColumn
-            // 
-            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.DataPropertyName = "QuantidadeProjetosPauta";
-            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.HeaderText = "QuantidadeProjetosPauta";
-            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.Name = "quantidadeProjetosPautaDataGridViewTextBoxColumn";
-            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantidadeProjetosPautaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            this.statusDataGridViewTextBoxColumn.ReadOnly = true;
-            this.statusDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // situacaoDataGridViewTextBoxColumn
-            // 
-            this.situacaoDataGridViewTextBoxColumn.DataPropertyName = "Situacao";
-            this.situacaoDataGridViewTextBoxColumn.HeaderText = "Situacao";
-            this.situacaoDataGridViewTextBoxColumn.Name = "situacaoDataGridViewTextBoxColumn";
-            this.situacaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.situacaoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dataHoraCriacaoDataGridViewTextBoxColumn
-            // 
-            this.dataHoraCriacaoDataGridViewTextBoxColumn.DataPropertyName = "DataHoraCriacao";
-            this.dataHoraCriacaoDataGridViewTextBoxColumn.HeaderText = "DataHoraCriacao";
-            this.dataHoraCriacaoDataGridViewTextBoxColumn.Name = "dataHoraCriacaoDataGridViewTextBoxColumn";
-            this.dataHoraCriacaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataHoraCriacaoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // entityObjectDataGridViewTextBoxColumn
-            // 
-            this.entityObjectDataGridViewTextBoxColumn.DataPropertyName = "EntityObject";
-            this.entityObjectDataGridViewTextBoxColumn.HeaderText = "EntityObject";
-            this.entityObjectDataGridViewTextBoxColumn.Name = "entityObjectDataGridViewTextBoxColumn";
-            this.entityObjectDataGridViewTextBoxColumn.ReadOnly = true;
-            this.entityObjectDataGridViewTextBoxColumn.Visible = false;
             // 
             // idProjetoDataGridViewTextBoxColumn
             // 
@@ -2106,9 +1508,553 @@
             this._bindingSourcePauta.DataSource = typeof(RegraNegocio.View.Projetos.ViewPautaProjeto);
             this._bindingSourcePauta.CurrentChanged += new System.EventHandler(this._bindingSourcePauta_CurrentChanged);
             // 
+            // grbPautaInformacoes
+            // 
+            this.grbPautaInformacoes.Controls.Add(this.btnPesquisarPautaProjeto);
+            this.grbPautaInformacoes.Controls.Add(this.txtPautaDescricao);
+            this.grbPautaInformacoes.Controls.Add(this.txtPautaCodigo);
+            this.grbPautaInformacoes.Controls.Add(this.btnPautaCancelar);
+            this.grbPautaInformacoes.Controls.Add(this.txtPautaInvestimentoPrevisto);
+            this.grbPautaInformacoes.Controls.Add(this.btnPautaSalvar);
+            this.grbPautaInformacoes.Controls.Add(this.txtPautaTempoConclusao);
+            this.grbPautaInformacoes.Controls.Add(this.label11);
+            this.grbPautaInformacoes.Controls.Add(this.label10);
+            this.grbPautaInformacoes.Controls.Add(this.txtPautaGerente);
+            this.grbPautaInformacoes.Controls.Add(this.label9);
+            this.grbPautaInformacoes.Controls.Add(this.txtPautaDataInclusao);
+            this.grbPautaInformacoes.Controls.Add(this.label8);
+            this.grbPautaInformacoes.Controls.Add(this.label7);
+            this.grbPautaInformacoes.Location = new System.Drawing.Point(100, 21);
+            this.grbPautaInformacoes.Name = "grbPautaInformacoes";
+            this.grbPautaInformacoes.Size = new System.Drawing.Size(901, 113);
+            this.grbPautaInformacoes.TabIndex = 1;
+            this.grbPautaInformacoes.TabStop = false;
+            this.grbPautaInformacoes.Text = "Informações";
+            // 
+            // btnPesquisarPautaProjeto
+            // 
+            this.btnPesquisarPautaProjeto.Location = new System.Drawing.Point(63, 21);
+            this.btnPesquisarPautaProjeto.Name = "btnPesquisarPautaProjeto";
+            this.btnPesquisarPautaProjeto.Size = new System.Drawing.Size(34, 23);
+            this.btnPesquisarPautaProjeto.TabIndex = 15;
+            this.btnPesquisarPautaProjeto.Text = "...";
+            this.btnPesquisarPautaProjeto.UseVisualStyleBackColor = true;
+            this.btnPesquisarPautaProjeto.Click += new System.EventHandler(this.btnPesquisarPautaProjeto_Click);
+            // 
+            // txtPautaDescricao
+            // 
+            this.txtPautaDescricao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "NomeProjeto", true));
+            this.txtPautaDescricao.Enabled = false;
+            this.txtPautaDescricao.Location = new System.Drawing.Point(165, 21);
+            this.txtPautaDescricao.Name = "txtPautaDescricao";
+            this.txtPautaDescricao.ReadOnly = true;
+            this.txtPautaDescricao.Size = new System.Drawing.Size(408, 22);
+            this.txtPautaDescricao.TabIndex = 14;
+            // 
+            // txtPautaCodigo
+            // 
+            this.txtPautaCodigo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "IdProjeto", true));
+            this.txtPautaCodigo.Enabled = false;
+            this.txtPautaCodigo.Location = new System.Drawing.Point(103, 21);
+            this.txtPautaCodigo.Name = "txtPautaCodigo";
+            this.txtPautaCodigo.ReadOnly = true;
+            this.txtPautaCodigo.Size = new System.Drawing.Size(56, 22);
+            this.txtPautaCodigo.TabIndex = 13;
+            // 
+            // btnPautaCancelar
+            // 
+            this.btnPautaCancelar.Enabled = false;
+            this.btnPautaCancelar.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnPautaCancelar.Location = new System.Drawing.Point(737, 79);
+            this.btnPautaCancelar.Name = "btnPautaCancelar";
+            this.btnPautaCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnPautaCancelar.TabIndex = 12;
+            this.btnPautaCancelar.Text = "Cancelar";
+            this.btnPautaCancelar.UseVisualStyleBackColor = true;
+            this.btnPautaCancelar.Click += new System.EventHandler(this.btnPautaCancelar_Click);
+            // 
+            // txtPautaInvestimentoPrevisto
+            // 
+            this.txtPautaInvestimentoPrevisto.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "InvestimentoPrevisto", true));
+            this.txtPautaInvestimentoPrevisto.Location = new System.Drawing.Point(150, 82);
+            this.txtPautaInvestimentoPrevisto.Name = "txtPautaInvestimentoPrevisto";
+            this.txtPautaInvestimentoPrevisto.ReadOnly = true;
+            this.txtPautaInvestimentoPrevisto.Size = new System.Drawing.Size(141, 22);
+            this.txtPautaInvestimentoPrevisto.TabIndex = 11;
+            this.txtPautaInvestimentoPrevisto.TabStop = false;
+            this.txtPautaInvestimentoPrevisto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnPautaSalvar
+            // 
+            this.btnPautaSalvar.Enabled = false;
+            this.btnPautaSalvar.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnPautaSalvar.Location = new System.Drawing.Point(818, 79);
+            this.btnPautaSalvar.Name = "btnPautaSalvar";
+            this.btnPautaSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnPautaSalvar.TabIndex = 10;
+            this.btnPautaSalvar.Text = "Salvar";
+            this.btnPautaSalvar.UseVisualStyleBackColor = true;
+            this.btnPautaSalvar.Click += new System.EventHandler(this.btnPautaSalvar_Click);
+            // 
+            // txtPautaTempoConclusao
+            // 
+            this.txtPautaTempoConclusao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "TempoPrevistoConclusao", true));
+            this.txtPautaTempoConclusao.Location = new System.Drawing.Point(442, 82);
+            this.txtPautaTempoConclusao.Name = "txtPautaTempoConclusao";
+            this.txtPautaTempoConclusao.ReadOnly = true;
+            this.txtPautaTempoConclusao.Size = new System.Drawing.Size(131, 22);
+            this.txtPautaTempoConclusao.TabIndex = 9;
+            this.txtPautaTempoConclusao.TabStop = false;
+            this.txtPautaTempoConclusao.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(297, 85);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(139, 16);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Tempo de conclusão:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 85);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(138, 16);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Investimento Previsto:";
+            // 
+            // txtPautaGerente
+            // 
+            this.txtPautaGerente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._bindingSourcePauta, "GerenteProjeto", true));
+            this.txtPautaGerente.Location = new System.Drawing.Point(63, 54);
+            this.txtPautaGerente.Name = "txtPautaGerente";
+            this.txtPautaGerente.ReadOnly = true;
+            this.txtPautaGerente.Size = new System.Drawing.Size(510, 22);
+            this.txtPautaGerente.TabIndex = 5;
+            this.txtPautaGerente.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 57);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 16);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Gerente:";
+            // 
+            // txtPautaDataInclusao
+            // 
+            this.txtPautaDataInclusao.Location = new System.Drawing.Point(710, 21);
+            this.txtPautaDataInclusao.Name = "txtPautaDataInclusao";
+            this.txtPautaDataInclusao.ReadOnly = true;
+            this.txtPautaDataInclusao.Size = new System.Drawing.Size(183, 22);
+            this.txtPautaDataInclusao.TabIndex = 3;
+            this.txtPautaDataInclusao.TabStop = false;
+            this.txtPautaDataInclusao.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(614, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 16);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Data Inclusão:";
+            this.label8.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 16);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Projeto:";
+            // 
+            // grbPautaAcoes
+            // 
+            this.grbPautaAcoes.Controls.Add(this.btnPautaEditar);
+            this.grbPautaAcoes.Controls.Add(this.btnPautaExcluir);
+            this.grbPautaAcoes.Controls.Add(this.btnPautaIncluir);
+            this.grbPautaAcoes.Location = new System.Drawing.Point(6, 21);
+            this.grbPautaAcoes.Name = "grbPautaAcoes";
+            this.grbPautaAcoes.Size = new System.Drawing.Size(88, 113);
+            this.grbPautaAcoes.TabIndex = 0;
+            this.grbPautaAcoes.TabStop = false;
+            // 
+            // btnPautaEditar
+            // 
+            this.btnPautaEditar.Enabled = false;
+            this.btnPautaEditar.Location = new System.Drawing.Point(6, 50);
+            this.btnPautaEditar.Name = "btnPautaEditar";
+            this.btnPautaEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnPautaEditar.TabIndex = 3;
+            this.btnPautaEditar.Text = "Editar";
+            this.btnPautaEditar.UseVisualStyleBackColor = true;
+            this.btnPautaEditar.Click += new System.EventHandler(this.btnPautaEditar_Click);
+            // 
+            // btnPautaExcluir
+            // 
+            this.btnPautaExcluir.Enabled = false;
+            this.btnPautaExcluir.Location = new System.Drawing.Point(6, 79);
+            this.btnPautaExcluir.Name = "btnPautaExcluir";
+            this.btnPautaExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnPautaExcluir.TabIndex = 2;
+            this.btnPautaExcluir.Text = "Excluir";
+            this.btnPautaExcluir.UseVisualStyleBackColor = true;
+            this.btnPautaExcluir.Click += new System.EventHandler(this.btnPautaExcluir_Click);
+            // 
+            // btnPautaIncluir
+            // 
+            this.btnPautaIncluir.Enabled = false;
+            this.btnPautaIncluir.Location = new System.Drawing.Point(6, 21);
+            this.btnPautaIncluir.Name = "btnPautaIncluir";
+            this.btnPautaIncluir.Size = new System.Drawing.Size(75, 23);
+            this.btnPautaIncluir.TabIndex = 0;
+            this.btnPautaIncluir.Text = "Incluir";
+            this.btnPautaIncluir.UseVisualStyleBackColor = true;
+            this.btnPautaIncluir.Click += new System.EventHandler(this.btnPautaIncluir_Click);
+            // 
+            // tbpRank
+            // 
+            this.tbpRank.Controls.Add(this.dtgRankProjetos);
+            this.tbpRank.Location = new System.Drawing.Point(4, 25);
+            this.tbpRank.Name = "tbpRank";
+            this.tbpRank.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpRank.Size = new System.Drawing.Size(1168, 589);
+            this.tbpRank.TabIndex = 2;
+            this.tbpRank.Text = "Rank de projetos";
+            this.tbpRank.UseVisualStyleBackColor = true;
+            // 
+            // dtgRankProjetos
+            // 
+            this.dtgRankProjetos.AllowUserToAddRows = false;
+            this.dtgRankProjetos.AllowUserToDeleteRows = false;
+            this.dtgRankProjetos.AutoGenerateColumns = false;
+            this.dtgRankProjetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgRankProjetos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProjetoDataGridViewTextBoxColumn1,
+            this.nomeProjetoDataGridViewTextBoxColumn1,
+            this.descricaoDataGridViewTextBoxColumn2,
+            this.observacaoDataGridViewTextBoxColumn1,
+            this.gerenteProjetoDataGridViewTextBoxColumn1,
+            this.investimentoPrevistoDataGridViewTextBoxColumn1,
+            this.receitaConstanteDataGridViewTextBoxColumn1,
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn1,
+            this.razaoReceitaValorDataGridViewTextBoxColumn1,
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn1,
+            this.idPautaProjetosDataGridViewTextBoxColumn1,
+            this.capacidadeEntregaEquipeDataGridViewTextBoxColumn1,
+            this.apoioAltaGestaoDataGridViewTextBoxColumn1,
+            this.apoioSteakHoldersDataGridViewTextBoxColumn1,
+            this.esforcoAdicionalDataGridViewTextBoxColumn1,
+            this.totalValorDespesaPrevistaDataGridViewTextBoxColumn1,
+            this.totalValorReceitaPrevistaDataGridViewTextBoxColumn1,
+            this.resultadoPayBackDataGridViewTextBoxColumn1,
+            this.odemResultadoPayBackDataGridViewTextBoxColumn1,
+            this.aprovacaoResultadoPayBackDataGridViewTextBoxColumn1,
+            this.resultadoTaxaInternaRetornoDataGridViewTextBoxColumn1,
+            this.ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1,
+            this.aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1,
+            this.resultadoValorPresenteLiquidoDataGridViewTextBoxColumn1,
+            this.ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1,
+            this.aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1,
+            this.resultadoDICEDataGridViewTextBoxColumn1,
+            this.ordemResultadoDICEDataGridViewTextBoxColumn1,
+            this.aprovacaoResultadoDICEDataGridViewTextBoxColumn1,
+            this.resultadoAHPDataGridViewTextBoxColumn1,
+            this.ordemResultadoAHPDataGridViewTextBoxColumn1,
+            this.aprovacaoResultadoAHPDataGridViewTextBoxColumn1,
+            this.aHPCalculadoDataGridViewTextBoxColumn1,
+            this.entityObjectDataGridViewTextBoxColumn2});
+            this.dtgRankProjetos.DataSource = this._bsRankProjetos;
+            this.dtgRankProjetos.Location = new System.Drawing.Point(6, 6);
+            this.dtgRankProjetos.Name = "dtgRankProjetos";
+            this.dtgRankProjetos.ReadOnly = true;
+            this.dtgRankProjetos.RowHeadersVisible = false;
+            this.dtgRankProjetos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dtgRankProjetos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgRankProjetos.Size = new System.Drawing.Size(1154, 580);
+            this.dtgRankProjetos.TabIndex = 3;
+            this.dtgRankProjetos.TabStop = false;
+            this.dtgRankProjetos.Visible = false;
+            this.dtgRankProjetos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgRankProjetos_CellContentClick);
+            this.dtgRankProjetos.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgRankProjetos_ColumnHeaderMouseClick);
+            this.dtgRankProjetos.Sorted += new System.EventHandler(this.dtgRankProjetos_Sorted);
+            // 
             // _bsRankProjetos
             // 
             this._bsRankProjetos.DataSource = typeof(RegraNegocio.View.Projetos.ViewPautaProjeto);
+            this._bsRankProjetos.CurrentChanged += new System.EventHandler(this._bsRankProjetos_CurrentChanged);
+            // 
+            // idProjetoDataGridViewTextBoxColumn1
+            // 
+            this.idProjetoDataGridViewTextBoxColumn1.DataPropertyName = "IdProjeto";
+            this.idProjetoDataGridViewTextBoxColumn1.HeaderText = "IdProjeto";
+            this.idProjetoDataGridViewTextBoxColumn1.Name = "idProjetoDataGridViewTextBoxColumn1";
+            this.idProjetoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idProjetoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // nomeProjetoDataGridViewTextBoxColumn1
+            // 
+            this.nomeProjetoDataGridViewTextBoxColumn1.DataPropertyName = "NomeProjeto";
+            this.nomeProjetoDataGridViewTextBoxColumn1.HeaderText = "Projeto";
+            this.nomeProjetoDataGridViewTextBoxColumn1.Name = "nomeProjetoDataGridViewTextBoxColumn1";
+            this.nomeProjetoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.nomeProjetoDataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // descricaoDataGridViewTextBoxColumn2
+            // 
+            this.descricaoDataGridViewTextBoxColumn2.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn2.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn2.Name = "descricaoDataGridViewTextBoxColumn2";
+            this.descricaoDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.descricaoDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // observacaoDataGridViewTextBoxColumn1
+            // 
+            this.observacaoDataGridViewTextBoxColumn1.DataPropertyName = "Observacao";
+            this.observacaoDataGridViewTextBoxColumn1.HeaderText = "Observacao";
+            this.observacaoDataGridViewTextBoxColumn1.Name = "observacaoDataGridViewTextBoxColumn1";
+            this.observacaoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.observacaoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // gerenteProjetoDataGridViewTextBoxColumn1
+            // 
+            this.gerenteProjetoDataGridViewTextBoxColumn1.DataPropertyName = "GerenteProjeto";
+            this.gerenteProjetoDataGridViewTextBoxColumn1.HeaderText = "Gerente";
+            this.gerenteProjetoDataGridViewTextBoxColumn1.Name = "gerenteProjetoDataGridViewTextBoxColumn1";
+            this.gerenteProjetoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.gerenteProjetoDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // investimentoPrevistoDataGridViewTextBoxColumn1
+            // 
+            this.investimentoPrevistoDataGridViewTextBoxColumn1.DataPropertyName = "InvestimentoPrevisto";
+            this.investimentoPrevistoDataGridViewTextBoxColumn1.HeaderText = "Inv. Previsto";
+            this.investimentoPrevistoDataGridViewTextBoxColumn1.Name = "investimentoPrevistoDataGridViewTextBoxColumn1";
+            this.investimentoPrevistoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.investimentoPrevistoDataGridViewTextBoxColumn1.Width = 130;
+            // 
+            // receitaConstanteDataGridViewTextBoxColumn1
+            // 
+            this.receitaConstanteDataGridViewTextBoxColumn1.DataPropertyName = "ReceitaConstante";
+            this.receitaConstanteDataGridViewTextBoxColumn1.HeaderText = "ReceitaConstante";
+            this.receitaConstanteDataGridViewTextBoxColumn1.Name = "receitaConstanteDataGridViewTextBoxColumn1";
+            this.receitaConstanteDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.receitaConstanteDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // razaoReceitaPercentualDataGridViewTextBoxColumn1
+            // 
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn1.DataPropertyName = "RazaoReceitaPercentual";
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn1.HeaderText = "RazaoReceitaPercentual";
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn1.Name = "razaoReceitaPercentualDataGridViewTextBoxColumn1";
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.razaoReceitaPercentualDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // razaoReceitaValorDataGridViewTextBoxColumn1
+            // 
+            this.razaoReceitaValorDataGridViewTextBoxColumn1.DataPropertyName = "RazaoReceitaValor";
+            this.razaoReceitaValorDataGridViewTextBoxColumn1.HeaderText = "RazaoReceitaValor";
+            this.razaoReceitaValorDataGridViewTextBoxColumn1.Name = "razaoReceitaValorDataGridViewTextBoxColumn1";
+            this.razaoReceitaValorDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.razaoReceitaValorDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // tempoPrevistoConclusaoDataGridViewTextBoxColumn1
+            // 
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn1.DataPropertyName = "TempoPrevistoConclusao";
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn1.HeaderText = "Conclusão (MESES)";
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn1.Name = "tempoPrevistoConclusaoDataGridViewTextBoxColumn1";
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.tempoPrevistoConclusaoDataGridViewTextBoxColumn1.Width = 160;
+            // 
+            // idPautaProjetosDataGridViewTextBoxColumn1
+            // 
+            this.idPautaProjetosDataGridViewTextBoxColumn1.DataPropertyName = "IdPautaProjetos";
+            this.idPautaProjetosDataGridViewTextBoxColumn1.HeaderText = "IdPautaProjetos";
+            this.idPautaProjetosDataGridViewTextBoxColumn1.Name = "idPautaProjetosDataGridViewTextBoxColumn1";
+            this.idPautaProjetosDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idPautaProjetosDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // capacidadeEntregaEquipeDataGridViewTextBoxColumn1
+            // 
+            this.capacidadeEntregaEquipeDataGridViewTextBoxColumn1.DataPropertyName = "CapacidadeEntregaEquipe";
+            this.capacidadeEntregaEquipeDataGridViewTextBoxColumn1.HeaderText = "CapacidadeEntregaEquipe";
+            this.capacidadeEntregaEquipeDataGridViewTextBoxColumn1.Name = "capacidadeEntregaEquipeDataGridViewTextBoxColumn1";
+            this.capacidadeEntregaEquipeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.capacidadeEntregaEquipeDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // apoioAltaGestaoDataGridViewTextBoxColumn1
+            // 
+            this.apoioAltaGestaoDataGridViewTextBoxColumn1.DataPropertyName = "ApoioAltaGestao";
+            this.apoioAltaGestaoDataGridViewTextBoxColumn1.HeaderText = "ApoioAltaGestao";
+            this.apoioAltaGestaoDataGridViewTextBoxColumn1.Name = "apoioAltaGestaoDataGridViewTextBoxColumn1";
+            this.apoioAltaGestaoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.apoioAltaGestaoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // apoioSteakHoldersDataGridViewTextBoxColumn1
+            // 
+            this.apoioSteakHoldersDataGridViewTextBoxColumn1.DataPropertyName = "ApoioSteakHolders";
+            this.apoioSteakHoldersDataGridViewTextBoxColumn1.HeaderText = "ApoioSteakHolders";
+            this.apoioSteakHoldersDataGridViewTextBoxColumn1.Name = "apoioSteakHoldersDataGridViewTextBoxColumn1";
+            this.apoioSteakHoldersDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.apoioSteakHoldersDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // esforcoAdicionalDataGridViewTextBoxColumn1
+            // 
+            this.esforcoAdicionalDataGridViewTextBoxColumn1.DataPropertyName = "EsforcoAdicional";
+            this.esforcoAdicionalDataGridViewTextBoxColumn1.HeaderText = "EsforcoAdicional";
+            this.esforcoAdicionalDataGridViewTextBoxColumn1.Name = "esforcoAdicionalDataGridViewTextBoxColumn1";
+            this.esforcoAdicionalDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.esforcoAdicionalDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // totalValorDespesaPrevistaDataGridViewTextBoxColumn1
+            // 
+            this.totalValorDespesaPrevistaDataGridViewTextBoxColumn1.DataPropertyName = "TotalValorDespesaPrevista";
+            this.totalValorDespesaPrevistaDataGridViewTextBoxColumn1.HeaderText = "TotalValorDespesaPrevista";
+            this.totalValorDespesaPrevistaDataGridViewTextBoxColumn1.Name = "totalValorDespesaPrevistaDataGridViewTextBoxColumn1";
+            this.totalValorDespesaPrevistaDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.totalValorDespesaPrevistaDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // totalValorReceitaPrevistaDataGridViewTextBoxColumn1
+            // 
+            this.totalValorReceitaPrevistaDataGridViewTextBoxColumn1.DataPropertyName = "TotalValorReceitaPrevista";
+            this.totalValorReceitaPrevistaDataGridViewTextBoxColumn1.HeaderText = "TotalValorReceitaPrevista";
+            this.totalValorReceitaPrevistaDataGridViewTextBoxColumn1.Name = "totalValorReceitaPrevistaDataGridViewTextBoxColumn1";
+            this.totalValorReceitaPrevistaDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.totalValorReceitaPrevistaDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // resultadoPayBackDataGridViewTextBoxColumn1
+            // 
+            this.resultadoPayBackDataGridViewTextBoxColumn1.DataPropertyName = "ResultadoPayBack";
+            this.resultadoPayBackDataGridViewTextBoxColumn1.HeaderText = "PayBack";
+            this.resultadoPayBackDataGridViewTextBoxColumn1.Name = "resultadoPayBackDataGridViewTextBoxColumn1";
+            this.resultadoPayBackDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // odemResultadoPayBackDataGridViewTextBoxColumn1
+            // 
+            this.odemResultadoPayBackDataGridViewTextBoxColumn1.DataPropertyName = "OdemResultadoPayBack";
+            this.odemResultadoPayBackDataGridViewTextBoxColumn1.HeaderText = "OdemResultadoPayBack";
+            this.odemResultadoPayBackDataGridViewTextBoxColumn1.Name = "odemResultadoPayBackDataGridViewTextBoxColumn1";
+            this.odemResultadoPayBackDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.odemResultadoPayBackDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // aprovacaoResultadoPayBackDataGridViewTextBoxColumn1
+            // 
+            this.aprovacaoResultadoPayBackDataGridViewTextBoxColumn1.DataPropertyName = "AprovacaoResultadoPayBack";
+            this.aprovacaoResultadoPayBackDataGridViewTextBoxColumn1.HeaderText = "AprovacaoResultadoPayBack";
+            this.aprovacaoResultadoPayBackDataGridViewTextBoxColumn1.Name = "aprovacaoResultadoPayBackDataGridViewTextBoxColumn1";
+            this.aprovacaoResultadoPayBackDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.aprovacaoResultadoPayBackDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // resultadoTaxaInternaRetornoDataGridViewTextBoxColumn1
+            // 
+            this.resultadoTaxaInternaRetornoDataGridViewTextBoxColumn1.DataPropertyName = "ResultadoTaxaInternaRetorno";
+            this.resultadoTaxaInternaRetornoDataGridViewTextBoxColumn1.HeaderText = "TIR";
+            this.resultadoTaxaInternaRetornoDataGridViewTextBoxColumn1.Name = "resultadoTaxaInternaRetornoDataGridViewTextBoxColumn1";
+            this.resultadoTaxaInternaRetornoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1
+            // 
+            this.ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1.DataPropertyName = "OrdemResultadoTaxaInternaRetorno";
+            this.ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1.HeaderText = "OrdemResultadoTaxaInternaRetorno";
+            this.ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1.Name = "ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1";
+            this.ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1
+            // 
+            this.aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1.DataPropertyName = "AprovacaoTaxaInternaRetorno";
+            this.aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1.HeaderText = "AprovacaoTaxaInternaRetorno";
+            this.aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1.Name = "aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1";
+            this.aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // resultadoValorPresenteLiquidoDataGridViewTextBoxColumn1
+            // 
+            this.resultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.DataPropertyName = "ResultadoValorPresenteLiquido";
+            this.resultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.HeaderText = "VPL";
+            this.resultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.Name = "resultadoValorPresenteLiquidoDataGridViewTextBoxColumn1";
+            this.resultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1
+            // 
+            this.ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.DataPropertyName = "OrdemResultadoValorPresenteLiquido";
+            this.ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.HeaderText = "OrdemResultadoValorPresenteLiquido";
+            this.ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.Name = "ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1";
+            this.ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1
+            // 
+            this.aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.DataPropertyName = "AprovacaoResultadoValorPresenteLiquido";
+            this.aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.HeaderText = "AprovacaoResultadoValorPresenteLiquido";
+            this.aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.Name = "aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1";
+            this.aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // resultadoDICEDataGridViewTextBoxColumn1
+            // 
+            this.resultadoDICEDataGridViewTextBoxColumn1.DataPropertyName = "ResultadoDICE";
+            this.resultadoDICEDataGridViewTextBoxColumn1.HeaderText = "DICE";
+            this.resultadoDICEDataGridViewTextBoxColumn1.Name = "resultadoDICEDataGridViewTextBoxColumn1";
+            this.resultadoDICEDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ordemResultadoDICEDataGridViewTextBoxColumn1
+            // 
+            this.ordemResultadoDICEDataGridViewTextBoxColumn1.DataPropertyName = "OrdemResultadoDICE";
+            this.ordemResultadoDICEDataGridViewTextBoxColumn1.HeaderText = "OrdemResultadoDICE";
+            this.ordemResultadoDICEDataGridViewTextBoxColumn1.Name = "ordemResultadoDICEDataGridViewTextBoxColumn1";
+            this.ordemResultadoDICEDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.ordemResultadoDICEDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // aprovacaoResultadoDICEDataGridViewTextBoxColumn1
+            // 
+            this.aprovacaoResultadoDICEDataGridViewTextBoxColumn1.DataPropertyName = "AprovacaoResultadoDICE";
+            this.aprovacaoResultadoDICEDataGridViewTextBoxColumn1.HeaderText = "AprovacaoResultadoDICE";
+            this.aprovacaoResultadoDICEDataGridViewTextBoxColumn1.Name = "aprovacaoResultadoDICEDataGridViewTextBoxColumn1";
+            this.aprovacaoResultadoDICEDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.aprovacaoResultadoDICEDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // resultadoAHPDataGridViewTextBoxColumn1
+            // 
+            this.resultadoAHPDataGridViewTextBoxColumn1.DataPropertyName = "ResultadoAHP";
+            this.resultadoAHPDataGridViewTextBoxColumn1.HeaderText = "AHP";
+            this.resultadoAHPDataGridViewTextBoxColumn1.Name = "resultadoAHPDataGridViewTextBoxColumn1";
+            this.resultadoAHPDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // ordemResultadoAHPDataGridViewTextBoxColumn1
+            // 
+            this.ordemResultadoAHPDataGridViewTextBoxColumn1.DataPropertyName = "OrdemResultadoAHP";
+            this.ordemResultadoAHPDataGridViewTextBoxColumn1.HeaderText = "OrdemResultadoAHP";
+            this.ordemResultadoAHPDataGridViewTextBoxColumn1.Name = "ordemResultadoAHPDataGridViewTextBoxColumn1";
+            this.ordemResultadoAHPDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.ordemResultadoAHPDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // aprovacaoResultadoAHPDataGridViewTextBoxColumn1
+            // 
+            this.aprovacaoResultadoAHPDataGridViewTextBoxColumn1.DataPropertyName = "AprovacaoResultadoAHP";
+            this.aprovacaoResultadoAHPDataGridViewTextBoxColumn1.HeaderText = "AprovacaoResultadoAHP";
+            this.aprovacaoResultadoAHPDataGridViewTextBoxColumn1.Name = "aprovacaoResultadoAHPDataGridViewTextBoxColumn1";
+            this.aprovacaoResultadoAHPDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.aprovacaoResultadoAHPDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // aHPCalculadoDataGridViewTextBoxColumn1
+            // 
+            this.aHPCalculadoDataGridViewTextBoxColumn1.DataPropertyName = "AHPCalculado";
+            this.aHPCalculadoDataGridViewTextBoxColumn1.HeaderText = "AHPCalculado";
+            this.aHPCalculadoDataGridViewTextBoxColumn1.Name = "aHPCalculadoDataGridViewTextBoxColumn1";
+            this.aHPCalculadoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.aHPCalculadoDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // entityObjectDataGridViewTextBoxColumn2
+            // 
+            this.entityObjectDataGridViewTextBoxColumn2.DataPropertyName = "EntityObject";
+            this.entityObjectDataGridViewTextBoxColumn2.HeaderText = "EntityObject";
+            this.entityObjectDataGridViewTextBoxColumn2.Name = "entityObjectDataGridViewTextBoxColumn2";
+            this.entityObjectDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.entityObjectDataGridViewTextBoxColumn2.Visible = false;
             // 
             // frmReunioes
             // 
@@ -2129,18 +2075,18 @@
             this.tbpPrincipal.ResumeLayout(false);
             this.grbInformacoes.ResumeLayout(false);
             this.grbInformacoes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPrincipal)).EndInit();
             this.tbpPautaProjetos.ResumeLayout(false);
             this.grbPautaProjeto.ResumeLayout(false);
             this.grbPautaProjeto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPautaProjetos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._bindingSourcePauta)).EndInit();
             this.grbPautaInformacoes.ResumeLayout(false);
             this.grbPautaInformacoes.PerformLayout();
             this.grbPautaAcoes.ResumeLayout(false);
             this.tbpRank.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgRankProjetos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._bindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._bindingSourcePauta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._bsRankProjetos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -2298,41 +2244,39 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aHPCalculadoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn entityObjectDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource _bsRankProjetos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dtgRankProjetosNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RANKPROJETOSAHPCALCULADO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DTGRANKPROJETOSVALORPRESENTELIQUIDO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DTGRANKPROJETOTAXAINTERNARETORNO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RANKPROJETOSDICE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AHP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ORDEMRESULTADOPAYBACK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ORDEMRESULTADOTAXAINTERNARETORNO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ORDEMRESULTADOVALORPRESENTELIQUIDO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ORDEMRESULTADODICE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ORDEMRESULTADOAHP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADOPAYBACK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADOTAXAINTERNARETORNO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADOVALORPRESENTELIQUIDO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADODICE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn APROVACAORESULTADOAHP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProjetoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomeProjetoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn observacaoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gerenteProjetoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn investimentoPrevistoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receitaConstanteDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn razaoReceitaPercentualDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn razaoReceitaValorDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tempoPrevistoConclusaoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPautaProjetosDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn capacidadeEntregaEquipeDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apoioAltaGestaoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apoioSteakHoldersDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn esforcoAdicionalDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalValorDespesaPrevistaDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalValorReceitaPrevistaDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultadoPayBackDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn odemResultadoPayBackDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aprovacaoResultadoPayBackDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultadoTaxaInternaRetornoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ordemResultadoTaxaInternaRetornoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aprovacaoTaxaInternaRetornoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultadoValorPresenteLiquidoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ordemResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aprovacaoResultadoValorPresenteLiquidoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultadoDICEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ordemResultadoDICEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aprovacaoResultadoDICEDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn resultadoAHPDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ordemResultadoAHPDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aprovacaoResultadoAHPDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aHPCalculadoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entityObjectDataGridViewTextBoxColumn2;
     }
 }

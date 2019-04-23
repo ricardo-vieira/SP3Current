@@ -79,6 +79,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web.Services" />
@@ -146,6 +147,9 @@
     </Compile>
     <Compile Include="Forms\Lancamentos\frmReunioes.Designer.cs">
       <DependentUpon>frmReunioes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorio\dsRelatorio.cs">
+      <DependentUpon>dsRelatorio.xsd</DependentUpon>
     </Compile>
     <Compile Include="Forms\Relatorio\dsRelatorio.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -262,6 +266,10 @@
     <ProjectReference Include="..\RegraNegocio\RegraNegocio.csproj">
       <Project>{c97e8e13-01b5-465f-b398-7251418545bd}</Project>
       <Name>RegraNegocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SP3.Utils\SP3.Utils.csproj">
+      <Project>{439fc999-4fc6-44b1-8429-520d69f654ef}</Project>
+      <Name>SP3.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

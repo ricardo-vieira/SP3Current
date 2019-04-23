@@ -67,22 +67,20 @@ namespace RegraNegocio
         {
             try
             {
-                EFDados.PROJETO projeto = base.CtoProjetos.PROJETOS.AsEnumerable().First(x => x.ID == pautaProjeto.PROJETO.ID);
+                pautaProjeto.APOIOALTAGESTAO = pautaProjeto.PROJETO.APOIOALTAGESTAO;
 
-                pautaProjeto.APOIOALTAGESTAO = projeto.APOIOALTAGESTAO;
+                pautaProjeto.APOIOSTEAKHOLDERS = pautaProjeto.PROJETO.APOIOSTEAKHOLDERS;
+                pautaProjeto.CAPACIDADEENTREGAEQUPE = pautaProjeto.PROJETO.APOIOSTEAKHOLDERS;
+                pautaProjeto.ESFORCOADICIONAL = pautaProjeto.PROJETO.ESFORCOADICIONAL;
 
-                pautaProjeto.APOIOSTEAKHOLDERS = projeto.APOIOSTEAKHOLDERS;
-                pautaProjeto.CAPACIDADEENTREGAEQUPE = projeto.APOIOSTEAKHOLDERS;
-                pautaProjeto.ESFORCOADICIONAL = projeto.ESFORCOADICIONAL;
-
-                pautaProjeto.INVESTIMENTOPREVISTO = projeto.INVESTIMENTOPREVISTO;
-                pautaProjeto.RAZAORECEITAPERCENTUAL = projeto.RAZAORECEITAPERCENTUAL;
-                pautaProjeto.RAZAORECEITAVALOR = projeto.RAZAORECEITAVALOR;
-                pautaProjeto.TEMPOPREVISTOCONCLUSAO = projeto.TEMPOPREVISTOCONCLUSAO;
+                pautaProjeto.INVESTIMENTOPREVISTO = pautaProjeto.PROJETO.INVESTIMENTOPREVISTO;
+                pautaProjeto.RAZAORECEITAPERCENTUAL = pautaProjeto.PROJETO.RAZAORECEITAPERCENTUAL;
+                pautaProjeto.RAZAORECEITAVALOR = pautaProjeto.PROJETO.RAZAORECEITAVALOR;
+                pautaProjeto.TEMPOPREVISTOCONCLUSAO = pautaProjeto.PROJETO.TEMPOPREVISTOCONCLUSAO;
 
                 pautaProjeto.PAUTARECEITAVARIAVELs.ToList().ForEach(x => pautaProjeto.PAUTARECEITAVARIAVELs.Remove(x));
 
-                projeto.RECEITAVARIAVELs.ToList().ForEach(x =>
+                pautaProjeto.PROJETO.RECEITAVARIAVELs.ToList().ForEach(x =>
                 {
                     pautaProjeto.PAUTARECEITAVARIAVELs.Add(new EFDados.PAUTARECEITAVARIAVEL
                     {

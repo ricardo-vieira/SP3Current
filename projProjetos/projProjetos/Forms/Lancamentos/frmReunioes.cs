@@ -614,9 +614,11 @@ namespace projProjetos.Forms
         {
             try
             {
-                _bindingListViewRankProjetos = new BindingListView<RegraNegocio.View.Projetos.ViewPautaProjeto>(reunioesRegraNegocio.ListarProjetosCalculados(_currentObject.EntityObject));
-                dtgRankProjetos.DataSource = _bindingListViewRankProjetos;
-                MudarCoresDtgRankProjetos();
+
+                dtgRankProjetos.DataSource = new BindingListView<RegraNegocio
+                                                      .View.Projetos.ViewPautaProjeto>(reunioesRegraNegocio.ListarProjetosCalculados(_currentObject.EntityObject));
+                
+                ColorirDataGridRankProjetos();
 
                 if (_currentObject.EntityObject.SITUACAO == "EFETIVADO"
                     || (_currentObject.EntityObject.SITUACAO == "CANCELADO"
@@ -818,8 +820,8 @@ namespace projProjetos.Forms
                 {
                     AtualizaInformacoesCurrentObject();
 
-                    reunioesRegraNegocio.Commit();
                     pautaProjetosRegraNegocio.Commit();
+                    reunioesRegraNegocio.Commit();
                     CarregarInformacoesGerais();
                     CarregarInformacoesGeraisPautaProjetos();
                 }
@@ -841,7 +843,6 @@ namespace projProjetos.Forms
             _currentObject.EntityObject.PAUTADESCRICAO = txtDescricaoPauta.Text;
 
             _currentObject.EntityObject.PESSOA = _objectPesquisaResponsavel.EntityObject;
-            _objectPesquisaResponsavel = null;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -851,14 +852,12 @@ namespace projProjetos.Forms
                                "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 == DialogResult.Yes)
             {
+                pautaProjetosRegraNegocio.RollBack();
                 reunioesRegraNegocio.RollBackLastOperation();
 
-                if (_statusInformacao == StatusInformacao.INCLUSAO)
-                {
-                    _currentObject = null;
-                }
-
-                CarregarInformacoesGerais();
+                MudarStatusInformacao(StatusInformacao.SELECAO);
+                MudarStatusInformacaoPautaProjeto(StatusInformacao.SEMACAO);
+                CarregarInformacoes();
                 CarregarInformacoesGeraisPautaProjetos();
             }
         }
@@ -1169,7 +1168,11 @@ namespace projProjetos.Forms
                     CarregarInformaoesGeraisRankProjetos();
                 }
                 else
+                {
                     _currentObject = null;
+                    _objectPesquisaResponsavel = null;
+                }
+                    
             }
             catch (Exception ex)
             {
@@ -1243,6 +1246,15 @@ namespace projProjetos.Forms
             MudarCoresDtgRankProjetos();
         }
 
+        private void dtgRankProjetos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void _bsRankProjetos_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
