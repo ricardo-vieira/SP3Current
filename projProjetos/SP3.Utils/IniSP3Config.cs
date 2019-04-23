@@ -52,9 +52,9 @@ namespace SP3.Utils
                     case "MSSQLSERVER":
                         return String.Format(@"metadata=res://*/edmProjetos.csdl|res://*/edmProjetos.ssdl|res://*/edmProjetos.msl;" +
                                       "provider=System.Data.SqlClient;" +
-                                      "provider connection string=&quot;" +
+                                      "provider connection string=\"" +
                                       "{0};" +
-                                      "App=EntityFramework&quot;", conn);
+                                      "App=EntityFramework\"", conn);
                     default:
                         return string.Empty;
                 }

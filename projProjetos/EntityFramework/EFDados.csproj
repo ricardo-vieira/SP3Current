@@ -166,13 +166,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\dbProjetos.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Database\dbProjetos_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>dbProjetos.mdf</DependentUpon>
-    </Content>
     <Content Include="edmProjetos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>edmProjetos.Context.cs</LastGenOutput>

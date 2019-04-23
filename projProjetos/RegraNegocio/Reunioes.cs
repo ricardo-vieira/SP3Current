@@ -255,7 +255,7 @@ namespace RegraNegocio
                 {
                     resultado = 0;
 
-                    foreach (var criterioProjetoR in criteriosProjetosResultado.Where(x => x.IDPROJETO.Equals(ctoProjetos.PROJETOS.First(z => z.ID.Equals(pautaProjeto.IDPROJETO)).ID)))
+                    foreach (var criterioProjetoR in criteriosProjetosResultado.Where(x => x.IDPROJETO == pautaProjeto.IDPROJETO))
                     {
                         criterioProjetoR.RESULTADOGLOBAL = Convert.ToDecimal(Convert.ToDouble(criterioProjetoR.RESULTADOGLOBAL) * Convert.ToDouble(criterioProjetoR.CRITERIOSRESULTADO.RESULTADOGLOBAL));
                         resultado += Convert.ToDouble(criterioProjetoR.RESULTADOGLOBAL);

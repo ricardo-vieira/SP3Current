@@ -79,8 +79,6 @@ C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\EntityFramework\obj\D
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\EntityFramework\obj\Debug\EFDados.csproj.CopyComplete
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\EntityFramework\obj\Debug\EFDados.dll
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\EntityFramework\obj\Debug\EFDados.pdb
-F:\Git\SP3Current\projProjetos\EntityFramework\bin\Debug\Database\dbProjetos.mdf
-F:\Git\SP3Current\projProjetos\EntityFramework\bin\Debug\Database\dbProjetos_log.ldf
 F:\Git\SP3Current\projProjetos\EntityFramework\bin\Debug\EFDados.dll.config
 F:\Git\SP3Current\projProjetos\EntityFramework\bin\Debug\EFDados.dll
 F:\Git\SP3Current\projProjetos\EntityFramework\bin\Debug\EFDados.pdb

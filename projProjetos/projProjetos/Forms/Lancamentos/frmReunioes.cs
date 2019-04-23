@@ -200,22 +200,17 @@ namespace projProjetos.Forms
                     _bindingListView.DataSource = reunioesRegraNegocio.ToList();
                 }
 
-
-                //RegraNegocio.View.Reunioes.ViewReuniao _bindingSourceCurrentObject = (_bindingSource.Current is null) ? (null) : (_bindingSource.Current as ObjectView<RegraNegocio.View.Reunioes.ViewReuniao>).Object;
-
-                // if (!(_currentObject is null) && (_bindingSourceCurrentObject is null || _bindingSourceCurrentObject != _currentObject || _bindingSource.Count > 1))
-                // {
-                //   _bindingListView.ApplyFilter(x => x.EntityObject.Equals(_currentObject.EntityObject));
-                MudarStatusInformacao(StatusInformacao.SELECAO);
-                //}
-                //else
-                //{
-                //    MudarStatusInformacao(StatusInformacao.SEMACAO);
-                //}
-
+                MudarStatusInformacao(StatusInformacao.SEMACAO);
                 _bindingListView.Refresh();
                 _bindingSource.ResumeBinding();
-                CarregarInformacoes();
+
+                if (_bindingSource.Current == null)
+                {
+                    if (dtgPrincipal.Rows.Count > 0)
+                    {
+                        dtgPrincipal.Rows[dtgPrincipal.RowCount - 1].Selected = true;
+                    }
+                }
 
             }
             catch (Exception ex)
@@ -233,6 +228,11 @@ namespace projProjetos.Forms
 
         private void CarregarInformacoes()
         {
+            if (_statusInformacao == StatusInformacao.SEMACAO)
+            {
+                MudarStatusInformacao(StatusInformacao.SELECAO);
+            }
+
             switch (txtSituacao.Text)
             {
                 case "EM OPERAÇÃO":
@@ -618,7 +618,7 @@ namespace projProjetos.Forms
                 dtgRankProjetos.DataSource = new BindingListView<RegraNegocio
                                                       .View.Projetos.ViewPautaProjeto>(reunioesRegraNegocio.ListarProjetosCalculados(_currentObject.EntityObject));
                 
-                ColorirDataGridRankProjetos();
+
 
                 if (_currentObject.EntityObject.SITUACAO == "EFETIVADO"
                     || (_currentObject.EntityObject.SITUACAO == "CANCELADO"
@@ -629,11 +629,11 @@ namespace projProjetos.Forms
                     //dtgRankProjetos.DataSource = null;
                     //dtgRankProjetos.Columns.Clear();
                     //RecarregarColunasdtgPrincipal();
-                    ColorirDataGridRankProjetos();
                     btnImprimir.Enabled = true;
+                    ColorirDataGridRankProjetos();
 
-                    //dtgRankProjetos.Sort(dtgRankProjetos.Columns["dtgRankProjetosNome"], ListSortDirection.Ascending);
-                    //dtgRankProjetos_Sorted(dtgRankProjetos, new EventArgs());
+                    dtgRankProjetos.Sort(dtgRankProjetos.Columns["dtgRankProjetosNome"], ListSortDirection.Ascending);
+                    dtgRankProjetos_Sorted(dtgRankProjetos, new EventArgs());
                 }
                 else
                 {
@@ -823,6 +823,7 @@ namespace projProjetos.Forms
                     pautaProjetosRegraNegocio.Commit();
                     reunioesRegraNegocio.Commit();
                     CarregarInformacoesGerais();
+                    CarregarInformacoes();
                     CarregarInformacoesGeraisPautaProjetos();
                 }
             }
@@ -967,6 +968,7 @@ namespace projProjetos.Forms
         private void frmReunioes_Load(object sender, EventArgs e)
         {
             CarregarInformacoesGerais();
+            
         }
 
         private void dtgPautaProjetos_CellClick(object sender, DataGridViewCellEventArgs e)

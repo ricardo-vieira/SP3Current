@@ -495,8 +495,11 @@ namespace RegraNegocio
                     RESULTADO = 1
                 };
 
-                List<EFDados.CRITERIOSPROJETOSCOMPARACO> listaCriteriosProjetosComparacao = projeto.CRITERIOSPROJETOSCOMPARACOES.AsEnumerable().Where(x => x.CRITERIO.Equals(criterioResultado.CRITERIO)).ToList().Where(z => reuniao.PAUTAPROJETOS.Any(w => w.IDPROJETO.Equals(z.PROJETOB.ID))).ToList();
-
+                List<EFDados.CRITERIOSPROJETOSCOMPARACO> listaCriteriosProjetosComparacao = projeto.CRITERIOSPROJETOSCOMPARACOES
+                                                                                                   .AsEnumerable()
+                                                                                                   .Where(criterioprojeto => criterioprojeto.IDCRITERIO == criterioResultado.CRITERIO.ID
+                                                                                                                             && reuniao.PAUTAPROJETOS.AsEnumerable().Any(pautaprojeto => pautaprojeto.IDPROJETO == criterioprojeto.IDPROJETOB))
+                                                                                                   .ToList();
 
 
                 //somente irá trazer os projetos com o criterioComparação indicado e que os projetos estejam contidos na reunião.
@@ -504,7 +507,7 @@ namespace RegraNegocio
                 {
                     criterioProjetoResultado.CRITERIOSPROJETOSRESULTADOLISTAs.Add(new EFDados.CRITERIOSPROJETOSRESULTADOLISTA
                     {
-                        PROJETO = x.PROJETOB,
+                        IDPROJETO = x.IDPROJETOB.Value,
                         COMPARACAO = x.COMPARACAO
                     });
 
@@ -571,6 +574,7 @@ namespace RegraNegocio
                 EFDados.CRITERIOSRESULTADO criterioResultado;
                 EFDados.CRITERIOSPROJETOSRESULTADO criterioProjetoResultado;
 
+                listaCriterioResultado.Clear();
                 ctoProjetos.CRITERIOS.AsEnumerable().ToList().ForEach(x =>
                 {
                     criterioResultado = CalcularCriteriosComparacoesResultado(x);
@@ -595,18 +599,17 @@ namespace RegraNegocio
                     //projetoResultadoGlobal += Convert.ToDouble(criterioProjetoR.RESULTADOGLOBAL) * Convert.ToDouble(criterioProjetoR.CRITERIOSRESULTADO.RESULTADOGLOBAL);
                 }
 
-                foreach (var x in listacriteriosProjetoResultado)
+                foreach (var cpr in listacriteriosProjetoResultado)
                 {
-                    if (ctoProjetos.CRITERIOSPROJETOSRESULTADOes.AsEnumerable()
-                                                                .Any(z => z.REUNIO.Equals(reuniao)
-                                                                          && z.CRITERIOSRESULTADO.CRITERIO.Equals(x.CRITERIOSRESULTADO.CRITERIO) 
-                                                                          && z.PROJETO.Equals(x.PROJETO)))
-                        ctoProjetos.CRITERIOSPROJETOSRESULTADOes.Remove(ctoProjetos.CRITERIOSPROJETOSRESULTADOes.AsEnumerable()
-                                                                                                                .First(z => z.REUNIO.Equals(reuniao)
-                                                                                                                            && z.CRITERIOSRESULTADO.CRITERIO.Equals(x.CRITERIOSRESULTADO.CRITERIO)
-                                                                                                                            && z.PROJETO.Equals(x.PROJETO)));
+                    var cprsExcluir = ctoProjetos.CRITERIOSPROJETOSRESULTADOes
+                                                 .AsEnumerable()
+                                                 .Where(x => x.IDREUNIAO.Equals(reuniao.ID)
+                                                             && x.IDPROJETO.Equals(cpr.PROJETO.ID)
+                                                             && x.CRITERIOSRESULTADO.CRITERIO.Equals(cpr.CRITERIOSRESULTADO.CRITERIO));
 
-                    ctoProjetos.CRITERIOSPROJETOSRESULTADOes.Add(x);
+                        ctoProjetos.CRITERIOSPROJETOSRESULTADOes.RemoveRange(cprsExcluir);
+
+                    ctoProjetos.CRITERIOSPROJETOSRESULTADOes.Add(cpr);
                 }
 
                 return listacriteriosProjetoResultado;

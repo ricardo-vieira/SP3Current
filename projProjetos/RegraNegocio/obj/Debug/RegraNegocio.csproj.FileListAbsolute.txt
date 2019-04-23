@@ -77,8 +77,6 @@ C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\RegraNegocio\obj\Debu
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\RegraNegocio\obj\Debug\RegraNegocio.csproj.CopyComplete
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\RegraNegocio\obj\Debug\RegraNegocio.dll
 C:\Users\Vieira\Documents\Projetos\SP3Current\projProjetos\RegraNegocio\obj\Debug\RegraNegocio.pdb
-F:\Git\SP3Current\projProjetos\RegraNegocio\bin\Debug\Database\dbProjetos.mdf
-F:\Git\SP3Current\projProjetos\RegraNegocio\bin\Debug\Database\dbProjetos_log.ldf
 F:\Git\SP3Current\projProjetos\RegraNegocio\bin\Debug\RegraNegocio.dll.config
 F:\Git\SP3Current\projProjetos\RegraNegocio\bin\Debug\RegraNegocio.dll
 F:\Git\SP3Current\projProjetos\RegraNegocio\bin\Debug\RegraNegocio.pdb

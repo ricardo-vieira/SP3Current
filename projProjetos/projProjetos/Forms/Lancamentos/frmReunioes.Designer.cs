@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReunioes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.btnNovo = new System.Windows.Forms.ToolStripButton();
             this.btnSalvar = new System.Windows.Forms.ToolStripButton();
@@ -185,7 +185,7 @@
             this.dtgRankProjetos = new System.Windows.Forms.DataGridView();
             this._bsRankProjetos = new System.Windows.Forms.BindingSource(this.components);
             this.idProjetoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeProjetoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgRankProjetosNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricaoDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observacaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gerenteProjetoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -717,8 +717,8 @@
             // dtgPrincipalTxtId
             // 
             this.dtgPrincipalTxtId.DataPropertyName = "ID";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dtgPrincipalTxtId.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dtgPrincipalTxtId.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtgPrincipalTxtId.HeaderText = "CÓDIGO";
             this.dtgPrincipalTxtId.Name = "dtgPrincipalTxtId";
             this.dtgPrincipalTxtId.ReadOnly = true;
@@ -759,8 +759,8 @@
             // QuantidadeProjetosPauta
             // 
             this.QuantidadeProjetosPauta.DataPropertyName = "QUANTIDADEPROJETOSPAUTA";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.QuantidadeProjetosPauta.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.QuantidadeProjetosPauta.DefaultCellStyle = dataGridViewCellStyle2;
             this.QuantidadeProjetosPauta.HeaderText = "Q. PROJETOS";
             this.QuantidadeProjetosPauta.Name = "QuantidadeProjetosPauta";
             this.QuantidadeProjetosPauta.ReadOnly = true;
@@ -786,10 +786,10 @@
             // PayBackAceitavel
             // 
             this.PayBackAceitavel.DataPropertyName = "PAYBACKACEITAVEL";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "N2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.PayBackAceitavel.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.PayBackAceitavel.DefaultCellStyle = dataGridViewCellStyle3;
             this.PayBackAceitavel.HeaderText = "PAYBACK";
             this.PayBackAceitavel.Name = "PayBackAceitavel";
             this.PayBackAceitavel.ReadOnly = true;
@@ -1086,10 +1086,10 @@
             // dtgPautaProjetosTxtInvestimentoPrevisto
             // 
             this.dtgPautaProjetosTxtInvestimentoPrevisto.DataPropertyName = "INVESTIMENTOPREVISTO";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.Format = "C2";
-            dataGridViewCellStyle19.NullValue = null;
-            this.dtgPautaProjetosTxtInvestimentoPrevisto.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dtgPautaProjetosTxtInvestimentoPrevisto.DefaultCellStyle = dataGridViewCellStyle4;
             this.dtgPautaProjetosTxtInvestimentoPrevisto.HeaderText = "Investimento Previsto";
             this.dtgPautaProjetosTxtInvestimentoPrevisto.Name = "dtgPautaProjetosTxtInvestimentoPrevisto";
             this.dtgPautaProjetosTxtInvestimentoPrevisto.ReadOnly = true;
@@ -1098,10 +1098,10 @@
             // dtgPautaProjetosTxtTempoPrevistoConclusao
             // 
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.DataPropertyName = "TEMPOPREVISTOCONCLUSAO";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.Format = "N2";
-            dataGridViewCellStyle20.NullValue = null;
-            this.dtgPautaProjetosTxtTempoPrevistoConclusao.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dtgPautaProjetosTxtTempoPrevistoConclusao.DefaultCellStyle = dataGridViewCellStyle5;
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.HeaderText = "Conclusão (MESES)";
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.Name = "dtgPautaProjetosTxtTempoPrevistoConclusao";
             this.dtgPautaProjetosTxtTempoPrevistoConclusao.ReadOnly = true;
@@ -1736,7 +1736,7 @@
             this.dtgRankProjetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgRankProjetos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idProjetoDataGridViewTextBoxColumn1,
-            this.nomeProjetoDataGridViewTextBoxColumn1,
+            this.dtgRankProjetosNome,
             this.descricaoDataGridViewTextBoxColumn2,
             this.observacaoDataGridViewTextBoxColumn1,
             this.gerenteProjetoDataGridViewTextBoxColumn1,
@@ -1797,13 +1797,13 @@
             this.idProjetoDataGridViewTextBoxColumn1.ReadOnly = true;
             this.idProjetoDataGridViewTextBoxColumn1.Visible = false;
             // 
-            // nomeProjetoDataGridViewTextBoxColumn1
+            // dtgRankProjetosNome
             // 
-            this.nomeProjetoDataGridViewTextBoxColumn1.DataPropertyName = "NomeProjeto";
-            this.nomeProjetoDataGridViewTextBoxColumn1.HeaderText = "Projeto";
-            this.nomeProjetoDataGridViewTextBoxColumn1.Name = "nomeProjetoDataGridViewTextBoxColumn1";
-            this.nomeProjetoDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.nomeProjetoDataGridViewTextBoxColumn1.Width = 200;
+            this.dtgRankProjetosNome.DataPropertyName = "NomeProjeto";
+            this.dtgRankProjetosNome.HeaderText = "Projeto";
+            this.dtgRankProjetosNome.Name = "dtgRankProjetosNome";
+            this.dtgRankProjetosNome.ReadOnly = true;
+            this.dtgRankProjetosNome.Width = 200;
             // 
             // descricaoDataGridViewTextBoxColumn2
             // 
@@ -2245,7 +2245,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn entityObjectDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource _bsRankProjetos;
         private System.Windows.Forms.DataGridViewTextBoxColumn idProjetoDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeProjetoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dtgRankProjetosNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn observacaoDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn gerenteProjetoDataGridViewTextBoxColumn1;

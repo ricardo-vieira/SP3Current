@@ -172,8 +172,6 @@ F:\Git\SP3Current\projProjetos\projProjetos\obj\Debug\Interface.csproj.GenerateR
 F:\Git\SP3Current\projProjetos\projProjetos\obj\Debug\Interface.csproj.CoreCompileInputs.cache
 F:\Git\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.exe
 F:\Git\SP3Current\projProjetos\projProjetos\obj\Debug\projProjetos.pdb
-F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\Database\dbProjetos.mdf
-F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\Database\dbProjetos_log.ldf
 F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\projProjetos.exe.config
 F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\projProjetos.exe
 F:\Git\SP3Current\projProjetos\projProjetos\bin\Debug\projProjetos.pdb
